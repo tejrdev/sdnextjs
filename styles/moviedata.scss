@@ -1321,6 +1321,32 @@ input[type="text"].locinputplace:-moz-placeholder {font-size: 14px;color: #77777
 	display: none;
 }
 
+.tecotherinfo .tecinfo{
+	grid-template-columns: repeat(auto-fit, minmax(266px, 1fr));
+	gap:20px;
+
+	.techinfoitem{
+		padding: 10px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+
+		h4{
+			svg{
+				width: 9px;
+				margin: 0 0 -4px 2px;
+				display: inline-block;
+			}
+		}
+
+		p{
+			margin: 0;
+			@media (min-width:1200px) {
+				font-size: 15px;
+			}
+		}
+	}
+}
+
 
 /*responsivee*/
 
