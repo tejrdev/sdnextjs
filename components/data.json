@@ -1,0 +1,55 @@
+{
+    "logo": "https://www.live.screendollars.com/wp-content/uploads/2022/06/SD-LOGO-1.png",
+    "favicon": "https://www.live.screendollars.com/wp-content/uploads/2021/06/apple-touch-icon.png",
+    "copyright_text": "© %d Screendollars, all rights reserved, <a href=\"https://www.live.screendollars.com/wp-content/themes/screendollars/assets/doc/Terms-of-use-agreement-Screendollars.pdf\" target=\"_blank\">Terms of Use </a> and <a href=\"https://www.live.screendollars.com/wp-content/themes/screendollars/assets/doc/Privacy-Screendollars.pdf\" target=\"_blank\">Privacy Policy </a>apply <i>This site is protected by reCAPTCHA, Google's  <a href=\"https://policies.google.com/terms\" target=\"_blank\">Terms of Service</a> and <a href=\"https://policies.google.com/privacy\" target=\"_blank\">Privacy Policy</a> apply </i>",
+    "social_links": [
+        {
+            "social_media_title": "Facebook",
+            "icon_class": "fab fa-facebook-f",
+            "social_media_link": "https://www.facebook.com/Screendollars-112268833968674/?modal=admin_todo_tour"
+        },
+        {
+            "social_media_title": "Twitter",
+            "icon_class": "fab fa-twitter",
+            "social_media_link": "https://twitter.com/screendollars"
+        },
+        {
+            "social_media_title": "Instagram",
+            "icon_class": "fab fa-instagram",
+            "social_media_link": "https://www.instagram.com/screendollars/"
+        },
+        {
+            "social_media_title": "Youtube",
+            "icon_class": "fab fa-youtube",
+            "social_media_link": "https://www.youtube.com/c/Screendollars"
+        }
+    ],
+    "404_page_content": "<h1>Oops Page Not Found</h1>\n<p>We can&#8217;t seem to find the page you are looking for. Try going back to the home page or <a href=\"https://www.screendollars.com/contact-us/\">contact us</a> for more information.</p>\n",
+    "poster_img_h": "https://www.live.screendollars.com/wp-content/themes/screendollars-live/assets/images/p_noimgico.png",
+    "poster_img_v": "https://www.live.screendollars.com/wp-content/themes/screendollars-live/assets/images/noimgico.jpg",
+    "talent_img": "https://www.live.screendollars.com/wp-content/themes/screendollars-live/assets/images/noactor.svg",
+    "playicon": "https://www.live.screendollars.com/wp-content/themes/screendollars-live/assets/images/playicov2.png",
+    "drive_in": "https://www.live.screendollars.com/wp-content/themes/screendollars-live/assets/images/drive-in-icon.png",
+    "home_newsletter": {
+        "title": "Newsletter Signup",
+        "content": "Join over 200,000 professionals in receiving the <strong>Screendollars Newsletter</strong>, the top-rated report on the film industry.  Emailed every Sunday."
+    },
+    "links": [
+        {
+            "selector_title": "Home_upcomming",
+            "links": {
+                "title": "Upcoming Wide Releases",
+                "url": "https://www.live.screendollars.com/6-weeks/",
+                "target": ""
+            }
+        },
+        {
+            "selector_title": "Home_boxoffice",
+            "links": {
+                "title": "Latest Box Office",
+                "url": "https://www.live.screendollars.com/film-data/",
+                "target": "_blank"
+            }
+        }
+    ]
+}

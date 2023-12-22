@@ -1,0 +1,667 @@
+/*fim review page*/
+
+.countdown-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.big-text {
+    font-weight: bold;
+    font-size: 4rem;
+    line-height: 1;
+    margin: 0.5rem 1rem;
+}
+
+.countdown-el {
+    text-align: center;
+    background: #f1f1f1;
+    min-width: 120px;
+}
+
+.countdown-el span {
+    font-size: 1.3rem;
+}
+
+
+.countdown-el span {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+
+.vrdictfmlogo , 
+.fmreview_intro .criricname > span {
+    float: left;
+    margin: 0 20px 10px 0;
+}
+
+.fmreview_intro .criricname > span{
+    font-size: 50px;
+    color: #000;
+    font-weight: bold;
+    max-width: 190px;
+    line-height: 1;
+}
+
+.fmreview_intro {
+    margin: 40px 0 0;
+}
+
+.featview_item .pvr {
+    padding: 0 0 160px 0;
+    width: 290px;
+}
+
+.featview_left {
+    width: calc(50% + 16px);
+    padding: 0 16px 0 0;
+}
+
+.featview_right {
+    width: calc(50% - 16px);
+}
+
+.featview_iteminfo {
+    width: calc(100% - 290px);
+    padding: 16px;
+}
+
+.featview_item {
+    background: #F4F5F7;
+    margin-bottom: 15px;
+}
+
+.featview_left .featview_item {
+    /*background: #FFE9EB;*/
+}
+
+.featview_iteminfo h6 {
+    font-weight: bold;
+    margin-bottom: 5px;
+    max-height: 40px;
+    overflow: hidden;
+}
+
+.featview_iteminfo p {
+    font-size: 14px;
+    margin-bottom: 5px;
+    overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 3;
+           line-clamp: 3; 
+   -webkit-box-orient: vertical;
+}
+
+.featview_iteminfo .readmorelink {
+    /*color: #C04A53;*/
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    margin: 5px 0 0 0;
+    font-size: 14px;
+}
+
+.featview_left .featview_item .pvr {
+    width: 100%;
+    padding: 0 0 385px 0;
+}
+
+.featview_left .featview_iteminfo {
+    width: 100%;
+}
+
+.featview_left .featview_item {
+    height: calc(100% - 16px);
+}
+
+.cannescount .todates {
+    text-transform: uppercase;
+}
+
+.cannescountbox {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.countdown-container {
+    justify-content: flex-end;
+    width: calc(100% - 180px);
+    /* margin: 0 auto; */
+    max-width: 392px;
+}
+
+.joinads{
+    text-align:center;
+}
+
+.cannesleave {
+    width: 170px;
+}
+
+.countdate {
+    width: 0px;
+    height: 0px;
+    visibility: hidden;
+    display: none;
+}
+
+.countdown-el {
+    margin: 5px;
+}
+
+.featview_item a {
+    color: #000;
+}
+
+.openletterbox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.openletter_media .pvr {
+    padding: 0 0 310px 0;
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.openletter_media .pvr figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #00000087;
+    z-index: 0;
+    color: #fff;
+    padding: 11px;
+    /* text-align: center; */
+}
+
+.openletter_media .pvr img {
+    border-radius: 0;
+}
+
+.openletter_media .pvr figcaption h4,
+.openletter_media .pvr figcaption p {
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+
+.topread_open{
+    display:none;
+}
+
+.featgalleryitem .pvr {
+    padding: 0 0 220px;
+    width: 100%;
+}
+
+.featgalleryitem {
+    width: 25%;
+    padding: 8px;
+}
+
+.featgallery_block {
+    /*margin: 0 -16px;*/
+}
+
+.dailiesbox {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.dailiesitem>a {
+    background: #D4D4D4;
+    display: block;
+    text-align: center;
+    padding: 26px 0;
+    border-radius: 5px;
+    color: #000;
+    height: 189px;
+    position: relative;
+    pointer-events: none;
+}
+
+.dailiesitem h3 {
+    margin-bottom: 0;
+}
+
+
+
+.dailiesitem .num {
+    font-size: 60px;
+    font-weight: bold;
+    font-family: "Open Sans", sans-serif;
+    display: inline-block;
+    border: 1px solid #000;
+    line-height: 1;
+    min-width: 58px;
+    padding: 0 5px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.dailiesitem:hover>a {
+    opacity: 1;
+}
+
+.hovdownload_pdf {
+    opacity: 0;
+    transition: 0.5s all;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    max-width: 80%;
+    margin: 0 auto;
+    height: calc(100% - 50px);
+    border-radius: 5px;
+}
+
+.dailiesitem.pastdate:hover .hovdownload_pdf,
+.dailiesitem.currentdate:hover .hovdownload_pdf {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    padding: 32px 0;
+    opacity: 1;
+    visibility: visible;
+    top: 26px;
+    background: rgb(255 255 255 / 72%);
+}
+
+.dailiesitem.pastdate:not(.emptydoc):hover h3,
+.dailiesitem.pastdate:not(.emptydoc):hover .num,
+.dailiesitem.currentdate:not(.emptydoc):hover h3,
+.dailiesitem.currentdate:not(.emptydoc):hover .num {
+    display: none;
+}
+
+.dailiesitem.emptydoc .hovdownload_pdf,
+.dailiesitem.emptydoc:hover .hovdownload_pdf {
+    display: none;
+}
+
+.hovdownload_pdf h5 {
+    display: block;
+    width: 100%;
+}
+
+.hovdownload_pdf .fa-arrow-to-bottom {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.dailiesitem.pastdate>a {
+    background: #FFEDBE;
+}
+
+.dailiesitem.pastdate>a,
+.dailiesitem.currentdate>a {
+    pointer-events: auto;
+}
+
+.dailiesitem.pastdate:hover>a,
+.dailiesitem.currentdate>a {
+    background: #D7B865;
+}
+
+.berlinfest_date .top_txt {
+    padding: 26px 0 0;
+    margin: 10px 0 -10px 0;
+}
+
+.berlinfest_date .top_txt h3 {
+    margin-bottom: 5px;
+}
+
+.openletter .top_txt,
+.dailies .top_txt,
+.featur_review .top_txt,
+.featgallery .top_txt {
+    padding-bottom: 0;
+}
+
+.barlinereview_logo {
+    max-width: 250px;
+    margin: -20px 0 20px;
+}
+
+.barlinedailies .dailiesbox {
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 1038px;
+    margin: 0 auto;
+}
+
+.dailies {
+    margin-bottom: 30px;
+}
+
+.opencol {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: 0 20px 0 0;
+    width: 66.66%;
+}
+
+.opencol .opencol_info{
+    overflow:hidden;
+}
+
+.opencol.open .opencol_info{
+    height:auto !important;
+}
+
+.openletter_media {
+    width: 33.33%;
+}
+
+.openletter_media > a{
+    position: sticky;
+    top: 0;
+}
+
+.nowshow .top_txt h5{
+    width: 100%;
+    margin: 20px 0 0;
+}
+
+.rscalanderbox .top_txt {
+    padding-bottom: 0;
+}
+
+.downpdfshow .dailiesitem.pastdate:not(.emptydoc):hover h3, 
+.downpdfshow .dailiesitem.pastdate:not(.emptydoc):hover .num, 
+.downpdfshow .dailiesitem.currentdate:not(.emptydoc):hover h3, 
+.downpdfshow .dailiesitem.currentdate:not(.emptydoc):hover .num{
+    display: inline-block;
+}
+
+.downpdfshow .dailiesbox{
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.downpdfshow .dailiesitem>a{
+    display: flex;
+    padding: 10px;
+    text-align: left;
+    color: #000;
+    height: auto;
+}
+
+.festiveday_info{
+    width: calc(100% - 41px);
+}
+
+.download_pdfico{
+    width: 40px;
+    text-align: center;
+    opacity: 0.5;
+}
+
+.pastdate .download_pdfico{
+    opacity: 1;
+}
+
+.download_pdfico .fa-arrow-to-bottom{
+    font-size: 36px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.download_pdfico .fa-arrow-to-bottom:after{
+    height: 8px;
+    width: 31px;
+    border: 3px solid #000;
+    border-top: 0px;
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    left: -2px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.downpdfshow .dailiesitem h4{
+    display: inline-block;
+    border: 2px solid #000;
+    border-radius: 3px;
+    padding: 0 12px;
+    margin: 0 8px 5px 0;
+    white-space: nowrap;
+}
+
+.downpdfshow p,
+.downpdfshow h3,
+.downpdfshow h4{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.allviewfilters .select_filters .custom-select .custom-select-trigger {
+    min-width: 189px;
+    padding: 4px 30px 4px 2px;
+    font-weight: 500;
+}
+
+.allviewfilters .select_filters .custom-select{
+    border: 1px solid #B8B8B8;
+    border-radius: 5px;
+}
+
+.allviewfilters  .select_filters .custom-select-trigger{
+    text-align: left;
+}
+
+.greytxt + .select_filters{
+    margin-top: 0;
+}
+
+.allviewfilters .filter_item{
+    padding: 0 10px 10px 0;
+}
+
+.allviewfilters{
+    margin-bottom: 10px;
+}
+
+.allviewfilters .filtersubmit{
+    margin: 30px 0 0 auto;
+}
+
+.allviewfilters .filtersubmit .btn{
+    text-transform: uppercase;
+    padding:8px;    
+}
+
+.allview_box{
+    grid-template-columns: repeat(auto-fit,minmax(400px , 1fr));
+    margin-bottom: 50px;
+}
+
+
+.allview_box .featview_item{
+    margin-bottom: 0;
+}
+
+/*responsivee*/
+
+@media screen and (max-width: 1200px) {
+    .featview_item .pvr {
+        width: 200px;
+    }
+
+    .featview_iteminfo {
+        width: calc(100% - 200px);
+    }
+
+
+    .featgallery_block {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 991px) {
+
+    .featview_left,
+    .featview_right {
+        width: 100%;
+        padding: 0 0 0;
+    }
+
+    .countdown-container .big-text {
+        font-size: 2.3rem;
+    }
+
+    .countdown-container {
+        justify-content: flex-end;
+    }
+
+    .cannesleave {
+        width: 120px;
+    }
+
+    .openletterbox {
+        flex-flow: column-reverse;
+    }
+
+    .openletter_media {
+        max-width: 600px;
+        /* margin: 0 auto; */
+        width: 100%;
+    }
+
+    .opencol{
+        width:100%;
+        padding: 10px 0 0 0;
+    }
+
+    .dailiesbox,
+    .barlinedailies .dailiesbox {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .downpdfshow.dailiesbox{
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+
+    .allviewfilters .filtersubmit{
+        margin: 0;
+        display: block;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {}
+
+@media screen and (max-width: 767px) {
+    .cannesleave {
+        /* width: 80px; */
+    }
+
+    .countdown-container {
+        width: calc(100% - 160px);
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+    .featview_left .featview_item .pvr {
+        padding: 0 0 255px 0;
+    }
+
+    .countdown-container+.cannesleave {
+        display: none;
+    }
+
+    .countdown-container {
+        width: 100%;
+    }
+
+    .cannesleave {
+        width: 100%;
+        margin: 0 auto 10px;
+        text-align: center;
+    }
+
+    .dailiesbox,
+    .barlinedailies .dailiesbox {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .barlinereview_logo {
+        max-width: 210px;
+    }
+
+    .top_txt .instruct {
+        margin-bottom: 10px;
+    }
+
+    .barlinereview_logo {
+        margin: 0 0 10px;
+    }
+
+    .countdown-container{
+        margin:0 auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .vrdictfmlogo {
+        float: none;
+    }
+
+    .featview_iteminfo {
+        width: 100%;
+    }
+
+    .featview_item .pvr {
+        width: 100%;
+        padding: 0 0 200px 0;
+    }
+
+    .joinads .top_txt {
+        padding-top: 10px;
+    }
+
+    .dailiesbox,
+    .barlinedailies .dailiesbox {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dailiesitem .num {
+        font-size: 40px;
+    }
+
+    .dailiesitem>a {
+        padding: 10px 0;
+        height: 129px;
+    }
+
+    .dailiesitem:hover .hovdownload_pdf {
+        padding: 12px 0;
+        top: 10px;
+        height: calc(100% - 20px);
+    }
+
+    .allview_box{
+        grid-template-columns: repeat(auto-fit,minmax(250px , 1fr));
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .countdown-container .big-text {
+        font-size: 31px;
+        margin: 22px;
+        margin-bottom: 10px;
+    }
+
+    .countdown-el span {
+        font-size: 20px;
+    }
+}
+

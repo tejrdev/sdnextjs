@@ -1,0 +1,224 @@
+
+/* Footer CSS */
+.temfy.site-footer{
+	background: #000;
+	border: none;
+	padding-bottom: 0;
+}
+
+.temfy.site-footer .ftr_social ul li{
+	padding: 0 24px 0 0;
+}
+
+.temfy.site-footer .ftr_social{
+	color: #fff;
+}
+
+.temfy.site-footer .ftr_social p{
+	margin-bottom: 0;
+}
+
+.temfy.site-footer .ftr_social ul li a{
+	border: none;
+	color: #fff;
+	padding: 0;
+	width: auto;
+}
+
+.temfy.site-footer .ftr_social ul li a[title="Twitter"]{
+		margin: 2px 0 0 0;
+}
+
+.temfy.site-footer .ftr_social ul li a:hover{
+	background: none;
+	color: #d7b865;
+}
+
+.temfy .site_info{
+	background: rgba(255, 255, 255, 0.15);
+	padding: 0 15px;
+}
+
+.temfy.site-footer .site_info .copytxt p > i {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.temfy.site-footer .site_info .copytxt{
+	color: #fff;
+	padding: 2px 0;
+	text-transform: capitalize;
+}
+
+.temfy .copytxt a, .temfy .copytxt a:hover{
+	color: #fff;
+}
+
+.ftr_logo{
+	max-width: 220px;
+}
+
+.footer_top{
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 40px;
+}
+
+.ftr_mailing p{
+	color: #fff;
+	margin: 0 0 5px 0;
+}
+
+.f-14{
+	font-size: 14px;
+}
+
+.ftrmail_subscribe .btn{
+	background: #D7B865;
+	margin: 0 0 0 -1px;
+	border: 1px solid transparent;
+	text-transform: uppercase;
+	color: #000;
+	min-width: auto;
+	font-size: 15px;
+	transition: 0.5s all;
+} 
+
+.ftrmail_subscribe .btn:hover{
+	color: #fff;
+	background: #b88610;
+}
+
+.ftrmail_subscribe input[type="email"]{
+	padding: 9px 12px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0;
+	max-width: 260px;
+	border-right: 0;
+}
+
+
+.ftr_navlist{
+	width: 20%;
+}
+
+.ftr_navlist ul{
+	list-style:none;
+	margin-left:0;
+	padding: 0 14px 0 0;
+}
+
+.ftr_navlist li a{
+	color: #fff;
+	font-family: Montserrat, sans-serif;
+	transition: 0.5s all;
+	text-transform: capitalize;
+}
+
+.ftr_navlist li a:hover{
+	color: #D7B865;
+}
+
+.ftr_navlist .menu li:first-child a{
+	opacity: 0.6;
+	border-bottom: 1px solid #fff;
+	padding-bottom: 9px;
+	display: inline-block;
+	margin: 0 0 15px 0;
+	font-weight: bold;
+}
+
+.ftr_mailing{
+	padding: 5px 10px;
+}
+
+
+
+/*responsivee*/
+
+@media(max-width: 1200px){
+	.temfy.site-footer .ftr_social{
+		max-width: 260px;
+	}
+}
+@media(max-width: 991px){
+	.temfy.site-footer .ftr_social{
+		width: 100%;
+		max-width: 100%;
+		margin: 15px 0 0 0;
+		padding: 0;
+	}
+
+	.footer_top{
+		margin: 0 auto 20px;
+	}
+
+	
+}
+
+@media(max-width: 768px){
+	.ftr_navlist{
+		width: 33.33%;
+	}
+	.footer_btm {
+		max-width: 760px;
+		margin: 0 auto;
+	}
+
+	.ftr_logo {
+		max-width: 190px;
+	}
+
+
+}
+
+@media(max-width: 640px){
+	.ftr_navlist{
+		width: 50%;
+	}
+	.ftr_logo {
+		max-width: 150px;
+	}
+
+	.ftrmail_subscribe .btn{
+		min-width: 120px;
+	}
+}
+
+@media(max-width: 400px){
+	.ftr_mailing .ftrmail_subscribe {
+		flex-wrap: wrap;
+		max-width: 260px;
+	}
+
+	.ftrmail_subscribe .btn{
+		margin: 2px auto 0;
+		padding: 9px 12px;
+		width: 100%;
+	}
+
+	.ftrmail_subscribe input[type="email"]{
+		border-radius: 5px;
+	}
+
+	.ftr_navlist{
+		width: 100%;
+	}
+}
+
+.site-footer .ftr_social ul {
+  list-style: none;
+  margin: 0;
+}
+.site-footer .ftr_social ul li {
+  display: inline-block;
+  padding: 0 0 0 22px;
+}
+/* *********** */
+
+.site-footer {
+    background: #fff;
+    padding: 37px 0;
+    border-top: 2px solid #b1b1b1;
+}

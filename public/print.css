@@ -1,0 +1,1607 @@
+	@media print {
+
+	    @import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap');
+	    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+	    * {
+	        font-family: 'Carrois Gothic SC', sans-serif;
+	        font-family: 'Roboto', sans-serif;
+	        box-sizing: border-box;
+	    }
+
+	    table.responsive.dataTable tr td,
+	    table.responsive.dataTable tr th {
+	        border-color: #a2a2a2 !important;
+	        padding: 10px 10px !important;
+	        line-height: 1.2;
+	        text-align: center;
+	    }
+
+
+	    .newstitle h2 {
+	        text-align: center !important;
+	    }
+
+	    .catTab ul.tabs {
+	        display: none !important;
+	        background: red;
+	    }
+
+
+	    .printdisplay.hide {
+	        display: none;
+	    }
+
+	    .printbox {
+	        /*border:1px solid #000;
+			background: red;*/
+	    }
+
+	    .responsive {
+	        /*border:1px solid #000;
+			background: red;*/
+	        margin: 0 auto;
+	    }
+
+	    .alignright {
+	        float: right;
+	        margin: 0.375em 0 1.75em 1.75em;
+	    }
+
+	    .alignleft {
+	        float: left;
+	        margin: 0.375em 1.75em 1.75em 0;
+	    }
+
+	    .aligncenter {
+	        clear: both;
+	        display: block;
+	        margin: 0 auto 1.75em;
+	    }
+
+
+
+	    table,
+	    th,
+	    td {
+	        border: 1px solid #d1d1d1;
+	        border: 1px solid #f2f2f2;
+	        padding: 5px;
+	    }
+
+	    .custom-options,
+	    .socialcount,
+	    .top_btnbox_right,
+	    .pritbtn {
+	        display: none;
+	    }
+
+	    .detailcity_infotxt {
+	        float: left;
+	        width: 60%;
+	    }
+
+	    .detailcity_infoimg {
+	        float: right;
+	        width: 40%;
+	    }
+
+	    .detail_citybox {
+	        width: 100%;
+	    }
+
+	    .printcopy p {
+	        margin: 0;
+	    }
+
+	    .top_txt {
+	        width: 100%;
+	        margin: 5px 0px 20px;
+	        text-align: center;
+	    }
+
+	    .trailer_detail {
+	        width: 50%;
+	    }
+
+	    .trailer_detail .trialer_duration {
+	        padding: 7px 0 0;
+	    }
+
+	    .trailer_info {
+	        display: -webkit-flex;
+	        display: -moz-flex;
+	        display: -ms-flex;
+	        display: -o-flex;
+	        display: flex;
+	        align-items: flex-start;
+	        align-content: flex-start;
+	        page-break-inside: avoid;
+	        padding-bottom: 5px;
+	    }
+
+	    .rs_datetxt p {
+	        margin: 10px 0 0;
+	    }
+
+	    table.responsive.dataTable tr td[data-title="Festival"] figure {
+	        width: 148px;
+	    }
+
+	    table.responsive.dataTable tr td a {
+	        text-decoration: none;
+	    }
+
+	    table.responsive.dataTable tr td[data-title="Festival"] figure img {
+	        max-width: 100%;
+	    }
+
+	    .tab_items {
+	        display: none;
+	    }
+
+	    .tab_items.active {
+	        display: inline-block;
+	    }
+
+	    .tab_items.active h4 {
+	        margin: 0;
+	    }
+
+
+	    .alignleft {
+	        float: left;
+	        margin: 0.375em 1.75em 1.75em 0;
+	    }
+
+	    .rsf_years li,
+	    .rsf_qutermonth li {
+	        display: none;
+	    }
+
+	    .rsf_years li.active,
+	    .rsf_qutermonth li.active {
+	        display: block;
+	    }
+
+	    .event_weeks,
+	    .event_weekstitle {
+	        margin: 0 auto;
+	        max-width: 1200px;
+	    }
+
+	    .evtitle_box {
+	        text-align: center;
+	        color: #000;
+	        padding: 16px 5px;
+	        border: 1px solid #a2a2a2;
+	    }
+
+	    .evtitle_box h5 {
+	        font-size: 16px;
+	        margin: 0;
+	    }
+
+	    .df {
+	        display: flex;
+	    }
+
+	    .fww {
+	        flex-wrap: wrap;
+	    }
+
+	    .event_weekstitle .evdatebox {
+	        width: 176px;
+	        border-right: 0;
+	    }
+
+	    .event_weekstitle .eveventbox {
+	        width: calc(100% - 176px);
+	    }
+
+	    .event_infobox {
+	        display: -webkit-flex;
+	        display: -moz-flex;
+	        display: -ms-flex;
+	        display: -o-flex;
+	        display: flex;
+	        width: calc(100% - 303px);
+	    }
+
+	    .event_weeks .event_infobox {
+	        width: calc(100% - 175px);
+	    }
+
+	    .event_info {
+	        width: calc(33.33% - 20px);
+	    }
+
+	    .printcopy {
+	        text-align: center;
+	        font-weight: bold;
+	        letter-spacing: 0.5px;
+	        line-height: 1.3;
+	        page-break-inside: avoid;
+	        width: 100%;
+	        overflow: hidden;
+	    }
+
+	    .printcopy p {
+	        margin-bottom: 0;
+	    }
+
+	    .printlogo {
+	        display: inline-block !important;
+	    }
+
+	    .printlogo img {
+	        max-width: 230px;
+	        float: left;
+	    }
+
+	    .printactivebox {
+	        width: 100%;
+	        text-align: center;
+	        margin: 10px 0 5px;
+	        min-width: 800px;
+	    }
+
+	    .printactivebox a>span {
+	        display: inline-block;
+	        padding: 0 4px 0 0;
+	        position: relative;
+	    }
+
+	    .printactivebox a>span:after {
+	        content: ",";
+	        display: inline-block;
+
+	    }
+
+
+
+	    .tril_head>a {
+	        display: inline-block;
+	        padding-right: 10px;
+	    }
+
+	    .trialer_timing span.tr_rate {
+	        border: 1px solid #000;
+	        padding: 5px;
+	        margin-right: 5px;
+	    }
+
+	    .trailer_detail ul {
+	        list-style: none;
+	        margin: 15px 0 0;
+	        padding: 0;
+	    }
+
+
+
+	    .trailer_detail ul li label {
+	        min-width: 141px;
+	        display: inline-block;
+	        font-weight: bold;
+	        vertical-align: top;
+	    }
+
+	    .trailer_detail ul li .trailer_info,
+	    .trailer_notes {
+	        display: inline-block;
+	        /*
+		 	width: 380px;*/
+	        vertical-align: top;
+	    }
+
+	    .trailer_detail ul li .trailer_info p {
+	        margin: 0 0 5px;
+	    }
+
+	    a {
+	        color: #000;
+	        text-decoration: none;
+	    }
+
+	    .top_info>h2,
+	    .top_txt>h2,
+	    .top_info>.h2,
+	    .top_txt>.h2,
+	    .top_info>.h3,
+	    .top_txt>.h3,
+	    .page_introbox > .h2 {
+	        opacity: 0;
+	        height: 0;
+	        margin: 0;
+	    }
+
+	    .top_txt.linehead>h2 {
+	        opacity: 1;
+	        height: auto;
+	        margin-bottom: 15px;
+	    }
+
+	    .top_info .post-cat {
+	        display: none;
+	    }
+
+	    .top_info .post-cat+h2 {
+	        display: block;
+	        height: auto;
+	        opacity: 1;
+	        font-size: 16px;
+	        max-width: 560px;
+	        margin: 0 auto;
+	    }
+
+	    .detail_citybox+.top_txt>h2,
+	    .bottom_detailtable .top_txt h2 {
+	        opacity: 1;
+	        height: auto;
+	    }
+
+
+	    .printheader {
+	        display: flex;
+	        flex-wrap: wrap;
+	        justify-content: space-between;
+	        width: 100%;
+	        align-items: center;
+	        align-content: center;
+	    }
+
+	    .printheader h2,
+	    .printheader .h2,
+	    .printheader .h3 {
+	        display: inline-block;
+	        padding: 5px 10px;
+	        border: 1px solid #000;
+	        max-width: 500px;
+	        max-width: 240px;
+	        text-align: center;
+	    }
+
+	    .printcontact {
+	        margin: 0;
+	        display: inline-block;
+	        padding: 15px 5px 0;
+	        list-style: none;
+	        max-width: 250px;
+	    }
+
+	    .printcontact li {
+	        text-align: right;
+	        vertical-align: middle;
+	    }
+
+	    .filter_tabs {
+	        padding: 0;
+	        list-style: none;
+	    }
+
+	    .top_info {
+	        width: 100%;
+	    }
+
+	    /*.result_table table.responsive.dataTable, 
+		.result_table table.responsive.dataTable thead tr:first-child th , */
+	    .sturelease_table table.responsive.dataTable,
+	    .sturelease_table table.responsive.dataTable thead tr:first-child th,
+	    .studio_change table.responsive.dataTable,
+	    .studio_change table.responsive.dataTable thead tr:first-child th {
+	        /*border: 0px solid transparent !important;*/
+	    }
+
+	    .result_table table.responsive.dataTable thead tr:first-child th[colspan="2"],
+	    .sturelease_table table.responsive.dataTable thead tr:first-child th[colspan="2"] {
+	        border: 1px solid #a2a2a2 !important;
+	    }
+
+	    .info_txt table.dataTable {
+	        width: 100%;
+	        max-width: 100%;
+	    }
+
+
+	    .rsfilter_data {
+	        display: none;
+	    }
+
+	    .rsf_week_selectwrap {
+	        text-align: center;
+	        font-weight: bold;
+	    }
+
+	    .rsf_weektotal ul {
+	        list-style: none;
+	        text-align: center;
+	        padding: 0;
+	        margin-top: 0;
+	    }
+
+	    .rsf_weektotal ul li {
+	        display: inline-block;
+	        padding: 0;
+	    }
+
+	    .rsf_weektotal ul li:before {
+	        content: "|";
+	        display: inline-block;
+	        padding: 0 5px;
+	        text-align: center;
+	        position: static;
+	    }
+
+	    .rsf_weektotal ul li:first-child:before {
+	        display: none;
+	    }
+
+	    .post_views {
+	        display: none;
+	    }
+
+	    .studio_wrap+.printcopy {
+	        display: none;
+	    }
+
+	    .rs_weekinfo {
+	        border: 1px solid #1c1c1c;
+	        display: flex;
+	        flex-wrap: wrap;
+	        margin: 0 auto 15px;
+	        max-width: 980px;
+	    }
+
+	    .rs_weekinfo .rs_weekbox {
+	        border-left: 1px solid #1c1c1c;
+	        text-align: center;
+	    }
+
+	    .rs_weekinfo .rs_weekbox.event_list {
+	        border-left: 0px;
+	    }
+
+	    .rs_weekinfo .rs_weekbox.event_list ul {
+	        display: flex;
+	        flex-wrap: nowrap;
+	        justify-content: space-around;
+	        padding: 0;
+	        margin: 0;
+	    }
+
+	    img {
+	        height: auto;
+	        max-width: 100%;
+	        vertical-align: middle;
+	    }
+
+
+	    .rs_weekinfo .rs_weekbox .acevent_img>img {
+	        max-height: 100%;
+	    }
+
+	    .sturelease_grid .top_txt,
+	    .printheader+.top_txt {}
+
+	    .sturelease_grid ul {
+	        display: -webkit-flex;
+	        display: -moz-flex;
+	        display: -ms-flex;
+	        display: -o-flex;
+	        display: flex;
+	        -webkit-flex-wrap: wrap;
+	        -moz-flex-wrap: wrap;
+	        -ms-flex-wrap: wrap;
+	        -o-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	        margin: 0 -15px;
+	        justify-content: center;
+	    }
+
+	    .sturelease_grid ul li {
+	        background: none;
+	        padding: 0 15px;
+	        display: -webkit-flex;
+	        display: -moz-flex;
+	        display: -ms-flex;
+	        display: -o-flex;
+	        display: flex;
+	        -webkit-flex-wrap: wrap;
+	        -moz-flex-wrap: wrap;
+	        -ms-flex-wrap: wrap;
+	        -o-flex-wrap: wrap;
+	        justify-content: center;
+	        width: 33.33%;
+	        margin-bottom: 20px;
+	    }
+
+	    .rs_weekinfo .rs_weekbox ul li {
+	        background: none;
+	        padding: 2px 8px;
+	        width: 100%;
+	        line-height: normal;
+	    }
+
+	    .rs_weekinfo .rs_weekbox.event_list ul li,
+	    .rs_weekinfo .rs_weekbox.event_list ul li {
+	        display: inline-block;
+	    }
+
+	    .rs_weekinfo .rs_weekbox .acevent_img {
+	        height: 55px;
+	        display: flex;
+	        align-content: center;
+	        align-items: center;
+	        justify-content: center;
+	        margin-bottom: 3px;
+	    }
+
+	    .rs_weekinfo .rs_weekbox>label {
+	        text-align: center;
+	        display: block;
+	        font-weight: 600;
+	        font-style: italic;
+	        line-height: 1;
+	    }
+
+	    .rs_weekinfo .rs_weekbox p {
+	        margin-bottom: 0;
+	    }
+
+	    .sturelease_grid .prev-year-data ul li {
+	        width: 100%;
+	        max-width: 100%;
+	        display: block;
+	    }
+
+	    .rs_weekinfo .rs_weekbox ul li label {
+	        display: block;
+	        line-height: 1;
+	        width: 100%;
+	    }
+
+	    .rs_weekinfo .rs_weekbox ul li span:nth-child(2) {
+	        border: 0px;
+	    }
+
+	    .rs_weekinfo .rs_weekbox ul li span {
+	        border-left: 1px solid #000;
+	        padding: 0 5px 0;
+	        display: inline-block;
+	        line-height: 1;
+	        margin-bottom: 4px;
+	    }
+
+	    .rs_weekinfo .rs_weekbox {
+	        width: 48.9%;
+	        padding: 5px 5px 2px 5px;
+	    }
+
+	    .rs_weekinfo .rs_weekbox.w-100 {
+	        width: 100%;
+	        padding: 5px 0 2px 0;
+	    }
+
+	    .sturelease_grid .movieimg {
+	        display: flex;
+	        flex-wrap: wrap;
+	        align-items: center;
+	        justify-content: center;
+	        align-content: center;
+	    }
+
+
+	    .studio_wrap .top_txt {
+	        margin: 5px 0 0;
+	    }
+
+	    .studio_boxinner .top_txt {
+	        display: none;
+	    }
+
+	    .datatable_wrap table.responsive.dataTable thead tr:first-child th[colspan="2"],
+	    .datatable_wrap table.responsive.dataTable thead tr:first-child th[colspan="2"],
+	    .datatable_wrap table.responsive.dataTable thead tr:first-child th[colspan="3"],
+	    .datatable_wrap table.responsive.dataTable thead tr:first-child th[colspan="3"],
+	    .datatable_wrap .twotblhead.responsive.dataTable thead tr:first-child th {
+	        border: 1px solid #a2a2a2 !important;
+	    }
+
+
+	    .movie_data .movieinfo {
+	        text-align: center;
+	        margin-bottom: 20px;
+	    }
+
+	    .movieinfo h4 {
+	        margin-bottom: 10px;
+	    }
+
+	    .movieinfo label {
+	        color: #000;
+	        font-weight: bold;
+	        display: block;
+	        margin: 0 0 5px 0;
+	    }
+
+	    .movieinfo span {
+	        display: block;
+	        color: #303030;
+	        margin-bottom: 3px;
+	    }
+
+
+	    .sturelease_table table.responsive.dataTable tr td:first-child,
+	    .sturelease_table table.responsive.dataTable tr:first-child th:first-child,
+	    .sturelease_table table.responsive.dataTable tr td[data-title="Distributor"],
+	    .sturelease_table table.responsive.dataTable tr th[data-title="Distributor"],
+	    .studio_change table thead tr th:first-child,
+	    .studio_change table tbody tr td:nth-child(2) {
+	        text-align: left;
+	    }
+
+	    .studio_change table tbody tr td:first-child,
+	    .studio_change table tbody tr td[data-title="Distributor"],
+	    .studio_change table thead tr th:last-child,
+	    .studio_change table tbody tr td:last-child {
+	        text-align: center;
+	    }
+
+	    table.responsive.dataTable tr td figure {
+	        margin: 0 auto 15px;
+	        max-width: 190px;
+	    }
+
+
+	    .top_btnbox .top_btnbox_left {
+	        display: flex;
+	        flex-wrap: wrap;
+	        align-items: center;
+	        align-content: center;
+	    }
+
+	    .top_btnbox .top_btnbox_left .topbtn_logo {
+	        margin-right: 15px;
+	        width: 160px;
+	        padding: 0 20px;
+	        text-align: center;
+
+	    }
+
+	    .top_btnbox .top_btnbox_left .brnd_info {
+	        width: 100%;
+	        max-width: 250px;
+	        padding-right: 20px;
+	    }
+
+	    .top_btnbox .top_btnbox_left .brnd_info h2 {
+	        margin: 0;
+	    }
+
+	    .top_btnbox .top_btnbox_left .brnd_info h3 {
+	        margin: 3px 0 7px;
+	    }
+
+	    .top_btnbox .top_btnbox_left .topbtn_info {
+	        width: 270px;
+	        text-align: center;
+	    }
+
+	    .top_btnbox .top_btnbox_left .topbtn_info h2 {
+	        margin: 7px 0;
+	    }
+
+	    .main-genre {
+	        margin: 2px 0 10px;
+	    }
+
+	    .top_btnbox .top_btnbox_left .topbtn_info h3 {
+	        margin: 5px 0;
+	        font-size: 17px;
+	    }
+
+	    .top_btnbox .top_btnbox_left .topbtn_info p {
+	        margin: 0;
+	    }
+
+	    .detailcity_infotxt {
+	        width: 100%;
+	        padding: 15px;
+	        border-right: 0px solid #fff;
+	    }
+
+	    .detailcity_infoimg {
+	        width: 30%;
+	        width: 100%;
+	        text-align: center;
+	    }
+
+	    .detailcity_infoimg figure {
+	        max-width: 500px;
+	        margin: 10px auto;
+	    }
+
+	    .fullbox {
+	        width: 100% !important;
+	    }
+
+	    .top_btnfilter .filter_tabs {
+	        display: none;
+	    }
+
+	    .top_btnfilter .pagecount_down {
+	        display: none;
+	    }
+
+	    .tril_head h4 {
+	        font-weight: 600;
+	        text-transform: capitalize;
+	        margin: -2px 4px 2px 0;
+	        display: inline-block;
+	        vertical-align: top;
+	    }
+
+	    .trailer_img figure {
+	        margin-top: 0;
+	        max-width: 150px;
+	    }
+
+	    #single_filmfestival_tbl {
+	        min-width: 500px;
+	        margin: 10px auto;
+	    }
+
+	    .detailcity_info {
+	        overflow: hidden;
+	    }
+
+	    .top_btnfilter.top_txt {
+	        margin-top: 10px;
+	    }
+
+
+	    .select_filters>select {
+	        display: none !important;
+	    }
+
+	    .select_filters .custombox_select {
+	        margin: 0 auto;
+	        width: 100% !important;
+	        text-align: center;
+	        font-size: 15px;
+	    }
+
+	    .select_filters .custombox_select .ms-drop {
+	        display: none;
+	    }
+
+	    .custom-select-trigger {
+	        font-style: 15px;
+	        font-weight: bold;
+	    }
+
+	    .select_filters .custombox_select .ms-choice {
+	        background: none;
+	        border: none;
+	        font-size: 15px;
+	        letter-spacing: 0.5px;
+	        font-weight: bold;
+	    }
+
+	    .more-link {
+	        display: none;
+	    }
+
+	    #filtertype+.custombox_select+.pagecount_down {
+	        display: block;
+	    }
+
+	    .studio_distfilterinfo table.responsive.dataTable tr td[data-title="Distribution Type"],
+	    .studio_distfilterinfo table.responsive.dataTable tr th[data-title="Distribution Type"],
+	    .studio_distfilterinfo table.responsive.dataTable tr td:last-child {
+	        text-align: center;
+	    }
+
+	    .studio_distfilterinfo table.responsive.dataTable tr td {
+	        text-align: left;
+	    }
+
+	    .studio_distfilterinfo table.responsive.dataTable tr td[data-title="Distributor"],
+	    .studio_distfilterinfo table.responsive.dataTable tr th[data-title="Distributor"],
+	    /*.studio_distfilterinfo table.responsive.dataTable tr th:last-child, 
+		.studio_distfilterinfo table.responsive.dataTable tr td:last-child*/
+	        {
+	        width: 27%;
+	        min-width: 150px;
+	    }
+
+	    .studio_distfilterinfo table.responsive.dataTable tr th:first-child,
+	    .studio_distfilterinfo table.responsive.dataTable tr td:first-child {
+	        min-width: 255px;
+	    }
+
+	    .studio_distfilterinfo table.responsive.dataTable tr th:nth-child(3),
+	    .studio_distfilterinfo table.responsive.dataTable tr td:nth-child(3),
+	    .studio_distfilterinfo table.responsive.dataTable tr th:last-child,
+	    .studio_distfilterinfo table.responsive.dataTable tr td:last-child {
+	        max-width: 105px;
+	    }
+
+	    .studio_distfilterinfo table.responsive.dataTable tr td[data-title="Distributor"] figure {
+	        width: 90px;
+	        display: inline-block;
+	        vertical-align: middle;
+	        padding: 0 20px 0 0;
+	        margin: 0 0 10px 0;
+	    }
+
+	    .studio_distfilterinfo table.responsive.dataTable tr td[data-title="Distributor"]>a {
+	        display: inline-block;
+	        width: 130px;
+	        vertical-align: middle;
+	        text-align: left;
+	    }
+
+	    .navigation.pagination {
+	        display: none;
+	    }
+
+	    .exibitors_tableinfo table.responsive.dataTable tr td[data-title="Exhibitor"] figure {
+	        width: 153px;
+	        text-align: center;
+	        display: inline-block;
+	        vertical-align: middle;
+	        margin: -5px 0;
+	        padding: 0 20px 10px 0;
+	    }
+
+	    .exibitors_tableinfo table.responsive.dataTable tr td[data-title="Exhibitor"]>a {
+	        display: inline-block;
+	    }
+
+	    .exibitors_tableinfo .exibitor_tab table.responsive.dataTable tr td[data-title="Exhibitor"],
+	    .exibitors_tableinfo .exibitor_tab table.responsive.dataTable tr th[data-title="Exhibitor"] {
+	        width: 28%;
+	    }
+
+	    .exibitors_tablebox>.top_btnfilter.top_txt h2 {
+	        text-transform: capitalize;
+	    }
+
+	    .exibitors_tableinfo table.responsive.dataTable tr td[data-title="Exhibitor"] {
+	        text-align: left;
+	    }
+
+	    #theaters-tbl_wrapper table {
+	        margin: 10px auto;
+	    }
+
+	    .theater_tab .select_filters .custom-select-wrapper {
+	        position: relative;
+	        padding: 0 8px;
+	    }
+
+	    /*.theater_tab .select_filters .custom-select-wrapper:before{
+			content: "|";
+			display: inline-block;
+			position: absolute;
+			left: -5px;
+		}*/
+
+	    .theater_tab .select_filters .custom-select-wrapper .custom-select-trigger {
+	        font-weight: bold;
+	    }
+
+	    .theater_tab .select_filters .custom-select-wrapper:first-child:before {
+	        display: none;
+	    }
+
+	    .exibitors_tableinfo .theater_tab table.responsive.dataTable tr td,
+	    .exibitors_tableinfo .theater_tab table.responsive.dataTable tr th {
+	        text-align: left;
+	    }
+
+	    .exibitors_tableinfo .theater_tab table.responsive.dataTable tr td:nth-child(4),
+	    .exibitors_tableinfo .theater_tab table.responsive.dataTable tr th:nth-child(4),
+	    .exibitors_tableinfo .theater_tab table.responsive.dataTable tr td:nth-child(5),
+	    .exibitors_tableinfo .theater_tab table.responsive.dataTable tr th:nth-child(5) {
+	        text-align: center;
+	    }
+
+	    .trailer_box .trailer_info {
+	        margin-top: 20px;
+	        width: 100%;
+	    }
+
+	    .top_btnbox .top_btnbox_left .topbtn_info .satatag h3 {
+	        font-size: 16px;
+	    }
+
+	    .top_btnbox .top_btnbox_left .topbtn_info .satatag h3+h3 {
+	        font-size: 14px;
+	        font-weight: normal;
+	        line-height: 1.3;
+	    }
+
+	    .brnd_infoinner>p {
+	        margin: 0;
+	    }
+
+	    .brnd_infoinner>p+div {
+	        margin-top: 10px;
+	    }
+
+	    .printheader .post-cat {
+	        font-size: 20px;
+	        font-weight: bold;
+	        padding: 5px 10px;
+	        border: 1px solid #000;
+	        max-width: 240px;
+	        text-align: center;
+	    }
+
+	    .printdisplay+select+.custombox_select .ms-choice {
+	        font-weight: normal;
+	        margin-bottom: 5px;
+	    }
+
+	    .theater_tab .select_filters .printdisplay,
+	    .theater_tab .select_filters .ms-parent {
+	        display: inline-block;
+	        width: auto !important;
+	    }
+
+	    .posting_namedate {
+	        margin-bottom: 15px;
+	    }
+
+	    .posting_namedate .postaurthor,
+	    .posting_namedate .postdate {
+	        display: inline-block;
+	    }
+
+	    .postaurthor:after {
+	        content: "|";
+	        display: inline-block;
+	        margin: 0 4px 0 7px;
+	    }
+
+
+	    /*new*/
+	    .table_topbox>h2 {
+	        display: none;
+	    }
+
+	    .daystype {
+	        margin: 0;
+	        list-style: none;
+	        text-align: center;
+	        padding: 0;
+	    }
+
+	    .daystype li {
+	        display: none;
+	    }
+
+	    .daystype li.active {
+	        display: bock;
+	    }
+
+	    .pagecount_down {
+	        text-align: center;
+	        margin-top: 5px;
+	    }
+
+	    .table_topbox {
+	        margin-bottom: 20px;
+	    }
+
+	    .result_table thead tr th:nth-child(2),
+	    .result_table tbody tr td:nth-child(2) {
+	        width: 146px;
+	        text-align: left;
+	    }
+
+	    .result_table thead tr th:nth-child(3),
+	    .result_table tbody tr td:nth-child(3) {
+	        width: 112px;
+	        text-align: left;
+	    }
+
+	    .filmaz_filter ul li {
+	        display: none;
+	        text-transform: uppercase;
+	    }
+
+	    .filmaztable .dataTable tbody tr td:first-child,
+	    .filmaztable .dataTable tbody tr td:nth-child(2) {
+	        text-align: left;
+	    }
+
+	    .mtlratetable .dataTable.twotblhead thead tr:first-child th:first-child {
+	        width: 280px;
+	    }
+
+	    .mtlratetable .dataTable tbody tr td:first-child,
+	    .mtlratetable .dataTable tbody tr td:nth-child(2) {
+	        text-align: left;
+	    }
+
+	    .filmdtl_data {
+	        display: flex;
+	        flex-wrap: wrap;
+	    }
+
+	    .filmdtl_dataimg,
+	    .media_mvslicbox {
+	        width: 200px;
+	        padding: 20px 20px 0 0;
+	    }
+
+	    .filmdtl_dataimg figure {
+	        margin: 10px 0;
+	    }
+
+	    .trailer_detail,
+	    .mvdetail_info {
+	        width: calc(100% - 200px);
+	    }
+
+	    .chart_box #figure {
+	        display: none;
+	    }
+
+	    .chart h4 {
+	        text-align: center;
+	    }
+
+	    #graphtable {
+	        border-collapse: collapse;
+	        margin: 0 auto 30px;
+	    }
+
+	    #graphtable th,
+	    #graphtable td {
+	        border: 1px solid #a2a2a2;
+	    }
+
+	    .filmdtl_data>p,
+	    .text-center {
+	        text-align: center;
+	    }
+
+	    .filmdtl_dataimg ul {
+	        list-style: none;
+	    }
+
+	    .adssidebar .sidebarbox {
+	        display: none;
+	    }
+
+	    .filmdtl_block .filmdtl_data {
+	        margin-bottom: 26px;
+	    }
+
+	    .studio_nav {
+	        display: none;
+	    }
+
+	    .detailtop {
+	        display: flex;
+	        flex-wrap: wrap;
+	        align-items: flex-start;
+	    }
+
+	    .detail_forms {
+	        display: none;
+	    }
+
+	    .dtaltop_logo {
+	        margin-right: 30px;
+	        width: 294px;
+	    }
+
+	    .dtaltop_logo figure {
+	        border: 1px solid #D8D8D8;
+	        border-radius: 5px;
+	        width: 100%;
+	        height: 100%;
+	        display: flex;
+	        flex-wrap: wrap;
+	        justify-content: center;
+	        align-items: center;
+	        align-content: center;
+	        min-height: 200px;
+	        margin: 0;
+	        padding: 10px;
+	    }
+
+	    .callweb ul {
+	        padding: 0 0 0 18px;
+	    }
+
+	    .dtaltop_dtlinfo {
+	        width: 50%;
+	    }
+
+	    .dtop_txt h4 {
+	        margin: 0 0 7px;
+	    }
+
+	    .dtop_txt span {
+	        margin-right: 8px;
+	        display: inline-block;
+	    }
+
+	    .dis_detailbtm,
+	    .detailbrand_img {
+	        margin-top: 30px;
+	    }
+
+	    .exibitor_tab table.responsive.dataTable tr th:first-child {
+	        width: 230px;
+	    }
+
+	    .filter_tabsinfo .top_btnfilter {
+	        margin-bottom: 20px;
+	        text-align: center;
+	    }
+
+	    .vandorlist_table table.responsive.dataTable tr td:nth-child(2) {
+	        text-align: left;
+	    }
+
+	    .filmfestlist_table table.responsive.dataTable tr th:nth-child(2) {
+	        width: 300px;
+	    }
+
+	    .boweekinfo {
+	        display: flex;
+	        flex-wrap: wrap;
+	        justify-content: center;
+	        margin: -20px 0 0 0;
+	    }
+
+	    .boweekinfo label {
+	        display: none;
+	    }
+
+	    .boweekinfo ul {
+	        padding: 0 5px;
+	        font-weight: bold;
+	    }
+
+	    .boweekinfo li {
+	        display: none;
+	    }
+
+	    .boweekinfo li.active {
+	        display: block;
+	    }
+
+	    .event_row {
+	        display: -webkit-flex;
+	        display: -moz-flex;
+	        display: -ms-flex;
+	        display: -o-flex;
+	        display: flex;
+	        -webkit-flex-wrap: wrap;
+	        -moz-flex-wrap: wrap;
+	        -ms-flex-wrap: wrap;
+	        -o-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	        margin: -1px 0 0 0;
+	        border: 1px solid transparent;
+	        border: 1px solid #a2a2a2;
+	    }
+
+	    .event_row:nth-child(even) {
+	        border: 1px solid #a2a2a2;
+	        background: #F4F5F6;
+	    }
+
+	    .event_row:last-child {
+	        border-bottom: 1px solid #a2a2a2;
+	    }
+
+	    .ev_week {
+	        width: 175px;
+	        display: -webkit-flex;
+	        display: -moz-flex;
+	        display: -ms-flex;
+	        display: -o-flex;
+	        display: flex;
+	        -webkit-flex-wrap: wrap;
+	        -moz-flex-wrap: wrap;
+	        -ms-flex-wrap: wrap;
+	        -o-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	        justify-content: center;
+	        -ms-align-items: center;
+	        align-items: center;
+	        align-content: center;
+	        padding: 5px 10px;
+	        text-align: center;
+	        min-height: 60px;
+	    }
+
+	    .ev_week h5 span {
+	        display: block;
+	    }
+
+	    .ev_week h5 {
+	        line-height: 1.3;
+	        margin: 0;
+	        font-family: 'Source Sans Pro', sans-serif;
+	    }
+
+	    .ev_week h5 br {
+	        display: block;
+	    }
+
+	    .event_infobox {
+	        width: calc(100% - 303px);
+	        display: -webkit-flex;
+	        display: -moz-flex;
+	        display: -ms-flex;
+	        display: -o-flex;
+	        display: flex;
+	        -webkit-flex-wrap: wrap;
+	        -moz-flex-wrap: wrap;
+	        -ms-flex-wrap: wrap;
+	        -o-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	        border-left: 1px solid #a2a2a2;
+	        padding: 0 10px;
+	        justify-content: center;
+	    }
+
+	    .event_infobox .event_info {
+	        margin: 8px 10px 15px;
+	        width: calc(33.33% - 20px);
+	        /* background: #f2f2f2; */
+	        text-align: center;
+	        padding: 0 15px;
+	    }
+
+
+	    .event_logo {
+	        height: 51px;
+	        margin: 0 0 6px;
+	        display: -webkit-flex;
+	        display: -moz-flex;
+	        display: -ms-flex;
+	        display: -o-flex;
+	        display: flex;
+	        -webkit-flex-wrap: wrap;
+	        -moz-flex-wrap: wrap;
+	        -ms-flex-wrap: wrap;
+	        -o-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	        justify-content: center;
+	        -ms-align-items: center;
+	        align-items: center;
+	        align-content: center;
+	    }
+
+	    .event_logo img {
+	        max-height: 100%;
+	    }
+
+	    .event_place p {
+	        line-height: 1.3;
+	        color: #212121;
+	        margin: 0;
+	    }
+
+	    .event_place p a,
+	    .event_place p>strong {
+	        text-decoration: none;
+	        display: block;
+	        margin-bottom: 5px;
+	    }
+
+	    .event_box .loader {
+	        position: absolute;
+	        left: 0;
+	        right: 0;
+	        margin: -33px 0 0;
+	    }
+
+	    .flimin_calander .top_txt>h2 {
+	        height: auto;
+	        opacity: 1;
+	        margin: 0 0 10px;
+	    }
+
+	    .flimin_calander {
+	        margin-top: 20px;
+	    }
+
+	    .filmdtl_block .filmdtl_data {
+	        align-items: flex-start;
+	        align-content: flex-start;
+	    }
+
+	    .daystype {
+	        text-align: center;
+	    }
+
+	    .printdochide {
+	        display: none;
+	    }
+
+	    .tbletop h4 {
+	        text-align: center;
+	    }
+
+	    .stucal_info {
+	        width: 100%;
+	    }
+
+	    .fdboxoffice_result {
+	        margin-top: 20px;
+	    }
+
+	    #graphtable {
+	        display: none;
+	    }
+
+	    .bnrdtltxt_subinfo {
+	        justify-content: center;
+	    }
+
+	    .discintro_box .pvr {
+	        width: 190px;
+	        margin: 0;
+	    }
+
+	    .discintro_txt {
+	        width: calc(100% - 220px);
+	        padding-left: 20px;
+	    }
+
+	    .distfilm_calander .top_txt {
+	        justify-content: space-between;
+	    }
+
+	    .distfilm_calander .shortingbox .shortitem>a.active {
+	        text-decoration: underline;
+	    }
+
+	    .distcl_media {
+	        width: 204px;
+	    }
+
+	    .distcl_media .artinfoimg {
+	        margin: 0;
+	    }
+
+	    .distcl_mediatxt {
+	        width: calc(100% - 205px);
+	        padding: 0 0 0 15px;
+	    }
+
+	    .distfilmcalndr_item {
+	        margin-bottom: 40px;
+	    }
+
+	    .bnrdtl_txt {
+	        text-align: center;
+	    }
+
+	    .theter_list .top_txt {
+	        justify-content: space-between;
+	        align-items: center;
+	    }
+
+	    .list_azfilter {
+	        list-style: none;
+	        padding: 0
+	    }
+
+	    .list_azfilter li {
+	        margin: 0 2px;
+	    }
+
+	    .list_azfilter li span {
+	        padding: 1px 3px;
+	        border: 1px solid #000;
+	        border-radius: 3px;
+	        font-weight: bold;
+	        color: #000;
+	        text-transform: uppercase;
+	        font-size: 12px;
+	        transition: 0.5s all;
+	        cursor: pointer;
+	        display: inline-block;
+	        font-family: "Open Sans", sans-serif;
+	    }
+
+	    .listmediabox .listmedia_item {
+	        width: calc(50% - 10px);
+	        margin: 0 0 40px;
+	        align-items: flex-start;
+	    }
+
+	    .listmedia_img {
+	        width: 118px;
+	    }
+
+	    .listmedia_info {
+	        width: calc(100% - 118px);
+	        padding: 0 0 0 20px;
+	    }
+
+	    .listmedia_info h5,
+	    .listmedia_info p {
+	        margin-top: 0;
+	        margin-bottom: 5px;
+	    }
+
+	    .listmedia_info .listmedia_link span {
+	        text-decoration: underline;
+	        cursor: pointer;
+	    }
+
+	    .vanderitem_box {
+	        width: 33.33%;
+	        padding: 0 10px;
+	    }
+
+	    .vanderitem_inner {
+	        padding: 20px;
+	        border: 1px solid #f0f0f0;
+	        border-radius: 10px;
+	    }
+
+	    .ratinginfo_tags li span {
+	        background: #fff;
+	        padding: 1px 5px;
+	        border: 1px solid #a4a4a5;
+	        font-weight: 400;
+	    }
+
+	    .ratinginfo_tags li strong {
+	        margin-left: 10px;
+	    }
+
+	    .ratinginfo_tags li {
+	        font-size: 15px;
+	        display: inline-block;
+	        vertical-align: top;
+	        font-family: 'Open Sans', sans-serif;
+	        margin: 3px 0 0 0;
+	        font-weight: 600;
+	    }
+
+	    .distcl_mediatxt .ratinginfo_tags {
+	        margin: 15px 0;
+	        font-weight: 600;
+	        padding: 0
+	    }
+
+	    .ratinginfo_tags {
+	        margin: 20px 0;
+	        list-style: none;
+	        display: flex;
+	        flex-wrap: wrap;
+	    }
+
+	    .distcl_mediatxt .ratinginfo_tags li {
+	        font-weight: bold;
+	    }
+
+	    .ratinginfo_tags li:before {
+	    	content: "|";
+	    	display: inline-block;
+	    	margin: 0 10px;
+	    }
+
+	    .ratinginfo_tags li:first-child:before{
+	    	display: none;
+	    }
+
+	    /*theater detail*/
+
+	    .theater_socialmedia {
+	    	width: 250px;
+	    	padding-right: 58px;
+	    	float: left;
+	    }
+
+	    .theater_socialmedia{
+	    	margin-top: 40px;	    	
+	    }
+
+	    .theater_socialmedia .brandimg {
+	    	margin: 0 0 10px 0;
+	    }
+
+	    .theaterinfo_box {
+	    	display: block;
+	    }
+
+
+	    .theater_detsiltop .top_txtboxtheater{
+	    	display: flex;
+	    	flex-wrap: wrap;
+	    	margin-top: 30px;
+	    }
+
+	    .theater_infodetail .theater_detsiltop .h5 {
+	    	display: none;
+	    }
+
+	    .address_direction{
+	    	margin-bottom: 20px;
+	    }
+
+	    .theater_detsiltop  > h2{
+	    	margin: 0
+	    }
+
+	    .theaters_features ul{
+	    	padding: 0;
+	    	margin: 0;
+	    	list-style: none;
+	    }
+
+	    .theaters_features >ul >li{
+	    	margin: 0 5px 5px 10px;
+	    	border: 1px solid #ccc;
+	    	padding: 2px 10px;
+	    	border-radius: 10px;
+	    }
+
+	    .theater_econtact ul{
+	    	padding-left: 0;
+	    	list-style: none;
+	    }
+
+	    .theater_econtact ul li{
+	    	list-style: disc;
+	    	margin: 0 22px 8px 20px;
+	    }
+
+	    .theater_econtact >ul >li:last-child{
+	    	list-style: none;
+	    	margin:15px 0 0 0;
+	    	width: 100%;
+	    }
+
+	    .theater_econtact ul li ul{
+	    	padding-left: 0;
+	    	margin: 10px 0 0 0;
+	    }
+
+	    .theater_econtact ul li ul li{
+	    	margin-right: 35px;
+	    }
+
+	    .disc_keycontact label img{
+	    	display: inline-block;
+	    	margin-right: 10px;
+	    }
+
+	    .theater_infodetail h2{
+	    	margin: 0
+	    }
+
+	    .theaterinfo_media .brandlogo,
+	    .theaterinfo_media .brandimg {
+	    	display: flex;
+	    	flex-wrap: wrap;
+	    	justify-content: center;
+	    	align-items: center;
+	    	border: 1px solid #ccc;
+	    	height: 104px;
+	    	width: 192px;
+	    	padding: 0;
+	    	border-radius: 5px;
+	    	margin: 0;
+	    }    
+
+
+
+	}

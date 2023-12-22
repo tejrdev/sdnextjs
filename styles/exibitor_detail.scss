@@ -1,0 +1,99 @@
+.exb_locationdetail .top_txt {
+    padding-bottom: 0;
+  }
+  .exb_locationdetail .top_txt .statetab {
+    margin-top: 5px;
+  }
+  .exb_locationdetail .top_txt .statetab label {
+    padding-right: 20px;
+  }
+  .exb_locationdetail .top_txt .statetab .list_azfilter {
+    width: calc(100% - 145px);
+    margin-bottom: 20px;
+  }
+  
+  .exb_infocard {
+    grid-gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    position: relative;
+    min-height: 150px;
+  }
+  .exb_infocard .exb_infocarditem {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 12px 16px;
+    position: relative;
+  }
+  .exb_infocard .exb_infocarditem .favoritebox {
+    position: absolute;
+    right: 8px;
+    top: 12px;
+  }
+  .exb_infocard .exb_infocarditem .favoritebox a {
+    color: #000;
+  }
+  .exb_infocard .exb_infocarditem .favoritebox a:hover {
+    text-decoration: underline;
+  }
+  .exb_infocard .exb_infocarditem .favoritebox i {
+    display: inline-block;
+    vertical-align: top;
+    margin: 7px 0 0 5px;
+  }
+  .exb_infocard .exb_infocarditem h4 {
+    padding: 0 72px 0 0;
+        line-height: 1.4;
+  }
+  .exb_infocard .exb_infocarditem p {
+    margin-bottom: 0;
+  }
+  .exb_infocard .exb_infocarditem .theaters_features ul {
+    margin: 15px 0 0 0;
+  }
+  
+  /* responsive */
+  @media (max-width: 1200px) {
+    .exb_infocard {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+  @media (max-width: 480px) {
+    .exb_locationdetail .top_txt .statetab .list_azfilter {
+      width: 100%;
+    }
+  }
+  
+  
+  
+  
+.list_azfilter{
+  list-style: none;
+  margin-left: 0;
+}
+
+.list_azfilter li{
+  margin: 0 0.33%;
+}
+
+.list_azfilter li:hover span,
+.list_azfilter li.active span{
+  background:  #D7B865;
+  color: #fff;
+  border: 1px solid  #D7B865;
+}
+
+
+.list_azfilter li span{
+  padding: 1px 6px;
+  border: 1px solid #000;
+  border-radius: 3px;
+  font-weight: bold;
+  color: #000;
+  text-transform: uppercase;
+  font-size: 12px;
+  transition: 0.5s all;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.3;
+}

@@ -1,0 +1,287 @@
+.postertables {
+    padding: 50px 0 0;
+}
+
+.toggle_posttab ul {
+    list-style: none;
+    margin: 0;
+    border: 1px solid #D7B865;
+    border-radius: 5px;
+}
+
+.toggle_posttab ul li {
+    padding: 0 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.toggle_posttab ul li.active {
+    background: #D7B865;
+}
+
+.toggle_posttab {
+    margin: -15px 0 25px;
+}
+
+.weekitems {
+    justify-content: space-between;
+}
+
+
+.posterboxcap .pvr {
+    padding: 0 0 148% 0;
+}
+
+.posterboxcap {
+    padding: 0 10px;
+}
+
+.posterboxcap h6 {
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0 0;
+    color: #000;
+}
+
+
+.posterboxcap h6 span {
+    display: block;
+    font-weight: normal;
+}
+
+.postertabvisual {
+    display: none;
+}
+
+.postertabvisual[data-title="Poster"] {
+    display: block;
+}
+
+.posttab_slider .slick-track {
+    margin: 0;
+}
+
+.rc_weeksblock.toplinesec:last-child {
+    margin-bottom: 40px;
+}
+
+.weekbytable .stucal_info.responsive,
+.distinforesult_table .stucal_info.responsive {
+    width: 99.8%;
+}
+
+.weekbytable .stuweektable {
+    border-top: 1px solid #c1c1c1;
+    padding: 30px 0 0 0;
+}
+
+.weekbytable:nth-child(2) .stuweektable {
+    border-top: 0px;
+    padding: 0;
+}
+
+.weekbytable .stuweektable {
+    margin-bottom: 30px;
+}
+
+.posttab_slider .slick-next,
+.posttab_slider .slick-prev {
+    top: 140px;
+}
+
+
+
+
+/*distributer select info*/
+.distchoice .custombox_select.roundedselect {
+    min-width: 480px;
+}
+
+.distchoice .custombox_select.roundedselect .ms-choice {
+    background: none;
+    height: 37px;
+    line-height: 37px;
+}
+
+.distchoice .custombox_select.roundedselect .ms-choice:hover,
+.distchoice .custombox_select.roundedselect .ms-choice:focus {
+    background: none;
+    height: 37px;
+    line-height: 37px;
+}
+
+.lookingbox h1 {
+    color: #AAAAAA;
+}
+
+.lookingbox {
+    padding-bottom: 20px;
+    /* border-bottom: 1px solid #B8B8B8; */
+    margin-bottom: 30px;
+}
+
+.top_looking {
+    margin: 30px 0 30px;
+}
+
+.distinforesult_block {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 16px;
+}
+
+.distinforesult_block .posttabslid_item {
+    margin-bottom: 30px;
+}
+
+.distinfo_boxresult .top_txt {
+    border-bottom: 1px solid #B8B8B8;
+    margin-bottom: 30px;
+}
+
+.distinforesult_block .posttabslid_item .posterboxcap {
+    padding: 0;
+}
+
+.postertables .top_txt h2 {
+    max-width: calc(100% - 230px);
+    margin-bottom: 10px;
+}
+
+.distinforesult_table .stucal_info tr th{
+    background: #D7B865;
+}
+
+.distinforesult_table .stucal_info.responsive{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    overflow: hidden;
+}
+
+.posttabslid_item {
+    max-width: 230px;
+    display: inline-block;
+    width: 220px;
+}
+
+
+.stuweektable .stucal_info tr td a{
+    color: #000;
+}
+
+.stuweektable .stucal_info tr td > h3{
+    font-size: 14px;
+    margin: 0;
+}
+
+.posttab_slider .posttabslid_item{
+    display: none;
+}
+
+.posttab_slider .posttabslid_item:first-child,
+.posttab_slider .posttabslid_item:nth-child(2),
+.posttab_slider .posttabslid_item:nth-child(3),
+.posttab_slider .posttabslid_item:nth-child(4),
+.posttab_slider .posttabslid_item:nth-child(5){
+    display: inline-block;
+}
+
+
+.posttab_slider.roundslickarrow {
+    position: relative;
+}
+
+.posttab_slider.roundslickarrow:before{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url(../public/images/sldloading.gif) center no-repeat;
+    width: 40px;
+    height: 40px;
+    background-size: 40px;
+}
+
+.posttab_slider.roundslickarrow.slick-slider:before{
+    display: none;
+}
+
+
+
+/*responsivee*/
+
+@media(min-width: 1200px) {
+    .lookingbox p {
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 991px) {
+    .distinforesult_block {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .toggle_posttab {
+        margin: 0 auto 15px;
+    }
+
+    .postertables .top_txt h2,
+    .distinfo_boxresult .top_txt h2 {
+        width: 100%;
+        margin: 0 0 5px 0;
+        text-align: center;
+    }
+
+    .postertables .top_txt h2 {
+        max-width: 100%;
+    }
+}
+
+
+@media(max-width: 768px) {
+    .distinforesult_block {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media(max-width: 767px) {}
+
+@media(max-width: 640px) {
+    .stuweektable .tbletop>h4 {
+        border-radius: 5px;
+    }
+
+    .distinforesult_block {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .distchoice .custombox_select.roundedselect {
+        min-width: 210px;
+    }
+
+    .distinforesult_block .posttabslid_item {
+        margin-bottom: 10px;
+    }
+
+    .distinforesult_table .stucal_info tr th{
+        display: none
+    }
+
+    .distinforesult_table .stucal_info.responsive tr td{
+        display: flex!important;
+        justify-content: space-between;
+    }
+
+
+}
+
+
+@media(max-width: 480px) {
+    .distinforesult_block {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 400px) {}

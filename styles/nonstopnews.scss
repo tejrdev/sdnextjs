@@ -1,0 +1,347 @@
+.twocol_news .newsline_item {
+    width: 50%;
+}
+
+.threecol_news .newsline_item {
+    width: 33.33%;
+}
+
+.newsline_item {
+    padding: 0 8px 16px;
+}
+
+.newsline_datebox {
+    width: 100%;
+    padding: 0 8px 0 0;
+    font-family: "Open Sans", sans-serif;
+}
+
+.newsline_block,
+.newsheadline_block {
+    margin: 0 -8px;
+}
+
+.newaline_inner {
+    background: #F4F5F7;
+    padding: 15px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    height: 100%;
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.newsline_item .pvr {
+    padding: 0 0 100px 0;
+    width: 100px;
+    height: 72px;
+}
+
+.newsline_block .newsline_item .pvr {
+    padding: 0 0 66% 0;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.newsline_block .newaline_inner{
+    align-content: flex-start;
+}
+
+.newsline_block .newsline_iteminfo{
+    padding-left: 0;
+    width: 100%;
+}
+
+
+.newsline_iteminfo h5 {
+    line-height: 1.3;
+    font-weight: 600;
+       display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    margin-bottom: 0;
+}
+
+.newsline_iteminfo h5 > a{
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.sec_spacing {
+    padding: 50px 0;
+}
+
+.h2.btmline {
+    border-bottom: 2px solid #D7B865;
+    display: inline-flex;
+    padding: 0 0 3px;
+}
+
+.newslinebox .top_txt {
+    margin-bottom: 40px;
+}
+
+.newsheadline_block .fmupdate_boxaurthor {
+    position: relative;
+}
+
+.newsline_iteminfo .srclink {
+    margin: -10px 0 12px;
+}
+
+.newshdbox_item .pvr {
+    padding: 0 0 170px 0;
+    margin: 0 0 15px 0;
+}
+
+.newshdbox_item h5,
+.newshdbox_item p {
+    margin-bottom: 5px;
+}
+
+.newshdbox_item p{
+    color: #777777;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.homnewsslid_item p{
+	margin-bottom: 0;
+}
+
+.newswel_media .fa-camera{
+	display: none;
+}
+
+.newsline_iteminfo{
+    width: calc(100% - 100px);
+    padding-left: 10px;
+    color: #000;
+}
+
+.newsline_iteminfo .bgimage{
+    position: absolute;
+}
+
+.newsline_iteminfo .bgimage + span{
+    padding: 0 0 0 30px;
+}
+
+.fmupdate_boxaurthor{
+    width: 100%;
+}
+
+.sdnewsbox .newaline_inner{
+    background: rgba(215, 184, 101, 0.10);
+}
+
+.threecol_news .featurenewsbox .newsline_item:first-child{
+    width: 100%;
+}
+
+.threecol_news .featurenewsbox .newsline_item.sdnewsbox .newaline_inner {
+    border: 1px solid #D7B865;
+}
+
+.threecol_news .featurenewsbox .newsline_item:first-child .pvr{
+    width: 59%;
+    padding: 0 0 250px 0;
+    margin-bottom: 12px;
+}
+
+.threecol_news .featurenewsbox .newsline_item:first-child .pvr .fmupdate_boxaurthor{
+    position: absolute;
+    bottom: -34px;
+    left: 0;
+}
+
+.threecol_news .featurenewsbox .newsline_item:first-child .newsline_iteminfo{
+    width: 41%;
+    padding: 0 0 0 20px;
+}
+
+.threecol_news .featurenewsbox .newsline_item:first-child .newsline_iteminfo h4{
+    line-height: 1.4;
+}
+
+.threecol_news .featurenewsbox .newsline_item:first-child .newsline_iteminfo p{
+    line-height: 1.5;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    margin-bottom: 0;
+}
+
+.featurenewsbox{
+    width: 66.66%;
+}
+
+.featurenewsside {
+    width: 33.33%;
+}
+
+.threecol_news .featurenewsbox .newsline_item{
+    width: 50%;
+}
+.threecol_news .featurenewsside .newsline_item{
+    width: 100%;
+}
+
+.headlinecategory{
+    margin-top: 10px;
+    border-top: 1px solid #b8b8b8;
+    padding: 30px 0 20px 0;
+}
+
+.top_txt + .headlinecategory{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.sdnewspop{
+    padding: 10px;
+    min-height: 246px;
+}
+
+.sdnewspop h4{
+    line-height: 1.4;
+}
+
+.sdnewspop > *{
+    display: inline;
+}
+
+.sdnewspop figure {
+        padding: 0 0 226px 0;
+    float: left;
+    width: 382px;
+    margin: 0 20px 35px 0;
+}
+
+.sdnewspop figure .srcdate{
+    display: block;
+    position: absolute;
+    bottom: -34px;
+}
+
+.srcdate span{
+    color: #777777;
+    font-weight: bold;
+    display: block;
+}
+
+.srcdate .bgimage{
+    display: inline-block;
+    vertical-align: top;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    margin: 5px 5px 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.newsheadline_block .viewmorebtn{
+    width: 100%;
+}
+
+/*responsivee*/
+
+@media(max-width: 1200px) {
+    .threecol_news .featurenewsbox .newsline_item:first-child .pvr{
+        width: 50%;
+        padding: 0 0 180px 0;
+    }
+    .threecol_news .featurenewsbox .newsline_item:first-child .newsline_iteminfo{
+        width: 50%;
+    }
+
+
+}
+
+@media(max-width: 991px) {
+    .threecol_news .newsline_item {
+        width: 50%;
+    }
+
+    .threecol_news .featurenewsbox .newsline_item:first-child .pvr{
+        padding: 0 0 250px 0;
+    }
+
+    .featurenewsbox,
+    .featurenewsside{
+        width: 100%;
+    }
+
+    .featurenewsside{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .threecol_news .featurenewsside .newsline_item {
+        width: 50%;
+    }
+
+}
+
+@media(max-width: 768px) {}
+
+@media(max-width: 640px) {
+
+    .twocol_news .newsline_item,
+    .threecol_news .newsline_item {
+        width: 100%;
+        padding: 0 0 16px;
+    }
+
+    .newsline_block,
+    .newsheadline_block {
+        margin: 0;
+    }
+
+    .sec_spacing {
+        padding: 30px 0;
+    }
+
+    .threecol_news .featurenewsbox .newsline_item:first-child .pvr,
+    .threecol_news .featurenewsbox .newsline_item:first-child .newsline_iteminfo{
+        width: 100%;
+    }
+
+    .threecol_news .featurenewsbox .newsline_item:first-child .newsline_iteminfo{
+        padding: 0;
+    }
+
+    .threecol_news .featurenewsbox .newsline_item,
+    .threecol_news .featurenewsside .newsline_item{
+        width: 100%;
+        padding: 0 0 16px 0;
+    }
+}
+
+@media(max-width: 400px) {
+    .newsline_item .pvr {
+        padding: 0 0 50px 0;
+        width: 70px;
+    }
+
+    .newsline_iteminfo{
+        width: calc(100% - 70px);
+    }
+
+    .newaline_inner{
+        padding: 8px;
+    }
+}

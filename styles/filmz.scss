@@ -1,0 +1,165 @@
+/*film a-z*/
+
+
+.top_info{
+	display: inline-block;
+}
+
+.art_boxofficetable > h3,
+.art_studiocalander  > h3{
+	/*text-align: center;*/
+}
+
+.art_boxofficetable .result_table{
+	border-bottom: 1px solid #D6DBDF;
+	padding-bottom:30px; 
+	overflow: auto;
+}
+
+.art_boxofficetable .result_table table thead tr:first-child th:nth-child(6){
+	width: 150px;
+}
+
+.art_boxofficetable .result_table table thead tr:first-child th:nth-child(2){
+	width: 510px;
+}
+
+
+.art_boxofficetable .result_table table thead tr:first-child th:nth-child(4),
+.art_boxofficetable .result_table table thead tr:first-child th:nth-child(5){
+	width: 104px;
+}
+
+
+
+.art_boxofficetable .result_table table ,
+.art_studiocalander .sturelease_table table.responsive.dataTable{
+	min-width: 800px;
+}
+
+.filmaz_filter ul{
+	justify-content: center;
+    max-width: 1623px;
+    margin: 0 auto 40px;
+}
+
+.filmaz_filter ul li button{
+	background: none;
+	color: #000;
+	border: 1px solid #707070;
+	width: 36px;
+	height: 36px;
+	padding: 10px;
+	text-transform: capitalize;
+}
+
+
+.filmaz_filter ul li.active button,
+.filmaz_filter ul li:hover button{
+	background: #000;
+	border: 1px solid #000;
+	color:#fff;
+}
+.filmaz_filter ul li.last button{
+	width: auto;
+}
+
+.filmaz_filter ul li {	
+	padding: 0 2px 6px;
+}
+
+
+.subfilmy{
+	padding: 50px 0;
+}
+
+.filmaztable{
+	padding: 20px 0;
+}
+
+.filmaztable .dataTable thead tr:first-child th:nth-child(3){
+	width: 160px;
+}
+
+.middletitle_print{
+	position: relative;
+	text-align: center;
+}
+
+.middletitle_print .h3{
+	margin: 10px 0;
+}
+
+.filmaztable .dataTable{
+	min-width: 1200px;
+	min-width: 1110px;
+    width: 99%;
+    max-width: 99%;
+    display: table-cell;
+}
+
+.filmaztable .dataTable.twotblhead thead tr:first-child th:first-child{
+	width: 343px;
+}
+
+.filmaztable .dataTable tbody tr td:first-child,
+.filmaztable .dataTable tbody tr td:nth-child(2){
+	text-align: left;
+}
+
+.filmaztable .dataTable.twotblhead thead tr:first-child th:nth-child(2){
+	width: 99px;
+	border-right: 0px!important;
+}
+
+.filmaztable .dataTable thead tr:first-child th:nth-child(4){
+	width: 257px;
+}
+
+.filmaztable .dataTable.twotblhead thead tr:first-child th:first-child{
+	border-right: 0px!important;
+}
+
+.top_txt .page_introbox {
+    margin: 10px auto 20px;
+}
+
+/*!film a-z*/
+
+
+/*responsivee*/
+@media screen and (max-width: 1350px){}
+@media screen and (max-width: 1200px){}
+@media screen and (max-width: 991px){
+	.filmaztable{
+    padding: 5px 0;
+  }
+
+  .subfilmy{
+    padding: 30px 0;
+  }
+
+  .filmaz_filter ul{
+    margin-bottom: 20px;
+  }
+
+  .filmaz_filter ul li button{
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+  }
+}
+@media screen and (max-width: 767px){}
+@media screen and (max-width: 768px){}
+@media screen and (max-width: 640px){
+	.filmaztable .dataTable {
+    min-width: 100%;
+}
+ .art_boxofficetable .result_table table, 
+  .art_studiocalander .sturelease_table table.responsive.dataTable,
+  .stucal_info.responsive,
+  .filmaztable .dataTable{
+    min-width: 100%
+  }
+}
+@media screen and (max-width: 480px){}

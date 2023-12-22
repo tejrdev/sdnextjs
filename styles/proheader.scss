@@ -1,0 +1,248 @@
+.proheader {
+   .site_prologo {
+      margin-right: 8px;
+
+      @include bp(tabletmd) {
+         float: left;
+      }
+   }
+
+   .sdpronav {
+      margin: 10px 0 20px auto;
+
+      @include bp(lg) {
+         position: relative;
+         padding: 0 50px 0 0;
+         text-align: right;
+      }
+
+      @include bp(tablet) {
+         margin: 10px -30px 20px auto;
+      }
+
+      @include bp(xsm) {
+         padding: 0 36px 0 0;
+      }
+
+      .sdpromenu {
+
+
+         >ul {
+            list-style: none;
+            margin: 0;
+            font-family: "Open Sans", sans-serif;
+
+            >li {
+               padding: 20px 10px 0 10px;
+               font-size: 14px;
+               
+               @include bp(xlmin) {
+                  padding: 20px 20px 0 16px;
+               }
+
+               .fa-caret-down{
+                  margin-left: 5px;
+               }
+
+               a:not(.btn) {
+                  color: #000;
+                  display: block;
+               }
+
+               a.btn {
+                  padding: 0 10px;
+               }
+
+               &.freetrynav{
+                  a{
+                     font-size: 14px;
+                  }
+               }
+            }
+         }
+
+         @include bp(lg) {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.5s ease-in-out;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            right: 0;
+            z-index: 2;
+            border-radius: 5px;
+            margin: 85px 0 0 0;
+
+           > ul {
+               overflow: hidden;
+               display: block;
+               width: 100%;
+
+               > li {
+                  background-color: #fff;
+                  display: block;
+                  padding: 10px 10px;
+                  border-bottom: 1px solid #ccc;
+               }
+            }
+         }
+
+
+      }
+   }
+}
+
+.userico {
+   // width: 35px;
+   // height: 35px;
+   // background-color: burlywood;
+   // border-radius: 50%;
+   margin: 5px 0 0 0;
+
+   @include bp(lg) {
+      margin-left: auto;
+   }
+   @include bp(xsm) {
+      margin-right:10px;
+   }
+}
+
+.proheader {
+   border-bottom: 1px solid #ccc;
+
+   @include bp(lg) {
+      min-height: 111px;
+      position: relative;
+      padding: 15px 0;
+      display: block;
+
+      .site_prologo {
+         position: absolute;
+      }
+   }
+
+   .site_prologo {
+      @include bp(xsm) {
+         max-width: 200px;
+         top: 30px;
+      }
+   }
+}
+
+
+.sdpromenubtn {
+   width: 30px;
+   position: absolute;
+   right: 0;
+   top: 22px;
+
+   @media(min-width:1200px) {
+      display: none;
+   }
+
+   >span {
+      background-color: #000;
+      display: block;
+      height: 3px;
+      width: 100%;
+      margin-bottom: 6px;
+   }
+
+   &.navopen {
+      @include bp(lg) {
+         +.sdpromenu {
+            grid-template-rows: 1fr;
+
+            > ul {
+               background-color: #fff;
+               border: 1px solid #ccc;
+            }
+         }
+      }
+   }
+}
+
+.site-headertop {
+   padding: 10px 0 0 0;
+}
+
+.dropdownNav {
+   position: relative;
+
+   >  span{
+      cursor: pointer;
+      display: block;
+   }
+
+   .dropdownNavbox {
+      display: grid;
+      grid-template-rows: 0fr;
+      overflow: hidden;
+      transition: grid-template-rows 0.5s;
+      position: absolute;
+      left: 10px;
+      top: calc(100%);
+      z-index: 2;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      visibility: hidden;
+
+      ul {
+         min-height: 0;
+         transition: visibility 1s;
+         background-color: #fff;
+         width: 200px;         
+         list-style: none;
+         padding: 5px;         
+         margin: 0;
+
+         li {
+            padding: 5px 10px;
+            border-top: 1px solid #ccc;
+            text-transform: capitalize;
+
+            &:first-child{
+               border-top: 0;
+            }
+
+            &:hover{
+               background-color: #efefef;
+            }
+         }
+      }
+   }
+
+   @include bp(lgmin) {
+      &:hover {
+         .dropdownNavbox {
+            grid-template-rows: 1fr;
+            visibility: visible;   
+         }
+      }
+   }
+
+}
+
+.dropdownNav{
+   @include bp(lg){
+      .dropdownNavbox{
+         position: relative;
+         left: 0;
+
+         ul{
+            width: 100%;
+            padding: 0;
+         }
+      }
+
+      &.expand {      
+         .dropdownNavbox {
+            grid-template-rows: 1fr;      
+            visibility: visible;
+            ul{
+               padding: 5px;
+            }
+         }
+      }
+   }
+}

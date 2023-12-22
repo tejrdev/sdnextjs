@@ -1,0 +1,266 @@
+
+.aboutadd_info ol{
+	list-style: none;
+	counter-reset: my-awesome-counter;
+}
+
+.aboutadd_info ol > li{
+	counter-increment: my-awesome-counter;
+	padding-bottom: 10px;
+}
+
+.aboutadd_info ol > li:before{
+	content: "(" counter(my-awesome-counter) ")  ";
+	margin:0 4px 0 -22px;
+}
+
+.aboutadd_info ol > li li{
+	padding-bottom: 3px;
+}
+
+.aboutadd_info ol > li ul{
+	margin-bottom: 10px;
+}
+
+.contact_coltop{
+	width: calc(100% - 35%);
+}
+
+.aboutadd_info ol > li ul img{
+	margin-bottom: 10px;
+}
+
+.grecaptcha-badge { visibility: hidden; }
+
+
+.addinfo_graphic{
+	max-width: 250px;
+	float: left;
+	/* vertical-align: top; */
+	padding: 0 20px 20px 0;
+}
+
+.adds_movietxt{
+	overflow: hidden;
+	margin-top: 20px;
+	flex-flow: row-reverse;
+	align-items: center;
+	align-content: center;
+	display: block;
+	display: flex;
+}
+
+
+
+.addus_contact .top_txt{
+	width: 100%;
+}
+
+.adds_movietxt p br{
+	line-height: 0;
+	height: 0;
+	float: left;
+	margin-bottom: 70px;
+	display: block;
+}
+
+.add_figtxt.aboutmovie_info .abtmovid_box .abt_movietxt{
+	padding:0 20px 0 0;	
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.add_figtxt.aboutmovie_info.addleft .abtmovid_box {
+	flex-flow: row-reverse;
+}
+
+.add_figtxt.aboutmovie_info.addleft .abt_movietxt{
+	padding: 0 0 0 20px;
+}
+
+.addtxtbox{
+	width: calc(100% - 250px);
+	padding: 0 0 0 50px;
+	display: inline-block;
+	overflow: hidden;
+}
+
+
+.sponcers_add{
+	margin: 0 -5px;
+}
+
+.sponcers_add + .toptxt{
+	margin-top: 30px;
+}
+
+.sponceropp.secspace + .secspace,
+.addsmovie_info.secspace + .secspace{
+	padding-top: 0;
+}
+
+.sponcers_add .spons_col{
+	width: 33.33%;
+	padding: 0 5px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.sponcers_add .spons_col > a ,
+.sponcers_add .spons_col > span{
+	position: relative;
+	padding: 0 0 58%;
+	display: block;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.sponcers_add .spons_col .sponce_item {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.sponceropp h3{
+	margin-bottom: 20px;
+}
+
+.sponceropp  .toptxt{
+	margin: 30px 0 0;
+}
+
+.add_rightfigtxt .addinfo_graphic{
+	float: right;
+	padding: 0 0 20px 20px;
+}
+
+
+.add_rightfigtxt .adds_movietxt {
+	flex-flow: wrap;
+}
+
+
+.add_rightfigtxt .addtxtbox{
+	padding: 0;
+}
+
+
+.addcnt{
+	width: 32%;
+}
+
+.addcontbox .abtmovie_mediabox{
+	width: 68%;
+	padding: 0 0 0 30px;
+	/*max-width: 510px;*/
+	margin: 0 auto;
+}
+
+.addcnt_txt{
+	width: 68%;
+	padding: 0 0 0 30px;
+}
+
+.addcnt_txt ul{
+	padding-left: 15px;
+}
+
+.cont_infolinked ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.cont_infolinked ul li{
+	position: relative;
+	padding: 0 0 0 50px;
+}
+
+.cont_infolinked ul li a{
+	color: #000;
+}
+
+.mailus{
+	margin-right: 50px;
+	background: url('../public/images/addmail.png') left center no-repeat;
+	background-size: 35px;
+}
+
+.callus{
+	background: url('../public/images/addcall.png') left center no-repeat;
+	background-size: 35px;
+}
+
+.cont_infolinked{
+	margin: 30px 0 40px;
+}
+
+/*responsivee*/
+
+@media screen and (max-width: 1350px){}
+@media screen and (max-width: 1200px){}
+@media screen and (max-width: 991px){
+	.addinfo_graphic {
+    max-width: 150px;
+  }
+
+  .addtxtbox{
+    width: calc(100% - 150px);
+  }
+
+  .addcnt_txt, .addcnt , .addcontbox .abtmovie_mediabox{
+    width: 50%;	
+  }
+
+  .art_slider .info_tags ul li:before,
+  .art_home .info_tags ul li.spotlight:before{
+    position: static;
+    margin: 5px 6px 0 0;
+  }
+
+  .art_home .art_sliditem{
+    width: 50%;
+  }
+}
+@media screen and (max-width: 767px){}
+@media screen and (max-width: 768px){}
+@media screen and (max-width: 640px){
+	.addcnt_txt, .addcnt, .addcontbox .abtmovie_mediabox{
+      padding: 20px 0 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    .add_rightfigtxt .addinfo_graphic,
+    .addinfo_graphic{
+      float: none;
+      padding: 20px 0 0;
+    }
+
+    .art_home .art_sliditem{
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto 20px;
+  }
+}
+@media screen and (max-width: 480px){
+	.addtxtbox{
+    width: 100%;
+    padding: 20px 0 0 0;
+  }
+
+  .addinfo_graphic{
+    margin: 0 auto;
+  }
+
+  .adds_movietxt{
+  	flex-flow: column-reverse;
+  }
+
+  .sponcers_add .spons_col{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

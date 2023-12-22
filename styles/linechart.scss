@@ -1,0 +1,332 @@
+.charnav ul{
+	padding: 0;
+	list-style: none;
+}
+
+.charnav ul li{
+	display: inline-block;
+}
+.charnav > div{
+	display: inline-block;
+	margin: 0 10px;
+}
+
+.charnav ul li label{
+	position: relative;
+	margin: 0 10px;
+	cursor: pointer;
+}
+
+.charnav .moviename ul li label:before{
+	border-radius: 3px;
+}
+
+.charnav .moviename ul li label:after{
+	border-radius: 0;
+}
+
+.charnav ul li label:before{
+	content: "";
+	height: 10px;
+	width: 10px;
+	border-radius:50%;
+	border: 1px solid #000;
+	display: inline-block;
+	margin: 4px 6px 0 0;
+	vertical-align: top;
+}
+
+.charnav ul li label:after{
+	content: "";
+	width: 6px;
+	height: 6px;
+	background: #fff;
+	position: absolute;
+	left: 2px;
+	top: 6px;
+	border-radius: 50%;
+}
+
+.detail_linechart .charnav ul li.active label:after{
+	 background:#000;
+	 opacity: 0.5;
+}
+
+.charnav {
+	margin: 0 0 0 80px;
+}
+
+.weekdata ul:before{
+	content: "";
+	background: #000;
+	height: 20px;
+	width: 1px;
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	left: -10px;
+}
+
+.apexcharts-plot-series .apexcharts-series:first-child{
+	opacity: 1;
+}
+
+div.apexcharts-tooltip.apexcharts-theme-light{
+	background: rgb(253 253 253 / 75%);
+}
+
+div.apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title{
+	background: rgb(236 239 241 / 66%);
+}
+
+.moviename ul li:first-child{
+	pointer-events: none;
+}
+
+
+#avgchart{
+	width: calc(100% - 200px);
+}
+
+#avgchart .apexcharts-series-markers circle{
+	stroke: transparent;
+}
+
+/*#avgchart .apexcharts-series{
+	cursor: pointer;
+}
+
+#avgchart .apexcharts-series .apexcharts-series-markers-wrap{
+	opacity: 0;
+	transition: 0.5s all;
+}
+
+#avgchart .apexcharts-series:hover .apexcharts-series-markers-wrap{
+	opacity: 1;
+}*/
+
+/*#avgchart .apexcharts-series:hover > path{
+	fill: red;
+}*/
+
+.avglinechart #chart,
+.detail_linechart #chart{
+	width: calc(100% - 250px);
+}
+
+.avglinechart,
+.detail_linechart{
+	.charnav {
+		align-items: center;
+			width: 250px;
+			margin: 0;
+
+			& ul{
+				display: block;
+				margin-bottom: 15px;
+		
+				& li{
+					display: block;
+
+					label{
+						padding: 0 0 0 15px;
+						display: block;
+					}
+			
+					& label:before{
+							position: absolute;
+							left: 0;
+							top: 2px;
+						}
+		
+					& label:after{
+						width: 4px;
+						height: 4px;
+						left: 3px;
+						top: 7px;
+					}
+				}
+			}
+
+			.indicationinfo{
+				border-top: 1px solid #ccc;
+				padding: 10px 0 0 10px;
+			}
+	}
+
+	&.ticketingchart .apexcharts-tooltip-text-y-value {
+		display: none;
+  }
+
+  &.awarchart .apexcharts-tooltip-title{
+	background-color: #fff7e2;
+  }
+}
+
+.charttabel{
+	table {
+			border-collapse: collapse;
+	
+			td,
+			th {
+				text-align: center;
+			}
+		}
+}
+
+.goldbg{
+	background: #d7b865;
+}
+
+.charttblrow,
+.charttablebox_head{
+	grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+	gap:0 20px;
+
+	.goldbg{
+		font-weight: bold;
+	}
+
+	.grid{
+		grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+		border-right: 1px solid #000;
+		border-bottom: 1px solid #000;
+		margin-top: -1px;
+		> div{
+			padding: 5px 8px ;
+			border-left: 1px solid #000;
+			border-top: 1px solid #000;
+			font-size: 92%;
+		}
+	}
+}
+
+
+.charttabel{
+	margin:20px auto 0;
+	max-width: 600px;
+}
+.chartnote{
+	margin-top: 10px;
+}
+
+.detail_linechart svg text{
+	font-family: "Open Sans", sans-serif!important;
+}
+.detail_linechart{
+	@include bp(tabletmd) {
+			#chart {
+				width: 100%;
+			}
+			.charnav {
+				width: 100%;
+				ul{
+					display: block;
+					li{
+						display: inline-block;
+					}
+				}
+
+				.indicationinfo br{
+					display: none;
+				}
+			}
+		}
+
+		@include bp(sm) {
+			#chart > div{
+				min-height:250px!important;
+			}
+		}
+}
+
+.dailchart {
+	padding: 15px 0;
+	/*max-width: 800px;*/
+	align-items: flex-start;
+
+	@include bp(lg) {
+		width:100%;
+	}
+
+	.dailchartart {
+		width: 200px;
+		@include bp(sm) {
+			margin: 0 auto;
+		}
+
+		.apexcharts-datalabels-group text{
+			font-weight: bold;
+		}
+
+		h6{
+			margin: -15px 0 0 0;
+		}
+	}
+
+	.dailchartinfo{
+		width: calc(100% - 250px);
+		margin: 0 0 0 20px;
+		@include bp(sm) {
+			width: 100%;
+			margin: 0;
+		}
+		h5{
+			margin-bottom: 5px;
+
+			@include bp(sm) {
+				text-align: center;
+			}
+		}
+		p{
+			margin-bottom: 0;
+		}
+		
+		.dailchartinfobox{
+			padding: 10px;
+			background-color: #F1F1F1;
+		}
+	}
+}
+
+.detialtabtop {
+	justify-content: center;
+	margin:0 auto;
+	max-width:1000px;
+}
+
+.proexlogo{
+	padding: 10px 25px 10px;
+	border-right: 1px solid #ccc;
+	@include bp(lg) {
+		width:100%;
+		border: none;
+		
+	}
+
+	figure{
+		figcaption{
+			border: 1px solid #000;
+			border-radius: 5px;
+			line-height: 1;
+			margin: 10px auto;
+			max-width: 230px;
+		}
+	}
+}
+
+.chartheadtop{
+	@include bp(sm){
+		flex-direction: column;
+		justify-content: center!important;
+		text-align: center;
+	}
+	.brandingpartner{
+		@include bp(sm){
+			justify-content: center;
+		}
+		>p{
+			margin: 5px 10px 0 0;
+		}
+	}
+}

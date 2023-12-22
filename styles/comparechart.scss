@@ -1,0 +1,322 @@
+.charnav ul {
+	padding: 0;
+	list-style: none;
+	margin-left: 0;
+}
+
+.charnav ul li {
+	display: inline-block;
+	line-height: 1.2;
+}
+.charnav > div {
+	display: inline-block;
+	margin: 0;
+}
+
+.charnav ul li label {
+	position: relative;
+	margin: 0 25px 0 0;
+	cursor: pointer;
+	font-weight: 600;
+}
+
+.charnav .moviename ul li label:before {
+	// border-radius: 10px;
+}
+
+.charnav ul li label:before {
+	content: "";
+	height: 10px;
+	width: 10px;
+	border-radius: 50%;
+	/* border: 1px solid #000; */
+	display: inline-block;
+	margin: 4px 7px 0 0;
+	vertical-align: top;
+	background: #E97C00;
+}
+
+.charnav .moviename ul li label:before{
+	margin: 2px 9px 0 0;
+}
+
+.charnav ul li label:after {
+	content: "";
+	width: 4px;
+	height: 4px;
+	background: #fff;
+	position: absolute;
+	left: 3px;
+	top: 7px;
+	border-radius: 50%;
+	transition: 0.1s all;
+}
+
+.charnav ul li.active label:after {
+	left: 3px;
+	top: 7px;
+}
+
+.charnav ul li.active label:after {
+	background: #fff;
+	opacity: 0;
+}
+
+.charnav ul li:first-child label:after {
+	background-color: transparent;
+}
+
+
+.weekdata ul:before {
+	content: "";
+	background: #000;
+	height: 20px;
+	width: 1px;
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	left: -10px;
+}
+
+.apexcharts-plot-series .apexcharts-series:first-child {
+	opacity: 1;
+	margin: 0 40px;
+}
+
+div.apexcharts-tooltip.apexcharts-theme-light {
+	background: rgb(253 253 253 / 75%);
+	/* transform: translateX(60px); */
+}
+
+div.apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
+	background: rgb(236 239 241 / 66%);
+}
+
+.moviename ul li:first-child {
+	pointer-events: none;
+}
+
+
+/*.apexcharts-series + 
+.apexcharts-series{
+	transform: translateX(5px);
+}
+
+.apexcharts-series + 
+.apexcharts-series +
+.apexcharts-series{
+	transform: translateX(10px);
+}*/
+
+.apexcharts-bar-series{
+	    transform: translateY(1px);
+}
+
+#boxchart{
+	margin: 0 auto 30px;
+	height: 300px;
+}
+
+.moviename ul li{
+	position: relative;
+	opacity: 0.3;
+	transition: 0.3s all;
+	margin: 0 0 10px 0;
+}
+
+.moviename ul li:first-child{
+	opacity: 1;
+}
+
+.moviename ul li.active{
+	opacity: 1;
+}
+
+/*.moviename ul li:before{
+	content: "";
+	display: inline-block;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: #000;
+	position: absolute;
+	top: 6px;
+	left: 28px;
+}*/
+
+.moviename ul li:first-child:before{
+	background: #E97C00;
+}
+.moviename ul li:nth-child(2):before{
+	background: #00B825;
+}
+.moviename ul li:nth-child(3):before{
+	background: #3E98FF;
+}
+
+.charnav ul li:nth-child(2) label:before{
+	background: #00B825;
+}
+.charnav ul li:nth-child(3) label:before{
+	background: #3E98FF;
+}
+.charnav ul li:nth-child(4) label:before,
+.charnav ul li[data-text="Avg. of all films with similar genre"] label:before{
+	background: #707070;
+}
+
+.apexcharts-text tspan{
+	font-weight: bold;
+	font-family: "Open Sans", sans-serif!important;
+	font-size: 13px;
+}
+
+.comparechart_box {
+	font-family: "Open Sans", sans-serif!important;
+}
+
+.comparechart_box .milian{
+	font-weight: bold;
+	margin: 0 0 -8px 0;
+	text-transform: uppercase;
+	font-size: 13px;
+}
+
+div.apexcharts-xaxistooltip, div.apexcharts-yaxistooltip{
+	    background: #d7b865;
+	    border: 1px solid #c19f44;
+	    font-weight: bold;
+}
+
+/*div.apexcharts-xaxistooltip-bottom:before {
+    border-bottom-color: #d7b865;
+}*/
+div.apexcharts-xaxistooltip-bottom:before,
+div.apexcharts-xaxistooltip-bottom:after {
+    border-bottom-color: #d7b865;
+    display: none;
+}
+
+.boxofficedetail_chart .fdtable{
+	margin-bottom: 30px;
+}
+
+/*chart tooltip*/
+
+.charttool_box .week_name{
+	border-radius: 5px;
+	border: 1px solid #707070;
+	border-bottom: 0;
+	font-weight: 600;
+	padding: 3px 10px;
+	font-size: 16px;
+}
+
+.series_infotool{
+	border-radius: 5px;
+	border: 1px solid #707070;
+	padding: 	10px;
+	padding-top: 0;
+}
+
+.series_infotool h5{
+	margin: 10px 0 0 0;
+}
+
+.series_infotoolbox{
+	padding: 0 0 0 25px;
+	position: relative;
+}
+
+/* .movieforcast_chart .series_infotoolbox{
+	padding: 0 0 0 22px;
+} */
+
+.series_infotoolbox .colorbox{
+	display: inline-block;
+	position: absolute;
+	top: 4px;
+	left: 0;
+	height: 15px;
+	width: 15px;
+	border-radius: 5px;
+	border: 1px solid #707070;
+	background: #ec9026;
+}
+
+.series_infotoolbox:nth-child(2):before{
+	background: #26c345;
+}
+.series_infotoolbox:nth-child(3):before{
+	background: #5ba7ff;
+}
+
+.forfilmcolor{
+	position: absolute;
+    top: 4px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    border-radius: 5px;
+    border: 1px solid #707070;
+    background: #ec9026;
+}
+
+/*!chart tooltip*/
+
+/*chart nav*/
+
+
+
+/*!chart nav*/
+
+/*forcast char specific*/
+
+.movieforcast_chart .comparechart_box {
+	max-width: 700px;
+}
+
+.forcast_onecumn.movieforcast_chart .comparechart_box.threecolchart,
+.movieforcast_chart .comparechart_box.threecolchart {
+	max-width: 300px; 
+}
+
+.movieforcast_chart .comparechart_box.twocolchart {
+	max-width: 300px; 
+}
+
+.movieforcast_chart .comparechart_box.onecolchart {
+	max-width: 150px; 
+}
+
+.movieforcast_chart .apexcharts-series path:nth-child(2){
+	fill: #26c345;
+}
+
+.movieforcast_chart .apexcharts-series path:nth-child(3){
+	fill: #5ba7ff;
+}
+
+/*!forcast char specific*/
+
+/*responsivee*/
+@media (max-width: 991px) {
+	.charnav.df{
+		display: block;
+		text-align: center;
+		margin: 0;
+	}
+
+	.charnav > div{
+		display: block;
+		/* text-align: center; */
+	}
+
+	.charnav ul{		
+		margin: 0 0 15px 0;
+	}
+
+	.weekdata ul:before{
+		display: none;
+	}
+}

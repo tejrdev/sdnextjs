@@ -1,0 +1,367 @@
+.favpagetitle {
+	padding: 40px 0 0;
+}
+
+.favmovies {
+	padding-bottom: 20px;
+}
+.favauto{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	position: absolute;
+	z-index: 28;
+	background: #fff;
+	width: 100%;
+}
+
+.favauto ul{
+	margin: 0;
+	list-style: none;
+}
+
+.favauto ul li{
+	border-top: 1px solid #ccc;
+}
+
+.favauto ul li a{
+	padding: 1px 12px;
+	color: #000;
+	display: block;
+	border-radius: 5px;
+}
+
+.favauto ul li a:hover{
+	background: #fbfbfb;
+}
+
+.favauto ul li:first-child{
+	 border-top: 0;
+}
+
+.favinbox > button{
+	position: absolute;
+	right: 2px;
+	top: 4px;
+	padding: 0;
+	background: #fff;
+	color: #686868;
+	width: 30px;
+}
+
+.favinbox > button:hover{
+	background: none;
+	color: #686868;
+}
+
+.favinbox {
+	    width: calc(100% - 110px);
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 10px 0 0;
+}
+
+.favaddinput .favinbox input[type="text"] {
+	width: 100%;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(0.4);
+  }
+  20% {
+    transform: scale(1.3);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  80% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+ 
+}
+
+
+.favheart.redtxt .fa-heart{
+	animation: heartbeat 1s;
+}
+
+.eatchoptionbtn {
+	position: absolute;
+	width: calc(100% + 2px);
+	display: block;
+	text-align: center;
+	bottom: -1px;
+	left: -1px;
+	right: -1px;
+	border: 2px solid #d7b865;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	z-index: 5;
+	cursor: pointer;
+	transition: 0.5s all;
+}
+
+.eatchoptionbtn:hover {
+	background: #d7b865;
+}
+
+.eatchoptionbtn + ul {
+	margin: 0;
+	background: #fff;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	display: none;
+	box-shadow: -3px -2px 6px #cdcdcd;
+}
+
+.eatchoptionbtn + ul li a {
+	color: #000;
+	display: block;
+	padding: 8px 10px;
+	border-top: 1px solid #a7a7a7;
+}
+
+.eatchoptionbtn:after {
+	content: "\f0d7";
+	display: inline-block;
+	font-family: "Font Awesome 5 Pro";
+	font-weight: 900;
+	margin-left: 5px;
+}
+
+.watchactive .eatchoptionbtn:after {
+	content: "\f0d8";
+}
+
+.favaddinput {
+	position: relative;
+	margin: 5px 0;
+	min-width: 340px;
+}
+
+
+.favaddinput + .viewbtnbox{
+	margin: -1px 0 1px;
+	display: inline-block;
+}
+
+.top_txt .viewmovrebtn {
+	align-items: center;
+}
+
+.favmoviename {
+	margin: -1px auto 0;
+	list-style: none;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	max-width: 568px;
+}
+
+.favmoviename li {
+	padding: 2px 10px;
+	border-top: 1px solid #ccc;
+}
+
+.favmovies.nowshowing .nowshow_slider .nowshow_item .nowshow_info {
+	padding: 10px 10px 30px 10px;
+}
+
+.watchbtn.watchactive .eatchoptionbtn + ul {
+	bottom: 30px;
+}
+
+.watchbtn.watchactive .eatchoptionbtn {
+	background: #d7b865;
+}
+
+.favaddinput .btn {
+	/* position: absolute; */
+	background: none;
+	right: 0;
+	top: 0;
+	padding: 4px 19px;
+	min-width: 75px;
+}
+
+.favaddinput .btn:hover {
+	background: #d7b865;
+}
+
+
+.favaddinput input[type="text"] {
+	padding: 6px 10px;
+	max-width: 370px;
+	margin: 0 10px 5px 0;
+	width: calc(100% - 100px);
+}
+
+.favaddinput .currentlocation input{
+	width: calc(100% - 50px);
+	min-width: 260px;
+	margin: 8px 0 0 0;
+}
+
+.viewmovrebtn.editbtn .savebtnbox {
+	display: none;
+}
+.viewmovrebtn.editbtn.editopen .editbtnbox {
+	display: none;
+}
+
+.viewmovrebtn.editbtn.editopen .savebtnbox {
+	display: block;
+}
+
+.theater_timing .top_txtleft .currentlocation > p {
+	margin: 1px 0 0 10px;
+}
+
+.favheart {
+	cursor: pointer;
+}
+
+.taginfo {
+	margin: 2px 0 0 10px;
+}
+
+.taginfo .fa-info-circle {
+	display: inline-block;
+	margin: 11px 10px 0 0;
+	opacity: 0.7;
+	cursor: pointer;
+}
+
+.taginfo > p {
+	background: #f1f1f1;
+	border-radius: 5px;
+	padding: 5px 10px;
+	opacity: 0;
+	margin: 0 0 0 0;
+	transition: 0.5s all;
+}
+.taginfo .fa-info-circle:hover + p {
+	opacity: 1;
+	visibility: visible;
+}
+
+
+.fa-info-circle + p {
+    position: absolute;
+    transform: translateY(29px);
+    z-index: 1;
+}
+
+.favcompany .favcompanyitem {
+	width: 100%;
+}
+
+.favcompany .favcompanyitem .pvr a {
+	padding: 15px 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	min-height: 150px;
+	align-items: center;
+}
+
+.darectory_tag {
+	border-radius: 10px;
+	border: 1px solid #777777;
+	display: inline-block;
+	padding: 4px 14px;
+	line-height: 1;
+	text-transform: uppercase;
+	color: #777777;
+	font-family: Open Sans,sans-serif;
+	font-size: 14px;
+	letter-spacing: 1px;
+	transform: translateY(-16px);
+	background: #fff;
+}
+
+.favcompany_detail > h4{
+	line-height: 1.3;
+}
+
+.favcompany_box {
+	grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+}
+
+.favcompany {
+	margin-bottom: 20px;
+}
+
+.exb_infocarditeminner h4 {
+	padding: 0 70px 0 0;
+}
+
+.exb_infocarditeminner p{
+	margin-bottom: 2px;
+}
+
+.showtimebtn .btn{
+	background: none;
+}
+
+.showtimebtn .btn:hover{
+	background: #d7b865;
+	border: 1px solid #d7b865;
+}
+
+.viewmovrebtn  .currentlocation  > p{
+	margin: 0;
+}
+
+.favstaticbg{
+	padding: 15px 0;
+    border-top: 1px solid #ccc;
+    margin-top: 15px;
+}
+
+.staticfavsec .profileinfobox{
+	margin: 0;
+	padding: 0;
+}
+
+.staticfavsec .login_signin {
+	background: #fff;
+	position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 2;
+}
+
+.staticfavsec:before{
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 180px;
+	height: calc(100% - 180px);
+	width: 58%;
+	background: red;
+	z-index: 2;
+	filter: blur(3px);
+	-webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(4px);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+/*responsivee*/
+@media(max-width: 1200px){
+	.favaddinput{
+		min-width: 200px;
+	}
+}

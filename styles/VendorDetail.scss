@@ -1,0 +1,48 @@
+.proservices_Box {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 16px;
+  }
+  .proservices_Box .proservices_items {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  .proservices_Box .proservices_items .pvr {
+    padding: 0 0 210px 0;
+    margin: -1px -1px 5px -1px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .proservices_Box .proservices_items .nowshow_info {
+    padding: 15px 15px 33px;
+  }
+  .proservices_Box .proservices_items .nowshow_info h5 {
+    margin-bottom: 5px;
+  }
+  .proservices_Box .proservices_items .nowshow_info .expbtn {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  .proservices_Box .proservices_items .nowshow_info .expbtn a {
+    display: block;
+  }
+  
+  .festivedate {
+    max-width: 168px;
+    margin: 10px auto 0;
+    font-size: 15px;
+  }
+  .festivedate p {
+    margin-bottom: 5px;
+  }
+
+  .discintro_box .pvr img, .updateintro_box figure.pvr img {
+    border-radius: 0px;
+    position: static;
+}
+  
+
+  

@@ -1,0 +1,1111 @@
+.personintro .personpc,
+.person_introbox .personpc {
+    width: 292px;
+    float: left;
+    margin: 0 30px 41px 0;
+    display: inline-block;
+    vertical-align: top;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.timesbio .person_introbox .personpc {
+    padding: 0 0 350px 0;
+}
+
+.person_introbox .personpcbox{
+    padding: 0 0 380px 0;   
+    margin-bottom: 10px; 
+}
+
+.person_introbox .personpcbox + .timepersonsocial{
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.vid_sliditem .figcaption span{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+
+.latestinfo_realse{
+    margin-top: -4px;
+    line-height: 1.5;
+    border-radius: 5px;
+    vertical-align: top;
+}
+
+.person_introbox.open{
+    overflow: visible;
+}
+
+.persondetail_box{
+    width: calc(100% - 332px);
+    display: inline-block;
+}
+
+.persondetail_box .person_info{
+    width: 100%;
+}
+
+.person_info {
+    width: calc(100% - 332px);
+    /* padding-left: 340px; */
+    overflow: hidden;
+    display: inline-block;
+}
+
+.person_info .persnolinfo p {
+    margin: 0;
+}
+
+.persnolinfo {
+    margin-bottom: 12px;
+}
+
+.person_info h1,
+.person_info>h3 {
+    margin-bottom: 3px;
+    display: inline-block;
+}
+
+.person_info h4 {
+    display: inline-block;
+}
+
+.personintro {
+    padding: 60px 0 10px;
+}
+
+.inbio_box {
+    display: inline-flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0 0 0 15px;
+}
+
+.inbio_box li {
+    padding: 0 20px 0 0;
+}
+
+.inbio_box li a {
+    position: relative;
+    color: #000;
+}
+
+.inbio_box li span {
+    width: 0;
+    opacity: 0;
+    transition: 0.5s all;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    position: absolute;
+    background: #FFF;
+    z-index: 1;
+    margin: 28px 10px 0 -16px;
+}
+
+.inbio_box li:hover span {
+    width: auto;
+    opacity: 1;
+}
+
+.castperson_images .photo_slidbox>div {
+    /*width: 16.66%;
+    padding: 8px;*/ 
+}
+
+.castperson_images .photo_slidbox a {
+    color: #000;
+}
+
+.castperson_images .photo_slidbox div.vid_sliditem {
+    /*width: 25%;*/
+    padding: 8px;
+}
+
+.castperson_images .photo_slidbox {
+    margin: 0 -8px;
+}
+
+.castperson_images .photo_slidbox .playico:after {
+    width: 50px;
+    height: 50px;
+}
+
+.movieknow_box {
+    /*
+    justify-content: center;*/
+    /* margin: 0 -10px; */
+}
+
+.movieknow_item {
+    padding: 10px;
+    width: 25%;
+}
+
+.movieknow_item .pvr {
+    padding: 0 0 150% 0;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+
+.movieknow_info p {
+    color: #777777;
+    margin-bottom: 0;
+}
+
+.movieknow_info p span {
+    display: block;
+}
+
+.movieknow_info h5 {
+    margin-bottom: 0;
+}
+
+.movieknow {
+    /* margin-bottom: 15px; */
+}
+
+.filmograhyinfo_col ul {
+    list-style: none;
+    margin: 0 0 15px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.filmograhyinfo_col ul li {
+    width: calc(50% - 15px);
+    max-width: 500px;
+    margin: 0 0 15px 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.filmograhyinfo_col {
+    width: calc(50% - 15px);
+    max-width: 500px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.filmograhyinfo_col p span {
+    display: inline-block;
+    margin: 0 8px;
+}
+
+.filmograhyinfo_col .movierol .asmid{
+    display: inline-block;
+    margin: 0 8px;
+}
+
+.filmograhyinfo_col .piping{
+    margin: 0 8px;
+}
+
+.filmograhyinfo_col .movierol{
+    display: inline-block;
+    width: calc(100% - 66px);
+}
+
+.filmograhyinfo_col .movierol > a{
+    color: #000;
+}
+
+.filmography_title {
+    cursor: pointer;
+    position: relative;
+}
+
+.filmography_item .filmography_title:before {
+    content: "\f0d7";
+    display: inline-block;
+    position: absolute;
+    right: 68px;
+    top: 0;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    color: #d7b865;
+}
+
+.filmography_item:not(.active) + .filmography_item{
+    border-top: 1px solid #ccc;
+    padding: 20px 0 0 0;
+}
+
+.filmography_title .togglearrow{
+    position: absolute;
+    right: 7px;
+}
+
+.filmography_item.active .filmography_title:before {
+    content: "\f0d8";
+}
+
+.filmography_item {
+    border-bottom: 0px;
+    margin-bottom: 22px;
+}
+
+.filmography_title>h4:before {
+    content: "";
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    background: #000;
+    border-radius: 50%;
+    margin: 13px 10px 0 0;
+    vertical-align: top;
+}
+
+.filmography_title>h4 {
+    padding:0 78px 0 0;
+    margin-bottom: 15px;
+        text-decoration: underline;
+}
+
+.filmography_item.active .filmography_title .togglearrow{
+    right: 0;
+}
+
+.filmogrhpybox .filmography_item:last-child {
+    border-bottom: 0px;
+}
+
+.castmamber_news {
+    border-bottom: 0px;
+    margin-bottom: 20px;
+}
+
+.peoplesrch_box {
+    margin: 0 -7px;
+}
+
+.peoplesrch_box .peoplesrch_item {
+    padding: 7px;
+    width: 16.66%;
+    min-height: 200px;
+}
+
+.peoplesrch_item .pvr {
+    padding: 0 0 274px 0;
+}
+
+.personsrch_name {
+    text-align: center;
+    color: #000;
+}
+
+.nopersonimg .personsrch_name {
+    /*height: calc(100% - 28px);
+    background: #d7b865e3;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;*/
+}
+
+.person_introbox {
+    display: block;
+    overflow: hidden;
+}
+
+.timebio_person.person_introbox {
+    overflow: visible;
+}
+
+.people_search {
+    margin-bottom: 30px;
+}
+
+.person_introbox .readmore_btn,
+.summaryinfo .readmore_btn{
+    text-transform: uppercase;
+    display: block;
+    position: relative;
+    margin: -32px 0 0 0;
+    background: #fff;
+}
+
+.person_introbox .readmore_btn:after,
+.summaryinfo .readmore_btn:after{
+    position: absolute;
+    bottom: 28px;
+    height: 60px;
+    width: 100%;
+    content: "";
+    background-image: linear-gradient(to bottom, transparent, white);
+    left: 0;
+}
+
+.person_introbox .readmore_btn strong{
+    font-weight: 500;
+    color: #000;
+    background: #D7B865;
+    border: 1px solid #D7B865;
+    font-size: 14px;
+    min-width: 135px;
+    border-radius: 3px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 8px;
+    transition: 0.5s all;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    z-index: 1;
+}
+
+.person_introbox .readmore_btn strong:hover{
+    color: #000;
+    background: none;
+}
+
+/*.castperson_images .vid_sliditem .media_mvslicbox .artinfoimg {
+    padding: 0;
+}
+
+.castperson_images .vid_sliditem .media_mvslicbox .artinfoimg .objctimg_box {
+    position: static;
+}*/
+
+.secnav_linkin {
+    list-style: none;
+    margin: 0;
+}
+
+.secnav_linkin li {
+    padding: 5px 20px;
+}
+
+.secnav_linkin li a {
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+.secnav_linkin {
+    border-top: 1px solid #B8B8B8;
+    overflow: auto;
+    border-bottom: 1px solid #B8B8B8;
+    margin-bottom: -1px;
+}
+
+
+/* width */
+.secnav_linkin::-webkit-scrollbar {
+    width: 0;
+    height: 5px;
+}
+
+/* Track */
+.secnav_linkin::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.secnav_linkin::-webkit-scrollbar-thumb {
+    background: #d7b865;
+    border-radius: 10px;
+    height: 0px;
+}
+
+/* Handle on hover */
+.secnav_linkin::-webkit-scrollbar-thumb:hover {
+    background: #cba235;
+}
+
+.photoslid.toplinesec {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.photoslid.toplinesec .top_txt {
+    margin-top: 0;
+}
+
+.vid_sliditem .playico>img {
+    display: inline-block;
+    margin: -20px auto 0;
+    max-width: 30px;
+}
+
+.telat_awards.toplinesec .top_txt {
+    padding-bottom: 0;
+}
+
+.telat_awards .top_txt p {
+    margin-top: 15px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.tlnt_awardsitem {
+    padding: 0 10px;
+    display: inline-block;
+}
+
+.tlnt_awardsitemin {
+    background: #F4F5F7;
+    padding: 10px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.tlnt_awardsitem .pvr {
+    height: 142px;
+    width: 120px;
+
+    > img{
+        background-color: var(--gold);
+    }
+
+    .awardplacetxt{
+        position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    line-height: 1.3;
+
+     span{
+        display: block;
+        margin-bottom: 10px;
+     }
+
+     .awardname{
+        font-size: 12px;
+     }
+
+     strong{
+        display: block;
+        overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 4; /* number of lines to show */
+           line-clamp: 4; 
+   -webkit-box-orient: vertical;
+     }
+    }
+}
+
+.talentfaq{
+    .faqitem{
+        &:last-child{
+            border-bottom: 0;
+        }
+    }
+}
+
+.telnat_awardsslider .slick-list {
+    @include bp(lgmin){
+    padding: 0 120px 0 0!important;
+}
+}
+
+.telnat_awardsinfo {
+    padding: 0 0 0 15px;
+    color: #000;
+    width: calc(100% - 120px);
+}
+
+.telnat_awardsinfo p {
+    margin: 0;
+}
+
+.telnat_awardsinfo h5 {
+    margin: 3px 0;
+} 
+
+.telnat_awardsinfo .moredetail {
+    color: #0000ff;
+}
+
+.telnat_awardsinfo .moredetail .fas {
+    display: inline-block;
+    margin: 7px 0 0 3px;
+    vertical-align: top;
+}
+
+.persnolinfo_box,
+.additionalgreyinfo_box,
+.didknowinfo_box {
+    background: #F4F5F7;
+    display: inline-block;
+    min-width: 500px;
+}
+
+.persnolinfo_box > p{
+    padding: 10px;
+}
+
+.persnolinfo_box ul,
+.additionalgreyinfo_box ul,
+.didknowinfo_box ul {
+    margin: 0;
+    list-style: none;
+    padding: 10px;
+}
+
+.persnolinfo_box ul li,
+.additionalgreyinfo_box ul li,
+.didknowinfo_box>ul>li {
+    border-top: 1px solid #C8C8C8;
+    padding: 6px 0;
+}
+
+.persnolinfo_box ul li:first-child,
+.additionalgreyinfo_box ul li:first-child,
+.didknowinfo_box ul li:first-child {
+    border-top: 0px;
+}
+
+.persnolinfo_box ul li p,
+.additionalgreyinfo_box ul li p,
+.didknowinfo_box ul li p {
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.factinfo_box ul {
+    margin: 0;
+    list-style: none;
+}
+
+
+.discnewsupdate#news_updates {
+    margin: 0;
+    border-bottom: 0px;
+}
+
+.secnav_link {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+.media_mvslicbox>a {
+    color: #000;
+}
+
+
+.photo_sliditem {
+    padding: 8px;
+}
+
+.photo_sliditem .photoinfoimg {
+    padding: 0 0 100% 0;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.photo_slidbox .slick-list {
+    /* padding: 0 90px 0 0; */
+}
+
+.photolike_sliditem {
+    padding: 10px;
+}
+
+.photolike_sliditem .photoinfoimg {
+    padding: 0 0 121% 0;
+}
+
+.personintro .personpc>img {
+    border: 1px solid #e8e8e8;
+}
+
+.secnav_link+.toplinesec {
+    padding-top: 0;
+}
+
+.secnav_link+.toplinesec .top_txt {
+    border-top: 0;
+}
+
+.person_introbox.open .person_info {
+    height: auto !important;
+    overflow: unset;
+    display: inline-block;
+}
+
+.secnav_linkin li{
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.secnav_linkin li[disabled]{
+    opacity: 0.5;
+}
+
+.secnav_linkin li.active,
+.secnav_linkin li:hover{
+    border-bottom: 2px solid #D7B865;
+}
+
+.external_socials{
+    list-style: none;
+    margin-left: 0;
+}
+
+.external_socials li a{
+    color: #000;
+    margin-bottom: 10px;
+    display: inline-block;
+    transition: 0.5s all;
+}
+
+.external_socials li a:hover{
+    text-decoration: underline;
+    /* color: #D7B865; */
+    opacity: 0.7;
+}
+
+.external_socials li a span{
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.detailtab .toplinesec .top_txt{
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.photoinfoimg figcaption{
+    position: absolute;
+    z-index: 1;
+    background: rgb(0 0 0 / 40%);
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-weight: 600;
+    opacity: 0;
+    transition: 0.5s all;
+    padding: 5px;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.photoinfoimg:hover figcaption{
+    opacity: 1;
+}
+
+@-webkit-keyframes blinker {
+  from {opacity:1;}
+  to {opacity:0;}
+} 
+.latestinfo_realse{
+    text-decoration: blink;
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 0.6s;
+    -webkit-animation-iteration-count:16;
+    -webkit-animation-timing-function:ease-in-out;
+    -webkit-animation-direction: alternate;
+    font-weight: bold;
+}
+
+.popvidgallery{
+    margin-bottom: 15px;
+    display: block;
+}
+
+.mfp-arrow:active{
+    margin-top: 0;
+}
+
+
+.moviecast_talent .person_info h1, 
+.moviecast_talent .person_info>h3{
+    margin-bottom: 8px;
+}
+
+.moviecast_talent  .persnolinfo{
+    font-size: 18px;
+}
+
+.moviecast_talent .readmore_btn,
+.summaryinfo .readmore_btn{
+    color: #0000ff;
+    font-weight: normal;
+    margin-bottom: 8px;
+}
+
+.talentlist .top_txtitle h3,
+.talentlist .top_txtitle p{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.talentlist .top_txt .top_txtitle p{
+    MARGIN: 5px 0 0 5px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.talentlist .castcrew_people{
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+}
+
+.talentlist .top_filter{
+    align-items: flex-start;
+}
+
+.talentlist .top_txt .top_filter p{
+    margin: 5px 0 0 32px;
+}
+
+.talentlist .talentsrch{
+    position: relative;
+    border-radius:5px;
+    border: 1px solid #000;
+}
+
+.talentlist .talentsrch input{
+    appearance: none;
+    border: none;
+    padding: 6px 30px 6px 10px;
+    width: 350px;
+    background: none;
+}
+
+.talentlist .talentsrch input::-webkit-input-placeholder {font-size: 14px;}
+.talentlist .talentsrch input:-ms-input-placeholder {font-size: 14px;}
+.talentlist .talentsrch input::-moz-placeholder {font-size: 14px;}
+.talentlist .talentsrch input:-moz-placeholder {font-size: 14px;}
+
+.talentlist .talentsrch button{
+    position: absolute;
+    right: 0;
+    padding: 3px 10px;
+    background: #fff;
+}
+
+.talentlist .talentsrch button:hover i{
+    color: #000;
+}
+
+.talentlist .cast_info p{
+    color: #a3a3a3;
+    margin: 0;
+}
+
+.talentlist .cast_info p> a{
+    padding: 6px 10px;
+    color: #777777;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.talentlist .comingsoon .cast_info p> a{
+    border: 1px solid #D7B865;    
+}
+
+.talentlist .comingsoon .cast_info > span{
+    color: #777777;
+    font-weight: normal;
+    opacity: 0;
+    transition: 0.5s all;
+}
+
+.talentlist .comingsoon:hover .cast_info > span{
+    opacity: 1;
+}
+
+.filmogrhpybox_info{
+    width: calc(100% - 320px);
+}
+
+.add_300 {
+    margin: 20px auto;
+    max-width: 310px;
+    padding: 5px;
+    width: 100%;
+}
+
+.filmogrhpybox .add_300 {
+    margin-top: 0;
+    position: sticky;
+    top: 0;
+}
+
+.filmogrhpybox {
+    position: relative;
+}
+
+.filmograhyinfo_col .yeartxt{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.filminfopop.white-popup-block .mfp-close {
+    top: -19px;
+    right: -18px;
+    background: #D7B865;
+    height: 30px;
+    width: 30px;
+}
+
+.filminfopop {
+    padding: 15px;
+}
+
+.filminfotop figure{
+    width: 127px;
+    padding: 0 15px 0 0;
+    margin-bottom: 10px;
+}
+
+.filminfotop .filminfotop_txt{
+    width: calc(100% - 130px);
+}
+
+.filminfotop_txt .ratinginfo_tags{
+    margin: 0 0 10px 0;
+}
+
+.filminfotop_txt .fa-chevron-right{
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.filminfotop figure img{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.filminfotop .sdrating a{
+    padding: 2px 19px;
+}
+
+.flminfotop .criticratings{
+    margin: 0;
+}
+
+.flminfotop .filminfodisc{
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+}
+
+.filmbtmpop .mvbnr_price .ghostbtn{
+    padding: 2px 15px;
+}
+
+.filmbtmpop .mvbnr_price .ghostbtn:hover{
+    background: #D7B865;
+    color: #000;
+}
+
+.m-3{
+    margin-bottom: 30px;
+}
+
+.filminfotop .criticratings {
+    margin: 0;
+}
+
+.filminfotop .filminfotop_txt h4 a{
+    margin-right: 5px;
+}
+
+.detailbnrimgadd .person_introbox{
+    padding-top: 270px;
+}
+
+.favoritebox{
+    cursor: pointer;
+}
+.biofavico{
+        margin: 0 0 0 10px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 68%;
+} 
+
+.theater_infodetail .biofavico{
+    margin: 8px 0 0 10px;
+}
+/*responsivee*/
+
+@media(max-width: 1200px) {
+    .photoslid .slick-next, .photoslid .slick-prev{
+        top: 50%;
+    }
+}
+
+@media(max-width: 991px) {
+
+    /*.castperson_images .photo_slidbox > div,*/
+    .peoplesrch_box .peoplesrch_item {
+        width: 33.33%;
+    }
+
+    .castperson_images .photo_slidbox>div {
+        /*width: 25%;*/
+    }
+
+    .filmography_title>h4:before {
+        margin: 10px 10px 0 0;
+    }
+
+    .telnat_awardsslider .slick-list {
+        padding: 0 130px 0 0;
+    }
+
+    .persnolinfo_box,
+    .additionalgreyinfo_box,
+    .didknowinfo_box {
+        min-width: auto;
+    }
+
+    .talentlist .top_filter{
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+
+@media(max-width: 768px) {
+    .personintro .personpc {
+        width: 232px;
+        
+    }
+    .personintro .personpc .personpcbox {
+        padding: 0 0 280px 0;
+    }
+
+
+    .person_info {
+        /* width: calc(100% - 232px); */
+    }
+
+    .filmography_title>h4:before {
+        margin: 7px 10px 0 0;
+    }
+
+    .castperson_images .photo_slidbox>div.vid_sliditem,
+    .castperson_images .photo_slidbox>div {
+        /*width: 50%;*/
+    }
+
+    .filmogrhpy_adds{
+        display: none;
+    }
+
+    .filmogrhpybox_info {
+        width: 100%;
+    }
+
+    .filminfopop .ratinginfo_tags li{
+        display: inline-block;
+        width: auto;
+        margin-left: 10px;
+    }
+
+    .filminfopop .ratinginfo_tags li:first-child{
+        margin-left: 0;
+    }
+}
+
+@media(max-width: 640px) {
+    .personintro .personpc {
+        width: 232px;
+        float: none;
+        margin: 0;
+    }
+
+    .personintro .personpc .personpcbox {
+        padding: 0 0 280px 0;
+    }
+
+    .persondetail_box{
+        width: 100%;
+    }
+
+    .person_info {
+        width: 100%;
+        padding: 15px 0 0 0;
+    }
+
+    .movieknow_item {
+        width: 50%;
+        width: 33.33%;
+    }
+
+    .filmography_title>h4:before {
+        margin: 5px 10px 0 0;
+    }
+
+    .filmograhyinfo_col,
+    .filmograhyinfo_col ul li {
+        width: 100%;
+    }
+
+    .vid_sliditem .playico>img {
+        max-width: 20px;
+        margin: -10px auto 0;
+    }
+
+    .personintro .personpc, .person_introbox .personpc{
+        position: relative;
+    }
+
+    .talentlist .top_txt .top_filter p{
+        width: 100%;
+        margin-left: 0;
+    }
+
+
+}
+
+
+@media(max-width: 480px) {
+    .peoplesrch_box .peoplesrch_item {
+        width: 50%;
+        min-height: 180px;
+    }
+
+    .telnat_awardsslider .slick-list {
+        padding: 0;
+    }
+
+    .talentlist .talentsrch input, 
+    .talentlist .talentsrch{
+        width: 100%;
+    }
+
+    .filminfotop .filminfotop_txt {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+@media(max-width: 400px) {
+    .movieknow_item {
+        width: 50%;
+    }
+
+    .peoplesrch_item .pvr {
+        padding: 0 0 181px 0;
+    }
+}

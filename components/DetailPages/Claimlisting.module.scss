@@ -1,0 +1,48 @@
+.Claiming{
+        padding-bottom: 0;
+        overflow: hidden;
+        transition: 0.5s all;
+    .cliamlistbox{
+        border-top: 1px solid #ccc;
+        padding-top: 40px;
+    }
+
+    .theater_infodetail{
+        .df{
+            align-items: flex-start;
+        }
+        h3{
+            margin-right: 15px;
+        }
+
+        .ghostbtn {
+            margin-bottom: 15px;
+        }
+
+        .closeclaim{
+            font-size: 23px;
+            transform: rotate(45deg);
+            display: inline-block;
+            border: 1px solid #000;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            line-height: 0.8;
+            text-align: center;
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 30px;
+
+            @media(max-width:1200px){
+                top: 10px;
+            }
+        }
+    }
+
+    .claimsignin{
+        padding: 20px;
+    max-width: 600px;
+    border: 1px solid #D7B865;
+    }
+}

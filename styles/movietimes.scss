@@ -1,0 +1,1090 @@
+.bigtm_trailerbox .pvr {
+    padding: 0 0 415px 0;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.bigtm_trailerbox {
+    width: calc(100% - 350px);
+    padding: 0 15px 0 0;
+    position: relative;
+}
+
+.smalltm_trailerbox {
+    width: 350px;
+}
+
+.smtrailerbox_item .pvr {
+    padding: 0 0 200px 0;
+    margin-bottom: 15px;
+}   
+
+.bigtm_trailerbox_info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgb(0, 0, 0, 0.85);
+    display: block;
+    margin-bottom: 15px;
+    padding: 20px 20px 20px 50px;
+    color: #fff;
+}
+
+.bigtm_trailerbox_info p {
+    margin-bottom: 0;
+}
+
+.bigtm_trailerbox_info h3 {
+    margin-bottom: 5px;
+}
+
+.bigtm_trailerbox_info .hmvid_duration {
+    bottom: 15px;
+    background: #000;
+}
+
+.bigtm_trailerbox_info:before {
+    content: "\f04b";
+    display: inline-block;
+    position: absolute;
+    left: 25px;
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 900;
+}
+
+
+.movietime_posters {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.mvtime_posteritem .pvr {
+    padding: 0 0 156% 0;
+    margin-bottom: 10px;
+}
+
+.mvtime_posteritem h6 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.mvtime_posteritem p {
+    margin-bottom: 0;
+}
+
+.movietime_postinfo {
+    color: #000;
+}
+
+.movietime_postinfo .rating {
+    background: #dfdfdf;
+    min-width: 60px;
+    text-align: center;
+}
+
+.pretime_item .pvr {
+    padding: 0 0 57% 0;
+}
+
+.pretime_block {
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 30px;
+}
+
+.quicktimebox.rscalanderbox .rscalbox_inner ul {
+    background: none;
+    border-top: 1px solid #b8b8b8;
+    border-bottom: 1px solid #b8b8b8;
+}
+
+.timebio_person .actorsocial_bio,
+.timebio_person .persnolinfo,
+.timebio_person .staring,
+.timepersonsocial p {
+    font-size: 18px;
+}
+
+.timebio_person .person_info h3,
+.timebio_person .persnolinfo {
+    margin-bottom: 5px;
+}
+
+.timebio_person .readmore_btn {
+    color: #0000ff;
+    margin-bottom: 5px;
+}
+
+.timepersonbox {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.timepersonbox_item .pvr {
+    padding: 0 0 150px 0;
+    width: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.timepersonbox_item p {
+    color: #000;
+    margin-top: 10px;
+    text-transform: capitalize;
+}
+
+.timepersonbox_item p span {
+    display: block;
+    font-size: 14px;
+    color: #707070;
+}
+
+.timeperson_quick.toplinesec {
+    margin: 20px 0;
+}
+
+.notopline.toplinesec .top_txt {
+    border-top: 0px;
+    margin-top: 0;
+    padding-top: 0px;
+}
+
+.timefilmflash_box .personpc {
+    padding: 0 0 25% 0;
+    width: 45%;
+}
+
+
+.timefilmflash_info {
+    width: 55%;
+    padding-left: 30px;
+    color: #000;
+    margin-top: 11px;
+}
+
+
+.timefilmflash_info h3 {
+    margin-bottom: 0;
+}
+
+.timefilmflash_info .readmorelink {
+    color: #0000ff;
+    margin-top: -10px;
+    display: block;
+}
+
+.timefilmflash {
+    margin-bottom: 30px;
+}
+
+.movietm_title {
+    margin: 30px 0;
+}
+
+.movietm_title .h2 {
+    text-transform: uppercase;
+}
+
+.timefilmflash_box>.df {
+    align-items: flex-start;
+}
+
+.smalltm_trailerbox .bigtm_trailerbox_info {
+    height: 100%;
+    margin: 0;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s all;
+    opacity: 0;
+}
+
+.smtrailerbox_item:hover .bigtm_trailerbox_info{
+    opacity: 1;
+}
+
+.smalltm_trailerbox .bigtm_trailerbox_info:before {
+    display: none;
+}
+
+/*responsivee*/
+
+@media(min-width: 1200px) {}
+
+@media(max-width: 1200px) {
+    .timepersonbox {
+        grid-template-columns: repeat(4, 1fr);
+
+    }
+
+    .teater_time  + .home_subscribe{
+        max-width: 100%;
+    }
+}
+
+@media(max-width: 991px) {
+    .smalltm_trailerbox {
+        width: 310px;
+    }
+
+    .bigtm_trailerbox {
+        width: calc(100% - 310px)
+    }
+
+
+
+    /*.movietm_trialer,
+    .teater_time,
+    .preview_time,
+    .rscalanderbox,
+    .timesbio,
+    .timepersonbox ,
+    .timefilmflash {
+        max-width: 775px;
+        margin: 0 auto;
+    }*/
+
+    .castperson_images .vid_sliditem .media_mvslicbox .artinfoimg .figcaption{
+        line-height: 1.3;
+    }
+}
+
+@media(max-width: 768px) {
+    .bigtm_trailerbox {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 0;
+    }
+
+    .smalltm_trailerbox {
+        width: 100%;
+        display: grid;
+        grid-gap: 16px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bigtm_trailerbox_info {
+        margin-bottom: 0;
+    }
+
+    .timepersonbox {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .timefilmflash_box .personpc {
+        width: 100%;
+        padding: 0 0 52% 0;
+    }
+
+}
+
+@media(max-width: 767px) {
+    .movietime_posters {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .timefilmflash_info {
+        width: 100%;
+        padding: 0;
+    }
+
+}
+
+
+@media(max-width: 640px) {
+    .bigtm_trailerbox .pvr {
+        padding: 0 0 315px 0;
+    }
+
+    .pretime_block {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .personintro .personpc,
+    .person_introbox .personpc {
+        margin: 0 30px 11px 0;
+    }
+
+    .timepersonbox_item .pvr {
+        padding: 0 0 110px 0;
+        width: 110px;
+    }
+    .teater_time  + .home_subscribe .seclinespace{
+        max-width: 100%;
+    }
+}
+
+@media(max-width: 480px) {
+    .smalltm_trailerbox {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .smtrailerbox_item .pvr {
+        margin-bottom: 0
+    }
+
+    .viewmovrebtn {
+        margin-top: 5px;
+        display: block;
+    }
+
+    .timepersonbox {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+
+
+@media(max-width: 400px) {
+    .movietime_posters {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .mvtime_posteritem {
+        margin: 0 auto 6px;
+        /* max-width: 270px; */
+        width: 100%;
+    }
+
+    .mvtime_posteritem h6 {
+        margin-bottom: 0;
+    }
+
+
+}
+.grid{
+    display: grid;
+}
+.gap16 {
+    grid-gap: 16px;
+}
+
+
+
+/*talent component css starts*/
+.personintro .personpc,
+.person_introbox .personpc {
+    width: 292px;
+    float: left;
+    margin: 0 30px 41px 0;
+    display: inline-block;
+    vertical-align: top;
+    position: sticky;
+    top: 0;
+}
+
+.timesbio .person_introbox .personpc {
+    padding: 0 0 350px 0;
+}
+
+.person_introbox .personpcbox{
+    padding: 0 0 380px 0;    
+}
+
+.person_introbox .personpcbox + .timepersonsocial{
+    justify-content: center;
+    margin-top: 15px;
+}
+
+
+.latestinfo_realse{
+    margin-top: -4px;
+    line-height: 1.5;
+    border-radius: 5px;
+    vertical-align: top;
+}
+
+.person_introbox.open{
+    overflow: visible;
+}
+
+.persondetail_box{
+    width: calc(100% - 332px);
+    display: inline-block;
+}
+
+.persondetail_box .person_info{
+    width: 100%;
+}
+
+.person_info {
+    width: calc(100% - 332px);
+    /* padding-left: 340px; */
+    overflow: hidden;
+    display: inline-block;
+}
+
+.person_info .persnolinfo p {
+    margin: 0;
+}
+
+.persnolinfo {
+    margin-bottom: 20px;
+}
+
+.person_info h1,
+.person_info>h3 {
+    margin-bottom: 3px;
+    display: inline-block;
+}
+
+.person_info h4 {
+    display: inline-block;
+}
+
+.personintro {
+    padding: 60px 0 10px;
+}
+
+.inbio_box {
+    display: inline-flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0 0 0 15px;
+}
+
+.inbio_box li {
+    padding: 0 20px 0 0;
+}
+
+.inbio_box li a {
+    position: relative;
+    color: #000;
+}
+
+.inbio_box li span {
+    width: 0;
+    opacity: 0;
+    transition: 0.5s all;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    position: absolute;
+    background: #FFF;
+    z-index: 1;
+    margin: -2px 10px 0;
+}
+
+.inbio_box li:hover span {
+    width: auto;
+    opacity: 1;
+}
+
+.castperson_images .photo_slidbox>div {
+    /*width: 16.66%;
+    padding: 8px;*/
+}
+
+.castperson_images .photo_slidbox a {
+    color: #000;
+}
+
+.castperson_images .photo_slidbox>div.vid_sliditem {
+    width: 25%;
+}
+
+.castperson_images .photo_slidbox {
+    margin: 0 -8px;
+}
+
+.castperson_images .photo_slidbox .playico:after {
+    width: 50px;
+    height: 50px;
+}
+
+.movieknow_box {
+    /*
+    justify-content: center;*/
+    margin: 0 -10px;
+}
+
+.movieknow_item {
+    padding: 10px;
+    width: 25%;
+}
+
+.movieknow_item .pvr {
+    padding: 0 0 150% 0;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+
+.movieknow_info p {
+    color: #777777;
+    margin-bottom: 0;
+}
+
+.movieknow_info p span {
+    display: block;
+}
+
+.movieknow_info h5 {
+    margin-bottom: 0;
+}
+
+.movieknow {
+    /* margin-bottom: 15px; */
+}
+
+.filmograhyinfo_col ul {
+    list-style: none;
+    margin: 0;
+}
+
+.filmograhyinfo_col ul li {
+    width: calc(50% - 15px);
+    max-width: 500px;
+}
+
+.filmograhyinfo_col {
+    width: calc(50% - 15px);
+    max-width: 500px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.filmograhyinfo_col p span {
+    display: block;
+}
+
+.filmography_title {
+    cursor: pointer;
+    position: relative;
+}
+
+.filmography_item .filmography_title:before {
+    content: "\f0d7";
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    color: #d7b865;
+}
+
+.filmography_item.active .filmography_title:before {
+    content: "\f0d8";
+}
+
+.filmography_item {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 22px;
+}
+
+.filmography_title>h4:before {
+    content: "";
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    background: #000;
+    border-radius: 50%;
+    margin: 13px 10px 0 0;
+    vertical-align: top;
+}
+
+.filmography_title>h4 {
+    padding: 0 22px 0 0;
+    margin-bottom: 15px;
+}
+
+.filmogrhpybox .filmography_item:last-child {
+    border-bottom: 0px;
+}
+
+.castmamber_news {
+    border-bottom: 0px;
+    margin-bottom: 20px;
+}
+
+.peoplesrch_box {
+    margin: 0 -7px;
+}
+
+.peoplesrch_box .peoplesrch_item {
+    padding: 7px;
+    width: 16.66%;
+    min-height: 200px;
+}
+
+.peoplesrch_item .pvr {
+    padding: 0 0 274px 0;
+}
+
+.personsrch_name {
+    text-align: center;
+    color: #000;
+}
+
+.nopersonimg .personsrch_name {
+    /*height: calc(100% - 28px);
+    background: #d7b865e3;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;*/
+}
+
+.person_introbox {
+    display: block;
+    overflow: hidden;
+}
+
+.timebio_person.person_introbox {
+    overflow: visible;
+}
+
+.people_search {
+    margin-bottom: 30px;
+}
+
+.castperson_images .vid_sliditem .media_mvslicbox .artinfoimg {
+   /* padding: 0;*/
+   padding-bottom: 56%;
+}
+
+.castperson_images .vid_sliditem .media_mvslicbox .artinfoimg .figcaption{
+    position: absolute;
+    z-index: 1;
+     height: 100%;
+    width: 100%;
+    color: #fff;
+    font-weight: 600;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    opacity: 0;
+    transition: 0.5s all;
+
+}
+
+.castperson_images .vid_sliditem .media_mvslicbox:hover .artinfoimg .figcaption{
+        z-index: 1;   
+    background: rgb(0 0 0 / 40%); 
+    opacity: 1;   
+}
+
+.castperson_images .vid_sliditem .media_mvslicbox:hover .playico{
+    opacity: 0;
+}
+
+.castperson_images.sd_m_data .vid_sliditem .media_mvslicbox:hover .playico{
+    opacity: 1;
+}
+
+
+.castperson_images .vid_sliditem .media_mvslicbox .artinfoimg .objctimg_box {
+    /*position: static;*/
+}
+
+.secnav_linkin {
+    list-style: none;
+    margin: 0;
+}
+
+.secnav_linkin li {
+    padding: 5px 20px;
+}
+
+.secnav_linkin li a {
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+.secnav_linkin {
+    border-top: 1px solid #B8B8B8;
+    overflow: auto;
+    border-bottom: 1px solid #B8B8B8;
+    margin-bottom: -1px;
+}
+
+
+/* width */
+.secnav_linkin::-webkit-scrollbar {
+    width: 0;
+    height: 5px;
+}
+
+/* Track */
+.secnav_linkin::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.secnav_linkin::-webkit-scrollbar-thumb {
+    background: #d7b865;
+    border-radius: 10px;
+    height: 0px;
+}
+
+/* Handle on hover */
+.secnav_linkin::-webkit-scrollbar-thumb:hover {
+    background: #cba235;
+}
+
+.photoslid.toplinesec {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.photoslid.toplinesec .top_txt {
+    margin-top: 0;
+}
+
+.vid_sliditem .playico>img {
+    display: inline-block;
+    margin: -20px auto 0;
+    max-width: 30px;
+}
+
+.telat_awards.toplinesec .top_txt {
+    padding-bottom: 0;
+}
+
+.telat_awards .top_txt p {
+    margin-top: 15px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.tlnt_awardsitem {
+    padding: 0 10px;
+    display: inline-block;
+}
+
+.tlnt_awardsitemin {
+    background: #F4F5F7;
+    padding: 10px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.tlnt_awardsitem .pvr {
+    height: 142px;
+    width: 99px;
+}
+
+.telnat_awardsinfo {
+    padding: 0 0 0 15px;
+    color: #000;
+}
+
+.telnat_awardsinfo p {
+    margin: 0;
+}
+
+.telnat_awardsinfo h5 {
+    margin: 3px;
+}
+
+.telnat_awardsinfo .moredetail {
+    color: #0000ff;
+}
+
+.telnat_awardsinfo .moredetail .fas {
+    display: inline-block;
+    margin: 7px 0 0 3px;
+    vertical-align: top;
+}
+
+.persnolinfo_box,
+.additionalgreyinfo_box,
+.didknowinfo_box {
+    background: #F4F5F7;
+    display: inline-block;
+    min-width: 500px;
+}
+
+.persnolinfo_box > p{
+    padding: 10px;
+}
+
+.persnolinfo_box ul,
+.additionalgreyinfo_box ul,
+.didknowinfo_box ul {
+    margin: 0;
+    list-style: none;
+    padding: 10px;
+}
+
+.persnolinfo_box ul li,
+.additionalgreyinfo_box ul li,
+.didknowinfo_box>ul>li {
+    border-top: 1px solid #C8C8C8;
+    padding: 6px 0;
+}
+
+.persnolinfo_box ul li:first-child,
+.additionalgreyinfo_box ul li:first-child,
+.didknowinfo_box ul li:first-child {
+    border-top: 0px;
+}
+
+.persnolinfo_box ul li p,
+.additionalgreyinfo_box ul li p,
+.didknowinfo_box ul li p {
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.factinfo_box ul {
+    margin: 0;
+    list-style: none;
+}
+
+
+.discnewsupdate#news_updates {
+    margin: 0;
+    border-bottom: 0px;
+}
+
+.secnav_link {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+.media_mvslicbox>a {
+    color: #000;
+}
+
+
+.photo_sliditem .photoinfoimg {
+    padding: 0 0 100% 0;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.photo_slidbox .slick-list {
+    /* padding: 0 90px 0 0; */
+}
+
+.photolike_sliditem {
+    padding: 10px;
+}
+
+.photolike_sliditem .photoinfoimg {
+    padding: 0 0 121% 0;
+}
+
+.personintro .personpc>img {
+    border: 1px solid #e8e8e8;
+}
+
+.secnav_link+.toplinesec {
+    padding-top: 0;
+}
+
+.secnav_link+.toplinesec .top_txt {
+    border-top: 0;
+}
+
+.person_introbox.open .person_info {
+    height: auto !important;
+    overflow: unset;
+    display: inline-block;
+}
+
+.secnav_linkin li{
+    border-bottom: 1px solid transparent;
+}
+
+.secnav_linkin li.active,
+.secnav_linkin li:hover{
+    border-bottom: 2px solid #D7B865;
+}
+
+.external_socials{
+    list-style: none;
+    margin-left: 0;
+}
+
+.external_socials li a{
+    color: #000;
+    margin-bottom: 10px;
+    display: inline-block;
+    transition: 0.5s all;
+}
+
+.external_socials li a:hover{
+    text-decoration: underline;
+    /* color: #D7B865; */
+    opacity: 0.7;
+}
+
+.external_socials li a span{
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.photoinfoimg figcaption{
+    position: absolute;
+    z-index: 1;
+    background: rgb(0 0 0 / 40%);
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-transform: capitalize;
+    font-weight: 600;
+    opacity: 0;
+    transition: 0.5s all;
+}
+
+.photoinfoimg:hover figcaption{
+    opacity: 1;
+}
+
+@-webkit-keyframes blinker {
+  from {opacity:1;}
+  to {opacity:0;}
+} 
+.latestinfo_realse{
+    text-decoration: blink;
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 0.6s;
+    -webkit-animation-iteration-count:16;
+    -webkit-animation-timing-function:ease-in-out;
+    -webkit-animation-direction: alternate;
+    font-weight: bold;
+}
+
+.popvidgallery{
+    margin-bottom: 15px;
+    display: block;
+}
+
+.mfp-arrow:active{
+    margin-top: 0;
+}
+
+/*responsivee*/
+
+@media(max-width: 991px) {
+
+    /*.castperson_images .photo_slidbox > div,*/
+    .peoplesrch_box .peoplesrch_item {
+        width: 33.33%;
+    }
+
+    .castperson_images .photo_slidbox>div {
+       /* width: 25%;*/
+    }
+
+    .filmography_title>h4:before {
+        margin: 10px 10px 0 0;
+    }
+
+    .telnat_awardsslider .slick-list {
+        padding: 0 130px 0 0;
+    }
+
+    .persnolinfo_box,
+    .additionalgreyinfo_box,
+    .didknowinfo_box {
+        min-width: auto;
+    }
+}
+
+
+@media(max-width: 768px) {
+    .personintro .personpc {
+        width: 232px;
+        
+    }
+    .personintro .personpc .personpcbox {
+        padding: 0 0 280px 0;
+    }
+
+
+    .person_info {
+        /* width: calc(100% - 232px); */
+    }
+
+    .filmography_title>h4:before {
+        margin: 7px 10px 0 0;
+    }
+
+    .castperson_images .photo_slidbox>div.vid_sliditem,
+    .castperson_images .photo_slidbox>div {
+        /*width: 50%;*/
+    }
+}
+
+@media(max-width: 640px) {
+    .personintro .personpc {
+        width: 232px;
+        float: none;
+        margin: 0;
+    }
+
+    .personintro .personpc .personpcbox {
+        padding: 0 0 280px 0;
+    }
+
+    .persondetail_box{
+        width: 100%;
+    }
+
+    .person_info {
+        width: 100%;
+        padding: 15px 0 0 0;
+    }
+
+    .movieknow_item {
+        width: 50%;
+        width: 33.33%;
+    }
+
+    .filmography_title>h4:before {
+        margin: 5px 10px 0 0;
+    }
+
+    .filmograhyinfo_col,
+    .filmograhyinfo_col ul li {
+        width: 100%;
+    }
+
+    .vid_sliditem .playico>img {
+        max-width: 20px;
+        margin: -10px auto 0;
+    }
+
+    .personintro .personpc, .person_introbox .personpc{
+        position: relative;
+    }
+}
+
+
+@media(max-width: 480px) {
+    .peoplesrch_box .peoplesrch_item {
+        width: 50%;
+        min-height: 180px;
+    }
+
+    .telnat_awardsslider .slick-list {
+        padding: 0;
+    }
+}
+
+@media(max-width: 400px) {
+    .movieknow_item {
+        width: 50%;
+    }
+}
+/*talet component css ends here*/
