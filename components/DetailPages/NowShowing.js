@@ -43,15 +43,15 @@ const NowShowing = ({ data }) => {
 
   return (
     <>
-      {/* {ShowtimeDataLoaded ? ( */}
-        <section className="nowshowing dlsecspace toplinesec pvr">
-          <div className="container">
-            <div className="top_txt df fww just-between">
+      {ShowtimeDataLoaded && (
+        <section className='nowshowing dlsecspace toplinesec pvr'>
+          <div className='container'>
+            <div className='top_txt df fww just-between'>
               <h2>
                 {' '}
-                Now Showing <i className="fal fa-angle-right"></i>
+                Now Showing <i className='fal fa-angle-right'></i>
               </h2>
-              <div className="weektabs">
+              <div className='weektabs'>
                 {ShowtimeData.show_time_days &&
                   ShowtimeData.show_time_days.map((sdata, sindex) => {
                     let classes = 'btn goldbtn';
@@ -66,17 +66,19 @@ const NowShowing = ({ data }) => {
                   })}
               </div>
             </div>
-            {ShowtimeDataLoaded && ShowtimeData.movie_datas ? (
-              <ShowtimeSlider data={ShowtimeData.movie_datas} />
-            ) : (
-              <div className="nowshow_sliderbox pvr" style={{'minHeight':200,'marginBottom':20}}>
-                <div className="secloder">
-                  <div className="secspinner"></div>
+            {ShowtimeDataLoaded &&
+              (ShowtimeData.movie_datas ? (
+                <ShowtimeSlider data={ShowtimeData.movie_datas} />
+              ) : (
+                <div className='nowshow_sliderbox pvr' style={{ 'minHeight': 200, 'marginBottom': 20 }}>
+                  <div className='secloder'>
+                    <div className='secspinner'></div>
+                  </div>
                 </div>
-              </div>
-            )}
+              ))}
           </div>
         </section>
+      )}
       {/* ) : (
         // <Loader />
         ''
