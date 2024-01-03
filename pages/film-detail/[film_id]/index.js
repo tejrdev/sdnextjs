@@ -210,7 +210,7 @@ const FilmDetail = ({ data, FilmDetailsData, film_id }) => {
             {FilmDetailsData.top_cast.length > 0 && <Casts data={FilmDetailsData.top_cast} />}
             {FilmDetailsData.movie_images && <Photos data={FilmDetailsData.movie_images} />}
             {FilmDetailsData.film_video && <Videos data={FilmDetailsData.film_video} />}
-            <section className="tecotherinfo">
+            {!advmovie && <section className="tecotherinfo">
               <div className="container">
                 <div className="tecinfo grid">
                   <div className="techinfoitem">
@@ -225,7 +225,7 @@ const FilmDetail = ({ data, FilmDetailsData, film_id }) => {
                   </div>
                 </div>
               </div>
-            </section>
+            </section>}
             <TheatreTiming film_id={film_id} mdetailshow={advmovie} />
 
             {(FilmDetailsData.plot_summary || FilmDetailsData.story_line) && <Summary data={FilmDetailsData} />}
