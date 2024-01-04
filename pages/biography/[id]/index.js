@@ -178,7 +178,7 @@ const Biography = ({ data, BiographyData }) => {
     }
   }, []);
 
-  if (BiographyData.error === 'Page Not Found!') {
+  if (BiographyData.error === 'Page Not Found!' || data.tag === null) {
     return (
       <>
         <Head>
@@ -219,7 +219,7 @@ const Biography = ({ data, BiographyData }) => {
       {BiographyData.talent_videos && <Videos data={BiographyData.talent_videos} />}
       {BiographyData.personal_details && <PersonalDetails data={BiographyData.personal_details} />}
       {BiographyData.Filmography.length > 1 && <KnownFor data={BiographyData.Filmography} />}
-      { (BiographyData.award_list.length >= 1 || BiographyData.award_descriptions) && <Awards a_list={BiographyData.award_list} a_dic ={BiographyData.award_descriptions} /> }
+      {(BiographyData.award_list.length >= 1 || BiographyData.award_descriptions) && <Awards a_list={BiographyData.award_list} a_dic={BiographyData.award_descriptions} />}
 
       {BiographyData.talent_movie_data.length >= 1 && <Filmography data={BiographyData.talent_movie_data} />}
       {BiographyData.facts && <Facts data={BiographyData.facts} name={BiographyData.name} />}

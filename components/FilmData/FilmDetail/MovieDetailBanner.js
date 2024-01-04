@@ -312,11 +312,11 @@ const MovieDetailBanner = ({ data, favoriteList, clickdata, advclick, mdetailsho
               </>
             )}
 
-            {data.format && (
+            {/* {data.format && (
               <p className='sd_m_data'>
                 <strong>Technical Specs: </strong> {data.format}
               </p>
-            )}
+            )} */}
             {data.comments && (
               <p className='sd_m_data'>
                 <strong>Note: </strong> {data.comments}

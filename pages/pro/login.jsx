@@ -64,9 +64,9 @@ export default function Login({ csrfToken }) {
     }
   }, []);
 
-  const passshow = () =>{
+  const passshow = () => {
     setPasswordVisible(!passwordVisible);
-  }
+  };
 
   async function signInWithGoogle() {
     if (typeof window !== 'undefined') {
@@ -263,11 +263,12 @@ export default function Login({ csrfToken }) {
           router.push('/pro');
         }, 86400000);
         setTimeout(function () {
-          if (typeLink === 'pro') {
-            router.push('/pro');
-          } else {
-            router.push('/pro/checkout');
-          }
+          // if (typeLink === 'pro') {
+          //   router.push('/pro');
+          // } else {
+          //   router.push('/pro/checkout');
+          // }
+          router.push('/pro');
           // window.location.href = "/pro";
           setSuccess('');
           setError('');
@@ -339,7 +340,7 @@ export default function Login({ csrfToken }) {
                         <strong htmlFor='userpassword'>Password</strong>
                         <sup>*</sup>
                       </label>
-                      <input type={passwordVisible ? 'text' : 'password'} value={pwd} minLength='8' placeholder='Enter password' onChange={(e) => setPwd(e.target.value)} className='passinfoinput'/>
+                      <input type={passwordVisible ? 'text' : 'password'} value={pwd} minLength='8' placeholder='Enter password' onChange={(e) => setPwd(e.target.value)} className='passinfoinput' />
                       <i className={passwordVisible ? 'eyeico fas fa-eye' : 'eyeico fas fa-eye-slash'} onClick={() => passshow('')}></i>
                     </div>
                     <div className='fieldbox df just-between checklink'>

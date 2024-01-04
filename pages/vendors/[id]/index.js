@@ -33,59 +33,50 @@ export async function getStaticProps(context) {
   // }
   // return { props: { data } };
 
-
   // static data
   let VendorDetailsData = await fetch(process.env.NEXT_PUBLIC_SD_API + '/detail_pages/vendors.php?url=' + process.env.NEXT_PUBLIC_MENU_URL + 'vendors/' + id + '&api_token=' + process.env.NEXT_PUBLIC_API_TOKEN);
   VendorDetailsData = await VendorDetailsData.json();
-
 
   return {
     props: { data, VendorDetailsData },
     revalidate: 10, // In seconds
   };
-
 }
-
 
 const Vendor = ({ data, VendorDetailsData }) => {
   const router = useRouter();
   const { id } = router.query;
-  const [favData,setFavData]    =useState(0);
+  const [favData, setFavData] = useState(0);
   //const [VendorDetailsDataLoaded, setVendorDetailsDataLoaded] = useState(false);
   //const [VendorDetailsData, setVendorDetailsData] = useState([]);
 
-  useEffect(() => {
-
-  }, []);
-
+  useEffect(() => {}, []);
 
   useEffect(() => {
     var LOGGED_EMAIL = localStorage.getItem('email');
-    const getFavLists =  () => {
+    const getFavLists = () => {
       var fav_saveurl = API_URL + '/login/favorite_get_all.php';
-       axios
+      axios
         .get(fav_saveurl, {
-        params: {
-          email: window.btoa(LOGGED_EMAIL),
-          fav_type:window.btoa('fav_vendors'),
-          fav_id :window.btoa(VendorDetailsData.id)
-        },
+          params: {
+            email: window.btoa(LOGGED_EMAIL),
+            fav_type: window.btoa('fav_vendors'),
+            fav_id: window.btoa(VendorDetailsData.id),
+          },
         })
         .then((res) => {
           setFavData(res.data);
-
         })
         .catch((err) => console.log('Vendors lists error ', err));
-      };
-      getFavLists();
-
+    };
+    getFavLists();
   }, []);
 
-  if (data.error === 'Page Not Found!') {
+  if (data.error === 'Page Not Found!' || data.tag === null) {
     return (
       <>
         <Head>
-          <meta name="robots" content="noindex" />
+          <meta name='robots' content='noindex' />
         </Head>
         <Page404 />
       </>
@@ -93,36 +84,32 @@ const Vendor = ({ data, VendorDetailsData }) => {
   }
   return (
     <>
-      <Head >
-        {(data.children[0].children).map( (item, index) => {
-            const attributes = item.tag.toUpperCase();
+      <Head>
+        {data.children[0].children.map((item, index) => {
+          const attributes = item.tag.toUpperCase();
 
-            switch (attributes) {
-              case 'TITLE':
-                return <title key={index}>{item.html}</title>;
-              case 'META':
-                const name = item.name || '';
-                if(name !== ''){
+          switch (attributes) {
+            case 'TITLE':
+              return <title key={index}>{item.html}</title>;
+            case 'META':
+              const name = item.name || '';
+              if (name !== '') {
                 return <meta key={index} name={item.name} content={item.content} />;
-                } else{
+              } else {
                 return <meta key={index} property={item.property} content={item.content} />;
-                }
-              case 'LINK':
-                return <link key={index} rel={item.rel} href={item.href} />;
-              case 'SCRIPT':
-                return (
-                  <script key={index} type={item.type} class={item.class}
-                     dangerouslySetInnerHTML={{ __html: item.html }}>
-                  </script>
-                );
-              default:
-                return null;
-            }
-          })}
+              }
+            case 'LINK':
+              return <link key={index} rel={item.rel} href={item.href} />;
+            case 'SCRIPT':
+              return <script key={index} type={item.type} class={item.class} dangerouslySetInnerHTML={{ __html: item.html }}></script>;
+            default:
+              return null;
+          }
+        })}
       </Head>
       {VendorDetailsData ? (
         <>
-          <TheatreInfo data={VendorDetailsData} requestfrom="VendorDetails"   favoriteList={favData}/>
+          <TheatreInfo data={VendorDetailsData} requestfrom='VendorDetails' favoriteList={favData} />
           {VendorDetailsData.products_services_data && <ProductData data={VendorDetailsData} />}
 
           {VendorDetailsData.galary_imgs.length > 0 ? <Gallery data={VendorDetailsData.galary_imgs} /> : null}

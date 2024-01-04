@@ -11,7 +11,6 @@ import FilmCalendar from '../../../components/DetailPages/Distributor/FilmCalend
 import NewsUpdate from '../../../components/FilmData/FilmDetail/NewsUpdate';
 import Page404 from '../../../components/Page404';
 
-
 const API_URL = process.env.NEXT_PUBLIC_SD_API;
 export async function getStaticPaths() {
   return {
@@ -33,9 +32,7 @@ export async function getStaticProps(context) {
     };
   }
   //DistributorDetailsData  static data
-  let DistributorDetailsData = await fetch(
-    process.env.NEXT_PUBLIC_SD_API + '/detail_pages/distributors_detail.php?url=' + process.env.NEXT_PUBLIC_MENU_URL + 'studios-distributors/' + id + '&page_no=' + 1 + '&order_choice=' + 'releasedate' + '&undated=""&api_token=' + process.env.NEXT_PUBLIC_API_TOKEN
-  );
+  let DistributorDetailsData = await fetch(process.env.NEXT_PUBLIC_SD_API + '/detail_pages/distributors_detail.php?url=' + process.env.NEXT_PUBLIC_MENU_URL + 'studios-distributors/' + id + '&page_no=' + 1 + '&order_choice=' + 'releasedate' + '&undated=""&api_token=' + process.env.NEXT_PUBLIC_API_TOKEN);
   DistributorDetailsData = await DistributorDetailsData.json();
 
   return {
@@ -44,9 +41,7 @@ export async function getStaticProps(context) {
   };
 }
 
-
-
-const Distributor = ({ data , DistributorDetailsData }) => {
+const Distributor = ({ data, DistributorDetailsData }) => {
   const router = useRouter();
   const { id } = router.query;
   const [DistributorDetailsDataLoaded, setDistributorDetailsDataLoaded] = useState(false);
@@ -54,27 +49,26 @@ const Distributor = ({ data , DistributorDetailsData }) => {
   const [distributorMovieData, setDistributorMovieData] = useState(DistributorDetailsData.movies);
   const [distributorMoviePage, setDistributorMoviePage] = useState(1);
   const [distributorMovieSortBy, setDistributorMovieSortBy] = useState('releasedate');
-  const [favData,setFavData]    =useState(0);
+  const [favData, setFavData] = useState(0);
 
   useEffect(() => {
     var LOGGED_EMAIL = localStorage.getItem('email');
-    const getFavLists =  () => {
+    const getFavLists = () => {
       var fav_saveurl = API_URL + '/login/favorite_get_all.php';
-       axios
+      axios
         .get(fav_saveurl, {
-        params: {
-          email: window.btoa(LOGGED_EMAIL),
-          fav_type:window.btoa('fav_dist_listing'),
-          fav_id :window.btoa(DistributorDetailsData.id)
-        },
+          params: {
+            email: window.btoa(LOGGED_EMAIL),
+            fav_type: window.btoa('fav_dist_listing'),
+            fav_id: window.btoa(DistributorDetailsData.id),
+          },
         })
         .then((res) => {
           setFavData(res.data);
         })
         .catch((err) => console.log('Distributor lists error ', err));
-      };
-      getFavLists();
-
+    };
+    getFavLists();
   }, []);
   useEffect(() => {
     loadDetailPageData();
@@ -113,9 +107,7 @@ const Distributor = ({ data , DistributorDetailsData }) => {
   }, [DistributorDetailsDataLoaded]);
   const loadDetailPageData = () => {
     axios
-      .get(
-        process.env.NEXT_PUBLIC_SD_API + '/detail_pages/distributors_detail.php?url=' + process.env.NEXT_PUBLIC_MENU_URL + 'studios-distributors/' + id + '&page_no=' + distributorMoviePage + '&order_choice=' + distributorMovieSortBy + '&undated=""&api_token=' + process.env.NEXT_PUBLIC_API_TOKEN
-      )
+      .get(process.env.NEXT_PUBLIC_SD_API + '/detail_pages/distributors_detail.php?url=' + process.env.NEXT_PUBLIC_MENU_URL + 'studios-distributors/' + id + '&page_no=' + distributorMoviePage + '&order_choice=' + distributorMovieSortBy + '&undated=""&api_token=' + process.env.NEXT_PUBLIC_API_TOKEN)
       .then((res) => {
         if (distributorMoviePage === 1) {
           //setDistributorDetailsData(res.data);
@@ -126,11 +118,11 @@ const Distributor = ({ data , DistributorDetailsData }) => {
       .catch((err) => console.log(err));
   };
 
-  if (data.error === 'Page Not Found!') {
+  if (data.error === 'Page Not Found!' || data.tag === null) {
     return (
       <>
         <Head>
-          <meta name="robots" content="noindex" />
+          <meta name='robots' content='noindex' />
         </Head>
         <Page404 />
       </>
@@ -138,45 +130,42 @@ const Distributor = ({ data , DistributorDetailsData }) => {
   }
   return (
     <>
-      <Head >
-        {(data.children[0].children).map( (item, index) => {
-            const attributes = item.tag.toUpperCase();
+      <Head>
+        {data.children[0].children.map((item, index) => {
+          const attributes = item.tag.toUpperCase();
 
-            switch (attributes) {
-              case 'TITLE':
-                return <title key={index}>{item.html}</title>;
-              case 'META':
-                const name = item.name || '';
-                if(name !== ''){
+          switch (attributes) {
+            case 'TITLE':
+              return <title key={index}>{item.html}</title>;
+            case 'META':
+              const name = item.name || '';
+              if (name !== '') {
                 return <meta key={index} name={item.name} content={item.content} />;
-                } else{
+              } else {
                 return <meta key={index} property={item.property} content={item.content} />;
-                }
-              case 'LINK':
-                return <link key={index} rel={item.rel} href={item.href} />;
-              case 'SCRIPT':
-                return (
-                  <script key={index} type={item.type} class={item.class}
-                     dangerouslySetInnerHTML={{ __html: item.html }}>
-                  </script>
-                );
-              default:
-                return null;
-            }
-          })}
+              }
+            case 'LINK':
+              return <link key={index} rel={item.rel} href={item.href} />;
+            case 'SCRIPT':
+              return <script key={index} type={item.type} class={item.class} dangerouslySetInnerHTML={{ __html: item.html }}></script>;
+            default:
+              return null;
+          }
+        })}
       </Head>
-      {/*DistributorDetailsDataLoaded ? (*/
+      {
+        /*DistributorDetailsDataLoaded ? (*/
         <>
-          <TheatreInfo data={DistributorDetailsData} requestfrom="Distributor" favoriteList={favData} />
+          <TheatreInfo data={DistributorDetailsData} requestfrom='Distributor' favoriteList={favData} />
           {/*DistributorDetailsData.galary_imgs && <Gallery data={DistributorDetailsData.galary_imgs} />*/}
           {/* <UserComments /> */}
           {distributorMovieData.list.length > 1 && <FilmCalendar data={distributorMovieData} setCurrentPage={setCurrentPage} sortBy={distributorMovieSortBy} setSortBy={setSortBy} />}
-          {DistributorDetailsData.news && DistributorDetailsData.news.length > 0 && (
-          <NewsUpdate data={DistributorDetailsData.news} /> )}
+          {DistributorDetailsData.news && DistributorDetailsData.news.length > 0 && <NewsUpdate data={DistributorDetailsData.news} />}
         </>
-      /*) : (
+        /*) : (
         <Loader />
-      )*/}
+      )*/
+      }
     </>
   );
 };

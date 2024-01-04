@@ -215,7 +215,7 @@ const FilmMedia_data = ({ data, BiographymediaData }) => {
     }
   }, []);
 
-  if (BiographymediaData.error === 'Page Not Found!') {
+  if (BiographymediaData.error === 'Page Not Found!' || data.tag === null) {
     return (
       <>
         <Head>

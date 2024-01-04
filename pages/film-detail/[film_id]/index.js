@@ -25,8 +25,6 @@ import BoxSummary from '@/components/FilmData/FilmDetail/BoxSummary';
 
 
 
-
-
 const $ = require('jquery');
 export async function getStaticPaths() {
   return {
@@ -161,7 +159,7 @@ const FilmDetail = ({ data, FilmDetailsData, film_id }) => {
   //     })
   //     .catch((err) => console.log(err));
   // };
-  if (FilmDetailsData.error === 'Page Not Found!') {
+  if (FilmDetailsData.error === 'Page Not Found!' || data.tag === null) {
     return (
       <>
         <Head>
@@ -210,6 +208,7 @@ const FilmDetail = ({ data, FilmDetailsData, film_id }) => {
             {FilmDetailsData.top_cast.length > 0 && <Casts data={FilmDetailsData.top_cast} />}
             {FilmDetailsData.movie_images && <Photos data={FilmDetailsData.movie_images} />}
             {FilmDetailsData.film_video && <Videos data={FilmDetailsData.film_video} />}
+
             <TheatreTiming film_id={film_id} mdetailshow={advmovie} />
 
             {(FilmDetailsData.plot_summary || FilmDetailsData.story_line) && <Summary data={FilmDetailsData} />}

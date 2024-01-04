@@ -236,7 +236,7 @@ const SignUp = () => {
           }, 86400000);
           setTimeout(function () {
             // window.location.href = "/pro/thankyou";
-            router.push('/pro/checkout');
+            router.push('/pro/thankyou'); ///checkout
             setSuccess('');
             setError('');
           }, 1000);
@@ -327,20 +327,21 @@ const SignUp = () => {
           <h1 className='text-center '>Sign Up Now to Try It for Free</h1>
           <div className='pricesignup df fww'>
             <div className='pricinginfo'>
-              <h3>Pricing</h3>
-              <h5>Choose Your Billing Option</h5>
-              <Planselect />
+              {/* <h3>Pricing</h3>*/}
+              <h5>No credit card required</h5>
               <p>
-                Your subscription <strong>begins with a 30-day free trial</strong>
+                Your subscription <strong>begins with a 90-day free trial</strong>
               </p>
               <ul className='goldbullet'>
                 <li>Cancel anytime</li>
-                <li>
+                {/* <li>
                   <strong>You won't be charged</strong> if you cancel before <strong>{trialEndDate}</strong>
-                </li>
+                </li> */}
                 <li>We’ll email a reminder two days before your free trial ends</li>
-                <li>Payment details provided in the next step</li>
+                {/* <li>Payment details provided in the next step</li> */}
               </ul>
+              <h5>Available plans</h5>
+              <Planselect />
             </div>
             <div className='login_signin'>
               <div className='loginbox'>

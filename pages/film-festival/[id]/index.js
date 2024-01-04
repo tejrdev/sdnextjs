@@ -31,9 +31,7 @@ export async function getStaticProps(context) {
     };
   }
   //FilmFestivalDetailsData  static data
-  let FilmFestivalDetailsData = await fetch(
-    process.env.NEXT_PUBLIC_SD_API + '/detail_pages/film_festival.php?url=' + process.env.NEXT_PUBLIC_MENU_URL + 'film-festival/' + id + '&api_token=' + process.env.NEXT_PUBLIC_API_TOKEN
-  );
+  let FilmFestivalDetailsData = await fetch(process.env.NEXT_PUBLIC_SD_API + '/detail_pages/film_festival.php?url=' + process.env.NEXT_PUBLIC_MENU_URL + 'film-festival/' + id + '&api_token=' + process.env.NEXT_PUBLIC_API_TOKEN);
   FilmFestivalDetailsData = await FilmFestivalDetailsData.json();
 
   return {
@@ -42,32 +40,30 @@ export async function getStaticProps(context) {
   };
 }
 
-const FilmFestival = ({ data , FilmFestivalDetailsData }) => {
+const FilmFestival = ({ data, FilmFestivalDetailsData }) => {
   const router = useRouter();
   const { id } = router.query;
   const [FilmFestivalDetailsDataLoaded, setFilmFestivalDetailsDataLoaded] = useState(false);
-  const [favData,setFavData]    =useState(0);
+  const [favData, setFavData] = useState(0);
   //const [FilmFestivalDetailsData, setFilmFestivalDetailsData] = useState([]);
   useEffect(() => {
     var LOGGED_EMAIL = localStorage.getItem('email');
-    const getFavLists =  () => {
+    const getFavLists = () => {
       var fav_saveurl = API_URL + '/login/favorite_get_all.php';
-       axios
+      axios
         .get(fav_saveurl, {
-        params: {
-          email: window.btoa(LOGGED_EMAIL),
-          fav_type:window.btoa('fav_filmfestivals'),
-          fav_id :window.btoa(FilmFestivalDetailsData.id)
-        },
+          params: {
+            email: window.btoa(LOGGED_EMAIL),
+            fav_type: window.btoa('fav_filmfestivals'),
+            fav_id: window.btoa(FilmFestivalDetailsData.id),
+          },
         })
         .then((res) => {
-
           setFavData(res.data);
         })
         .catch((err) => console.log('Film Festivals lists error ', err));
-      };
-      getFavLists();
-
+    };
+    getFavLists();
   }, []);
   useEffect(() => {
     loadDetailPageData();
@@ -102,11 +98,11 @@ const FilmFestival = ({ data , FilmFestivalDetailsData }) => {
       .catch((err) => console.log(err));
   };
 
-  if (data.error === 'Page Not Found!') {
+  if (data.error === 'Page Not Found!' || data.tag === null) {
     return (
       <>
         <Head>
-          <meta name="robots" content="noindex" />
+          <meta name='robots' content='noindex' />
         </Head>
         <Page404 />
       </>
@@ -114,49 +110,47 @@ const FilmFestival = ({ data , FilmFestivalDetailsData }) => {
   }
   return (
     <>
-      <Head >
-        {(data.children[0].children).map( (item, index) => {
-            const attributes = item.tag.toUpperCase();
+      <Head>
+        {data.children[0].children.map((item, index) => {
+          const attributes = item.tag.toUpperCase();
 
-            switch (attributes) {
-              case 'TITLE':
-                return <title key={index}>{item.html}</title>;
-              case 'META':
-                const name = item.name || '';
-                if(name !== ''){
+          switch (attributes) {
+            case 'TITLE':
+              return <title key={index}>{item.html}</title>;
+            case 'META':
+              const name = item.name || '';
+              if (name !== '') {
                 return <meta key={index} name={item.name} content={item.content} />;
-                } else{
+              } else {
                 return <meta key={index} property={item.property} content={item.content} />;
-                }
-              case 'LINK':
-                return <link key={index} rel={item.rel} href={item.href} />;
-              case 'SCRIPT':
-                return (
-                  <script key={index} type={item.type} class={item.class}
-                     dangerouslySetInnerHTML={{ __html: item.html }}>
-                  </script>
-                );
-              default:
-                return null;
-            }
-          })}
+              }
+            case 'LINK':
+              return <link key={index} rel={item.rel} href={item.href} />;
+            case 'SCRIPT':
+              return <script key={index} type={item.type} class={item.class} dangerouslySetInnerHTML={{ __html: item.html }}></script>;
+            default:
+              return null;
+          }
+        })}
       </Head>
-      {/*FilmFestivalDetailsDataLoaded ? (*/
+      {
+        /*FilmFestivalDetailsDataLoaded ? (*/
         <>
-          <TheatreInfo data={FilmFestivalDetailsData} requestfrom="filmfestival"  favoriteList={favData} />
+          <TheatreInfo data={FilmFestivalDetailsData} requestfrom='filmfestival' favoriteList={favData} />
           {FilmFestivalDetailsData.film_festivals ? (
             <>
               {FilmFestivalDetailsData.film_festivals.map((item, index) => {
-                return <FilmFestivals data={item} data_2 ={''} key={index} />;
+                return <FilmFestivals data={item} data_2={''} key={index} />;
               })}
             </>
           ) : null}
           {/* <UserComments /> */}
           {FilmFestivalDetailsData.news.lenght > 1 && <NewsUpdate data={FilmFestivalDetailsData.news} />}
         </>
-      /*) : (
+        /*) : (
         <Loader />
-      )*/}
+      )*/
+      }
     </>
   );
 };

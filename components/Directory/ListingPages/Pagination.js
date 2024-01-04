@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const Pagination = ({ totalPages, setCurrentPage, requestFrom }) => {
-  requestFrom = requestFrom || "";
+  requestFrom = requestFrom || '';
   const [currentDistPage, setcurrentDistPage] = useState(1);
 
   const setDistributorPage = (e) => {
-    const currPage = parseInt(e.target.attributes["data-page"].value);
+    const currPage = parseInt(e.target.attributes['data-page'].value);
     setCurrentPage(currPage);
     setcurrentDistPage(currPage);
+    const elem = document.getElementsByClassName('alldist_list')[0];
+    elem?.scrollIntoView({
+      behavior: 'smooth',
+    });
   };
   const pages = Array.apply(null, Array(totalPages)).map(function (x, i) {
     return i;
@@ -15,14 +19,22 @@ const Pagination = ({ totalPages, setCurrentPage, requestFrom }) => {
   const PrevClick = (e) => {
     setCurrentPage(currentDistPage - 1);
     setcurrentDistPage(currentDistPage - 1);
+    const elem = document.getElementsByClassName('alldist_list')[0];
+    elem?.scrollIntoView({
+      behavior: 'smooth',
+    });
   };
   const NextClick = (e) => {
     setCurrentPage(currentDistPage + 1);
     setcurrentDistPage(currentDistPage + 1);
+    const elem = document.getElementsByClassName('alldist_list')[0];
+    elem?.scrollIntoView({
+      behavior: 'smooth',
+    });
   };
 
   return (
-    <div className={"distfilm_pagenation " + (requestFrom === "" ? "df fww" : "")} id='distibuotr-pag-nav' style={requestFrom !== "" ? { width: "100%" } : null}>
+    <div className={'distfilm_pagenation ' + (requestFrom === '' ? 'df fww' : '')} id='distibuotr-pag-nav' style={requestFrom !== '' ? { width: '100%' } : null}>
       <div id='distibuotr-pagination' className='text-center'>
         <nav className='navigation pagination' aria-label='Posts'>
           <span className='h2 screen-reader-text'>Posts navigation</span>
@@ -35,7 +47,7 @@ const Pagination = ({ totalPages, setCurrentPage, requestFrom }) => {
               )}
 
               {pages.map((item, index) => {
-                const classname = currentDistPage === item + 1 ? "page-numbers current" : "page-numbers";
+                const classname = currentDistPage === item + 1 ? 'page-numbers current' : 'page-numbers';
                 if (index < 2 || (index > currentDistPage - 5 && index < currentDistPage + 3) || index > totalPages - 3) {
                   return (
                     <span key={index} aria-current='page' className={classname} data-page={item + 1} onClick={setDistributorPage}>
@@ -64,7 +76,7 @@ const Pagination = ({ totalPages, setCurrentPage, requestFrom }) => {
           )}
         </nav>
       </div>
-      {requestFrom === "" || requestFrom === "Talent" ? (
+      {requestFrom === '' || requestFrom === 'Talent' ? (
         <div className='pageof'>
           {currentDistPage} of {totalPages}
         </div>
