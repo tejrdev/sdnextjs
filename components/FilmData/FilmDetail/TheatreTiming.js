@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 
+import { FaChevronRight } from "react-icons/fa6";
+
 const LOADER = 'Loading...';
 
 const TheatreTiming = ({ film_id, mdetailshow }) => {
@@ -103,10 +105,26 @@ const TheatreTiming = ({ film_id, mdetailshow }) => {
 
   return (
     <>
-      {ShowTimeDataLoaded && !mdetailshow && ShowTimeData.showtime_list.length >= 1 && (
+      
         <section className='theater_timing toplinesec'>
           <div className='container'>
             <div className='top_txt'>
+              <div className="tecotherinfo">
+                  <div className="tecinfo grid">
+                    <div className="techinfoitem">
+                      <h4>Technical Specifications <FaChevronRight /></h4>
+                      <p><strong> Sound Mix: </strong> Dolby Atmos</p>
+                      <p><strong> Aspect Ratio: </strong> 2.39 : 1</p>
+                    </div>
+                    <div className="techinfoitem">
+                      <h4>Other Details <FaChevronRight /></h4>
+                      <p><strong> Country of Origin:  </strong> USA </p>
+                      <p><strong> Language:  </strong> English</p>
+                    </div>
+                  </div>
+              </div>
+              {ShowTimeDataLoaded && !mdetailshow && ShowTimeData.showtime_list.length >= 1 && (
+                <>
               <h2>
                 Showtimes <i className='fal fa-angle-right'></i>
               </h2>
@@ -135,7 +153,11 @@ const TheatreTiming = ({ film_id, mdetailshow }) => {
                   (U.S. Only)
                 </div>
               </div>
+              </>
+              )}
             </div>
+            {ShowTimeDataLoaded && !mdetailshow && ShowTimeData.showtime_list.length >= 1 && (
+              
             <Slider ref={sliderRef} {...SliderSetting} className='theatershowtime_slider roundslickarrow'>
               {TheatreZipDataLoaded &&
                 ShowTimeData.showtime_list &&
@@ -166,10 +188,10 @@ const TheatreTiming = ({ film_id, mdetailshow }) => {
                   );
                 })}
             </Slider>
+            )}
           </div>
         </section>
-      )}
-    </>
+        </>
   );
 };
 

@@ -23,7 +23,7 @@ import Page404 from '../../../components/Page404';
 import Detailtab from '@/components/FilmData/FilmDetail/DetailTab';
 import BoxSummary from '@/components/FilmData/FilmDetail/BoxSummary';
 
-import { FaChevronRight } from "react-icons/fa6";
+
 
 
 
@@ -210,22 +210,6 @@ const FilmDetail = ({ data, FilmDetailsData, film_id }) => {
             {FilmDetailsData.top_cast.length > 0 && <Casts data={FilmDetailsData.top_cast} />}
             {FilmDetailsData.movie_images && <Photos data={FilmDetailsData.movie_images} />}
             {FilmDetailsData.film_video && <Videos data={FilmDetailsData.film_video} />}
-            {!advmovie && <section className="tecotherinfo">
-              <div className="container">
-                <div className="tecinfo grid">
-                  <div className="techinfoitem">
-                    <h4>Technical Specifications <FaChevronRight /></h4>
-                    <p><strong> Sound Mix: </strong> Dolby Atmos</p>
-                    <p><strong> Aspect Ratio: </strong> 2.39 : 1</p>
-                  </div>
-                  <div className="techinfoitem">
-                    <h4>Other Details <FaChevronRight /></h4>
-                    <p><strong> Country of Origin:  </strong> USA </p>
-                    <p><strong> Language:  </strong> English</p>
-                  </div>
-                </div>
-              </div>
-            </section>}
             <TheatreTiming film_id={film_id} mdetailshow={advmovie} />
 
             {(FilmDetailsData.plot_summary || FilmDetailsData.story_line) && <Summary data={FilmDetailsData} />}
