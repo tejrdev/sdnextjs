@@ -11,7 +11,7 @@ const Pagetitle = (props) => {
         {props.back && (
           <div className='backlink'>
             <Link href={props.back}>
-              <i class='far fa-long-arrow-left'></i>{' '}
+              <i className='far fa-long-arrow-left'></i>{' '}
               <span>
                 <strong>Back To Newsletters</strong>
               </span>

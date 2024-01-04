@@ -85,7 +85,7 @@ const FilmCalendar = ({ data, setCurrentPage, sortBy, setSortBy }) => {
             Film Calendar <i className="fal fa-angle-right"></i>
           </h3>
           <div className="shortingbox df fww">
-            <label for="">Sort by</label>
+            <label htmlFor="">Sort by</label>
             <div className="shortitem">
               <span onClick={setDistributorSortBy} className={sortBy === 'releasedate' ? 'active' : ''} name="releasedate">
                 Release Date

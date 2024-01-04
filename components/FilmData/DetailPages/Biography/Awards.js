@@ -66,7 +66,7 @@ const Awards = ({a_dic , a_list}) => {
                         className="objctimg_box"
                       /> : 
                       <p className="awardplacetxt uppercase" title={item.award_name}><strong><span>{item.award_year}</span>
-                      <span class="awardname">{item.award_name}</span></strong></p>
+                      <span className="awardname">{item.award_name}</span></strong></p>
                       }
                     </figure>
                     <div className="telnat_awardsinfo">

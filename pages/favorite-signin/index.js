@@ -40,7 +40,7 @@ return (<>
     </div>
     <div className="signing_inbox">
       <div className="fieldbox">
-        <label for="user">
+        <label htmlFor="user">
           <strong>Email</strong>
           <sup>*</sup>
         </label>
@@ -49,7 +49,7 @@ return (<>
       </div>
       <div className="fieldbox">
         <label>
-          <strong for="userpassword">Password</strong>
+          <strong htmlFor="userpassword">Password</strong>
           <sup>*</sup>
         </label>
         <input type={passwordVisible ? 'text' : 'password'} className='passinfoinput smallinput' minlength="8" placeholder="Enter password" value="" />
@@ -58,7 +58,7 @@ return (<>
       <div className="fieldbox df just-between checklink">
         <div className="checklinkitem">
           <input type="checkbox" name="remember" className="displaynone" id="rememberCheck" value="Yes" checked="" />
-          <label for="rememberCheck">
+          <label htmlFor="rememberCheck">
             <span>Remember me</span>
           </label>
         </div>
@@ -107,7 +107,7 @@ return (<>
       <div className="fieldbox df just-between checklink">
         <div className="checklinkitem">
           <input type="checkbox" name="term" id="termCheck" value="yes" checked="" style={{display: "none"}} />
-          <label for="termCheck">
+          <label htmlFor="termCheck">
             <span>I agree to the <a href={'https://live.screendollars.com/wp-content/themes/screendollars/assets/doc/Terms-of-use-agreement-Screendollars.pdf'} target='_blank'>Terms &amp; Conditions.</a>
             </span>
           </label>

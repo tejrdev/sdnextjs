@@ -251,7 +251,7 @@ const Logout = () => {
 
                       return (
                         <>
-                          <li className='pvr notification' id={id}>
+                          <li className='pvr notification' id={id} key={index}>
                             <span onClick={() => redirectMessage(url)}> {notifyMessage} </span>{' '}
                             <span className='notifyclose' onClick={() => dismissSingle(id, type)}>
                               {' '}

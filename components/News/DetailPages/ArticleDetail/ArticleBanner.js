@@ -17,7 +17,7 @@ const ArticleBanner = ({ data }) => {
             <h1>{data.title}</h1>
           </div>
         </div>
-        <div class="vid_caption text-center" dangerouslySetInnerHTML={{ __html: data.img_caption }}></div>
+        <div className="vid_caption text-center" dangerouslySetInnerHTML={{ __html: data.img_caption }}></div>
       </div>
     </section>
   );

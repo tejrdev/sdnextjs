@@ -107,16 +107,16 @@ function Managelisting({talentfeed}) {
                         <option value="Canada">Canada</option>
                      </select>
                   </div>
-                  <div class="profile_field">
-                     <p class="labeltxt">Phone</p>
-                     <div class="phonebox pvr">
-                        <select class="countrycode" placeholder="+1" name="countryCode">
+                  <div className="profile_field">
+                     <p className="labeltxt">Phone</p>
+                     <div className="phonebox pvr">
+                        <select className="countrycode" placeholder="+1" name="countryCode">
                            <option value="+1" selected="">+1</option>
                            <option value="+2">+2</option>
                            <option value="+3">+3</option>
                            <option value="+4">+4</option>
                         </select>
-                        <input type="text" class="proinputfield" name="phone" placeholder="e.g. (800) 555-1212" value="" />
+                        <input type="text" className="proinputfield" name="phone" placeholder="e.g. (800) 555-1212" value="" />
                      </div>
                   </div>
                   <div className="profile_field">
@@ -139,7 +139,7 @@ function Managelisting({talentfeed}) {
                         )}
                      </ul>
                      <div className="from_fieldbox df fww item-center">
-                        <select class="sociallinks" placeholder="select" name="sociallinks" ref={socialnameref}>
+                        <select className="sociallinks" placeholder="select" name="sociallinks" ref={socialnameref}>
                            <option value="YouTube" selected="">YouTube</option>
                            <option value="Instagram">Instagram</option>
                            <option value="Facebook">Facebook</option>
@@ -181,14 +181,14 @@ function Managelisting({talentfeed}) {
                </div>
                <ul className="cntinfo df fww">
                   <li>
-                     <i class="fal fa-user"></i>
+                     <i className="fal fa-user"></i>
                      <p>Adam Aron</p>
                      <p>Chairman & CEO</p>
                      <p>+1 (205) 621-8884</p>
                      <p>aaron@amctheatres.com</p>
                   </li>
                   <li>
-                     <i class="fal fa-user"></i>
+                     <i className="fal fa-user"></i>
                      <p>Adam Aron</p>
                      <p>Chairman & CEO</p>
                      <p>+1 (205) 621-8884</p>
@@ -209,16 +209,16 @@ function Managelisting({talentfeed}) {
                         <input type="text" placeholder='Enter Position' className='proinputfield' />
                      </div>
                   </div>
-                  <div class="profile_field">
-                     <p class="labeltxt">Phone</p>
-                     <div class="phonebox pvr">
-                        <select class="countrycode" placeholder="+1" name="countryCode">
+                  <div className="profile_field">
+                     <p className="labeltxt">Phone</p>
+                     <div className="phonebox pvr">
+                        <select className="countrycode" placeholder="+1" name="countryCode">
                            <option value="+1" selected="">+1</option>
                            <option value="+2">+2</option>
                            <option value="+3">+3</option>
                            <option value="+4">+4</option>
                         </select>
-                        <input type="text" class="proinputfield" name="phone" placeholder="e.g. (800) 555-1212" value="" />
+                        <input type="text" className="proinputfield" name="phone" placeholder="e.g. (800) 555-1212" value="" />
                      </div>
                   </div>
                   <div className="profile_field">

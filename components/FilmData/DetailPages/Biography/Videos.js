@@ -142,7 +142,7 @@ const Videos = ({ data }) => {
                           <div className="artinfoimg  pvr">
                             <img
                               src={item.bg_url ? item.bg_url : 'https://i.ytimg.com/vi/' + yourl + '/hqdefault.jpg'} alt="" className="objctimg_box"/>
-                          <div class="figcaption" title={vidtitle}>
+                          <div className="figcaption" title={vidtitle}>
                           <span>{vidtitle}</span></div>
                           </div>
                         </div>
