@@ -75,14 +75,15 @@ export const Planselect = ({ activeprice }) => {
       <div className='planbox df fww just-between'>
         {dataPlan.map((item, i) => (
           <div
-            className={'planboxitem ' + (item.recurring.interval === planname ? 'active' : '')}
+            className={'planboxitem '} // + (item.recurring.interval === planname ? 'active' : '')
             key={i}
             data-plan={item.nickname}
             data-price={item.unit_amount / 100}
-            onClick={() => {
-              setPlanname(item.recurring.interval);
-              priceClick(item.unit_amount / 100);
-            }}>
+            // onClick={() => {
+            //   setPlanname(item.recurring.interval);
+            //   priceClick(item.unit_amount / 100);
+            // }}
+          >
             <h3>
               {item.recurring.interval === 'month' ? 'Monthly' : 'Annual'} {item.recurring.interval === 'year' ? <span> {annualSaving}</span> : null}
             </h3>
