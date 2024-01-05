@@ -76,12 +76,12 @@ function Directory({ data }) {
                   return (
                     <div className="detailinfo_item" key={id}>
                       <Link href={item.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>
-                        <div className="bnr_boxslide pvr vidoin">
+                        <div className="bnr_boxslide pvr vidoin sponcehov">
                           <div className="startsponser">
                             <div className="starico">
                               <i className="fas fa-star"></i>
                             </div>
-                            Sponsor
+                            Featured
                           </div>
                           <figure className="pvr">
                             <img src={item.img} alt="" className="objctimg_box" />
@@ -156,12 +156,12 @@ function Directory({ data }) {
           <div className="directri_right">
             <div className="dirctrgt-top df fww">
               <div className="vndrinbox ">
-                <div className="hmgrybg pvr">
+                <div className="hmgrybg pvr sponcehov">
                   <div className="startsponser">
                     <div className="starico">
                       <i className="fas fa-star"></i>
                     </div>
-                    Sponsor
+                    Featured
                   </div>
                   <div className="vndrinbox_media">
                     <Link href={data.multimedia_section.img.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')} className="image-link">

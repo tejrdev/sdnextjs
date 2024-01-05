@@ -12139,33 +12139,6 @@ span.closead:before {
 }
 
 /* dirwctory start sponser */
-.startsponser {
-  display: inline-block;
-  background: #d7b865;
-  border-radius: 40px;
-  padding: 4px 11px 2px 7px;
-  width: 30px;
-  overflow: hidden;
-  height: 30px;
-  transition: 0.5s all;
-  white-space: nowrap;
-  font-weight: 600;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  color: #000;
-  line-height: normal;
-  z-index: 2;
-}
-
-.startsponser:hover {
-  width: 99px;
-}
-
-.startsponser:hover .starico {
-  transform: rotate(0deg);
-}
-
 .starico {
   display: inline-block;
   vertical-align: middle;
@@ -13293,11 +13266,17 @@ span.closead:before {
   z-index: 2;
 }
 
-.startsponser:hover {
+.sponcerline {
+  border: 2px solid #D7B865;
+}
+
+.startsponser:hover,
+.sponcehov:hover .startsponser {
   width: 114px;
 }
 
-.startsponser:hover .starico {
+.startsponser:hover .starico,
+.sponcehov:hover .starico {
   transform: rotate(0deg) translateY(-2px);
 }
 

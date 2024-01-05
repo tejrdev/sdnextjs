@@ -9,12 +9,12 @@ function ExibitionBox({ data }) {
         <h4>
           <Link href={data.url.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>{data.title}</Link>
         </h4>
-        <div className="exhibox_media">
+        <div className="exhibox_media sponcehov">
           <div className="startsponser">
             <div className="starico">
               <i className="fas fa-star"></i>
             </div>
-            Sponsor
+            Featured
           </div>
           <div className="exhibox_mediaslide">
             <div className="exhibox_mediasliditem">

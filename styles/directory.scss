@@ -329,11 +329,17 @@
     z-index: 2;
 }
 
-.startsponser:hover {
+.sponcerline{
+    border: 2px solid #D7B865;
+}
+
+.startsponser:hover,
+.sponcehov:hover .startsponser {
     width: 114px;
 }
 
-.startsponser:hover .starico {
+.startsponser:hover .starico,
+.sponcehov:hover .starico {
     transform: rotate(0deg) translateY(-2px);
 }
 

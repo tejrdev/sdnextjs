@@ -166,12 +166,12 @@ function VendorBox({ data, key_data, tag_data }) {
   return (
     <div className="vendorbox df fww just-between">
       <div className="vendfeature">
-        <div className="vendbox_media">
+        <div className="vendbox_media sponcehov">
           <div className="startsponser">
             <div className="starico">
               <i className="fas fa-star"></i>
             </div>
-            Sponsor
+            Featured
           </div>
           <div className="vendbox_mediaslide">
             <div className="vendbox_mediasliditem">

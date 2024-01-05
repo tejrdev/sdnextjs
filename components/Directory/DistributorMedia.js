@@ -44,16 +44,16 @@ function DistributorMedia({ data }) {
   }, []);
   return (
     <div className="distbox_one">
-      <div className="distbox_in">
+      <div className="distbox_in sponcerline">
         <h4>
           <Link href={data.url.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>{data.title}</Link>
         </h4>
-        <div className="distbox_media">
+        <div className="distbox_media sponcehov">
           <div className="startsponser">
             <div className="starico">
               <i className="fas fa-star"></i>
             </div>
-            Sponsor
+            Featured
           </div>{' '}
           <figure>
             <a href={data.url}>
