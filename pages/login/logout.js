@@ -236,7 +236,7 @@ const Logout = () => {
 
               {notifications.length > 0 ? (
                 <>
-                  <ul className={`notifybox ${openClass}`}>
+                  <ul className={'notifybox ' + openClass}>
                     <li className='df fww just-between'>
                       <strong onClick={openNotificaton}>Notifications </strong>{' '}
                       <span className='closenotifybox' onClick={() => dismissAll(notifications)}>

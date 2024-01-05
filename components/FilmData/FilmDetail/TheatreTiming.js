@@ -52,7 +52,7 @@ const TheatreTiming = ({ data, film_id, mdetailshow }) => {
         setShowTimeData(res.data);
         setTheatreZipDataLoaded(true);
         setShowTimeDataLoaded(true);
-        sliderRef.current.slickGoTo(0);
+        sliderRef.current && sliderRef.current.slickGoTo(0);
       })
       .catch((err) => console.log(err));
   };
