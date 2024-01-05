@@ -3,11 +3,11 @@ import { useState, useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 
-import { FaChevronRight } from "react-icons/fa6";
+import { FaChevronRight } from 'react-icons/fa6';
 
 const LOADER = 'Loading...';
 
-const TheatreTiming = ({ film_id, mdetailshow }) => {
+const TheatreTiming = ({ data, film_id, mdetailshow }) => {
   const [ShowTimeData, setShowTimeData] = useState('');
   const [ShowTimeDataLoaded, setShowTimeDataLoaded] = useState(false);
   const [userLocationData, setUserLocationData] = useState('');
@@ -105,31 +105,52 @@ const TheatreTiming = ({ film_id, mdetailshow }) => {
 
   return (
     <>
-      
-        <section className='theater_timing toplinesec'>
-          <div className='container'>
-            <div className='top_txt'>
-              <div className="tecotherinfo">
-                  <div className="tecinfo grid">
-                    <div className="techinfoitem">
-                      <h4>Technical Specifications <FaChevronRight /></h4>
-                      <p><strong> Sound Mix: </strong> Dolby Atmos</p>
-                      <p><strong> Aspect Ratio: </strong> 2.39 : 1</p>
-                    </div>
-                    <div className="techinfoitem">
-                      <h4>Other Details <FaChevronRight /></h4>
-                      <p><strong> Country of Origin:  </strong> USA </p>
-                      <p><strong> Language:  </strong> English</p>
-                    </div>
+      <section className='theater_timing toplinesec'>
+        <div className='container'>
+          <div className='top_txt'>
+            <div className='tecotherinfo'>
+              <div className='tecinfo grid'>
+                {data.format && (
+                  <div className='techinfoitem'>
+                    <h4>
+                      Technical Specifications <FaChevronRight />
+                    </h4>
+                    {/* <p>
+                        <strong> Sound Mix: </strong> Dolby Atmos
+                      </p>
+                      <p>
+                        <strong> Aspect Ratio: </strong> 2.39 : 1
+                      </p> */}
+                    {data.format && <p>{data.format}</p>}
                   </div>
+                )}
+
+                {(data.film_country || data.film_language) && (
+                  <div className='techinfoitem'>
+                    <h4>
+                      Other Details <FaChevronRight />
+                    </h4>
+                    {data.film_country && (
+                      <p>
+                        <strong> Country of Origin: </strong> {data.film_country}
+                      </p>
+                    )}
+                    {data.film_language && (
+                      <p>
+                        <strong> Language: </strong> {data.film_language}
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
-              {ShowTimeDataLoaded && !mdetailshow && ShowTimeData.showtime_list.length >= 1 && (
-                <>
-              <h2>
-                Showtimes <i className='fal fa-angle-right'></i>
-              </h2>
-              {/* <!-- if location is available --> */}
-              {/*  <div className="currentlocation df fww">
+            </div>
+            {ShowTimeDataLoaded && !mdetailshow && ShowTimeData.showtime_list.length >= 1 && (
+              <>
+                <h2>
+                  Showtimes <i className='fal fa-angle-right'></i>
+                </h2>
+                {/* <!-- if location is available --> */}
+                {/*  <div className="currentlocation df fww">
             <p>
               You Location
               <span className="locname">Beverly Hills, CA 90210</span>
@@ -139,25 +160,24 @@ const TheatreTiming = ({ film_id, mdetailshow }) => {
               <button className="btn goldbtn">change location</button>
             </div>
           </div>*/}
-              {/* <!-- if location is not available --> */}
-              <div className='currentlocation df fww'>
-                <p>
-                  Your Location
-                  <input type='text' className='locinputplace' placeholder='Enter City & State or ZIP' value={userLocationData} onChange={(e) => setUserLocationData(e.target.value)} />
-                  {loaderTheatreZip} <strong>or</strong>
-                </p>
-                <div className='locbtn'>
-                  <button className='btn goldbtn' onClick={getLocation}>
-                    Find My Location
-                  </button>
-                  (U.S. Only)
+                {/* <!-- if location is not available --> */}
+                <div className='currentlocation df fww'>
+                  <p>
+                    Your Location
+                    <input type='text' className='locinputplace' placeholder='Enter City & State or ZIP' value={userLocationData} onChange={(e) => setUserLocationData(e.target.value)} />
+                    {loaderTheatreZip} <strong>or</strong>
+                  </p>
+                  <div className='locbtn'>
+                    <button className='btn goldbtn' onClick={getLocation}>
+                      Find My Location
+                    </button>
+                    (U.S. Only)
+                  </div>
                 </div>
-              </div>
               </>
-              )}
-            </div>
-            {ShowTimeDataLoaded && !mdetailshow && ShowTimeData.showtime_list.length >= 1 && (
-              
+            )}
+          </div>
+          {ShowTimeDataLoaded && !mdetailshow && ShowTimeData.showtime_list.length >= 1 && (
             <Slider ref={sliderRef} {...SliderSetting} className='theatershowtime_slider roundslickarrow'>
               {TheatreZipDataLoaded &&
                 ShowTimeData.showtime_list &&
@@ -188,10 +208,10 @@ const TheatreTiming = ({ film_id, mdetailshow }) => {
                   );
                 })}
             </Slider>
-            )}
-          </div>
-        </section>
-        </>
+          )}
+        </div>
+      </section>
+    </>
   );
 };
 

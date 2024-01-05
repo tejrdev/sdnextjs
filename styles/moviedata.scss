@@ -466,7 +466,7 @@
 
 .filmcompare_item{
 	padding: 10px 8px;
-}
+} 
 
 .comparemedia{
 	/* position: absolute; */
@@ -1324,6 +1324,7 @@ input[type="text"].locinputplace:-moz-placeholder {font-size: 14px;color: #77777
 .tecotherinfo .tecinfo{
 	grid-template-columns: repeat(auto-fit, minmax(266px, 1fr));
 	gap:20px;
+	padding-bottom: 20px;
 
 	.techinfoitem{
 		padding: 10px;

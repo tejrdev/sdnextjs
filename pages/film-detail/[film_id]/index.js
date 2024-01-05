@@ -23,8 +23,6 @@ import Page404 from '../../../components/Page404';
 import Detailtab from '@/components/FilmData/FilmDetail/DetailTab';
 import BoxSummary from '@/components/FilmData/FilmDetail/BoxSummary';
 
-
-
 const $ = require('jquery');
 export async function getStaticPaths() {
   return {
@@ -209,7 +207,7 @@ const FilmDetail = ({ data, FilmDetailsData, film_id }) => {
             {FilmDetailsData.movie_images && <Photos data={FilmDetailsData.movie_images} />}
             {FilmDetailsData.film_video && <Videos data={FilmDetailsData.film_video} />}
 
-            <TheatreTiming film_id={film_id} mdetailshow={advmovie} />
+            <TheatreTiming data={FilmDetailsData} film_id={film_id} mdetailshow={advmovie} />
 
             {(FilmDetailsData.plot_summary || FilmDetailsData.story_line) && <Summary data={FilmDetailsData} />}
             {/*
