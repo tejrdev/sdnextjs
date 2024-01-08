@@ -447,13 +447,11 @@ Mixins
   vertical-align: middle;
 }
 
-.planboxitem:hover,
 .planboxitem.active {
   border: 2px solid #D7B865;
   background-color: #F3E3B9;
   cursor: pointer;
 }
-.planboxitem:hover .cardcta,
 .planboxitem.active .cardcta {
   background-color: #D7B865;
 }
