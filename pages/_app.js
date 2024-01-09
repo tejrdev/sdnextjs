@@ -46,6 +46,7 @@ import Layout from '../components/Layout/Layout';
 import '../styles/util.css';
 //import '../styles/site.scss';
 import '../styles/site.css';
+import '../styles/temp.css';
 //import '../styles/chunk.css';
 
 import '../components/Header/magnific-popup.min.css';
