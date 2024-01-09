@@ -91,7 +91,7 @@ const DistributorList = ({ data, tag }) => {
                       </strong>
                     </p>
                     <p>{item.hq}</p>
-                    <p>{item.screens} Screens</p>
+                    <p>{item.screens} {item.screens > 1 ? 'Screens' : 'Screen'}</p>
                   </>
                 ) : null}
                 {tag === 'filmfestival' ? (

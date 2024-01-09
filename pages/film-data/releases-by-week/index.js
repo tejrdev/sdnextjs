@@ -78,13 +78,13 @@ const ReleasesByWeek = ({ data, BOFilterData, BoxOfficeLoadedData }) => {
     }
     //Week click
     $(document).on('click', '#s_week li a', function () {
-      if (!$(this).parent().hasClass('active')) {
-        $('#s_week li').removeClass('active');
-        $(this).parent().addClass('active');
-        var a_week = $(this).data('week');
-        localStorage.setItem('rsf_week', a_week);
-        setSdweek(a_week);
-      }
+      // if (!$(this).parent().hasClass('active')) {
+      $('#s_week li').removeClass('active');
+      $(this).parent().addClass('active');
+      var a_week = $(this).data('week');
+      localStorage.setItem('rsf_week', a_week);
+      setSdweek(a_week);
+      // }
       return false;
     });
     // Year Month Week logic

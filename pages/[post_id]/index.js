@@ -32,7 +32,6 @@ export async function getStaticProps(context) {
   let ArticleDetailData = await fetch(process.env.NEXT_PUBLIC_SD_API + '/news_page/news_detail.php?url=' + process.env.NEXT_PUBLIC_MENU_URL + post_id + '&api_token=' + process.env.NEXT_PUBLIC_API_TOKEN);
   ArticleDetailData = await ArticleDetailData.json();
 
-  console.log(process.env.NEXT_PUBLIC_SD_API + '/news_page/news_detail.php?url=' + process.env.NEXT_PUBLIC_MENU_URL + post_id + '&api_token=' + process.env.NEXT_PUBLIC_API_TOKEN, process.env.NEXT_PUBLIC_SEO_LINK + post_id);
   return {
     props: { data, ArticleDetailData },
     revalidate: 10, // In seconds
@@ -52,7 +51,7 @@ const ArticleDetail = ({ data, ArticleDetailData }) => {
       </>
     );
   }
-  console.log(process.env.NEXT_PUBLIC_SD_API + '/news_page/news_detail.php?url=' + process.env.NEXT_PUBLIC_MENU_URL + post_id + '&api_token=' + process.env.NEXT_PUBLIC_API_TOKEN, process.env.NEXT_PUBLIC_SEO_LINK + post_id);
+
   return (
     <>
       <Head>

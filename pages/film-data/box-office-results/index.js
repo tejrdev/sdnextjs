@@ -18,11 +18,10 @@ export async function getStaticProps() {
   const res = await fetch(process.env.NEXT_PUBLIC_SEO_LINK + 'film-data/box-office-results');
   const data = await res.json();
 
-
-  const BOFilter = await fetch(process.env.NEXT_PUBLIC_SD_API + '/film_data_pages/filter_ymw.php?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN + '&boxoffice_page=true')
+  const BOFilter = await fetch(process.env.NEXT_PUBLIC_SD_API + '/film_data_pages/filter_ymw.php?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN + '&boxoffice_page=true');
   const BOFilterData = await BOFilter.json();
 
-  const BoxOffice = await fetch(process.env.NEXT_PUBLIC_SD_API + '/film_data_pages/boxoffice_page.php?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN + '&boxoffice_result=true')
+  const BoxOffice = await fetch(process.env.NEXT_PUBLIC_SD_API + '/film_data_pages/boxoffice_page.php?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN + '&boxoffice_result=true');
   const BoxOfficeLoadedData = await BoxOffice.json();
 
   return {
@@ -102,7 +101,7 @@ const BoxOfficeResults = ({ data, BOFilterData, BoxOfficeLoadedData }) => {
         $(this).parent().addClass('active');
         var a_week = $(this).data('week');
         localStorage.setItem('box_office_week', a_week);
-        var a_year = $('#s_year li.active a').data('year');
+        var a_year = $('#s_year li.active span').data('year');
 
         setSdYear(a_year);
         setSdweek(a_week);
@@ -111,7 +110,7 @@ const BoxOfficeResults = ({ data, BOFilterData, BoxOfficeLoadedData }) => {
     });
 
     // Year Month Week logic
-    $(document).on('click', '#s_year li a', function () {
+    $(document).on('click', '#s_year li span', function () {
       $('#s_year li').removeClass('active');
       $('#s_month li').removeClass('active');
       $(this).parent().addClass('active');
@@ -145,8 +144,6 @@ const BoxOfficeResults = ({ data, BOFilterData, BoxOfficeLoadedData }) => {
         $('.tabsblock .filter_tabsdata[data-title="' + tabinfotitle + '"]').show();
       }
     });
-
-
   }, []);
 
   const loadMonthsWeekData = (a_year, a_week) => {
@@ -189,8 +186,8 @@ const BoxOfficeResults = ({ data, BOFilterData, BoxOfficeLoadedData }) => {
 
   return (
     <>
-      <Head >
-        {(data.children[0].children).map((item, index) => {
+      <Head>
+        {data.children[0].children.map((item, index) => {
           const attributes = item.tag.toUpperCase();
 
           switch (attributes) {
@@ -220,46 +217,44 @@ const BoxOfficeResults = ({ data, BOFilterData, BoxOfficeLoadedData }) => {
       {BoxOfficeDataLoaded ? (
         <>
           <Intro title={BoxOfficeData.title} content={BoxOfficeData.content} />
-          <section className="boxoffice_filter">
-            <div className="container">
-              <div className="cat_navbox">
-                <div className="boweeks">
-                  <div className="boweekinfo df fww">
+          <section className='boxoffice_filter'>
+            <div className='container'>
+              <div className='cat_navbox'>
+                <div className='boweeks'>
+                  <div className='boweekinfo df fww'>
                     {FilterweekLoaded ? (
                       <>
-                        <div className="boweekyear">
+                        <div className='boweekyear'>
                           <label>Select Year</label>
-                          <div className="boxoffice_filter_wrap">
-                            <ul id="s_year">
+                          <div className='boxoffice_filter_wrap'>
+                            <ul id='s_year'>
                               {Filterweekdata.yeardata &&
                                 Filterweekdata.yeardata.map((item, index) => {
                                   return (
                                     <li className={item.class_name} key={index}>
-                                      <span data-year={item.year}>
-                                        {item.year}
-                                      </span>
+                                      <span data-year={item.year}>{item.year}</span>
                                     </li>
                                   );
                                 })}
                             </ul>
                           </div>
                         </div>
-                        <div className="boweekmonth">
+                        <div className='boweekmonth'>
                           <label>Select Month</label>
-                          {Filterweekdata.monthdata && <FilterWrap id="s_month" data={Filterweekdata.monthdata} />}
+                          {Filterweekdata.monthdata && <FilterWrap id='s_month' data={Filterweekdata.monthdata} />}
                         </div>
-                        <div className="boweekweek">
+                        <div className='boweekweek'>
                           <label>Select Week</label>
-                          {Filterweekdata.weekdata && <FilterWrap id="s_week" data={Filterweekdata.weekdata} />}
+                          {Filterweekdata.weekdata && <FilterWrap id='s_week' data={Filterweekdata.weekdata} />}
                         </div>
                       </>
                     ) : (
                       <Loader />
                     )}
                   </div>
-                  <div className="boweekcompare">
+                  <div className='boweekcompare'>
                     {BoxOfficeDataLoaded && (
-                      <div className="boxofice_totalbox" id="boxofice_totalbox_html">
+                      <div className='boxofice_totalbox' id='boxofice_totalbox_html'>
                         <label>Compare Week {BoxOfficeData.week_no_selected} Results</label>
                         <CompareResults data={BoxOfficeData.tabs_yeaars} />
                       </div>
