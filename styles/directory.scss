@@ -245,6 +245,9 @@
 
 .srchbtm_bar li {
     padding: 0 5px;
+    @include bp(sm){
+        padding: 0 10px;
+    }
 }
 
 
@@ -327,6 +330,21 @@
     color: #000;
     line-height: normal;
     z-index: 2;
+
+    @include bp(tabletmd){
+        width: 114px;
+    }
+
+    @include bp(sm){
+        top: 0;
+        right: 0;
+        border-radius: 5px;
+        font-size: 13px;
+        padding: 0 3px 0 4px;
+        width: 87px;
+        height: 18px;
+        line-height: 1;
+    }
 }
 
 .sponcerline{
@@ -464,12 +482,13 @@ p>a {
 .recombox_info {
     width: calc(100% - 100px);
     padding-left: 20px;
+
+    @include bp(sm){
+        padding-left: 10px; 
+    }
 }
 
 /*exibitors row*/
-
-.exhibitors_listbox .msnlist_block {
-}
 
 .exhib_row , .vend_row {
     width: calc(100% - 33.33%);
@@ -481,6 +500,10 @@ p>a {
     padding: 11px 15px 15px 15px;
     border-radius: 10px;
     margin: 0 0 20px 0;
+
+    @include bp(sm){
+        padding: 18px 15px 15px 15px;
+    }
 }
 
 .exhibbox:last-child{
@@ -488,37 +511,46 @@ p>a {
 }
 
 .exhibfeature {
-    width: 33.33%;
+    width: 60%;
+    @include bp(lg){
+        width: 65%;
+    }
 }
 
 .exhibfurther {
-    width: calc(100% - 33.33%);
-    padding: 10px 0 0 20px;
+    width: 40%;
+
+    @include bp(lg){
+        width: 35%;
+    }
 }
 
 .exhibfurther>h5 {
     width: 100%;
 }
 
-.exhibfurther_left,
 .exhibfurther_right {
-    display: inline-block;
-    vertical-align: top;
-}
-
-.exhibfurther_left {
-    width: 55%;
-}
-
-.exhibfurther_right {
-    width: 45%;
-    padding: 0 0 0 40px;
+    padding: 0 0 0 30px;
     position: relative;
+
+    @include bp(tabletmd){
+        padding: 15px 0 0 0;
+    }
 }
 
 .exhibfurther_row {
-    margin-bottom: 30px;
+    margin-bottom: 12px;
     align-items: flex-start;
+
+    @include bp(tabletmd){
+        display: inline-flex;
+        padding: 0 20px 0 0;
+        width: 50%;
+    }
+
+    @include bp(xsm){
+        width: 100%;
+    }
 }
 
 .exhibfurther_row:last-child{
@@ -528,6 +560,25 @@ p>a {
 .msnlisting_box h4,
 .msnlisting_box h5 {
     font-family: "Open Sans", sans-serif;
+}
+
+.exhibfeatureinfo {
+    gap:20px;
+}
+
+.exhibox_media{
+    width: 55%;
+}
+.exhibox_mediatxt{
+    width: calc(100% - 270px);
+    overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 6;
+           line-clamp: 6; 
+   -webkit-box-orient: vertical;
+   @include bp(xsm){
+    width: 100%;
+   }
 }
 
 .exhibox_media ,.vendbox_media{
@@ -540,6 +591,11 @@ p>a {
     justify-content: center;
     align-content: center;
     min-height: 166px;
+    width: 250px;
+}
+
+.exhibox_mediaslide .slick-dots{
+    bottom:-30px;
 }
 
 .exhibfurther div h5{
@@ -548,18 +604,21 @@ p>a {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-bottom: 0;
 }
 
-.exhibfurther_right:after{
+.exhibfurther_right:before{
     content: "";
     display: inline-block;
     height: 100%;
     width: 1px;
     background: #707070;
     top: 0;
-    left: 20px;
+    left: 15px;
     position: absolute;
+
+    @include bp(tabletmd){
+        display: none;
+    }
 }
 
 .exhibfurtherright_row{
@@ -580,38 +639,38 @@ p>a {
 
 /*vandor box*/
 .vendorbox{
-        background: #F4F5F7;
-        padding: 11px 15px 15px 15px;
-        border-radius: 10px;
-        margin: 0 0 20px 0;
-        align-items: center;
-        position: relative;
+    background: #F4F5F7;
+    padding: 11px 15px 15px 15px;
+    border-radius: 10px;
+    margin: 0 0 20px 0;
+    align-items: center;
+    position: relative;
+    gap:20px;
+
+    @include bp(sm){
+        padding: 18px 15px 15px 15px;
+    }
 }
 
 .vendorbox:last-child{
     margin-bottom: 0;
 }
 
-.vendbox_media{
-    position: relative;
-    min-height: 195px;
-}
-
-.vendfeature{
-    width: 155px;
-}
-
-.vendbox_mediasliditem{
-    padding: 20px;
-}
-
 .vendbox_info{
-    width: calc(100% - 156px);
-    padding: 0 0 0 30px;
+    width: calc(100% - 272px);
+
+    @include bp(xsm){
+        width: 100%;
+    }
 }
 
-.vend_Contact{
-    /*padding: 30px;*/
+.vendbox_mediasliditem figure > a{
+    max-height: 118px;
+    display: block;
+}
+
+.vendbox_mediasliditem figure img{
+    margin: auto;
 }
 
 .dirbnr_sliditem .objctimg_box.objectfill{
@@ -750,21 +809,13 @@ p>a {
 
 .exhibox_media .exhibox_mediasliditem img{
     max-height: 166px;
+    margin: auto;
 }
 
 .distbox_slider{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-
-.exhibfurther_right:before{
-    content: "More locations...";
-    display: inline-block;
-    font-weight: 600;
-    top: -42px;
-    position: absolute;
 }
 
 .white-popup-block.newsuppopbox.vend_Contact{
@@ -875,6 +926,11 @@ p>a {
     list-style: none;
     justify-content: space-between;
     padding: 0 10px;
+
+    @include bp(sm){
+        justify-content: flex-start;
+        padding: 0;
+    }
 }
 
 .srchbtm_bar li a {
@@ -882,6 +938,10 @@ p>a {
     font-weight: 600;
     display: block;
     margin: 10px 0;
+
+    @include bp(sm){
+        margin: 10px 0 0;
+    }
 }
 
 .flmsearch_in {
@@ -1152,10 +1212,19 @@ p>a {
     width: calc(50% - 5px);
     border-radius: 5px;
     padding: 5px;
+
+    @include bp(xsm){
+        width: 80%;
+        padding-bottom: 10px; 
+    }
 }
 
 .sponcerinfo{
     width: calc(50% - 5px);
+
+    @include bp(xsm){
+        width: 100%;
+    }
 }
 
 .sponserround .sround {
@@ -1437,7 +1506,7 @@ ul.tags>li>span {
 }
 
 .other_spmedia {
-    padding: 0 0 70px 0;
+    padding: 0 0 60px 0;
     width: 100px;
 }
 
@@ -1452,7 +1521,7 @@ ul.tags>li>span {
 
 .other_spmedia+.other_spinfo {
     width: calc(100% - 100px);
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 .other_spinfo p>span {
@@ -4017,11 +4086,11 @@ input[type="hidden"] , .fromgrouphidden{
         padding: 10px 10px 7px 20px;
     }
 
-    .other_spmedia+.other_spinfo {
+    /*.other_spmedia+.other_spinfo {
         width: 100%;
         padding-left: 0;
         margin-top: 5px;
-    }
+    }*/
 
     .other_spinfo p {
         margin-bottom: 3px;
@@ -4115,8 +4184,7 @@ input[type="hidden"] , .fromgrouphidden{
     }
 
     .recom_row:first-child,
-    .recom_row:nth-child(2) , 
-    .recom_row:nth-child(3){
+    .recom_row:nth-child(2) {
         border-top: 0px;
         padding: 0;
         margin: 0;
@@ -4146,10 +4214,6 @@ input[type="hidden"] , .fromgrouphidden{
         margin-bottom: 20px;
      }
 
-     .exhibfurther_right{
-        padding: 0 0 0 20px;
-     }
-
      .exhibfurther_right:after{
         left: 8px;
      }
@@ -4168,12 +4232,11 @@ input[type="hidden"] , .fromgrouphidden{
      }
 
      .exhibfeature{
-        width: 50%;
+        width: 100%;
      }
 
      .exhibfurther{
         width: 100%;
-        padding-left: 0;
      }
 
 
@@ -4527,10 +4590,6 @@ input[type="hidden"] , .fromgrouphidden{
         width: 100%;
     }
 
-    .other_spmedia+.other_spinfo {
-        width: calc(100% - 70px);
-        padding-left: 10px;
-    }
 
     .other_spmedia {
         width: 70px;
@@ -4646,6 +4705,7 @@ input[type="hidden"] , .fromgrouphidden{
         width: 100%;
     }
 
+    .recom_row:nth-child(2),
     .recom_row:nth-child(3){
         width: 100%;
         border-bottom: 0px;
@@ -4656,10 +4716,6 @@ input[type="hidden"] , .fromgrouphidden{
 
     .vendbox_info h4{
         padding: 0;
-    }
-
-    .vendbox_info{
-        padding: 0 0 50px 30px;
     }
 
     .vendbox_info .contactbtnpop{
@@ -4819,9 +4875,7 @@ input[type="hidden"] , .fromgrouphidden{
     }
 
     .exhibfurther_right{
-        padding: 15px 0 0 0;
-        width: 100%;
-        border-top: 1px solid #000;
+        padding: 0;
     }
 
     .exhibfurther_right:before{
@@ -4835,11 +4889,6 @@ input[type="hidden"] , .fromgrouphidden{
 
     .exhibfeature {
         width: 100%;
-    }
-
-    .vendbox_info{
-        width: 100%;
-        padding: 10px 0 38px 0;
     }
 
     .vendbox_info .contactbtnpop{

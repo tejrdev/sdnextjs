@@ -1,37 +1,70 @@
 import React from 'react';
 import imgData from '../data.json';
 import Link from 'next/link';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
 
 function ExibitionBox({ data }) {
+  const SliderSetting = {
+    slidesToShow: 1,
+    speed: 300,
+    infinite: true,
+    autoplay: false,
+    autoplaySpeed: 7000,
+    pauseOnHover: true,
+    centerPadding: '0',
+    focusOnSelect: true,
+    arrows: false,
+    dots: true,
+  };
   return (
-    <div className="exhibbox df fww just-between">
-      <div className="exhibfeature">
-        <h4>
+    <div className="exhibbox df fww just-between sponcerline pvr sponcehov">
+      <h4 className='w100'>
           <Link href={data.url.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>{data.title}</Link>
         </h4>
-        <div className="exhibox_media sponcehov">
-          <div className="startsponser">
-            <div className="starico">
-              <i className="fas fa-star"></i>
+        <div className="startsponser">
+              <div className="starico">
+                <i className="fas fa-star"></i>
+              </div>
+              Featured
             </div>
-            Featured
+      <div className="exhibfeature">
+        
+        <div className="exhibfeatureinfo df fww">
+          <div className="exhibox_media ">
+            
+            <Slider {...SliderSetting} className="exhibox_mediaslide w100">
+              <div className="exhibox_mediasliditem">
+                <figure>
+                  <a href={data.url}>
+                    <img src={data.img} alt="" />
+                  </a>
+                </figure>
+              </div>
+              <div className="exhibox_mediasliditem">
+                <figure>
+                  <a href={data.url}>
+                    <img src={data.img} alt="" />
+                  </a>
+                </figure>
+              </div>
+              <div className="exhibox_mediasliditem">
+                <figure>
+                  <a href={data.url}>
+                    <img src={data.img} alt="" />
+                  </a>
+                </figure>
+              </div>
+            </Slider>
           </div>
-          <div className="exhibox_mediaslide">
-            <div className="exhibox_mediasliditem">
-              <figure>
-                <a href={data.url}>
-                  <img src={data.img} alt="" />
-                </a>
-              </figure>
-            </div>
-          </div>
+          <p className='exhibox_mediatxt'>AMC Entertainment Holdings, Inc. (D/B/A AMC Theatres, Originally An Abbreviation For American Multi-Cinema; Often Referred To Simply As AMC And Known In Some Countries As AMC Cinemas...</p>
         </div>
       </div>
-      <div className="exhibfurther  df fww just-between">
+      <div className="exhibfurther">
+        <div className="exhibfurther_right">
         <h5>
           {data.no_locations}, {data.exhibitor_screens}
         </h5>
-        <div className="exhibfurther_left">
           {data.theatres_list.map((item, index) => {
             return (
               <React.Fragment key={index}>
@@ -44,13 +77,13 @@ function ExibitionBox({ data }) {
                     </div>
                     <div className="other_spinfo">
                       <h5>
-                        <a href={item.link}>{item.title}</a>
+                        <a href={item.link} title={item.title}>{item.title}</a>
                       </h5>
                       <p>
                         {item.city}, {item.state}
                       </p>
-                      <p> {item.theatre_screens} </p>
-                      {/* {item.theatre-screens} */}
+                      {/*<p> {item.theatre_screens} </p>
+                       {item.theatre-screens} */}
                     </div>
                   </div>
                 ) : null}
@@ -59,7 +92,8 @@ function ExibitionBox({ data }) {
           })}
         </div>
 
-        <div className="exhibfurther_right">
+
+        {/* <div className="exhibfurther_right">
           {data.theatres_list.map((item, index) => {
             return (
               <React.Fragment key={index}>
@@ -68,7 +102,7 @@ function ExibitionBox({ data }) {
                     <p>
                       <a href={item.link} title={item.title}>
                         {item.city}, {item.state} | {item.theatre_screens}
-                        {/* {item.theatre-screens} */}
+                        
                       </a>
                     </p>
                   </div>
@@ -83,7 +117,7 @@ function ExibitionBox({ data }) {
             </a>
           </div>
           )} 
-        </div>
+        </div> */}
       </div>
     </div>
   );

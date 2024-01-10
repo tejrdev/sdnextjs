@@ -173,7 +173,7 @@ const SignUp = () => {
           auth: window.btoa(signEmail),
           t: window.btoa(signPassword),
           p: window.btoa(''),
-          typeLink: 'default',
+          typeLink: 'pro',
         },
       });
       var myObject = response.data;
@@ -223,9 +223,9 @@ const SignUp = () => {
 
           //on success, create customer in stripe
           // createCustomer(signEmail);
-          const cust = await createCustomer(signEmail);
-          const subscriberPlan = $('.pricinginfo .planboxitem.active').data('plan');
-          dispatch(checkout({ user: signEmail, stripeCustomer: cust.customer.id, stripePlan: subscriberPlan }));
+          // const cust = await createCustomer(signEmail);
+          // const subscriberPlan = $('.pricinginfo .planboxitem.active').data('plan');
+          // dispatch(checkout({ user: signEmail, stripeCustomer: cust.customer.id, stripePlan: subscriberPlan }));
 
           setInterval(() => {
             //for removing localstoragevarialbe after 24 hrs
@@ -298,7 +298,7 @@ const SignUp = () => {
 
     const code = Math.floor(100000 + Math.random() * 900000);
     setVerificationCode(code);
-    // console.log(code);
+    console.log(code);
     $('#loadericons').hide();
     setVerifyOTPError(null);
     setVerifyOTPSucess(null);

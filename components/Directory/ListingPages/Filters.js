@@ -10,7 +10,6 @@ const Filters = ({ setDistributerFilter, data, tag, custom_options, setFilter_th
       id,
       value,
     }));
-    console.log(filter_options);
   } else {
     if (tag === 'filmfestival') {
       filter_options = data;

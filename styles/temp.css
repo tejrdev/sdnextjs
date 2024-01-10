@@ -1,9 +1,12 @@
-.notablesponser, .sponser_mediabox {
+/* .notablesponser,
+.sponser_mediabox {
    width: calc(50% - 30px);
 }
 
-@media screen and (max-width: 640px){
-.notablesponser, .sponser_mediabox {
-    width: 100%;
-}
-}
+@media screen and (max-width: 640px) {
+
+   .notablesponser,
+   .sponser_mediabox {
+      width: 100%;
+   }
+} */

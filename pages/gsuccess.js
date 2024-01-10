@@ -129,7 +129,7 @@ const gsuccess = () => {
               auth: window.btoa(session?.user?.email),
               t: window.btoa(session?.user?.name),
               p: window.btoa(picture),
-              typeLink: 'default',
+              typeLink: 'pro',
             },
           });
           var responseDetails = response.data;

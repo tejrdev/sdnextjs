@@ -25,11 +25,12 @@ function Exhibitors({ data }) {
         </div>
         <div className="recomendbox">
           <div className="recomendbox_in">
-            <h4>Recommended</h4>
+            
             {data.data &&
               data.data.map((item, index) => {
                 return <React.Fragment key={index}>{index > 1 ? <Recommended data={item} key={index} tag="exhibitors" /> : null}</React.Fragment>;
               })}
+              <h4><Link href={data.link.replace(process.env.NEXT_PUBLIC_MENU_URL, '')}>More Listings <i class="fal fa-angle-right"></i></Link></h4>
           </div>
         </div>
       </div>

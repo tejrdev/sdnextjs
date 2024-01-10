@@ -79,6 +79,7 @@ const BoxOfficeResults = ({ data, BOFilterData, BoxOfficeLoadedData }) => {
     //url data set for prepolulate
     var sd_year_selected = sd_getUrlParameter('yyyy');
     var sd_week_selected = sd_getUrlParameter('ww');
+    if (localStorage.box_office_week === 'NaN') localStorage.removeItem('box_office_week');
     if (sd_year_selected.length >= 1 && sd_week_selected.length >= 1) {
       localStorage.setItem('box_office_years', sd_year_selected);
       localStorage.setItem('box_office_week', (sd_week_selected * 1).toString());

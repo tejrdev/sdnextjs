@@ -206,12 +206,14 @@ export default function Login({ csrfToken }) {
       const userName = JSON.parse(JSON.stringify(response?.data?.user_name));
       const typeLink = JSON.parse(JSON.stringify(response?.data?.type_link));
       const notifications = JSON.stringify(response?.data?.notifications);
-      const startDate = JSON.parse(JSON.stringify(response?.data?.startDate));
-      const endDate = JSON.parse(JSON.stringify(response?.data?.endDate));
+      // const startDate = JSON.parse(JSON.stringify(response?.data?.startDate));
+      // const endDate = JSON.parse(JSON.stringify(response?.data?.endDate));
       const customer = JSON.parse(JSON.stringify(response?.data?.customer));
       const latitude = JSON.parse(JSON.stringify(response?.data?.latitude));
       const longitude = JSON.parse(JSON.stringify(response?.data?.longitude));
       const pincode = JSON.parse(JSON.stringify(response?.data?.pincode));
+      const trialStartDate = JSON.parse(JSON.stringify(response?.data?.trialStartDate));
+      const trialEndDate = JSON.parse(JSON.stringify(response?.data?.trialEndDate));
       const dataToStore = notifications;
       localStorage.setItem('myNotifciations', dataToStore);
       setUser('');
@@ -246,14 +248,14 @@ export default function Login({ csrfToken }) {
         // if (typeLink !== 'pro') {//add this condition after receiving customerID from WP
         let stripeCustomer = customer;
         //create customer in Stripe
-        if (customer === '' || customer === null || customer === undefined) {
-          const cust = await createCustomer(user);
-          stripeCustomer = cust.customer.id;
-        }
-        dispatch(checkout({ user, stripeCustomer }));
+        // if (customer === '' || customer === null || customer === undefined) {
+        //   const cust = await createCustomer(user);
+        //   stripeCustomer = cust.customer.id;
         // }
-        const subscriber = CryptoJS.AES.encrypt(user + '_' + ProInd, ENCT_KEY).toString();
-        dispatch(auth({ user, subscriber, endDate, latitude, longitude, pincode }));
+        // dispatch(checkout({ user, stripeCustomer }));
+        // // }
+        // const subscriber = CryptoJS.AES.encrypt(user + '_' + ProInd, ENCT_KEY).toString();
+        // dispatch(auth({ user, subscriber, endDate, latitude, longitude, pincode }));
 
         setInterval(() => {
           //for removing localstoragevarialbe after 24 hrs

@@ -88,7 +88,7 @@ const PersonIntro = ({ data, favoriteList }) => {
             <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
           </div>
           {data.content_more && (<div  className="readmore_btn" dangerouslySetInnerHTML={{ __html: data.content_more }}></div>) }
-          {console.log(data.content_more)}
+          {/* {console.log(data.content_more)} */}
         </div>
       </div>
     </section>

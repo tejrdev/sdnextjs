@@ -43,18 +43,21 @@ function DistributorMedia({ data }) {
     sliddateshow();
   }, []);
   return (
-    <div className="distbox_one">
-      <div className="distbox_in sponcerline">
+    <div className="distbox_one sponcehov">
+      <div className="distbox_in sponcerline pvr">
+        <div className="top_txt df just-between">
         <h4>
           <Link href={data.url.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>{data.title}</Link>
         </h4>
-        <div className="distbox_media sponcehov">
-          <div className="startsponser">
+        <div className="startsponser">
             <div className="starico">
               <i className="fas fa-star"></i>
             </div>
             Featured
-          </div>{' '}
+          </div>{' '}    
+        </div>
+        <div className="distbox_media ">
+          
           <figure>
             <a href={data.url}>
               <img src={data.img} alt="" />

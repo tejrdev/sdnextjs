@@ -4,11 +4,12 @@ import Link from 'next/link';
 
 const Sponsers = ({ data, tag }) => {
   const SliderSetting = {
-    slidesToShow: 1,
+    slidesToShow: 2,
+    slidesToScroll: 2,
     speed: 300,
     infinite: true,
-    autoplay: true,
-    autoplaySpeed: 5000,
+    autoplay: false,
+    autoplaySpeed: 7000,
     pauseOnHover: true,
     dots: false,
     arrows: true,
@@ -17,31 +18,37 @@ const Sponsers = ({ data, tag }) => {
         breakpoint: 991,
         settings: {
           adaptiveHeight: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
     ],
   };
+  let sampledata = [data[0],data[0],data[0],data[0]];
   return (
     <section className="dist_listsponser">
       <div className="top_txt df fww">
-        <h3>Sponsors </h3>
+        <h1 className='h3'>Featured </h1>
       </div>
       <div className="sponserslid_box">
+        {/* <pre>{JSON.stringify(data , null, 2)}</pre> */}
         <Slider {...SliderSetting} className="fmboffice_slider slickroundnav slick-dotted">
-          {data &&
-            data.map((item, index) => {
+          {sampledata &&
+            sampledata.map((item, index) => {
               let sponserData = tag === 'distributor' ? item.film_data : item.theaters;
               return (
                 <div className="sponser_item" key={index}>
-                  <div className="sponser_item_box df fww">
+                  <div className="sponser_item_box">
                     <div className="sponser_mediabox">
-                      <h1 className="h4">
+                      <h4>
                         <Link href={item.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>{item.title}</Link>
-                      </h1>
+                      </h4>
+                      <div className="df fww sponcer_picdisc just-between">
                       <div className="spitem_media pvr">
                         {item.img && (<a href={item.link}><img src={item.img} alt="" className="objctimg_box" /></a>)}
                       </div>
-                      {tag === 'distributor' ? (
+                      <div className='sponcerinfo'>
+                      {/*removed by designer {tag === 'distributor' ? (
                         <ul className="df fww tags">
                           {item.distribution_type.map((singleItem, id) => {
                             return (
@@ -51,10 +58,11 @@ const Sponsers = ({ data, tag }) => {
                             );
                           })}
                         </ul>
-                      ) : null}
+                      ) : null} */}
                       {item.Headquarters && (
                         <>
-                          <p className="theater_info">
+                          <p>AMC Entertainment Holdings, Inc. (D/B/A AMC Theatres, Originally An Abbreviation For American Multi-Cinema; Often Reffe...</p>
+                          {/* <p className="theater_info">
                             <strong>Headquarters</strong> : {item.Headquarters}
                           </p>
                           <p className="theater_info">
@@ -62,19 +70,21 @@ const Sponsers = ({ data, tag }) => {
                           </p>
                           <p className="theater_info">
                             <strong>Screens </strong> : {item.Screens}
-                          </p>
+                          </p> */}
                         </>
                       )}
-                      <p>{item.content}</p>
+                      <p className='sponser_txt'>{item.content}</p>
+                      </div>
+                      </div>
                     </div>
                     {tag !== 'vendor' && tag !== 'filmfestival' && (
                       <div className="notablesponser">
-                        <h5 className={tag === 'distributor' ? '' : 'purpaltxt'}>{tag === 'distributor' ? 'Titles' : 'Locations'}</h5>
+                        <h5 className={tag === 'distributor' ? '' : 'purpaltxt'}>{tag === 'distributor' ? 'Titles' : 'Selected Locations'}</h5>
 
                         {sponserData &&
-                          sponserData.map((singleItem, id) => {
+                          sponserData.slice(0,2).map((singleItem, id) => {
                             return (
-                              <div className="notablesponser_row df fww" key={id}>
+                              <div className={tag === 'distributor' ?"notablesponser_row df fww distsponcer": "notablesponser_row df fww"} key={id}>
                                 <div className="other_spmedia pvr">
                                   <a href={singleItem.link}>
                                     <img
