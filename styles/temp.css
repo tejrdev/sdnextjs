@@ -1,4 +1,4 @@
-/* .notablesponser,
+.notablesponser,
 .sponser_mediabox {
    width: calc(50% - 30px);
 }
@@ -9,7 +9,7 @@
    .sponser_mediabox {
       width: 100%;
    }
-} */
+}
 
 .exhibfurther {
    width: 66.67%;
