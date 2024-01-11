@@ -13920,6 +13920,10 @@ border: 1px solid #000;*/
   top: 5px;
 }
 
+body {
+  background-color: yellow;
+}
+
 .sponcer_picdisc .spitem_media {
   width: calc(50% - 5px);
   border-radius: 5px;

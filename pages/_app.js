@@ -44,8 +44,8 @@ import Layout from '../components/Layout/Layout';
 // import "../styles/search.css";
 
 import '../styles/util.css';
-//import '../styles/site.scss';
-import '../styles/site.css';
+import '../styles/site.scss';
+//import '../styles/site.css';
 import '../styles/temp.css';
 //import '../styles/chunk.css';
 

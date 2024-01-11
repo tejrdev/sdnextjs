@@ -1408,8 +1408,10 @@ ul.tags>li>span {
     height: 150px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    align-content: center;
+    justify-content: center;   
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fef5de;
 }
 
 .distsponser_btm .alldist_media a{
@@ -3909,6 +3911,10 @@ input[type="hidden"] , .fromgrouphidden{
     grid-template-columns: repeat(5, 1fr);
     margin-top: 10px;
     grid-gap: 5px;
+
+    @include bp(tabletsm){
+        grid-template-columns: repeat(auto-fit, minmax(42px, 1fr));
+    }
 }
 
 .dist_filter .stateboxtype ul.stateclick  li{

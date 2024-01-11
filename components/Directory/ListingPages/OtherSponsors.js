@@ -72,14 +72,14 @@ const OtherSponsors = () => {
             <i className="fal fa-info-circle"></i>
             {/*<div className="guidinfopop"></div>*/}
           </div>
-          <Slider {...SliderSetting} className="distbottom_sponcers df fww">
+          <div className="distbottom_sponcers df fww">
             {otherSponsersData &&
               otherSponsersData.other_sponder.map((item, index) => {
                 return (
                   <div className="distbtm_sponcersitem" key={index}>
-                    <div className="alldist_media  pvr">
+                    <div className="alldist_media">
                       <a href={item.link} title={item.title}>
-                        <img src={item.img} alt="" className="objctimg_box" />
+                        <img src={item.img} alt="" className="" />
                       </a>
                     </div>
                     <h5 className="">
@@ -95,7 +95,7 @@ const OtherSponsors = () => {
                   </div>
                 );
               })}
-          </Slider>
+          </div>
         </>
       )}
     </section>
