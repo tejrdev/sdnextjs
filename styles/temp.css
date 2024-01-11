@@ -19,3 +19,17 @@
 .exhibfeature {
    width: 33.33%;
 }
+
+.recomendbox_in h4 {
+   margin-bottom: 20px;
+}
+
+.recom_row:nth-last-child(2){
+   border-bottom: 1px solid #b8b8b8;
+    padding: 0 0 17px;
+    margin: 0 0 18px;
+}
+
+.recom_row:last-child{
+   border-bottom: 0;
+}
