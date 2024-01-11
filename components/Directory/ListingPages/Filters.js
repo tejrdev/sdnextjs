@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import CustomSelect from './TheatreSelect';
+import { useRouter } from 'next/router';
 
 let fliter = '';
 
 const Filters = ({ setDistributerFilter, data, tag, custom_options, setFilter_theatre }) => {
+  const router = useRouter();
   let filter_options;
   if (tag === 'exhibitor' || tag === 'theatre') {
     filter_options = Object.values(data).map((value, id) => ({
@@ -56,6 +58,16 @@ const Filters = ({ setDistributerFilter, data, tag, custom_options, setFilter_th
     }
     const strSelectedVal = selectedVal.toString();
     setDistributerFilter(strSelectedVal);
+    router.replace(
+      {
+        query: { ...router.query, state: strSelectedVal },
+      },
+      undefined,
+      {
+        scroll: false,
+        shallow: true,
+      }
+    );
     fliter = '';
   };
 
@@ -63,6 +75,16 @@ const Filters = ({ setDistributerFilter, data, tag, custom_options, setFilter_th
     setChecked(!checked);
     setCheckedState(new Array(filter_options.length).fill(!checked));
     setDistributerFilter('');
+    router.replace(
+      {
+        query: { ...router.query, state: 'ALL' },
+      },
+      undefined,
+      {
+        scroll: false,
+        shallow: true,
+      }
+    );
   };
 
   if (fliter !== '') {
@@ -102,6 +124,11 @@ const Filters = ({ setDistributerFilter, data, tag, custom_options, setFilter_th
         const strSelectedVal = selectedVal.toString();
         setDistributerFilter(strSelectedVal);
       }
+
+      const search = window.location.search;
+      const params = new URLSearchParams(search);
+      const state = params.get('state');
+      if (state !== '') $('#exibutor_status li span[value="' + state + '"]').click();
     }
   }, []);
 

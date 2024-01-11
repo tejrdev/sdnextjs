@@ -14,7 +14,7 @@ export async function getStaticProps(context) {
 
   const id = params.id;
   // Fetch data from external API
-  const res = await fetch(process.env.NEXT_PUBLIC_SEO_LINK + 'exhibitors-theatres/' + id);
+  const res = await fetch(process.env.NEXT_PUBLIC_SEO_LINK + 'theatres/' + id);
   const data = await res.json();
   if (!data) {
     return {
@@ -22,7 +22,7 @@ export async function getStaticProps(context) {
     };
   }
   //DetailsData  static data
-  let DetailsData = await fetch(process.env.NEXT_PUBLIC_SD_API + '/detail_pages/exhibitors-theatres.php?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN + '&url=' + process.env.NEXT_PUBLIC_MENU_URL + 'exhibitors-theatres/' + id);
+  let DetailsData = await fetch(process.env.NEXT_PUBLIC_SD_API + '/detail_pages/exhibitors-theatres.php?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN + '&url=' + process.env.NEXT_PUBLIC_MENU_URL + 'theatres/' + id);
   DetailsData = await DetailsData.json();
 
   return {
