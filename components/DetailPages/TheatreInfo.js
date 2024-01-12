@@ -373,6 +373,16 @@ const TheatreInfo = ({ data, requestfrom, favoriteList }) => {
                   <span onClick={() => favoriteHeart(ID, "fav_theatres")} className={items.includes(ID) ? "favheart  redtxt biofavico" : "favheart biofavico "}>
                     <i className={items.includes(ID) ? "fas fa-heart" : "far fa-heart "}></i>
                   </span>
+                  {/* <span className="drivenicon">
+                    Drive IN
+                    <span className="line"></span>
+                  </span> */}
+                  {/* {data.top_title === 'Theatre'  ? (
+                    <span>
+                      {' '}
+                      <img className="diveiconlist" src='https://www.live.screendollars.com/wp-content/themes/screendollars-live/assets/images/drive-in-icon.png' alt="Drive In" />
+                    </span>
+                  ) : null} */}
                 </>
               ) : (
                 ""
