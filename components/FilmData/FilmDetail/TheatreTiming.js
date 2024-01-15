@@ -107,7 +107,7 @@ const TheatreTiming = ({ data, film_id, mdetailshow }) => {
     <>
       <section className='theater_timing toplinesec'>
         <div className='container'>
-          <div className='top_txt'>
+        {!mdetailshow && (<div className='top_txt'>
             <div className='tecotherinfo'>
               <div className='tecinfo grid'>
                 {data.format && (
@@ -144,7 +144,7 @@ const TheatreTiming = ({ data, film_id, mdetailshow }) => {
                 )}
               </div>
             </div>
-            {ShowTimeDataLoaded && !mdetailshow && ShowTimeData.showtime_list.length >= 1 && (
+            {ShowTimeDataLoaded && ShowTimeData.showtime_list.length >= 1 && (
               <>
                 <h2>
                   Showtimes <i className='fal fa-angle-right'></i>
@@ -175,8 +175,8 @@ const TheatreTiming = ({ data, film_id, mdetailshow }) => {
                   </div>
                 </div>
               </>
-            )}
-          </div>
+            )}            
+          </div>)}
           {ShowTimeDataLoaded && !mdetailshow && ShowTimeData.showtime_list.length >= 1 && (
             <Slider ref={sliderRef} {...SliderSetting} className='theatershowtime_slider roundslickarrow'>
               {TheatreZipDataLoaded &&
