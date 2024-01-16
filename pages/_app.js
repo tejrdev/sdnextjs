@@ -44,14 +44,21 @@ import Layout from '../components/Layout/Layout';
 // import "../styles/search.css";
 
 import '../styles/util.css';
+import '../styles/index.scss';
+import '../styles/home.scss';
+import '../styles/newsletter.scss';
+import '../styles/directory.scss';
 import '../styles/site.scss';
 //import '../styles/site.css';
+import '../styles/print.css';
 import '../styles/temp.css';
 //import '../styles/chunk.css';
 
 import '../components/Header/magnific-popup.min.css';
 import '../components/Header/header.css';
 import '../components/Footer/footer.css';
+
+import '../styles/fontawsome.css';
 
 let navigationPropsCache;
 
