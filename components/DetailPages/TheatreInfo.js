@@ -377,12 +377,12 @@ const TheatreInfo = ({ data, requestfrom, favoriteList }) => {
                     Drive IN
                     <span className="line"></span>
                   </span> */}
-                  {/* {data.top_title === 'Theatre'  ? (
+                  {data.top_title === 'Theatre' && data.detail_drive_in_icon === 'yes' ? (
                     <span>
                       {' '}
                       <img className="diveiconlist" src='https://www.live.screendollars.com/wp-content/themes/screendollars-live/assets/images/drive-in-icon.png' alt="Drive In" />
                     </span>
-                  ) : null} */}
+                  ) : null}
                 </>
               ) : (
                 ""
