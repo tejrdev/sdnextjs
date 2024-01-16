@@ -107,7 +107,7 @@ const TheatreTiming = ({ data, film_id, mdetailshow }) => {
     <>
       <section className='theater_timing toplinesec'>
         <div className='container'>
-        {!mdetailshow && (<div className='top_txt'>
+        {!mdetailshow && (data.format || data.film_country || data.film_language ) && (<div className='top_txt'>
             <div className='tecotherinfo'>
               <div className='tecinfo grid'>
                 {data.format && (
