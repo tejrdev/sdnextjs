@@ -318,7 +318,7 @@
     display: inline-block;
     background: #D7B865;
     border-radius: 40px;
-    padding: 4px 11px 2px 7px;
+    padding: 5px 11px 2px 6px;
     width: 30px;
     overflow: hidden;
     height: 30px;
@@ -355,6 +355,7 @@
 .startsponser:hover,
 .sponcehov:hover .startsponser {
     width: 114px;
+    padding: 7px 11px 2px 6px;
 }
 
 .startsponser:hover .starico,

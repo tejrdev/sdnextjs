@@ -32,8 +32,8 @@ const Claimlisting = () => {
                 <textarea type="text" id="user" rows="4" placeholder="Tell about your organization and your request to claim this listing" value=""></textarea>
               </div>
               <div>
-                <span id="loadericon" class="displaynone">Loading ...</span>
-                <input type="submit" class="claimClick btn w100" value="SIGN IN"/>
+                <span id="loadericon" className="displaynone">Loading ...</span>
+                <input type="submit" className="claimClick btn w100" value="SIGN IN"/>
                 <p className={look.cancellink + ' greytxt text-center '}>cancel</p>
               </div>
 
