@@ -1,29 +1,30 @@
 // import '../../Header/magnific-popup.min.css';
-import axios from "axios";
-import { useState, useEffect } from "react";
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
-import SocialLinks from "./SocialLinks";
-import KeyContacts from "./KeyContacts";
-import AddToAny from "../../components/AddToAny";
-import Countday from "../../components/countdownday/countdown";
+import SocialLinks from './SocialLinks';
+import KeyContacts from './KeyContacts';
+import AddToAny from '../../components/AddToAny';
+import Countday from '../../components/countdownday/countdown';
+import AdminEditLink from './AdminEditLink';
 
-const ERRORLOGIN = "Please Login First! ";
-if (typeof window !== "undefined") {
-  var LOGGED_EMAIL = localStorage.getItem("email");
+const ERRORLOGIN = 'Please Login First! ';
+if (typeof window !== 'undefined') {
+  var LOGGED_EMAIL = localStorage.getItem('email');
 }
 
 const TheatreInfo = ({ data, requestfrom, favoriteList }) => {
   const API_URL = process.env.NEXT_PUBLIC_SD_API;
   var ID = data.id;
-  const [name, setName] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
-  const [organization, setOrganization] = useState("");
-  const [telephone, setTelephone] = useState("");
-  const [website, setWebsite] = useState("");
-  const [comments, setComments] = useState("");
-  const [EmailFormClass, setEmailFormClass] = useState("wpcf7-form");
+  const [name, setName] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [organization, setOrganization] = useState('');
+  const [telephone, setTelephone] = useState('');
+  const [website, setWebsite] = useState('');
+  const [comments, setComments] = useState('');
+  const [EmailFormClass, setEmailFormClass] = useState('wpcf7-form');
   const [domLoaded, setDomLoaded] = useState(false);
   const [items, setItems] = useState([]);
 
@@ -41,13 +42,13 @@ const TheatreInfo = ({ data, requestfrom, favoriteList }) => {
     const $ = window.jQuery;
 
     setDomLoaded(true);
-    $(document).on("click", "li.sharing span", function () {
-      $(this).parent().find(".addtoany_shortcode").toggleClass("open");
+    $(document).on('click', 'li.sharing span', function () {
+      $(this).parent().find('.addtoany_shortcode').toggleClass('open');
     });
-    $(".formpop").magnificPopup({
-      type: "inline",
+    $('.formpop').magnificPopup({
+      type: 'inline',
       preloader: false,
-      focus: "#name",
+      focus: '#name',
       closeOnContentClick: false,
       // When elemened is focused, some mobile browsers in some cases zoom in
       // It looks not nice, so we disable it:
@@ -56,31 +57,31 @@ const TheatreInfo = ({ data, requestfrom, favoriteList }) => {
           if ($(window).width() < 700) {
             this.st.focus = false;
           } else {
-            this.st.focus = "#name";
+            this.st.focus = '#name';
           }
         },
         open: function () {
-          $(".back_page").click(function (e) {
+          $('.back_page').click(function (e) {
             e.preventDefault();
-            $(this).parents(".formpopbox").find(".mfp-close").trigger("click");
+            $(this).parents('.formpopbox').find('.mfp-close').trigger('click');
           });
 
           // hide_the_contact_filed();
         },
         close: function () {
           if (window.innerWidth < 640) {
-            $(".keyfom_btn").next().slideUp();
-            $(".keyfom_btn").removeClass("open");
+            $('.keyfom_btn').next().slideUp();
+            $('.keyfom_btn').removeClass('open');
           }
         },
       },
     });
 
-    $(".image-link").magnificPopup({
-      type: "image",
+    $('.image-link').magnificPopup({
+      type: 'image',
       closeOnContentClick: true,
       closeMarkup: '<button title="closing" type="button" class="mfp-close">×</button>',
-      mainClass: "mfp-no-margins mfp-with-zoom theaterimg",
+      mainClass: 'mfp-no-margins mfp-with-zoom theaterimg',
       image: {
         verticalFit: true,
       },
@@ -90,63 +91,63 @@ const TheatreInfo = ({ data, requestfrom, favoriteList }) => {
       },
     });
 
-    $(".readmore_btn").click(function () {
-      $(this).closest(".theater_infodisc").toggleClass("open");
+    $('.readmore_btn').click(function () {
+      $(this).closest('.theater_infodisc').toggleClass('open');
       $(this).hide();
     });
-    if ($(".theater_infodiscin").height() < 108) {
-      $(".theater_infodiscin").next(".readmore_btn").hide();
+    if ($('.theater_infodiscin').height() < 108) {
+      $('.theater_infodiscin').next('.readmore_btn').hide();
     } else {
-      $(".theater_infodiscin").next(".readmore_btn").show("inline-block");
-      $(".theater_infodiscin").css("height", "104px");
+      $('.theater_infodiscin').next('.readmore_btn').show('inline-block');
+      $('.theater_infodiscin').css('height', '104px');
     }
 
-    $(document).on("click", ".submitbtn input", function (e) {
+    $(document).on('click', '.submitbtn input', function (e) {
       e.preventDefault();
       e.stopImmediatePropagation();
-      $(".wpcf7-error_message").html("");
-      $(".fp_sendmsgform .thankyoutxt").hide();
-      $(".wpcf7-spinner").css("visibility", "visible");
+      $('.wpcf7-error_message').html('');
+      $('.fp_sendmsgform .thankyoutxt').hide();
+      $('.wpcf7-spinner').css('visibility', 'visible');
       var form_data = new FormData();
-      form_data.append("message-name", $('input[name="message-name"]').val());
+      form_data.append('message-name', $('input[name="message-name"]').val());
       // form_data.append('text-state', $('input[name="message-name"]').val());
-      form_data.append("message-email", $('input[name="message-email"]').val());
-      form_data.append("message-Organization", $('input[name="message-Organization"]').val());
-      form_data.append("message-phone", $('input[name="message-phone"]').val());
-      form_data.append("message-title", $('input[name="message-title"]').val());
-      form_data.append("message-subject", $('input[name="message-subject"]').val());
-      form_data.append("message-message", $('[name="message-message"]').val());
+      form_data.append('message-email', $('input[name="message-email"]').val());
+      form_data.append('message-Organization', $('input[name="message-Organization"]').val());
+      form_data.append('message-phone', $('input[name="message-phone"]').val());
+      form_data.append('message-title', $('input[name="message-title"]').val());
+      form_data.append('message-subject', $('input[name="message-subject"]').val());
+      form_data.append('message-message', $('[name="message-message"]').val());
 
-      form_data.append("page-url", $('input[name="page-url"]').val());
-      form_data.append("page-title", $('input[name="page-title"]').val());
+      form_data.append('page-url', $('input[name="page-url"]').val());
+      form_data.append('page-title', $('input[name="page-title"]').val());
       //form_data.append('email-id', $('input[name="email-id"]').val());
-      form_data.append("email-distributor", $('input[name="email-distributor"]').val());
+      form_data.append('email-distributor', $('input[name="email-distributor"]').val());
       //form_data.append('email-vender', $('input[name="email-vender"]').val());
-      form_data.append("send_message_org", $('input[name="send_message_org"]').val());
+      form_data.append('send_message_org', $('input[name="send_message_org"]').val());
       //form_data.append('page-ids', $('input[name="page-ids"]').val());
       axios
-        .post(process.env.NEXT_PUBLIC_MENU_URL + "/wp-json/contact-form-7/v1/contact-forms/1625/feedback", form_data, {
+        .post(process.env.NEXT_PUBLIC_MENU_URL + '/wp-json/contact-form-7/v1/contact-forms/1625/feedback', form_data, {
           headers: {
-            "content-type": "multipart/form-data",
+            'content-type': 'multipart/form-data',
           },
         })
         .then((res) => {
-          $(".wpcf7-spinner").css("visibility", "hidden");
-          if (res.data.status === "mail_sent") {
-            setEmailFormClass("wpcf7-form sent");
-            $(".fp_sendmsgform .thankyoutxt").show();
+          $('.wpcf7-spinner').css('visibility', 'hidden');
+          if (res.data.status === 'mail_sent') {
+            setEmailFormClass('wpcf7-form sent');
+            $('.fp_sendmsgform .thankyoutxt').show();
 
-            $('input[name="message-name"]').val("");
-            $('input[name="message-email"]').val("");
-            $('input[name="message-Organization"]').val("");
-            $('input[name="message-phone"]').val("");
-            $('input[name="message-title"]').val("");
-            $('[name="message-message"]').val("");
-            $('input[name="message-subject"]').val("");
+            $('input[name="message-name"]').val('');
+            $('input[name="message-email"]').val('');
+            $('input[name="message-Organization"]').val('');
+            $('input[name="message-phone"]').val('');
+            $('input[name="message-title"]').val('');
+            $('[name="message-message"]').val('');
+            $('input[name="message-subject"]').val('');
           } else {
-            setEmailFormClass("wpcf7-form invalid");
-            $(".wpcf7-error_message").html('<p class="wpcf7-not-valid-tip error">' + res.data.message + "</p>");
-            $(".fp_sendmsgform .thankyoutxt").hide();
+            setEmailFormClass('wpcf7-form invalid');
+            $('.wpcf7-error_message').html('<p class="wpcf7-not-valid-tip error">' + res.data.message + '</p>');
+            $('.fp_sendmsgform .thankyoutxt').hide();
           }
         })
         .catch((err) => console.log(err));
@@ -155,11 +156,11 @@ const TheatreInfo = ({ data, requestfrom, favoriteList }) => {
 
   const favoriteHeart = (favoriteId, favoriteType) => {
     const addFavoriteAll = async () => {
-      if (LOGGED_EMAIL === null || LOGGED_EMAIL === "") {
+      if (LOGGED_EMAIL === null || LOGGED_EMAIL === '') {
         alert(ERRORLOGIN);
         return false;
       }
-      var favmobvie_addurl = API_URL + "/login/favorite_all.php";
+      var favmobvie_addurl = API_URL + '/login/favorite_all.php';
       // setLoadingFav(LOADER);
       await axios
         .get(favmobvie_addurl, {
@@ -186,6 +187,8 @@ const TheatreInfo = ({ data, requestfrom, favoriteList }) => {
               <h2 className='h5'>{data.top_title ? data.top_title : data.page_title}</h2>
             </div>
           </div>
+
+          <AdminEditLink data={data} />
           <div className='theater_socialmedia'>
             <div className='theater_socialsticky'>
               <div className='theaterinfo_media'>
@@ -201,8 +204,8 @@ const TheatreInfo = ({ data, requestfrom, favoriteList }) => {
               <SocialLinks data={data} />
               <div className='sendmsg_btn printdochide'>
                 <a href='#send_message' className='formpop ghostbtn'>
-                  <img src={process.env.NEXT_PUBLIC_MENU_URL + "wp-content/themes/screendollars-live/assets/images/chatgold.svg"} alt='' className='img-state' />
-                  <img src={process.env.NEXT_PUBLIC_MENU_URL + "wp-content/themes/screendollars-live/assets/images/chatwhite.svg"} alt='' className='img-hover' />
+                  <img src={process.env.NEXT_PUBLIC_MENU_URL + 'wp-content/themes/screendollars-live/assets/images/chatgold.svg'} alt='' className='img-state' />
+                  <img src={process.env.NEXT_PUBLIC_MENU_URL + 'wp-content/themes/screendollars-live/assets/images/chatwhite.svg'} alt='' className='img-hover' />
                   Send Message
                 </a>
                 <div id='send_message' className='white-popup-block  mfp-hide formpopbox'>
@@ -240,12 +243,12 @@ const TheatreInfo = ({ data, requestfrom, favoriteList }) => {
                                 <div className='fromgroup'>
                                   <span className='wpcf7-form-control-wrap' data-name='message-email'>
                                     <input type='email' name='message-email' value={email} size='40' className='wpcf7-text wpcf7-email' placeholder='Email' onChange={(e) => console.log(e.target.value)} />
-                                  </span>{" "}
+                                  </span>{' '}
                                 </div>
 
                                 <div className='fromgroup state_selectbox'>
                                   <span className='wpcf7-form-control-wrap' data-name='text-state'>
-                                    <input type='text' name='message-subject' value={""} size='40' className='wpcf7-text wpcf7-subject' placeholder='Subject' onChange={(e) => setSubject(e.target.value)} />
+                                    <input type='text' name='message-subject' value={''} size='40' className='wpcf7-text wpcf7-subject' placeholder='Subject' onChange={(e) => setSubject(e.target.value)} />
                                   </span>
                                 </div>
                               </div>
@@ -258,12 +261,12 @@ const TheatreInfo = ({ data, requestfrom, favoriteList }) => {
                                 <div className='fromgroup'>
                                   <span className='wpcf7-form-control-wrap' data-name='message-title'>
                                     <input type='text' name='message-title' value={website} size='40' className='wpcf7-form-control wpcf7-text' aria-invalid='false' placeholder='Title' onChange={(e) => setWebsite(e.target.value)} />
-                                  </span>{" "}
+                                  </span>{' '}
                                 </div>
                                 <div className='fromgroup'>
                                   <span className='wpcf7-form-control-wrap' data-name='message-Organization'>
                                     <input type='text' name='message-Organization' value={organization} size='40' className='wpcf7-form-control wpcf7-text' aria-invalid='false' placeholder='Company or Organization' onChange={(e) => setOrganization(e.target.value)} />
-                                  </span>{" "}
+                                  </span>{' '}
                                 </div>
                               </div>
                               <div className='fm_formrow full'>
@@ -294,7 +297,7 @@ const TheatreInfo = ({ data, requestfrom, favoriteList }) => {
                 </div>
               </div>
 
-              {requestfrom === "filmfestival" ? (
+              {requestfrom === 'filmfestival' ? (
                 <>
                   {data.up_start_date && (
                     <div className='festivedate'>
@@ -333,17 +336,17 @@ const TheatreInfo = ({ data, requestfrom, favoriteList }) => {
                   )}
 
                   {data.theatre_screens ? data.theatre_screens : null}
-                  {data.theatre_screens && data.seats ? ", " : ""}
+                  {data.theatre_screens && data.seats ? ', ' : ''}
                   {data.seats ? data.seats : null}
 
                   {data.no_locations ? data.no_locations : null}
-                  {data.no_locations && data.exhibitor_screens ? ", " : ""}
+                  {data.no_locations && data.exhibitor_screens ? ', ' : ''}
                   {data.exhibitor_screens ? data.exhibitor_screens : null}
                 </p>
               </div>
               <div className='theater_pintshare printdochide'>
                 <ul className='df fww'>
-                  <li className='pritbtn' style={{ display: "none" }}>
+                  <li className='pritbtn' style={{ display: 'none' }}>
                     Print
                   </li>
                   <li className='sharing'>
@@ -356,22 +359,22 @@ const TheatreInfo = ({ data, requestfrom, favoriteList }) => {
               </div>
             </div>
             <h1 className='h2'>
-              {" "}
+              {' '}
               {data.sponser_class && <i className='fas fa-badge-check'></i>}
               <span dangerouslySetInnerHTML={{ __html: data.title }}></span>
-              {data.top_title === "Distributor" ? (
+              {data.top_title === 'Distributor' ? (
                 <>
-                  <span onClick={() => favoriteHeart(ID, "fav_dist_listing")} className={items.includes(ID) ? "favheart  redtxt biofavico" : "favheart biofavico "}>
-                    <i className={items.includes(ID) ? "fas fa-heart" : "far fa-heart "}></i>
+                  <span onClick={() => favoriteHeart(ID, 'fav_dist_listing')} className={items.includes(ID) ? 'favheart  redtxt biofavico' : 'favheart biofavico '}>
+                    <i className={items.includes(ID) ? 'fas fa-heart' : 'far fa-heart '}></i>
                   </span>
                 </>
               ) : (
-                ""
+                ''
               )}
-              {data.top_title === "Theatre" ? (
+              {data.top_title === 'Theatre' ? (
                 <>
-                  <span onClick={() => favoriteHeart(ID, "fav_theatres")} className={items.includes(ID) ? "favheart  redtxt biofavico" : "favheart biofavico "}>
-                    <i className={items.includes(ID) ? "fas fa-heart" : "far fa-heart "}></i>
+                  <span onClick={() => favoriteHeart(ID, 'fav_theatres')} className={items.includes(ID) ? 'favheart  redtxt biofavico' : 'favheart biofavico '}>
+                    <i className={items.includes(ID) ? 'fas fa-heart' : 'far fa-heart '}></i>
                   </span>
                   {/* <span className="drivenicon">
                     Drive IN
@@ -385,34 +388,34 @@ const TheatreInfo = ({ data, requestfrom, favoriteList }) => {
                   ) : null}
                 </>
               ) : (
-                ""
+                ''
               )}
-              {data.top_title === "Exhibitor" ? (
+              {data.top_title === 'Exhibitor' ? (
                 <>
-                  <span onClick={() => favoriteHeart(ID, "fav_exhibitors")} className={items.includes(ID) ? "favheart  redtxt biofavico" : "favheart biofavico "}>
-                    <i className={items.includes(ID) ? "fas fa-heart" : "far fa-heart "}></i>
+                  <span onClick={() => favoriteHeart(ID, 'fav_exhibitors')} className={items.includes(ID) ? 'favheart  redtxt biofavico' : 'favheart biofavico '}>
+                    <i className={items.includes(ID) ? 'fas fa-heart' : 'far fa-heart '}></i>
                   </span>
                 </>
               ) : (
-                ""
+                ''
               )}
-              {requestfrom === "VendorDetails" ? (
+              {requestfrom === 'VendorDetails' ? (
                 <>
-                  <span onClick={() => favoriteHeart(ID, "fav_vendors")} className={items.includes(ID) ? "favheart  redtxt biofavico" : "favheart biofavico "}>
-                    <i className={items.includes(ID) ? "fas fa-heart" : "far fa-heart "}></i>
+                  <span onClick={() => favoriteHeart(ID, 'fav_vendors')} className={items.includes(ID) ? 'favheart  redtxt biofavico' : 'favheart biofavico '}>
+                    <i className={items.includes(ID) ? 'fas fa-heart' : 'far fa-heart '}></i>
                   </span>
                 </>
               ) : (
-                ""
+                ''
               )}
-              {requestfrom === "filmfestival" ? (
+              {requestfrom === 'filmfestival' ? (
                 <>
-                  <span onClick={() => favoriteHeart(ID, "fav_filmfestivals")} className={items.includes(ID) ? "favheart  redtxt biofavico" : "favheart biofavico "}>
-                    <i className={items.includes(ID) ? "fas fa-heart" : "far fa-heart "}></i>
+                  <span onClick={() => favoriteHeart(ID, 'fav_filmfestivals')} className={items.includes(ID) ? 'favheart  redtxt biofavico' : 'favheart biofavico '}>
+                    <i className={items.includes(ID) ? 'fas fa-heart' : 'far fa-heart '}></i>
                   </span>
                 </>
               ) : (
-                ""
+                ''
               )}
             </h1>
             {data.address && (
@@ -442,7 +445,7 @@ const TheatreInfo = ({ data, requestfrom, favoriteList }) => {
 
                 {data.email_id && (
                   <li>
-                    <a href={"mailto:" + data.email_id} target='_blank' rel='noreferrer'>
+                    <a href={'mailto:' + data.email_id} target='_blank' rel='noreferrer'>
                       <i className='far fa-envelope'></i>
                       {data.email_id}
                     </a>
@@ -450,7 +453,7 @@ const TheatreInfo = ({ data, requestfrom, favoriteList }) => {
                 )}
                 <li>
                   {data.phone_no && (
-                    <a href={`tel:` + parseInt(data.phone_no.replace(/-/g, " "))} target='_blank' rel='noreferrer'>
+                    <a href={`tel:` + parseInt(data.phone_no.replace(/-/g, ' '))} target='_blank' rel='noreferrer'>
                       <i className='far fa-phone-alt'></i>
                       {data.phone_no}
                     </a>

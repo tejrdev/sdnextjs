@@ -1,9 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const Pagination = ({ totalPages, setCurrentPage, requestFrom }) => {
+  const router = useRouter();
   requestFrom = requestFrom || '';
   const [currentDistPage, setcurrentDistPage] = useState(1);
 
+  useEffect(() => {
+    const search = window.location.search;
+    const params = new URLSearchParams(search);
+    const pageno = params.get('pageno');
+    setTimeout(() => {
+      if (pageno !== '' && pageno !== null) {
+        setCurrentPage(pageno);
+        setcurrentDistPage(pageno);
+        $('#distibuotr-pagination .page-numbers[data-page="' + pageno + '"]').click();
+      }
+    }, 1000);
+  }, []);
   const setDistributorPage = (e) => {
     const currPage = parseInt(e.target.attributes['data-page'].value);
     setCurrentPage(currPage);
@@ -12,6 +26,20 @@ const Pagination = ({ totalPages, setCurrentPage, requestFrom }) => {
     elem?.scrollIntoView({
       behavior: 'smooth',
     });
+
+    const search = window.location.search;
+    const params = new URLSearchParams(search);
+    const state = params.get('state');
+    router.replace(
+      {
+        query: { ...router.query, state: state, pageno: currPage },
+      },
+      undefined,
+      {
+        scroll: false,
+        shallow: true,
+      }
+    );
   };
   const pages = Array.apply(null, Array(totalPages)).map(function (x, i) {
     return i;
@@ -23,6 +51,20 @@ const Pagination = ({ totalPages, setCurrentPage, requestFrom }) => {
     elem?.scrollIntoView({
       behavior: 'smooth',
     });
+
+    const search = window.location.search;
+    const params = new URLSearchParams(search);
+    const state = params.get('state');
+    router.replace(
+      {
+        query: { ...router.query, state: state, pageno: currentDistPage - 1 },
+      },
+      undefined,
+      {
+        scroll: false,
+        shallow: true,
+      }
+    );
   };
   const NextClick = (e) => {
     setCurrentPage(currentDistPage + 1);
@@ -31,6 +73,20 @@ const Pagination = ({ totalPages, setCurrentPage, requestFrom }) => {
     elem?.scrollIntoView({
       behavior: 'smooth',
     });
+
+    const search = window.location.search;
+    const params = new URLSearchParams(search);
+    const state = params.get('state');
+    router.replace(
+      {
+        query: { ...router.query, state: state, pageno: currentDistPage + 1 },
+      },
+      undefined,
+      {
+        scroll: false,
+        shallow: true,
+      }
+    );
   };
 
   return (

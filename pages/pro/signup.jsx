@@ -298,7 +298,7 @@ const SignUp = () => {
 
     const code = Math.floor(100000 + Math.random() * 900000);
     setVerificationCode(code);
-    console.log(code);
+    // console.log(code);
     $('#loadericons').hide();
     setVerifyOTPError(null);
     setVerifyOTPSucess(null);
@@ -328,24 +328,22 @@ const SignUp = () => {
           <div className='pricesignup df fww'>
             <div className='pricinginfo'>
               {/* <h3>Pricing</h3>*/}
-              <h5>No credit card required</h5>
+              {/* <h5>No credit card required</h5> */}
               <p>
-                Your subscription <strong>begins with a 90-day free trial</strong>
+                All new subscribers start <strong>with a 90-day free trial</strong>
               </p>
               <ul className='goldbullet'>
-                <li>Cancel anytime</li>
-                {/* <li>
-                  <strong>You won't be charged</strong> if you cancel before <strong>{trialEndDate}</strong>
-                </li> */}
-                <li>We’ll email a reminder two days before your free trial ends</li>
+                <li>No cost until after the trial period ends</li>
+                <li>No payment details required to begin trial</li>
+                <li>You'll receive a reminder 7 days before trial ends</li>
                 {/* <li>Payment details provided in the next step</li> */}
               </ul>
-              <h5>Available plans</h5>
+              <h5>Billing Options</h5>
               <Planselect />
             </div>
             <div className='login_signin'>
               <div className='loginbox'>
-                <h3>Enter Your Contact Information</h3>
+                <h3>Enter your contact information to create account</h3>
                 <p className='noregister'>
                   Already have an account?{' '}
                   <Link href={'/pro/login'} className='accountsigning'>

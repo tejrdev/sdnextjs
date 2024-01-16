@@ -41,6 +41,14 @@ const SocialLinks = ({ data }) => {
           </a>
         </li>
       )}
+      {data.wikipedia_link && (
+        <li>
+          <a href={data.wikipedia_link} target='_blank' title='Youtube' rel='noreferrer'>
+            {' '}
+            <i className='fab fa-wikipedia-w' aria-hidden='true'></i>{' '}
+          </a>
+        </li>
+      )}
     </ul>
   );
 };

@@ -1,25 +1,25 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-import Head from "next/head";
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import Head from 'next/head';
 
 //cpmponents
-import DistributorList from "../../../components/Directory/ListingPages/DistributorList";
-import Filters from "../../../components/Directory/ListingPages/Filters";
-import Pagination from "../../../components/Directory/ListingPages/Pagination";
-import Sponsers from "../../../components/Directory/ListingPages/Sponsers";
-import OtherSponsors from "../../../components/Directory/ListingPages/OtherSponsors";
-import AddListing from "../../../components/Directory/ListingPages/AddListing";
-import Loader from "../../../components/Loader";
-import MenuNavigation from "../../../components/Directory/ListingPages/MenuNavigation";
-import HomePageAds from "../../../components/Homepage/HomePageAds";
+import DistributorList from '../../../components/Directory/ListingPages/DistributorList';
+import Filters from '../../../components/Directory/ListingPages/Filters';
+import Pagination from '../../../components/Directory/ListingPages/Pagination';
+import Sponsers from '../../../components/Directory/ListingPages/Sponsers';
+import OtherSponsors from '../../../components/Directory/ListingPages/OtherSponsors';
+import AddListing from '../../../components/Directory/ListingPages/AddListing';
+import Loader from '../../../components/Loader';
+import MenuNavigation from '../../../components/Directory/ListingPages/MenuNavigation';
+import HomePageAds from '../../../components/Homepage/HomePageAds';
 
 export async function getStaticProps() {
   // Fetch data from external API
-  const res = await fetch(process.env.NEXT_PUBLIC_SEO_LINK + "directory/theatres");
+  const res = await fetch(process.env.NEXT_PUBLIC_SEO_LINK + 'directory/theatres');
   const data = await res.json();
 
   // Theater page static data
-  let theatresData = await fetch(process.env.NEXT_PUBLIC_SD_API + "/directory_theatres/?api_token=" + process.env.NEXT_PUBLIC_API_TOKEN);
+  let theatresData = await fetch(process.env.NEXT_PUBLIC_SD_API + '/directory_theatres/?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN);
   theatresData = await theatresData.json();
 
   return {
@@ -33,9 +33,9 @@ const Theatres = ({ data, theatresData }) => {
   // const [theatresData, setTheatresData] = useState([]);
   const [theatreListData, setTheatreListData] = useState(theatresData.theator_list);
   const [theatrePages, setTheatrePages] = useState([]);
-  const [theatreTypes, setTheatreTypes] = useState("");
+  const [theatreTypes, setTheatreTypes] = useState('');
   const [theatrePage, setTheatrePage] = useState(1);
-  const [exibutor_id, setexibutor_id] = useState("");
+  const [exibutor_id, setexibutor_id] = useState('');
   const [HideLoader, setHideLoader] = useState(false);
 
   const setCurrentPage = (currentPage) => {
@@ -56,17 +56,31 @@ const Theatres = ({ data, theatresData }) => {
     loadTheatresData();
   }, [theatreTypes, theatrePage, exibutor_id]);
 
+  useEffect(() => {
+    const search = window.location.search;
+    const params = new URLSearchParams(search);
+    const state = params.get('state');
+    const pageno = params.get('pageno');
+    console.log(state, pageno);
+    if (state !== '' && state !== null) {
+      $('#exibutor_status li span[value="' + state.toUpperCase() + '"]').click();
+      if (pageno !== '' && pageno !== null) {
+        setTheatrePage(pageno);
+      }
+    }
+  }, []);
+
   const loadTheatresData = () => {
     setHideLoader(false);
-    let directory_API = process.env.NEXT_PUBLIC_SD_API + "/directory_theatres/?api_token=" + process.env.NEXT_PUBLIC_API_TOKEN;
-    if (theatreTypes !== "") {
-      directory_API += "&state=" + theatreTypes;
+    let directory_API = process.env.NEXT_PUBLIC_SD_API + '/directory_theatres/?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN;
+    if (theatreTypes !== '') {
+      directory_API += '&state=' + theatreTypes;
     }
 
-    directory_API += "&page_no=" + theatrePage;
+    directory_API += '&page_no=' + theatrePage;
 
-    if (exibutor_id !== "") {
-      directory_API += "&exhibitor=" + exibutor_id;
+    if (exibutor_id !== '') {
+      directory_API += '&exhibitor=' + exibutor_id;
     }
     axios
       .get(directory_API)
@@ -89,18 +103,18 @@ const Theatres = ({ data, theatresData }) => {
           const attributes = item.tag.toUpperCase();
 
           switch (attributes) {
-            case "TITLE":
+            case 'TITLE':
               return <title key={index}>{item.html}</title>;
-            case "META":
-              const name = item.name || "";
-              if (name !== "") {
+            case 'META':
+              const name = item.name || '';
+              if (name !== '') {
                 return <meta key={index} name={item.name} content={item.content} />;
               } else {
                 return <meta key={index} property={item.property} content={item.content} />;
               }
-            case "LINK":
+            case 'LINK':
               return <link key={index} rel={item.rel} href={item.href} />;
-            case "SCRIPT":
+            case 'SCRIPT':
               return <script key={index} type={item.type} class={item.class} dangerouslySetInnerHTML={{ __html: item.html }}></script>;
             default:
               return null;
@@ -126,9 +140,9 @@ const Theatres = ({ data, theatresData }) => {
                   </li>
                 </ul>
               </div>
-              <Filters setDistributerFilter={setDistributerFilter} data={theatresData.filter_options.split(",")} tag='theatre' custom_options={theatresData.filter_exhibitor} setFilter_theatre={setFilter_theatre} />
+              <Filters setDistributerFilter={setDistributerFilter} data={theatresData.filter_options.split(',')} tag='theatre' custom_options={theatresData.filter_exhibitor} setFilter_theatre={setFilter_theatre} />
               <div className='dist_listdetails'>
-                {theatresData.sponder_data ? <Sponsers data={theatresData.sponder_data} tag='theatre' /> : ""}
+                {theatresData.sponder_data ? <Sponsers data={theatresData.sponder_data} tag='theatre' /> : ''}
                 <section className='alldist_list'>
                   <div className='top_txt df fww'>
                     <h3>Locations</h3>

@@ -29,7 +29,7 @@ const Filters = ({ setDistributerFilter, data, tag, custom_options, setFilter_th
     setFilter_theatre(currentTheatre);
   };
 
-  const handleOnChange = (position) => {
+  const handleOnChange = (position, event) => {
     let selectedVal = [];
     let updatedCheckedState;
     if (checked) {
@@ -58,9 +58,14 @@ const Filters = ({ setDistributerFilter, data, tag, custom_options, setFilter_th
     }
     const strSelectedVal = selectedVal.toString();
     setDistributerFilter(strSelectedVal);
+
+    const search = window.location.search;
+    const params = new URLSearchParams(search);
+    let pageno = params.get('pageno');
+    if (event.isTrusted) pageno = 1;
     router.replace(
       {
-        query: { ...router.query, state: strSelectedVal },
+        query: { ...router.query, state: strSelectedVal, pageno: pageno },
       },
       undefined,
       {
@@ -71,13 +76,19 @@ const Filters = ({ setDistributerFilter, data, tag, custom_options, setFilter_th
     fliter = '';
   };
 
-  const handleOnAllChange = () => {
+  const handleOnAllChange = (event) => {
     setChecked(!checked);
     setCheckedState(new Array(filter_options.length).fill(!checked));
     setDistributerFilter('');
+
+    const search = window.location.search;
+    const params = new URLSearchParams(search);
+    let pageno = params.get('pageno');
+    if (event.isTrusted) pageno = 1;
+
     router.replace(
       {
-        query: { ...router.query, state: 'ALL' },
+        query: { ...router.query, state: 'ALL', pageno: pageno },
       },
       undefined,
       {
@@ -123,12 +134,18 @@ const Filters = ({ setDistributerFilter, data, tag, custom_options, setFilter_th
         }
         const strSelectedVal = selectedVal.toString();
         setDistributerFilter(strSelectedVal);
+      } else {
+        router.replace(
+          {
+            query: { ...router.query, state: 'ALL', pageno: 1 },
+          },
+          undefined,
+          {
+            scroll: false,
+            shallow: true,
+          }
+        );
       }
-
-      const search = window.location.search;
-      const params = new URLSearchParams(search);
-      const state = params.get('state');
-      if (state !== '') $('#exibutor_status li span[value="' + state + '"]').click();
     }
   }, []);
 
@@ -141,7 +158,7 @@ const Filters = ({ setDistributerFilter, data, tag, custom_options, setFilter_th
 
             <ul>
               <li className='allselected'>
-                <input type='checkbox' id='distributor_allselect' name='distributor_allselect' value='' checked={checked} onChange={() => handleOnAllChange()} />
+                <input type='checkbox' id='distributor_allselect' name='distributor_allselect' value='' checked={checked} onChange={(event) => handleOnAllChange(event)} />
                 <label htmlFor='distributor_allselect'>select all</label>
               </li>
             </ul>
@@ -149,7 +166,7 @@ const Filters = ({ setDistributerFilter, data, tag, custom_options, setFilter_th
               {filter_options.map((item, index) => {
                 return (
                   <li key={index}>
-                    <input type='checkbox' id={item.value ? item.value : item.name} name='cat_names' value={item.value ? item.value : item.name} checked={checkedState[index]} onChange={() => handleOnChange(index)} />
+                    <input type='checkbox' id={item.value ? item.value : item.name} name='cat_names' value={item.value ? item.value : item.name} checked={checkedState[index]} onChange={(event) => handleOnChange(index, event)} />
                     <label htmlFor={item.value ? item.value : item.name}>{item.value ? item.value : item.name}</label>
                   </li>
                 );
@@ -159,7 +176,7 @@ const Filters = ({ setDistributerFilter, data, tag, custom_options, setFilter_th
         )}
         {(tag === 'exhibitor' || tag === 'theatre') && (
           <div className={dist_classes + ' stateboxtype'} id={tag === 'distributor' ? 'distributor_filter' : ''}>
-            <button className='allselectbtn btn active' id='distributor_allselect' name='distributor_allselect' value='' checked={checked} onClick={() => handleOnAllChange()}>
+            <button className='allselectbtn btn active' id='distributor_allselect' name='distributor_allselect' value='' checked={checked} onClick={(event) => handleOnAllChange(event)}>
               Select all
             </button>
             <h5>U.S. States</h5>
@@ -168,7 +185,7 @@ const Filters = ({ setDistributerFilter, data, tag, custom_options, setFilter_th
                 if (index < 51) {
                   return (
                     <li key={index} className={index}>
-                      <span id={item.value ? item.value : item.name} name='cat_names' value={item.value ? item.value : item.name} checked={checkedState[index]} className={checkedState[index] ? 'active' : ''} onClick={() => handleOnChange(index)}>
+                      <span id={item.value ? item.value : item.name} name='cat_names' value={item.value ? item.value : item.name} checked={checkedState[index]} className={checkedState[index] ? 'active' : ''} onClick={(event) => handleOnChange(index, event)}>
                         {item.value ? item.value : item.name}
                       </span>
                     </li>
@@ -182,7 +199,7 @@ const Filters = ({ setDistributerFilter, data, tag, custom_options, setFilter_th
                 if (index >= 51) {
                   return (
                     <li key={index}>
-                      <span id={item.value ? item.value : item.name} name='cat_names' value={item.value ? item.value : item.name} checked={checkedState[index]} className={checkedState[index] ? 'active' : ''} onClick={() => handleOnChange(index)}>
+                      <span id={item.value ? item.value : item.name} name='cat_names' value={item.value ? item.value : item.name} checked={checkedState[index]} className={checkedState[index] ? 'active' : ''} onClick={(event) => handleOnChange(index, event)}>
                         {item.value ? item.value : item.name}
                       </span>
                     </li>

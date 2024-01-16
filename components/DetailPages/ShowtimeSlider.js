@@ -5,7 +5,6 @@ import Image from 'next/image';
 import tometoimg from '../../public/images/tometoico.svg';
 
 const ShowtimeSlider = ({ data }) => {
-  
   const isInfinite = data.length > 5 ? true : false;
   const SliderSetting = {
     slidesToShow: 6,
@@ -109,79 +108,92 @@ const ShowtimeSlider = ({ data }) => {
   }, []);
 
   return (
-    <div className="nowshow_sliderbox">
-      <Slider {...SliderSetting} className="nowshow_slider roundslickarrow">
+    <div className='nowshow_sliderbox'>
+      <Slider {...SliderSetting} className='nowshow_slider roundslickarrow'>
         {data &&
           data.map((items, indexs) => {
             const { m_s_data } = items.show_times;
             return (
               <>
-                <div className="nowshow_item">
-                  <div className="nowshow_iteminner">
-                    <figure className="pvr">
-                    {items.m_link ? <a href={items.m_link} >
-                        <img src={items.poster_image_thumbnail} alt={items.title} className="objctimg_box"/>
-                        <span className="nowshow_posterinfo">
-                          <span className="nowshow_timerating">
-                          {items.rating ? (<span>{items.rating}</span> ) : ('')}
-                          {items.runtime ?  <span><time>{items.runtime} </time></span> : ''}
+                <div className='nowshow_item'>
+                  <div className='nowshow_iteminner'>
+                    <figure className='pvr'>
+                      {items.m_link && items.title ? (
+                        <a href={items.m_link}>
+                          <img src={items.poster_image_thumbnail} alt={items.title} className='objctimg_box' />
+                          <span className='nowshow_posterinfo'>
+                            <span className='nowshow_timerating'>
+                              {items.rating ? <span>{items.rating}</span> : ''}
+                              {items.runtime ? (
+                                <span>
+                                  <time>{items.runtime} </time>
+                                </span>
+                              ) : (
+                                ''
+                              )}
+                            </span>
+
+                            <span className='nowshow_genere'>{items.rating ? items.genre.map((gener) => <span>{gener}</span>) : ''}</span>
+                            {items.rotten_score ? (
+                              <span className='nowshow_rotanscore'>
+                                <Image src={tometoimg} alt='Tometo score' width={20} height={20} />
+                                {items.rotten_score}
+                              </span>
+                            ) : (
+                              ''
+                            )}
                           </span>
-                          
-                          <span className="nowshow_genere">
-                          {items.rating ? (items.genre.map(gener => 
-                            <span>{gener}</span>
-                            )
-                          ) : ('')}</span>
-                          {items.rotten_score ? (
-                          <span className="nowshow_rotanscore">
-                           <Image src={tometoimg} alt="Tometo score" width={20} height={20} />{items.rotten_score}</span> ): ('') }
-                        </span>
-                      </a> : 
-                      <span>
-                      <img src={items.poster_image_thumbnail} alt={items.title} className="objctimg_box"/>
-                        <span className="nowshow_posterinfo">
-                          <span className="nowshow_timerating">
-                          {items.rating ? (<span>{items.rating}</span> ) : ('')}
-                          {items.runtime ?  <span><time>{items.runtime} </time></span> : ''}
+                        </a>
+                      ) : (
+                        <span>
+                          <img src={items.poster_image_thumbnail} alt={items.title} className='objctimg_box' />
+                          <span className='nowshow_posterinfo'>
+                            <span className='nowshow_timerating'>
+                              {items.rating ? <span>{items.rating}</span> : ''}
+                              {items.runtime ? (
+                                <span>
+                                  <time>{items.runtime} </time>
+                                </span>
+                              ) : (
+                                ''
+                              )}
+                            </span>
+
+                            <span className='nowshow_genere'>{items.rating ? items.genre.map((gener) => <span>{gener}</span>) : ''}</span>
+                            {items.rotten_score ? (
+                              <span className='nowshow_rotanscore'>
+                                <Image src={tometoimg} alt='Tometo score' width={20} height={20} />
+                                {items.rotten_score}
+                              </span>
+                            ) : (
+                              ''
+                            )}
                           </span>
-                          
-                          <span className="nowshow_genere">
-                          {items.rating ? (items.genre.map(gener => 
-                            <span>{gener}</span>
-                            )
-                          ) : ('')}</span>
-                          {items.rotten_score ? (
-                          <span className="nowshow_rotanscore">
-                           <Image src={tometoimg} alt="Tometo score" width={20} height={20} />{items.rotten_score}</span> ): ('') }
                         </span>
-                      </span> }
-                     {items.trailer_link ?  (<a className="popvid popyoutube nowshoe_trailer" href="https://www.youtube.com/watch?v=JP93-cc3zYI">Watch Trailer</a> ) : ('')}
+                      )}
+                      {items.trailer_link ? (
+                        <a className='popvid popyoutube nowshoe_trailer' href='https://www.youtube.com/watch?v=JP93-cc3zYI'>
+                          Watch Trailer
+                        </a>
+                      ) : (
+                        ''
+                      )}
                     </figure>
-                    <div className="nowshow_info">
-                      <h5>
-                        {items.m_link ? <a href={items.m_link} >
-                          {items.title}
-                        </a> : <span href={items.m_link}> {items.title}</span> }
-                      </h5>
+                    <div className='nowshow_info'>
+                      <h5>{items.m_link ? <a href={items.m_link}>{items.title}</a> : <span href={items.m_link}> {items.title}</span>}</h5>
                       {/*<div className="pghr df fww just-between">
                                               {items.rating ? (
                                                 <div className="rating">{items.rating}</div>
                                               ) : ('')} 
                                               {items.runtime ? <time>{items.runtime} </time> : ''}
                                             </div>*/}
-                      <div className="timimg">
+                      <div className='timimg'>
                         {items.show_times &&
                           items.show_times.map((showitems, index) => {
                             return (
-                              <a
-                                href={showitems.booking_link}
-                                target="_blank"
-                                rel="noreferrer"
-                              >
-                                <span className="showtimgig">
-                                {showitems.start_at}
-                                </span>
-                                <span className="buybtn btn">Buy Now</span>
+                              <a href={showitems.booking_link} target='_blank' rel='noreferrer'>
+                                <span className='showtimgig'>{showitems.start_at}</span>
+                                <span className='buybtn btn'>Buy Now</span>
                               </a>
                             );
                           })}
