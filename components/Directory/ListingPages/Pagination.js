@@ -104,7 +104,7 @@ const Pagination = ({ totalPages, setCurrentPage, requestFrom }) => {
 
               {pages.map((item, index) => {
                 const classname = currentDistPage === item + 1 ? 'page-numbers current' : 'page-numbers';
-                if (index < 2 || (index > currentDistPage - 5 && index < currentDistPage + 3) || index > totalPages - 3) {
+                if (index < 1 || totalPages < 11 || (currentDistPage < 6 && index < 9) || (index > currentDistPage - 6 && index < currentDistPage + 3) || index > totalPages - 2) {
                   return (
                     <span key={index} aria-current='page' className={classname} data-page={item + 1} onClick={setDistributorPage}>
                       <span className='meta-nav screen-reader-text'>Page </span>
@@ -112,7 +112,7 @@ const Pagination = ({ totalPages, setCurrentPage, requestFrom }) => {
                     </span>
                   );
                 } else {
-                  if (index === currentDistPage - 5 || index === currentDistPage + 3) {
+                  if (index === currentDistPage - 6 || index === currentDistPage + 3 || (currentDistPage < 6 && index === totalPages - 2)) {
                     return (
                       <span className='page-numbers dots' key={index}>
                         …

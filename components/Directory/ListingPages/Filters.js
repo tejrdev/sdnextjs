@@ -134,6 +134,16 @@ const Filters = ({ setDistributerFilter, data, tag, custom_options, setFilter_th
         }
         const strSelectedVal = selectedVal.toString();
         setDistributerFilter(strSelectedVal);
+        router.replace(
+          {
+            query: { ...router.query, state: strSelectedVal },
+          },
+          undefined,
+          {
+            scroll: false,
+            shallow: true,
+          }
+        );
       } else {
         router.replace(
           {

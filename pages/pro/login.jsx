@@ -246,7 +246,7 @@ export default function Login({ csrfToken }) {
 
         const ProInd = typeLink === 'pro' ? 'Y' : 'N';
         // if (typeLink !== 'pro') {//add this condition after receiving customerID from WP
-        let stripeCustomer = customer;
+        // let stripeCustomer = customer;
         //create customer in Stripe
         // if (customer === '' || customer === null || customer === undefined) {
         //   const cust = await createCustomer(user);
@@ -254,8 +254,8 @@ export default function Login({ csrfToken }) {
         // }
         // dispatch(checkout({ user, stripeCustomer }));
         // // }
-        // const subscriber = CryptoJS.AES.encrypt(user + '_' + ProInd, ENCT_KEY).toString();
-        // dispatch(auth({ user, subscriber, endDate, latitude, longitude, pincode }));
+        const subscriber = CryptoJS.AES.encrypt(user + '_' + ProInd, ENCT_KEY).toString();
+        dispatch(auth({ user, subscriber, endDate, latitude, longitude, pincode }));
 
         setInterval(() => {
           //for removing localstoragevarialbe after 24 hrs

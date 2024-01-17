@@ -44,7 +44,8 @@ import Layout from '../components/Layout/Layout';
 // import "../styles/search.css";
 
 import '../styles/util.css';
-import '../styles/index.scss';
+import '../styles/wp.css';
+import '../styles/index.css';
 import '../styles/home.scss';
 import '../styles/newsletter.scss';
 import '../styles/directory.scss';

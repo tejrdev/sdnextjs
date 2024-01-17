@@ -61,7 +61,7 @@ const Theatres = ({ data, theatresData }) => {
     const params = new URLSearchParams(search);
     const state = params.get('state');
     const pageno = params.get('pageno');
-    console.log(state, pageno);
+    // console.log(state, pageno);
     if (state !== '' && state !== null) {
       $('#exibutor_status li span[value="' + state.toUpperCase() + '"]').click();
       if (pageno !== '' && pageno !== null) {

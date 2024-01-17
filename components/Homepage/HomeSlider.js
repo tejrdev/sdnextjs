@@ -16,22 +16,36 @@ function HomeSlider({ data }) {
     dots: true,
   };
   return (
-    <Slider {...SliderSettings} className="detailinfo_slider">
+    <Slider {...SliderSettings} className='detailinfo_slider'>
       {data &&
         data.map((item, id) => {
           return (
-            <div className="detailinfo_item" key={id}>
-              <Link href={item.video_url != '' ? item.video_url : item.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')} className={item.video_url != '' ? 'popvid' : ''}>
-                <div className="bnr_boxslide pvr vidoin">
-                  <figure className="pvr">
-                    <img src={item.img} alt={item.title} className="objctimg_box" />
-                  </figure>
-                  <div className="bnrboxslide_info">
-                    <h4>{item.title}</h4>
-                    <p>{item.sub_title}</p>
+            <div className='detailinfo_item' key={id}>
+              {item.link.indexOf('wp-content') > -1 && item.link.indexOf('.pdf') > -1 ? (
+                <Link href={item.link} target='_blank' rel='noreferrer'>
+                  <div className='bnr_boxslide pvr vidoin'>
+                    <figure className='pvr'>
+                      <img src={item.img} alt={item.title} className='objctimg_box' />
+                    </figure>
+                    <div className='bnrboxslide_info'>
+                      <h4>{item.title}</h4>
+                      <p>{item.sub_title}</p>
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              ) : (
+                <Link href={item.video_url != '' ? item.video_url : item.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')} className={item.video_url != '' ? 'popvid' : ''}>
+                  <div className='bnr_boxslide pvr vidoin'>
+                    <figure className='pvr'>
+                      <img src={item.img} alt={item.title} className='objctimg_box' />
+                    </figure>
+                    <div className='bnrboxslide_info'>
+                      <h4>{item.title}</h4>
+                      <p>{item.sub_title}</p>
+                    </div>
+                  </div>
+                </Link>
+              )}
             </div>
           );
         })}

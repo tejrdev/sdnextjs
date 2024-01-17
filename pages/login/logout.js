@@ -250,15 +250,15 @@ const Logout = () => {
                       const url = curent.link;
 
                       return (
-                        <>
-                          <li className='pvr notification' id={id} key={index}>
+                        <React.Fragment key={index}>
+                          <li className='pvr notification' id={id}>
                             <span onClick={() => redirectMessage(url)}> {notifyMessage} </span>{' '}
                             <span className='notifyclose' onClick={() => dismissSingle(id, type)}>
                               {' '}
                               +{' '}
                             </span>
                           </li>
-                        </>
+                        </React.Fragment>
                       );
                     })}
                     {/* <li className="pvr"><a href="#"> ---Your User Profile Has Not Yet Been Completed. <br/> Please Complete Your Profile. </a><span className="notifyclose"> + </span></li> */}
