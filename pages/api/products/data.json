@@ -1,0 +1,70 @@
+{
+  "whatget": {
+    "secname": "What you'll get",
+    "secdata": [
+      {
+        "img": "https://tejrdev.github.io/api/apisrc/fourabtsld.jpg",
+        "title" : "Get Access To Classics For Free By Signing Up To Screendollars"
+      },
+      {
+        "img": "https://tejrdev.github.io/api/apisrc/fourabtsld.jpg",
+        "title" : "Access To Screendollars Pro Insider Content Delivered Through Newsletters, Website And App"
+      },
+      {
+        "img": "https://tejrdev.github.io/api/apisrc/fourabtsld.jpg",
+        "title" : "Exclusive Box Office Forecasts, With Deep Dives And Analysis"
+      },
+      {
+        "img": "https://tejrdev.github.io/api/apisrc/fourabtsld.jpg",
+        "title" : "Subscriber-Only Access To The Tuesday Projection Room, Real-Time Discussion Of Forecasts"
+      },
+      {
+        "img": "https://tejrdev.github.io/api/apisrc/fourabtsld.jpg",
+        "title" : "First Looks At Screendollars Industry Reports, Quarterly Reviews And Previews"
+      }
+    ]
+  },
+  "recissue" : {
+    "secname" : "recent issues...",
+    "secdata" : [
+      {
+        "media": "https://tejrdev.github.io/api/apisrc/fourabtsld.jpg",
+        "title" : "Sun - Newsletter  ",
+        "link" : "#"
+      },
+      {
+        "media": "https://tejrdev.github.io/api/apisrc/fourabtsld.jpg",
+        "title" : "Tue - Projection Room [Pro]",
+        "link" : "#",
+        "var" : "pro"
+      },
+      {
+        "media": "https://tejrdev.github.io/api/apisrc/fourabtsld.jpg",
+        "title" : "Wed - Forecast Report [Pro]",
+        "link" : "#",
+        "var" : "pro"
+      },
+      {
+        "media": "https://tejrdev.github.io/api/apisrc/fourabtsld.jpg",
+        "title" : "Thu – Movie Reviews",
+        "link" : "#"
+      },
+      {
+        "media": "https://tejrdev.github.io/api/apisrc/fourabtsld.jpg",
+        "title" : "Fri – Tracking Report [Pro]",
+        "link" : "#",
+        "var" : "pro"
+      },
+      {
+        "media": "https://tejrdev.github.io/api/apisrc/fourabtsld.jpg",
+        "title" : "2023 Q2 Review",
+        "link" : "#"
+      },
+      {
+        "media": "https://tejrdev.github.io/api/apisrc/fourabtsld.jpg",
+        "title" : "2023 Q3 Preview",
+        "link" : "#"
+      }
+    ]
+  }
+}

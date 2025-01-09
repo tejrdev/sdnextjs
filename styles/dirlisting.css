@@ -1,0 +1,223 @@
+.bold {
+   font-weight: bold;
+}
+
+.alldist_list .top_txt {
+   justify-content: space-between;
+   align-items: flex-start;
+}
+
+.alldist_list .top_txt .distfilm_pagenation {
+   margin-top: 0;
+   width: auto !important;
+}
+
+.alldist_list .top_txt .distfilm_pagenation .pageof {
+   display: none;
+}
+
+.alldist_list .top_txt p {
+   color: #777777;
+}
+
+#theatre_list_data {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+
+#theatre_list_data .alldist_listbox {
+   width: calc(50% - 10px);
+   margin: 10px 0;
+   padding: 10px;
+}
+
+.alldist_listbox {
+   align-items: flex-start;
+   border: 1px solid #ccc;
+   border-radius: 10px;
+}
+
+.dircsearch_list {
+   width: 100%;
+   max-width: 280px;
+   margin-bottom: 10px;
+}
+
+.featurebox {
+   background: #fef5de;
+   border: 2px solid #d7b865;
+}
+
+.alldist_list #theatre_list_data .alldist_media {
+   padding: 0 0 30% 0;
+}
+
+.alldist_list #theatre_list_data .alldist_media .objctimg_box {
+   height: 100%;
+   width: 100%;
+   top: 0;
+   left: 0;
+   object-fit: cover;
+   position: absolute;
+   border-radius: 3px;
+}
+
+.dircsearch_list button {
+   position: absolute;
+   background: none;
+   padding: 7px 12px;
+   right: 0;
+}
+
+.dircsearch_list button:hover {
+   color: #000;
+}
+
+.dircsearch_list input {
+   padding: 6px 38px 6px 8px;
+   border-radius: 6px;
+}
+
+.dirshort .globalselect {
+   padding: 3px 12px;
+   padding-right: 28px;
+   margin: 0 0 10px 5px;
+   width: auto;
+   border-radius: 6px;
+}
+
+.dark .dirshort .globalselect {
+   background: #000 url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'><path fill='%23ffffff' d='M2 0L0 0h4zm0 5L0 2h4z'/></svg>") right .75rem center/8px 10px no-repeat;
+}
+
+.dirshort label {
+   margin-top: 5px;
+}
+
+.dirlist {
+   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+#theatre_list_data .alldist_media {
+   width: 33%;
+   height: auto;
+}
+
+#theatre_list_data .alldist_listiteminfo {
+   width: 67%;
+   padding-left: 15px;
+   max-width: 410px;
+   border: 0;
+}
+
+.alldist_listiteminfo {
+   padding: 10px;
+   border-top: 1px solid var(--gold);
+}
+
+.alldist_list .alldist_media {
+   height: 180px;
+   padding: 5px;
+}
+
+.alldist_list .alldist_media img {
+   max-height: 170px;
+}
+
+.alldist_listiteminfo p strong {
+   font-weight: 500;
+}
+
+.featurebox>h4 {
+   padding: 5px 10px;
+   margin: 0;
+   display: -webkit-box;
+   -webkit-line-clamp: 1;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+}
+
+.featuredtag {
+   text-align: center;
+   background: #d7b865;
+   font-size: 11px;
+   margin: -9px 0 0px 12px;
+   border-radius: 20px;
+   width: 79px;
+   text-transform: uppercase;
+   line-height: 1.5;
+   letter-spacing: 1px;
+   font-weight: 600;
+   position: absolute;
+   z-index: 1;
+}
+
+.featuredtag.thfhr {
+   transform: translate(-9px, -9px);
+}
+
+/* responsivee */
+
+@media (max-width: 991px) {
+   .dist_filter {
+      width: 200px;
+   }
+
+   .dist_listdetails {
+      width: calc(100% - 200px);
+   }
+
+   .alldist_list .top_txt .h3 {
+      width: 100%;
+   }
+
+   #theatre_list_data .alldist_listiteminfo {
+      width: 100%;
+      padding: 10px 0 0 0;
+   }
+
+   .alldist_list #theatre_list_data .alldist_media {
+      padding: 0 0 60% 0;
+      width: 100%;
+   }
+
+   .dircsearch_list {
+      max-width: 220px;
+   }
+}
+
+@media (max-width: 767px) {
+   .dist_filter {
+      width: 100%;
+   }
+
+   .dist_listdetails {
+      width: 100%;
+      padding: 30px 0 0 0;
+   }
+
+   .dist_filter {
+      margin-top: -5px;
+   }
+
+   .alldist_list .alldist_media {
+      height: 140px;
+   }
+
+   .alldist_list .alldist_media img {
+      max-height: 130px;
+   }
+}
+
+@media (max-width: 480px) {
+
+   .alldist_listbox,
+   #theatre_list_data .alldist_listbox {
+      width: 100%;
+   }
+
+   .alldist_list #theatre_list_data .alldist_media {
+      padding: 0 0 45% 0;
+   }
+}

@@ -1,0 +1,86 @@
+	{
+		"detailtabs": [
+			"Box Office",
+			"Advance Tickets",
+			"Awareness",
+			"Interest",
+			"Video Views",
+			"Wiki Views"
+		],
+		"advanceticket": {
+			"dailer": {
+				"topticketPersent": 292,
+				"dialername": "Advanced Ticket Sales",
+				"dailercolor": "#4BC8EF",
+				"dailerinfotitle": "Compared To Avg. Of All Films With Similar Genre",
+				"dailerinfo": "The X-Axis Is The Number Of Days Before Releasing Of Movie: D-23, D-18, D-15, D-11, D-8, D-5 And D-1. And This Chart Displays How The Movie Did Irrespective Of compared movies and Avg. of all films with similar genre"
+			},
+			"linerchart": {
+				"series": [
+					{
+						"name": "Spider Man: No Way Home",
+						"data": [
+							0,
+							0,
+							23686,
+							25540,
+							27442,
+							29583,
+							36823,
+							null
+						]
+					},
+					{
+						"name": "The Batman",
+						"data": [
+							0,
+							5866,
+							6580,
+							7435,
+							7884,
+							9325,
+							13865,
+							null
+						]
+					},
+					{
+						"name": "Morbius",
+						"data": [
+							0,
+							0,
+							1851,
+							2145,
+							2482,
+							3042,
+							4530,
+							null
+						]
+					},
+					{
+						"name": "Avg. of all films with similar genre ",
+						"data": [
+							2597,
+							4846,
+							6924,
+							7615,
+							8327,
+							9348,
+							12604,
+							null
+						]
+					}
+				],
+				"xaxis": [
+					"-22",
+					"-17",
+					"-14",
+					"-10",
+					"-07",
+					"-04",
+					"-01",
+					"0",
+					"+10"
+				]
+			}
+		}
+	}

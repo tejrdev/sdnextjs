@@ -1,0 +1,42 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+/build.zip
+/.github
+/pages/movies/box-office-results-classic/_indextsxfile.tsx
+
+# misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.quokka
+tempCodeRunnerFile.javascript
+frontdevrepodepoly.yml
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional REPL history
+.node_repl_history
+.next
+out/
+src
+testhtml
+bkp
+.vscode
+.idea
+pages/chartdemo
+pages/newsletter/index.js_oldui

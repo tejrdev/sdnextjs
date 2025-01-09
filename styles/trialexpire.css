@@ -1,0 +1,99 @@
+.protitle.protrialexpire .top_txt {
+   max-width: 550px;
+}
+
+.protitle.protrialexpire .container {
+   border-bottom: 0;
+}
+
+.protrialexpire .h2 {
+   text-transform: capitalize !important;
+}
+
+.plantoggle {
+   margin-bottom: 40px;
+   font-size: 20px;
+   padding: 0 10px;
+}
+
+.plantoggle .togglebtn {
+   margin: 5px 20px 0;
+   transform: scale(0.8);
+   background-color: #b5b5b5;
+}
+
+.plantoggle .togglebtn.off {
+   background-color: var(--gold);
+}
+
+.plantoggle .btn {
+   font-size: 14px;
+   font-weight: bold;
+   background-color: #D7B865;
+   padding: 0 4px;
+   border-radius: 5px;
+   display: inline-block;
+   vertical-align: middle;
+   min-width: auto;
+   line-height: 1.3;
+   margin: 15px -70px 0 11px;
+}
+
+.proplaninfo {
+   grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+   max-width: 670px;
+   margin: 0 auto;
+   gap: calc(20px + 1vw);
+   margin-bottom: 40px;
+}
+
+.proplaninfo .planboxitem {
+   width: 100%;
+}
+
+.goldcard {
+   border: 2px solid var(--gold);
+   background: rgb(255 245 220);
+}
+
+.proplaninfo .planboxitem .btn {
+   padding: 10px 5px;
+   font-weight: 500;
+   margin: 5px 0 3px;
+}
+
+.planboxitem ul {
+   margin: 0;
+}
+
+.planboxitem ul li {
+   position: relative;
+   list-style: none;
+   padding: 0 0 6px 25px;
+}
+
+.planboxitem ul li:before {
+   content: "";
+   position: absolute;
+   left: 3px;
+   top: 9px;
+   background-color: #000;
+   height: 10px;
+   width: 10px;
+   border-radius: 50%;
+}
+
+/* responsivee */
+
+@media(max-width:480px) {
+   .plantoggle .btn {
+      display: block;
+      text-align: right;
+      max-width: 107px;
+      margin: 0 0 0 auto;
+   }
+
+   .proplaninfo {
+      gap: 10px;
+   }
+}

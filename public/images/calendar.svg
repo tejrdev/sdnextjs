@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13.001" height="14.58" viewBox="0 0 13.001 14.58">
+  <g id="calendar-interface-symbol-tool" transform="translate(-1.974)">
+    <g id="Group_753" data-name="Group 753" transform="translate(1.974)">
+      <path id="Path_3508" data-name="Path 3508" d="M13.275,1.579h-.439V1.1a1.069,1.069,0,1,0-2.136,0v.479H9.6V1.1a1.069,1.069,0,1,0-2.136,0v.479h-1.1V1.1a1.069,1.069,0,1,0-2.136,0v.479H3.674a1.7,1.7,0,0,0-1.7,1.7v9.6a1.7,1.7,0,0,0,1.7,1.7h9.6a1.7,1.7,0,0,0,1.7-1.7v-9.6A1.7,1.7,0,0,0,13.275,1.579ZM11.3,1.1a.469.469,0,1,1,.936,0V3.059a.469.469,0,1,1-.936,0Zm-3.232,0A.469.469,0,1,1,9,1.1V3.059a.469.469,0,1,1-.936,0Zm-3.233,0a.469.469,0,1,1,.936,0V3.059a.469.469,0,1,1-.936,0Zm9.14,11.78a.7.7,0,0,1-.7.7h-9.6a.7.7,0,0,1-.7-.7V4.08h11Z" transform="translate(-1.974)"/>
+      <rect id="Rectangle_762" data-name="Rectangle 762" width="1.838" height="1.636" transform="translate(1.9 5.851)"/>
+      <rect id="Rectangle_763" data-name="Rectangle 763" width="1.839" height="1.636" transform="translate(4.354 5.851)"/>
+      <rect id="Rectangle_764" data-name="Rectangle 764" width="1.838" height="1.636" transform="translate(6.809 5.851)"/>
+      <rect id="Rectangle_765" data-name="Rectangle 765" width="1.839" height="1.636" transform="translate(9.262 5.851)"/>
+      <rect id="Rectangle_766" data-name="Rectangle 766" width="1.838" height="1.635" transform="translate(1.9 8.034)"/>
+      <rect id="Rectangle_767" data-name="Rectangle 767" width="1.839" height="1.635" transform="translate(4.354 8.034)"/>
+      <rect id="Rectangle_768" data-name="Rectangle 768" width="1.838" height="1.635" transform="translate(6.809 8.034)"/>
+      <rect id="Rectangle_769" data-name="Rectangle 769" width="1.839" height="1.635" transform="translate(9.262 8.034)"/>
+      <rect id="Rectangle_770" data-name="Rectangle 770" width="1.838" height="1.635" transform="translate(1.9 10.217)"/>
+      <rect id="Rectangle_771" data-name="Rectangle 771" width="1.839" height="1.635" transform="translate(4.354 10.217)"/>
+      <rect id="Rectangle_772" data-name="Rectangle 772" width="1.838" height="1.635" transform="translate(6.809 10.217)"/>
+      <rect id="Rectangle_773" data-name="Rectangle 773" width="1.839" height="1.635" transform="translate(9.262 10.217)"/>
+    </g>
+  </g>
+</svg>

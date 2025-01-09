@@ -1,0 +1,92 @@
+.frinewsltrdetail>h4 {
+   font-weight: normal;
+   padding: 20px 0;
+   margin: 0;
+   border-bottom: 1px solid #ccc;
+}
+
+.upcomingtitle,
+.newsltr_weekmonthtitle {
+   padding: 15px 0 5px;
+   border-bottom: 1px solid #ccc;
+
+}
+
+.newsltr_weekmonthtitle {
+   border-top: 1px solid #ccc;
+   margin: -1px 0 15px;
+}
+
+.upcomingtitle h6 span {
+   display: block;
+   text-align: right;
+}
+
+.blacktxt {
+   color: #000;
+}
+
+.frinewsltr_item>.blacktxt {
+   gap: 20px;
+   align-items: flex-start;
+}
+
+.frinewsltr_item>.blacktxt:hover {
+   color: #000;
+}
+
+.frinewsltr_item .pvr {
+   padding: 0 0 26% 0;
+   width: 50%;
+}
+
+.frinewsltr_item .newsitem_info {
+   width: calc(50% - 20px);
+}
+
+.frinewsltr_item p,
+.frinewsltr_item h3 {
+   margin-bottom: 0;
+}
+
+.frinewsltr_item:hover a h3 {
+   color: #0000ff;
+}
+
+.frinewsltr_item .ratinginfo_tags {
+   margin: 0;
+}
+
+.frinewsltr_item {
+   margin: 15px 0 30px;
+}
+
+.posterearnbox {
+   gap: 15px calc(10px + 2vw);
+   margin-bottom: 30px;
+}
+
+.posterearnbox .filmearingininfo {
+   width: 100%;
+   max-width: 200px;
+   margin-bottom: 10px;
+}
+
+/* responsivee */
+@media(max-width:640px) {
+
+   .frinewsltr_item .pvr,
+   .frinewsltr_item .newsitem_info {
+      width: 100%;
+   }
+
+   .frinewsltr_item .pvr {
+      padding: 0 0 55% 0;
+   }
+
+   .newsitem_info .ratinginfo_tags li {
+      display: inline-block;
+      width: auto;
+      margin: 0 15px 4px 0;
+   }
+}

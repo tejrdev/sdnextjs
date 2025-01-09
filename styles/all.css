@@ -1,0 +1,56 @@
+/* // import "../styles/index";
+// import "../styles/home"; */
+@import 'global';
+@import "products";
+@import "proheader";
+@import "linechart";
+@import "talentadmin";
+@import "movielist";
+@import "news";
+@import "movietimes";
+@import "talent_list";
+@import "filmdata";
+@import "videos";
+@import "theverdict";
+@import "detail";
+@import "filmz";
+@import "trailers_updates";
+@import "filmdetail";
+@import "moviedata";
+@import "comparechart";
+@import "article_detail";
+@import "top10";
+@import "quicklinks";
+@import "exibitor_detail";
+@import "theatre_detail";
+/* @import "VendorDetail"; */
+@import "about";
+@import "advertisestyle";
+/* @import "contactusestyle"; */
+@import "nonstopnews";
+@import "profile";
+@import "login";
+@import "favorite";
+@import "favoriteDetail";
+@import "search";
+/* @import 'util'; */
+@import 'wp';
+@import 'index';
+@import 'home';
+@import 'newsletter';
+@import 'directory';
+/* //import '../styles/site.css'; */
+@import 'print';
+/* //import '../styles/temp.css';
+//import '../styles/chunk.css'; */
+
+@import 'fridaynewslter';
+@import 'featurelist';
+@import 'manage_details_admin';
+@import 'dirlisting';
+
+@import 'fontawsome';
+@import 'trialexpire';
+@import 'boxofficev2';
+@import 'releaseweekv2';
+/* @import 'snow'; */

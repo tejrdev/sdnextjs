@@ -1,0 +1,437 @@
+/*top 10 articel*/
+
+.topartbnrbox .top_txt {
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-bottom: 15px;
+}
+
+.topartbnrbox .top_txt h1{
+	padding: 0 20px 10px 0;
+	border-bottom: 2px solid #D7B865;
+	max-width: 79%;
+}
+
+.topartbnrbox .timeshare ul{
+	list-style: none;
+	margin: 0;
+}
+
+.topartbnrbox .timeshare ul li{
+	display: inline-block;
+	font-weight: bold;
+	font-family: "Open Sans", sans-serif;
+	position: relative;
+}
+.topartbnrbox .timeshare time{
+	color: #777777;
+}
+
+.topartbnrbox .timeshare ul li .addtoany_shortcode .a2a_button_facebook,
+.topartbnrbox .timeshare ul li .addtoany_shortcode .a2a_button_twitter,
+.topartbnrbox .timeshare ul li .addtoany_shortcode .a2a_button_linkedin,
+.topartbnrbox .timeshare ul li .addtoany_shortcode .a2a_button_email{
+	display: none;
+}
+
+.topartbnrbox .timeshare ul li .addtoany_shortcode{
+	position: absolute;
+    top: 0;
+    opacity: 0;
+}
+
+.topartbnrbox .timeshare ul li .addtoany_shortcode .addtoany_share{
+    padding: 0 47px 0 0;		
+}
+
+.topartshare{
+	cursor: pointer;
+}
+
+.toparticels .topartbnr .container,.topart_box .container{
+	max-width: 822px;
+}
+
+.topartshare:before{
+	content: "";
+	display: inline-block;
+	background: url(../public/images/shareicopurpblk.svg);
+	height: 20px;
+	width: 18px;
+	margin: 0 8px -3px 12px;
+	background-size: 100%;
+}
+
+.topbnrmedia{
+	padding-bottom: 15px;
+}
+
+
+.topartitrm_media.row{
+	margin: 20px -15px 30px;
+}
+
+.topartitrm_media figure{
+	max-width: 268px;
+	padding: 0 15px;
+	overflow: hidden;
+	display: block;
+}
+
+.topartitrm_media figure:nth-child(2){
+	max-width: calc(100% - 270px);
+	width: 100%;
+}
+
+.topartitrm_media figure:nth-child(2) > a{
+	height: 100%;
+	width: 100%;
+	display: block;
+}
+
+.topartitrm_media figure img{
+	border-radius: 10px;
+	    border: 1px solid #ccc;
+}
+
+.topart_rating{
+	font-weight: 600;
+	font-family: "Open Sans", sans-serif;/*
+	justify-content: space-between;*/
+	margin-bottom: 10px;
+}
+
+.filmcolluection{
+	padding-right: 80px;
+}
+
+.filmcolluection > span{
+	display: block;
+}
+
+.topartings{
+	list-style: none;
+	margin: 0;
+}
+
+.scrorbox .topartings li:first-child{
+	padding-left: 0;
+}
+
+
+.topartings li{
+	display: inline-block;
+	align-items: center;
+	position: relative;
+	padding: 0 10px;
+	min-height: 30px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.topartings li:first-child:before{
+	display: none;
+}
+
+
+.topartings .scoreico{
+	max-width: 30px;
+	display: inline-block;
+	margin: -1px 5px 0 0;
+	vertical-align: top;
+}
+
+.watchmvbtn .btn{
+	border-radius: 5px;
+	padding: 5px 18px;
+	font-weight: bold;
+	margin: 10px 10px 5px 0;
+}
+
+.topart_item{
+	position: relative;
+	padding: 20px 0 100px;
+}
+
+.topart_box .topart_item:before{
+	content: "";
+	height: 2px;
+	background: #B8B8B8;
+	position: absolute;
+	bottom: 40px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+
+.topart_box .topart_item:last-child:before{
+	display: none;
+}
+
+.topart_box .topart_item:last-child{
+	padding-bottom: 30px;
+}
+
+.bobest_item{
+	width: 33.33%;
+	padding: 15px;
+}
+
+.bobest_item figure{
+	padding: 0 0 57% 0;
+	margin-bottom: 10px;
+}
+
+.bobest_item h3{
+	color: #000;
+	margin: 0;
+}
+
+.bobest_item p.rlsdate{
+	color: #777777;
+}
+
+.bobest_area h2{
+	font-family: "Open Sans", sans-serif;;
+}
+
+.bobest_item:hover h3{
+	color: #000;
+}
+
+.photodetail_gal{
+	padding-bottom: 50px;
+}
+
+.watchmvbtn .moreinfolink{
+	display: inline-block;
+}
+
+.watchmvbtn .moreinfolink > a{
+	background: #D7B865;
+	border: 1px solid #D7B865;
+	color: #000;
+}
+
+.social-links li a{
+	display: inline-block;
+    vertical-align: top;
+    padding: 0 8px;
+    color: #630348;
+}
+
+
+
+.brandreald .topartbnrbox .top_txt h1{
+	max-width: calc(100% - 100px);
+	text-transform: capitalize;
+}
+
+.brandreald .topartbnrbox .top_txt h1 figure{
+	display: inline-block;
+	vertical-align: top;
+	margin: -5px 0 0;
+}
+
+.brandreald .topartbnrbox .social-links li a{
+	font-size: 20px;
+}
+
+.brandreald .topart_box .topart_boxist_title{
+	padding: 0 10px 20px 0;
+	align-items: flex-end;
+}
+
+.topart_boxist_title h2 figure{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.topart_boxist_title h2{
+	max-width: 350px;
+	padding: 0 20px 10px 0px;
+	border-bottom: 2px solid #D7B865;
+	line-height: normal;
+}
+
+.topart_boxist_title .realse_Status a{
+	text-decoration: underline;
+	font-weight: bold;
+	margin: 10px 0 0 0;
+	display: inline-block;
+}
+
+.brandreald .topart_item h3 .macname{
+	font-weight: normal;
+	color: #000;
+	display: block;
+	font-style: italic;
+}
+
+.brandreald .bobest_area h2 figure{
+	display: inline-block;
+	vertical-align: baseline;
+	max-width: 129px;
+}
+
+.brandreald .bobest_area h3{
+	margin-bottom: 0;
+}
+
+.brandreald .bobest_area .datepost{
+	font-weight: bold;
+	color: #777777;
+}
+
+.qucikbrands .topartbnrbox .top_txt h1{
+	max-width: 100%;
+	padding-right: 0;
+	text-align: center;
+	border: none;
+	text-transform: capitalize;
+}
+
+.qucikbrands .topartbnrbox .top_txt h1 span{
+	font-size: 40%;
+	display: block;
+}
+
+.qucikbrands .topartbnrbox .top_txt{
+	justify-content: center;
+}
+
+
+.qucikbrands .topartbnrbox{	
+	border-bottom: 1px solid #B8B8B8;	
+	padding-bottom: 20px;	
+	margin-bottom: 20px;
+}
+
+.top_txt .timeshare{
+	width: 100%;
+}
+
+.top_disc{
+	margin-bottom: 30px;
+}
+
+.topartbnrbox .top_txt .text-center h1{
+	display: inline-block;
+	max-width: 100%;
+}
+
+.topartbnrbox{
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+.tenmoviegenre > ul{
+	margin: -15px 0 0 28px;
+}
+
+.topartitrm_media .playvid_box,
+.topartitrm_media .artinfoimg {
+	height: 100%;
+}
+
+.topartitrm_media .artinfoimg{
+	border-radius: 5px;
+	border: 2px solid transparent;
+}
+
+
+.topartitrm_media .playico img{
+	display: block;
+	border: none;
+	width: 40px;
+	margin: 0 auto;
+}
+
+.topartitrm_media .artinfoimg:hover{
+	border: 3px solid var(--gold);
+	border-radius: 10px;
+}
+
+.topartitrm_media .artinfoimg:after{
+	content: "";
+	transition: 0.5s all;
+}
+
+.topartitrm_media .artinfoimg:hover:after{	
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background: #000;
+	opacity: 0.4;
+	z-index: 0;
+	border-radius: 5px;
+}
+
+.topartitrm_media .playvid_box:hover .playico .fa-play{
+	color: var(--gold);
+}
+
+.topart_item .castnames{
+	margin-bottom: 10px;
+}
+
+.playico .fa-play{
+	font-size: 32px;
+	opacity: 0.8;
+}
+
+
+
+/*responsivee*/
+
+
+
+@media(max-width: 767px){
+	.scrorbox .topartings{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.scrorbox .topartings li:first-child{
+		padding: 0 10px;
+	}
+
+	.filmcolluection > span{
+		display: inline-block;
+		padding: 0 5px;
+	}
+
+	.topart_item .ratinginfo_tags li{
+		width: auto;
+		padding-right: 12px;
+	}
+}
+
+@media(max-width: 640px){
+	.topartitrm_media figure:nth-child(2) {
+		width: 100%;
+		max-width: 100%;
+	}
+}
+
+@media(max-width: 480px){
+	.brandreald .topartbnrbox .top_txt h1{
+		width: 100%;
+		padding-right: 0;
+		max-width: 100%;
+	}
+
+	.scrorbox .topartings li,
+	.scrorbox .topartings li:first-child{
+		width: auto;
+		padding: 0 10px;
+	}
+
+	.scrorbox .topartings li:first-child{
+		margin-bottom: 10px;
+	}
+}
+
+/*!top 10 articel*/

@@ -1,0 +1,159 @@
+.studio_topmovie {
+  @apply pt-3;
+}
+
+.studio_topmovie .posterboxcap .pvr {
+  width: 100%;
+  padding: 0 0 158% 0;
+}
+
+.studio_topmovie .posterboxcap .pvr:before {
+  content: '';
+  background-color: #000;
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transition: 0.5s all;
+}
+
+.studio_topmovie .posterboxcap:hover .pvr:before {
+  opacity: 0.5;
+}
+
+.studio_topmovie .posterboxcap h6 {
+  position: absolute;
+  color: #fff;
+  inset-inline: 0;
+  top: 100%;
+  z-index: 3;
+  margin: 0 auto;
+  padding: 0 15px;
+  transition: 0.3s all;
+}
+
+.studio_topmovie .posterboxcap:hover h6 {
+  top: 50%;
+}
+
+.releaseviews .top_txt > * {
+  margin: 5px 0;
+}
+
+.releaseviews .top_txt {
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.weeklist_Title {
+  padding: 0 8px;
+}
+
+.weeklistbox {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.weeklistinfo .weekgridlists {
+  border-bottom: 1px solid #ccc;
+  padding: 25px 0 0;
+}
+
+.weeklistinfo .weekgridlists:nth-child(2n) {
+  /* border-bottom: 0; */
+}
+
+.weeklistitem .poster_item {
+  padding-bottom: 15px;
+}
+
+.releasemonthnav {
+  margin: 40px 0;
+}
+
+.releasemonthnav .btn {
+  padding: 8px 5px;
+}
+
+.releasemonthnav .btn .far {
+  font-size: 22px;
+  margin: 3px 0 0;
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
+.weeklistbox.inlinerow .posterboxcap h6 {
+  display: none;
+}
+
+.weeklistbox.inlinerow .poster_item {
+  width: 130px;
+}
+
+.weeklistbox.inlinerow .weekposterinfo {
+  width: calc(100% - 230px);
+  padding: 0 0 20px 20px;
+}
+
+.weekposterinfo a {
+  color: #000;
+}
+
+.weekposterinfo h6 {
+  font-weight: bold;
+  margin: 10px 10px 5px 0;
+}
+
+.weekposterinfo h6 span {
+  display: block;
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+.weeklistbox.inlinerow .weekposterinfo p {
+  margin-bottom: 0;
+}
+
+.weeklistbox.inlinerow .ratinginfo_tags {
+  margin: 5px 0;
+}
+
+.weeklistbox.inlinerow .ratinginfo_tags + p {
+  max-width: 750px;
+}
+
+.weekposterinfo .top_txtbox {
+  align-items: flex-start;
+}
+
+.weekposterinfo .top_txtbox label {
+  margin-left: auto;
+  padding: 2px 10px;
+  background-color: #efefef;
+}
+
+.weeklistbox .weekposterinfo h6 {
+  font-size: 20px;
+}
+
+/* responsivee */
+@media (min-width: 1200px) {
+  .weekposterinfo h6 span {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .weeklistitem .poster_item {
+    padding-bottom: 10px;
+  }
+
+  .weeklistitem .posterboxcap {
+    padding: 0;
+  }
+
+  .weeklistbox.inlinerow .weekposterinfo {
+    width: 100%;
+    padding: 0 0 20px 0;
+  }
+}

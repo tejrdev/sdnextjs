@@ -1,0 +1,193 @@
+.manageservices_listing h2 small {
+   font-size: 12px;
+   font-weight: 500;
+}
+
+.manage_vendorsectitle {
+   margin-bottom: 35px;
+   max-width: 350px;
+}
+
+.manageservices_listingbox {
+   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+   gap: 20px;
+   border-bottom: 1px solid #ccc;
+   padding: 0 0 20px 0;
+}
+
+.manageservices_listingbox .manageservices_item>a {
+   max-width: 290px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   padding-bottom: 38px;
+   position: relative;
+   display: block;
+   height: calc(100% - 33px);
+   margin-bottom: 5px;
+}
+
+.manageservices_listingbox .manageservices_item figure {
+   border-radius: 5px;
+   overflow: hidden;
+}
+
+.manageservices_listingbox .manageservices_item .info {
+   padding: 10px 10px 0;
+}
+
+.manageservices_listingbox .manageservices_item .btn {
+   display: block;
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+}
+
+.vendproduct_add {
+   padding: 20px 0;
+   max-width: 1000px;
+}
+
+.vdadd_left {
+   width: calc(40% - 30px);
+}
+
+.vdadd_right {
+   width: calc(50% - 30px);
+   margin-bottom: 30px;
+}
+
+.vdadd_right .proimgbox.potrate .proimginfo {
+   width: 100%;
+   padding: 10px 0 0 0;
+}
+
+.vdadd_right .proimgbox figure img {
+   border: 1px solid #ccc;
+   border-radius: 5px;
+}
+
+.vendproduct_add .profile_field {
+   margin-bottom: 15px;
+}
+
+.vdadd_right .proimgbox {
+   margin-bottom: 20px;
+}
+
+.vdadd_right input[type="file"] {
+   margin-bottom: 10px;
+}
+
+.profile_aminity {
+   padding: 0 15px 15px 0;
+   width: 50%;
+   display: inline-block;
+}
+
+.profile_aminity.fullbox {
+   width: 100%;
+   padding-right: 0;
+   padding-bottom: 10px;
+}
+
+.profileinfobox .profile_field .checkoptions.associeate ul li {
+   padding: 0 15px 15px 0;
+   width: 50%;
+   display: inline-block;
+   margin: 0;
+}
+
+.keycontactfeed h2 small {
+   font-size: 15px;
+   font-weight: normal;
+}
+
+.keycontactfeed .profileinfobox {
+   padding-top: 12px;
+}
+
+.pointer {
+   cursor: pointer;
+}
+
+.imginurl .halfbox,
+.imgincaption.halfbox {
+   width: 50%;
+   padding: 0 10px 10px 0;
+   display: inline-block;
+   vertical-align: top;
+}
+
+.imginurl .imgsizing {
+   margin: 10px 0 0;
+   display: block;
+   font-size: 18px;
+}
+
+.adminimginputs {
+   align-items: flex-start;
+}
+
+.imginurl .ghostbtn {
+   margin-top: 20px;
+}
+
+.promoimginfo {
+   margin-bottom: 20px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   overflow: hidden;
+}
+
+.promoimginfo+.proimginfo {
+   padding: 0;
+}
+
+.associeate input[type="checkbox"] {
+   display: inline;
+}
+
+.profileinfobox .profile_field .associeate.checkoptions ul li label {
+   display: inline;
+}
+
+.proimgbox {
+   align-items: flex-start;
+}
+
+.vendproduct_add .imgsizing {
+   margin: -3px 0 15px;
+}
+
+div.react-datepicker-wrapper {
+   display: block;
+}
+
+div.react-datepicker__view-calendar-icon input {
+   width: 100%;
+   max-width: 440px;
+   padding: 10px 15px 10px 25px
+}
+
+div.react-datepicker__input-container .react-datepicker__calendar-icon {
+   padding: 14px 6px;
+   color: #434343;
+}
+
+/* responsive */
+
+@media(max-width:767px) {
+
+   .imginurl .halfbox,
+   .imgincaption.halfbox {
+      width: 100%;
+   }
+}
+
+@media(max-width:640px) {
+
+   .profile_aminity,
+   .profileinfobox .profile_field .checkoptions.associeate ul li {
+      width: 100%;
+   }
+}

@@ -1,0 +1,121 @@
+.featurevisibiity .fvbox {
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   gap: 30px;
+   margin-top: 30px;
+}
+
+.featurevisibiity .top_txt {
+   margin-left: auto;
+   margin-right: auto;
+   max-width: 1000px;
+}
+
+.featurevisibiity .top_txt h2 {
+   max-width: 440px;
+   margin: 0 auto 10px;
+}
+
+.featurevisibiity .fvcta {
+   margin: 30px 0;
+}
+
+span.placebox {
+   display: inline-block;
+   background-color: var(--gold);
+   height: 100px;
+   width: 100px;
+   border-radius: 20px;
+   border: 1px solid #000;
+   opacity: 0.2;
+   margin-bottom: 5px;
+}
+
+.featurechoos .fctabsbtn {
+   margin: 0;
+}
+
+.featurechoos .fctabsbtn li {
+   margin: 0 10px 10px 0;
+   min-width: auto;
+   padding: 6px 15px;
+   font-size: 16px;
+   letter-spacing: 0;
+}
+
+.featurechoos .fctabsbtn li.btn:hover {
+   background-color: var(--gold);
+}
+
+.featurechoos .fcboxinfo .tabnav {
+   display: none;
+}
+
+.featurechoos .fcboxinfo_item {
+   background-color: #FFF9E9;
+   border: 1px solid #707070;
+   border-radius: 10px;
+   padding: 20px;
+   margin: 0 0 15px 0;
+}
+
+.featurechoos .fcboxinfo_item p {
+   margin-bottom: 0;
+}
+
+.strimline .top_txt {
+   gap: 40px;
+   margin-bottom: 30px;
+}
+
+.strimline .top_txt h2 {
+   max-width: 400px;
+}
+
+.strimline .top_txt p {
+   max-width: calc(100% - 440px);
+}
+
+.strimlinebox {
+   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+   gap: 30px;
+   margin-bottom: 20px;
+}
+
+.strimlinecta a {
+   margin: 10px 15px 10px 0;
+}
+
+.featurelistlider .slick-list {
+   padding: 30px 0 50px;
+}
+
+.featurelistlider .slick-dots {
+   bottom: 0;
+}
+
+.yougets {
+   padding-top: 50px;
+}
+
+.yougets ul.grid {
+   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+   max-width: 920px;
+   margin: 40px auto 0;
+   gap: 0 70px;
+   padding: 0 15px;
+}
+
+.yougets h1 {
+   max-width: 900px;
+   margin-inline: auto;
+}
+
+.yougets ul.grid li {
+   padding-bottom: 5px;
+}
+
+.featureplancta .btn {
+   font-size: 18px;
+   padding: 10px 40px;
+   margin-bottom: 50px;
+}

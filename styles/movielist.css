@@ -1,0 +1,259 @@
+.featureitem>a {
+   color: #000;
+   padding: 12px;
+   display: block;
+   border-radius: 5px;
+}
+
+.featureitem .pvr {
+   padding: 0 0 60% 0;
+   width: 100%;
+   margin-bottom: 10px;
+}
+
+.featureitem h4 {
+   line-height: 1.3;
+}
+
+.featuredbg,
+.featureblock .featureitem>a {
+   border: 1px solid var(--gold);
+   background-color: #fbf8ef;
+}
+
+.featureblock {
+   justify-content: space-between;
+}
+
+.featureblock>div {
+   width: calc(50% - 10px);
+}
+
+@media (max-width: 991px) {
+   .featureblock>div {
+      width: 100%;
+   }
+}
+
+.featureblock .featureitem h4 {
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 2;
+   line-clamp: 2;
+   -webkit-box-orient: vertical;
+}
+
+@media (min-width: 1200px) {
+   .featureblock .featureitem h4 {
+      height: 52px;
+   }
+}
+
+.featureblock .featureblock_right {
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+@media (max-width: 991px) {
+   .featureblock .featureblock_right {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      margin-top: 20px;
+   }
+}
+
+@media (max-width: 991px) {
+   .featureblock .featureblock_left {
+      max-width: 500px;
+   }
+}
+
+.featureblock .featureblock_left .featureitem .pvr {
+   padding: 0 0 calc(100% - 140px) 0;
+}
+
+@media (max-width: 640px) {
+   .featureblock .featureblock_left .featureitem .pvr {
+      padding: 0 0 200px 0;
+   }
+}
+
+
+.topmovieslidersec .top_txt {
+   margin-bottom: 15px;
+}
+
+@media (min-width: 1200px) {
+   .topmovieslidersec .topmovieslider {
+      margin: 0 -8px;
+   }
+}
+
+.topmovieslidersec .topmovieslider .topmovieslideitem {
+   padding: 0 8px;
+}
+
+.topmovieslidersec .topmovieslider .topmovieslideitem .featureitem>a {
+   background-color: #f4f5f7;
+}
+
+
+@media (min-width: 1200px) {
+   .movieseditslider {
+      margin: 10px -8px 0;
+   }
+}
+
+.movieadminitem {
+   padding: 8px;
+}
+
+.movieadminitem .movieadminitem_inner {
+   padding: 12px;
+   display: block;
+   border-radius: 5px;
+   background-color: #f4f5f7;
+}
+
+.movieadminitem .movieadminitem_inner.featuredbg {
+   background-color: #fbf8ef;
+}
+
+.movieadminitem .movieadminitem_inner>a {
+   color: #000;
+}
+
+.movieadminitem .movieadminitem_inner h5.active {
+   outline: 1px solid #ccc;
+   padding: 0 5px;
+   border-radius: 3px;
+   background-color: #fff;
+}
+
+.movieadminitem .movieadminitem_inner .pvr {
+   padding: 0 0 60% 0;
+   width: 100%;
+   margin-bottom: 10px;
+}
+
+.movieadminitem .boxcta a,
+.movieadminitem .boxsharefeature a,
+.movieadminitem .boxcta span,
+.movieadminitem .boxsharefeature span {
+   color: #000;
+   font-weight: 600;
+}
+
+.movieadminitem .boxcta {
+   margin-bottom: 10px;
+}
+
+.movieadminitem .boxcta .edit .savingbtn {
+   display: none;
+}
+
+.movieadminitem .boxcta .edit.active .savingbtn {
+   display: block;
+}
+
+.movieadminitem .boxcta .edit.active .editingbtn {
+   display: none;
+}
+
+.movieadminitem .boxsharefeature .socialshare {
+   margin: 0 15px 5px 0;
+}
+
+.movieadminitem .boxsharefeature .socialshare svg {
+   display: inline-block;
+   margin: 8px 0 0 1px;
+   vertical-align: top;
+}
+
+.movieadminitem .boxsharefeature .markingfeaure {
+   position: relative;
+}
+
+.movieadminitem .boxsharefeature .markingfeaure:before {
+   position: absolute;
+   content: "";
+   display: inline-block;
+   height: 8px;
+   width: 8px;
+   top: 10px;
+   left: 4px;
+}
+
+@media (max-width: 480px) {
+   .movieadminitem .boxsharefeature .markingfeaure:before {
+      height: 6px;
+      width: 6px;
+   }
+}
+
+.movieadminitem .boxsharefeature .markingfeaure.active:before {
+   background-color: #1e1e1e;
+}
+
+.movieadminitem .boxsharefeature .markingfeaure svg {
+   display: inline-block;
+   vertical-align: top;
+   margin: 6px 5px 0 0;
+}
+
+.movieadminitem .boxsharefeature .spacigfor {
+   opacity: 0;
+}
+
+
+.reloadico {
+   display: inline-block;
+   vertical-align: top;
+   cursor: pointer;
+}
+
+.reloadico svg {
+   width: 20px;
+   margin: 10px 0 0 0;
+}
+
+
+.collactionform {
+   max-width: 500px;
+   padding: 12px;
+}
+
+.collactionform .collcname p {
+   margin: 5px 10px 0 0;
+}
+
+.collactionform .submitbtn {
+   margin-bottom: 20px;
+}
+
+.collactionform .submitbtn input {
+   font-weight: normal;
+}
+
+
+@media (max-width: 640px) {
+   .addcollactioninfo form {
+      display: block;
+   }
+}
+
+.addcollactioninfo .fromgroup {
+   margin: 0 10px 10px 0;
+}
+
+.addcollactioninfo .submitbtn {
+   margin: 28px 0 0 0;
+}
+
+@media (max-width: 640px) {
+   .addcollactioninfo .submitbtn {
+      margin: 15px 0 0 0;
+   }
+}
+
+.addcollactioninfo .submitbtn input {
+   padding: 13px 20px;
+}

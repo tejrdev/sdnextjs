@@ -1,0 +1,15 @@
+.temfy.site-footer .ftr_social ul li a {
+	@apply text-white p-0;
+}
+
+.temfy.site-footer .ftr_social ul li a:hover {
+	@apply bg-transparent text-gold
+}
+
+.ftrmail_subscribe input[type="email"] {
+	@apply rounded xsm:rounded-r-none;
+}
+
+.ftrmail_subscribebox .wpcf7-spinner {
+	@apply block sm:inline-block
+}

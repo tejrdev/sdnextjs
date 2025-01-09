@@ -1,0 +1,4 @@
+# robots.txt for https://screendollars.com
+User-agent: *
+Disallow: /login
+Sitemap: https://screendollars.com/sitemap.xml

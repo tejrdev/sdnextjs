@@ -1,0 +1,248 @@
+.proheader .site_prologo {
+   margin-right: 8px;
+}
+
+@media (max-width: 991px) {
+   .proheader .site_prologo {
+      float: left;
+   }
+}
+
+.proheader .sdpronav {
+   margin: 10px 0 20px auto;
+}
+
+@media (max-width: 1200px) {
+   .proheader .sdpronav {
+      position: relative;
+      padding: 0 50px 0 0;
+      text-align: right;
+   }
+}
+
+@media (max-width: 768px) {
+   .proheader .sdpronav {
+      margin: 10px -30px 20px auto;
+   }
+}
+
+@media (max-width: 480px) {
+   .proheader .sdpronav {
+      padding: 0 36px 0 0;
+   }
+}
+
+.proheader .sdpronav .sdpromenu>ul {
+   list-style: none;
+   margin: 0;
+   font-family: "Open Sans", sans-serif;
+}
+
+.proheader .sdpronav .sdpromenu>ul>li {
+   padding: 20px 10px 0 10px;
+   font-size: 14px;
+}
+
+@media (min-width: 1366px) {
+   .proheader .sdpronav .sdpromenu>ul>li {
+      padding: 20px 20px 0 16px;
+   }
+}
+
+.proheader .sdpronav .sdpromenu>ul>li .fa-caret-down {
+   margin-left: 5px;
+}
+
+.proheader .sdpronav .sdpromenu>ul>li a:not(.btn) {
+   color: #000;
+   display: block;
+}
+
+.proheader .sdpronav .sdpromenu>ul>li a.btn {
+   padding: 7px 10px;
+   margin-top: -10px;
+}
+
+.proheader .sdpronav .sdpromenu>ul>li.freetrynav a {
+   font-size: 14px;
+}
+
+@media (max-width: 1200px) {
+   .proheader .sdpronav .sdpromenu {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.5s ease-in-out;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      right: 0;
+      z-index: 2;
+      border-radius: 5px;
+      margin: 85px 0 0 0;
+   }
+
+   .proheader .sdpronav .sdpromenu>ul {
+      overflow: hidden;
+      display: block;
+      width: 100%;
+   }
+
+   .proheader .sdpronav .sdpromenu>ul>li {
+      background-color: #fff;
+      display: block;
+      padding: 10px 10px;
+      border-bottom: 1px solid #ccc;
+   }
+}
+
+.userico {
+   margin: 5px 0 0 0;
+}
+
+@media (max-width: 1200px) {
+   .userico {
+      margin-left: auto;
+   }
+}
+
+@media (max-width: 480px) {
+   .userico {
+      margin-right: 10px;
+   }
+}
+
+.proheader {
+   border-bottom: 1px solid #ccc;
+}
+
+@media (max-width: 1200px) {
+   .proheader {
+      min-height: 111px;
+      position: relative;
+      padding: 15px 0;
+      display: block;
+   }
+
+   .proheader .site_prologo {
+      position: absolute;
+   }
+}
+
+@media (max-width: 480px) {
+   .proheader .site_prologo {
+      max-width: 200px;
+      top: 30px;
+   }
+}
+
+.sdpromenubtn {
+   width: 30px;
+   position: absolute;
+   right: 0;
+   top: 22px;
+}
+
+@media (min-width: 1200px) {
+   .sdpromenubtn {
+      display: none;
+   }
+}
+
+.sdpromenubtn>span {
+   background-color: #000;
+   display: block;
+   height: 3px;
+   width: 100%;
+   margin-bottom: 6px;
+}
+
+@media (max-width: 1200px) {
+   .sdpromenubtn.navopen+.sdpromenu {
+      grid-template-rows: 1fr;
+   }
+
+   .sdpromenubtn.navopen+.sdpromenu>ul {
+      background-color: #fff;
+      border: 1px solid #ccc;
+   }
+}
+
+.site-headertop {
+   padding: 10px 0 0 0;
+}
+
+
+.dropdownNav {
+   position: relative;
+}
+
+.dropdownNav>span {
+   cursor: pointer;
+   display: block;
+}
+
+.dropdownNav .dropdownNavbox {
+   display: grid;
+   grid-template-rows: 0fr;
+   overflow: hidden;
+   transition: grid-template-rows 0.5s;
+   position: absolute;
+   left: 10px;
+   top: calc(100%);
+   z-index: 2;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   visibility: hidden;
+}
+
+.dropdownNav .dropdownNavbox ul {
+   min-height: 0;
+   transition: visibility 1s;
+   background-color: #fff;
+   width: 200px;
+   list-style: none;
+   padding: 5px;
+   margin: 0;
+}
+
+.dropdownNav .dropdownNavbox ul li {
+   padding: 5px 10px;
+   border-top: 1px solid #ccc;
+   text-transform: capitalize;
+}
+
+.dropdownNav .dropdownNavbox ul li:first-child {
+   border-top: 0;
+}
+
+.dropdownNav .dropdownNavbox ul li:hover {
+   background-color: #efefef;
+}
+
+@media (min-width: 1200px) {
+   .dropdownNav:hover .dropdownNavbox {
+      grid-template-rows: 1fr;
+      visibility: visible;
+   }
+}
+
+@media (max-width: 1200px) {
+   .dropdownNav .dropdownNavbox {
+      position: relative;
+      left: 0;
+   }
+
+   .dropdownNav .dropdownNavbox ul {
+      width: 100%;
+      padding: 0;
+   }
+
+   .dropdownNav.expand .dropdownNavbox {
+      grid-template-rows: 1fr;
+      visibility: visible;
+   }
+
+   .dropdownNav.expand .dropdownNavbox ul {
+      padding: 5px;
+   }
+}
