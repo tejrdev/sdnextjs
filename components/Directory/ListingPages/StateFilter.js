@@ -1,21 +1,21 @@
 import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
-import JSONData from '../../data.json';
+import { useState } from 'react';
+import { JSONData } from '@/components/shared/JSONData';
 
-const { USStates, CANStates } = JSONData;
+const { USStates, CANStates, FilterStates } = JSONData;
 
-const StateFilter = ({ setStateFilter, stateValue }) => {
+const StateFilter = ({ setStateFilter, stateValue, tag }) => {
   const router = useRouter();
   const [selAllUSStates, setselAllUSStates] = useState(stateValue !== '' ? (stateValue === 'USA' ? true : false) : true);
   const [selAllCANStates, setselAllCANStates] = useState(stateValue !== '' ? (stateValue === 'CAN' ? true : false) : true);
 
-  useEffect(() => {
-    const search = window.location.search;
-    const params = new URLSearchParams(search);
-    let state = params.get('state') || '';
-    setselAllUSStates(state !== '' ? (state === 'USA' ? true : false) : true);
-    setselAllCANStates(state !== '' ? (state === 'CAN' ? true : false) : true);
-  }, []);
+  // useEffect(() => {
+  //   const search = window.location.search;
+  //   const params = new URLSearchParams(search);
+  //   let state = params.get('state') || '';
+  //   setselAllUSStates(state !== '' ? (state === 'USA' ? true : false) : true);
+  //   setselAllCANStates(state !== '' ? (state === 'CAN' ? true : false) : true);
+  // }, []);
 
   const SetStates = (event) => {
     let state = event.target.id;
@@ -47,16 +47,21 @@ const StateFilter = ({ setStateFilter, stateValue }) => {
       setselAllCANStates(false);
     }
     setStateFilter(state);
-
-    const search = window.location.search;
-    const params = new URLSearchParams(search);
-    let pageno = params.get('pageno');
-    const sortby = params.get('sortby') || 'name';
-    if (event.isTrusted) pageno = 1;
-    let searchQuery = '';
-    if (country !== '') state = country;
-    if (state !== '') searchQuery = { ...router.query, state, sortby, pageno };
-    router.replace({ query: searchQuery }, undefined, { scroll: false, shallow: true });
+    if (country === '' && state === '') {
+      router.push(`/directory/${tag === 'theatre' ? 'theatres' : 'exhibitors'}`);
+    } else {
+      const statename =  country !== '' ? country : FilterStates.find((item) => item.key === state)?.value;
+      router.push(`/directory/${tag === 'theatre' ? 'theatres' : 'exhibitors'}/${statename}`);
+    }
+    // const search = window.location.search;
+    // const params = new URLSearchParams(search);
+    // let pageno = params.get('pageno');
+    // const sortby = params.get('sortby') || 'name';
+    // if (event.isTrusted) pageno = 1;
+    // let searchQuery = '';
+    // if (country !== '') state = country;
+    // if (state !== '') searchQuery = { ...router.query, state, sortby, pageno };
+    // router.replace({ query: searchQuery }, undefined, { scroll: false, shallow: true });
   };
 
   const StateDiv = ({ country, label, StateArray, AllSelected }) => {

@@ -3,20 +3,19 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 
 //cpmponents
-import DistributorList from '../../../components/Directory/ListingPages/DistributorList';
-import Filters from '../../../components/Directory/ListingPages/Filters';
-import Pagination from '../../../components/Directory/ListingPages/Pagination';
-import OtherSponsors from '../../../components/Directory/ListingPages/OtherSponsors';
-import Loader from '../../../components/Loader';
-import MenuNavigation from '../../../components/Directory/ListingPages/MenuNavigation';
-import HomePageAds from '../../../components/Homepage/HomePageAds';
+import DistributorList from '@/components/Directory/ListingPages/DistributorList';
+import Filters from '@/components/Directory/ListingPages/Filters';
+import Pagination from '@/components/Directory/ListingPages/Pagination';
+import OtherSponsors from '@/components/Directory/ListingPages/OtherSponsors';
+import Loader from '@/components/Loader';
+import HomePageAds from '@/components/Homepage/HomePageAds';
 import Breadcrumb from '@/components/Directory/ListingPages/Breadcrumb';
 import SearchComponent from '@/components/Directory/ListingPages/SearchComponent';
 import SortBy from '@/components/Directory/ListingPages/SortBy';
-import JsonData from '../../../components/data.json';
+import { JSONData } from '@/components/shared/JSONData';
 import HeadComponent from '@/components/HeadComponent';
 
-const { USStates, CANStates } = JsonData;
+const { USStates, CANStates } = JSONData;
 
 export async function getStaticProps() {
   // Fetch data from external API
@@ -146,7 +145,6 @@ const Exhibitors = (props: Props) => {
   return (
     <>
       <HeadComponent data={SEOdata} />
-      <MenuNavigation />
       <div className='distlisting'>
         <div className='container'>
           <div className='distlist_box'>

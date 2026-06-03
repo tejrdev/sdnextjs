@@ -1,12 +1,12 @@
-import demoimg from '@/public/fourabtsld.jpg'
+import demoimg from '@/public/images/fourabtsld.jpg'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ImShare2 } from 'react-icons/im';
 import { RxBox } from 'react-icons/rx';
-import { useState  } from 'react';
+import { useState } from 'react';
 
 
-const MovieAdminbox = ({cls}) => {
+const MovieAdminbox = ({ cls }) => {
    const [isClicked, setIsClicked] = useState(false);
    const [titleClicked, setTitleClicked] = useState(false);
    const markClick = (e) => {
@@ -20,7 +20,7 @@ const MovieAdminbox = ({cls}) => {
    return (
       <div className='movieadminitem'>
          <div className={"movieadminitem_inner " + cls}>
-            <Link href="#" onClick={e=>e.preventDefault()}>
+            <Link href="#" onClick={e => e.preventDefault()}>
                <figure className="pvr">
                   <Image src={'https://picsum.photos/367/220'} className="objimg" alt="" width={266} height={154} />
                </figure>

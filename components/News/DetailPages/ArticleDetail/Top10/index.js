@@ -7,7 +7,7 @@ import Listings from './Listings';
 import TopBanner from './TopBanner';
 // import Loader from '../../../../../Loader';
 
-import CategotyNavigation from '../../CategotyNavigation';
+// import CategotyNavigation from '../../CategotyNavigation';
 
 const Top10 = ({ data }) => {
   // let { id } = useParams();
@@ -23,8 +23,8 @@ const Top10 = ({ data }) => {
   //     .get(
   //       process.env.NEXT_PUBLIC_SD_API +
   //         '/news_page/news_detail.php?url=' +
-  //         process.env.NEXT_PUBLIC_MENU_URL +
-  //         id +
+  //         process.env.NEXT_PUBLIC_BACKEND_URL +
+  //         '/'+ id +
   //         '&api_token=' +
   //         process.env.NEXT_PUBLIC_API_TOKEN
   //     )
@@ -36,7 +36,7 @@ const Top10 = ({ data }) => {
   // };
   return (
     <>
-      <CategotyNavigation data={data.menu_items} />
+      {/* <CategotyNavigation data={data.menu_items} /> */}
       <div className="toparticels subfilmy">
         <TopBanner data={data} />
         <Listings data={data.top_movies} BottomText={data.tops_movies_more_info} />

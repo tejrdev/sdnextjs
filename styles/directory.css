@@ -309,6 +309,7 @@
   height: 198px;
   margin-bottom: 10px;
   overflow: hidden;
+  padding: 10px;
 }
 
 .startsponser {
@@ -636,6 +637,7 @@ p>a:hover {
   align-content: center;
   min-height: 166px;
   width: 250px;
+  padding: 10px;
 }
 
 .exhibox_mediaslide .slick-dots {
@@ -722,6 +724,7 @@ p>a:hover {
 
 .vendbox_mediasliditem figure img {
   margin: auto;
+  max-height: 110px;
 }
 
 .dirbnr_sliditem .objctimg_box.objectfill {
@@ -1344,9 +1347,9 @@ ul.tags>li>a,
 ul.tags>li>span {
   display: block;
   border: 1px solid #b8b8b8;
-  padding: 0 10px;
+  padding: 2px 11px;
   border-radius: 25px;
-  font-size: 12px;
+  font-size: 14px;
   color: #000;
   text-transform: capitalize;
   transition: 0.5s all;
@@ -3453,7 +3456,7 @@ input[type='hidden'],
 
 .info_block .top_txt {
   position: relative;
-  padding: 0 80px 15px;
+  padding: 0 80px 5px;
   z-index: 1;
   /* text-align: center; */
   /* min-height: 100%; */
@@ -3483,49 +3486,13 @@ input[type='hidden'],
   min-width: 800px;
 }
 
-.filmaz_filter ul {
-  justify-content: center;
-  max-width: 1623px;
-  margin: 0 auto 40px;
-}
 
-.filmaz_filter ul li button {
-  background: none;
-  color: #000;
-  border: 1px solid #707070;
-  width: 36px;
-  height: 36px;
-  padding: 7px;
-  text-transform: capitalize;
-  font-weight: 700;
-}
-
-.filmaz_filter ul li.active button,
-.filmaz_filter ul li:hover button {
-  background: #000;
-  border: 1px solid #000;
-  color: #fff;
-}
-
-.filmaz_filter ul li.last button {
-  width: auto;
-}
-
-.filmaz_filter ul li {
-  padding: 0 2px 6px;
-}
 
 .subfilmy {
   padding: 50px 0;
 }
 
-.filmaztable {
-  padding: 20px 0;
-}
 
-.filmaztable .dataTable thead tr:first-child th:nth-child(3) {
-  width: 160px;
-}
 
 .middletitle_print {
   position: relative;
@@ -3536,35 +3503,7 @@ input[type='hidden'],
   margin: 10px 0;
 }
 
-.filmaztable .dataTable {
-  min-width: 1200px;
-  min-width: 1110px;
-  width: 99%;
-  max-width: 99%;
-  display: table-cell;
-}
 
-.filmaztable .dataTable.twotblhead thead tr:first-child th:first-child {
-  width: 343px;
-}
-
-.filmaztable .dataTable tbody tr td:first-child,
-.filmaztable .dataTable tbody tr td:nth-child(2) {
-  text-align: left;
-}
-
-.filmaztable .dataTable.twotblhead thead tr:first-child th:nth-child(2) {
-  width: 99px;
-  border-right: 0px !important;
-}
-
-.filmaztable .dataTable thead tr:first-child th:nth-child(4) {
-  width: 257px;
-}
-
-.filmaztable .dataTable.twotblhead thead tr:first-child th:first-child {
-  border-right: 0px !important;
-}
 
 .calander_filter .cat_navbox {
   display: flex;
@@ -4358,7 +4297,8 @@ input[type='hidden'],
   .dist_box {
     margin: 0;
   }
-  .catnav_items{
+
+  .catnav_items {
     justify-content: flex-start;
   }
 }
@@ -4522,7 +4462,7 @@ input[type='hidden'],
   .fp_body {
     padding: 10px;
   }
-  
+
 }
 
 @media screen and (max-width: 640px) {
@@ -4767,7 +4707,8 @@ input[type='hidden'],
   .alldist_list .top_txt .distfilm_pagenation .nav-links {
     padding: 0;
   }
-  .filmaztable .dataTable{
+
+  .filmaztable .dataTable {
     min-width: auto;
   }
 }

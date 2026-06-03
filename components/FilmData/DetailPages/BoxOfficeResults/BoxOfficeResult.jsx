@@ -21,7 +21,9 @@ const BoxOfficeResult = ({ data, toggleon }) => {
                 <th data-title='#'>#</th>
                 <th data-title='+-LW'>+-LW</th>
                 <th data-title={toggleon ? 'Weekly' : 'Weekend $'}> {toggleon ? 'Weekly ' : 'Weekend '}$</th>
-                <th data-title='+-LW' className="w-20">+-LW</th>
+                <th data-title='+-LW' className='w-20'>
+                  +-LW
+                </th>
                 <th data-title=' Per Theatre $'> Per Theatre $</th>
                 <th data-title='Total $ To-Date'>Total $ To-Date</th>
               </tr>
@@ -54,22 +56,33 @@ const BoxOfficeResult = ({ data, toggleon }) => {
                         <td data-title='Rating' style={{ tdStyle }}>
                           {item.rating}
                         </td>
-                        <td data-title={(toggleon ? 'weekly ' : 'Weekend ') + 'Locations #'} style={{ tdStyle }}>
+                        <td data-title={(toggleon ? 'weekly ' : 'Weekend ') + 'Locations #'} style={{ tdStyle }} suppressHydrationWarning>
                           {toggleon ? item.weekly_locations && item.weekly_locations.toLocaleString() : item.weeked_locations && item.weeked_locations.toLocaleString()}
                         </td>
-                        <td data-title={(toggleon ? 'weekly ' : 'Weekend ') + 'Locations +-LW'} style={{ tdStyle }} className={toggleon ? (item.weekly_locations_change < 0 ? 'redtxt' : '') : item.weeked_locations_change < 0 ? 'redtxt' : ''}>
+                        <td
+                          data-title={(toggleon ? 'weekly ' : 'Weekend ') + 'Locations +-LW'}
+                          style={{ tdStyle }}
+                          className={toggleon ? (item.weekly_locations_change < 0 ? 'redtxt' : '') : item.weeked_locations_change < 0 ? 'redtxt' : ''}
+                          suppressHydrationWarning>
                           {toggleon ? (item.weekly_locations_change === 0 ? '-' : item.weekly_locations_change) : item.weeked_locations_change === 0 ? '-' : item.weeked_locations_change}
                         </td>
-                        <td data-title={toggleon ? 'weekly $' : 'Weekend $'} style={{ tdStyle }}>
+                        <td data-title={toggleon ? 'weekly $' : 'Weekend $'} style={{ tdStyle }} suppressHydrationWarning>
                           ${toggleon ? item.weekly_gross && item.weekly_gross.toLocaleString() : item.weekend_gross && item.weekend_gross.toLocaleString()}
                         </td>
-                        <td data-title='+-LW' style={{ tdStyle }} className={toggleon ? (item.weekly_gross_change < 0 ? 'redtxt' : '') : item.weekend_gross_change < 0 ? 'redtxt' : ''}>
+                        <td
+                          data-title='+-LW'
+                          style={{ tdStyle }}
+                          className={toggleon ? (item.weekly_gross_change < 0 ? 'redtxt' : '') : item.weekend_gross_change < 0 ? 'redtxt' : ''}
+                          suppressHydrationWarning>
                           {toggleon ? item.weekly_gross_change && parseFloat(item.weekly_gross_change).toFixed(1) : item.weekend_gross_change && parseFloat(item.weekend_gross_change).toFixed(1)} %
                         </td>
-                        <td data-title='Per theatre Average $' style={{ tdStyle }}>
-                          ${toggleon ? item.per_theater_avg_weekly && Math.round(item.per_theater_avg_weekly).toLocaleString() : item.per_theater_avg && Math.round(item.per_theater_avg).toLocaleString()}
+                        <td data-title='Per theatre Average $' style={{ tdStyle }} suppressHydrationWarning>
+                          $
+                          {toggleon
+                            ? item.per_theater_avg_weekly && Math.round(item.per_theater_avg_weekly).toLocaleString()
+                            : item.per_theater_avg && Math.round(item.per_theater_avg).toLocaleString()}
                         </td>
-                        <td data-title='Total $' style={{ tdStyle }}>
+                        <td data-title='Total $' style={{ tdStyle }} suppressHydrationWarning>
                           ${toggleon ? item.weekly_total && item.weekly_total.toLocaleString() : item.weekend_total && item.weekend_total.toLocaleString()}
                         </td>
                       </tr>

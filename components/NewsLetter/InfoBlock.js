@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import playico from '@/public/images/playico.png';
+import Image from 'next/image';
 const $ = require('jquery');
 
 const InfoBlock = ({ data }) => {
@@ -124,7 +126,7 @@ const InfoBlock = ({ data }) => {
                     )}
 
                     <div className='view_link text-center' id='2021-05-28'>
-                      <a className='btn' href='/movies/box-office-results/' data-months={item.links_m} data-year={item.links_y} data-week={item.links_w}>
+                      <a className='btn' href='/box-office-results/' data-months={item.links_m} data-year={item.links_y} data-week={item.links_w}>
                         See More Details
                       </a>
                     </div>
@@ -144,7 +146,7 @@ const InfoBlock = ({ data }) => {
                         <div className='media_box'>
                           <a className='popvid popyoutube' href={item.artical_video}>
                             <span className='playico'>
-                              <img src={process.env.NEXT_PUBLIC_MENU_URL + 'wp-content/themes/screendollars/assets/images/playico.png'} alt='play' />
+                              <Image src={playico} alt='play' width={62} height={45} as='image' />
                             </span>
                             <span
                               className='vid_img bgimage'

@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react';
+'use client';
+import { useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 import axios from 'axios';
-import  Link  from 'next/link';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
+// import { useParams } from 'react-router-dom';
 const API_URL = process.env.NEXT_PUBLIC_SD_API;
 const Activation = () => {
-  const { id } = useParams();
+  const searchParams = useSearchParams();
+  const id = searchParams.get('id');
   const router = useRouter();
   const loginAfterSignup = async () => {
     var login_after_signupurl = API_URL + '/login/login_after_signup.php';
@@ -49,7 +53,7 @@ const Activation = () => {
 
   return (
     <>
-      <Link href="/profile_steps" id="profileSteps"></Link>
+      <Link href='/profile_steps' id='profileSteps'></Link>
     </>
   );
 };

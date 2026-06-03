@@ -9,12 +9,12 @@ const $ = require('jquery');
 
 const Chartforcast = ({ data }) => {
   const [Chart, setChart] = useState(null);
-  const [chartwidth , serChartwidth] = useState('threecolchart');
+  const [chartwidth, serChartwidth] = useState('threecolchart');
   useEffect(() => {
     let $$ = ($) => document.querySelector($);
     let $$$ = ($) => document.querySelectorAll($);
 
-    
+
     import("apexcharts").then((Component) => setChart(Component));
     let movietotalone, openingone, movietotaltwo, openingtwo, movietotalthree, openingthree;
     if ($$$('.chartmovieone').length) {
@@ -243,9 +243,12 @@ const Chartforcast = ({ data }) => {
       });
     }
     (data.forcast.chart.length === 1) && serChartwidth('onecolchart');
-     (data.forcast.chart.length === 2) && serChartwidth('twocolchart');
-     (data.forcast.chart.length === 3) && serChartwidth('threecolchart');
+    (data.forcast.chart.length === 2) && serChartwidth('twocolchart');
+    (data.forcast.chart.length === 3) && serChartwidth('threecolchart');
   }, []);
+
+
+
   return (
     <>
       <section className="boxofficedetail_chart toplinesec sd_adv_data">
@@ -264,7 +267,7 @@ const Chartforcast = ({ data }) => {
                   {data.forcast.chart &&
                     data.forcast.chart.map((items, index) => {
                       return (
-                        <li className="active chartlegend" data-text={items.title} key = {index}>
+                        <li className="active chartlegend" data-text={items.title} key={index}>
                           <label htmlFor="">{items.title}</label>
                         </li>
                       );
@@ -276,9 +279,9 @@ const Chartforcast = ({ data }) => {
               {data.forcast.chart &&
                 data.forcast.chart.map((items, index) => {
                   if (index == 0) {
-                    return <div className="chartmovieone" data-opening={'[' + items.w_end + ']'} data-total={'[' + items.tot_ly + ']'} key = {index}></div>;
+                    return <div className="chartmovieone" data-opening={'[' + items.w_end + ']'} data-total={'[' + items.tot_ly + ']'} key={index}></div>;
                   } else {
-                    return <div className={index == 1 ? 'chartmovietwo' : 'chartmoviethree'} data-opening={'[' + items.w_end + ']'} data-total={'[' + items.tot_ly + ']'} key = {index}></div>;
+                    return <div className={index == 1 ? 'chartmovietwo' : 'chartmoviethree'} data-opening={'[' + items.w_end + ']'} data-total={'[' + items.tot_ly + ']'} key={index}></div>;
                   }
                 })}
             </div>
@@ -288,33 +291,40 @@ const Chartforcast = ({ data }) => {
             </div>
             {data.forcast_show && (
               <>
-                {data.forcast.table_data && data.forcast.table_data && (
-                  <div className="fdtable">
-                    <table id="box-ofc-proj-tbl" className="responsive dataTable">
-                      <thead>
-                        <tr>
-                          <th>As of</th>
-                          <th>Opening $</th>
-                          <th>Total $</th>
-                          <th># Theaters</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {data.forcast.table_data &&
-                          data.forcast.table_data.map((items, index) => {
-                            return (
-                              <tr key = {index}>
-                                <td data-title="As of">{items.date_when_projected}</td>
-                                <td data-title="Opening $"> {items.openening_weekend_collection_lable} </td>
-                                <td data-title="Total $"> {items.total_weekend_collection_label}</td>
-                                <td data-title="# Theaters">{items.theaters_label}</td>
-                              </tr>
-                            );
-                          })}
-                      </tbody>
-                    </table>
-                  </div>
-                )}
+                {data.forcast.table_data && data.forcast.table_data.length > 0 && (() => {
+                  // Check which columns have at least one non-empty value
+                  const hasOpening = data.forcast.table_data.some(item => item.openening_weekend_collection_lable && String(item.openening_weekend_collection_lable).trim() !== '');
+                  const hasTotal = data.forcast.table_data.some(item => item.total_weekend_collection_label && String(item.total_weekend_collection_label).trim() !== '');
+                  const hasTheaters = data.forcast.table_data.some(item => item.theaters_label && String(item.theaters_label).trim() !== '');
+
+                  return (
+                    <div className="fdtable">
+                      <table id="box-ofc-proj-tbl" className="responsive dataTable">
+                        <thead>
+                          <tr>
+                            <th>As of</th>
+                            {hasOpening && <th className='text-center'>Opening $</th>}
+                            {hasTotal && <th className='text-center'>Total $</th>}
+                            {hasTheaters && <th className='text-center'># Theaters</th>}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {data.forcast.table_data &&
+                            data.forcast.table_data.map((items, index) => {
+                              return (
+                                <tr key={index}>
+                                  <td data-title="As of">{items.date_when_projected}</td>
+                                  {hasOpening && <td data-title="Opening $"> {items.openening_weekend_collection_lable} </td>}
+                                  {hasTotal && <td data-title="Total $"> {items.total_weekend_collection_label}</td>}
+                                  {hasTheaters && <td data-title="# Theaters">{items.theaters_label}</td>}
+                                </tr>
+                              );
+                            })}
+                        </tbody>
+                      </table>
+                    </div>
+                  );
+                })()}
               </>
             )}
           </div>

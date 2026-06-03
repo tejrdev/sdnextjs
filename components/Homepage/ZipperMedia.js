@@ -1,4 +1,4 @@
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 import { useRef, useEffect } from 'react';
 import Link from 'next/link';
@@ -336,7 +336,7 @@ function ZipperMedia({ data }) {
                       })}
                   </Slider>
                   <div className='slidnavigation'>
-                    {data.map((item, id) => {
+                    {data && data.length > 0 && data?.map((item, id) => {
                       return (
                         <span nav_for={id + 1} key={id}>
                           {id + 1}
@@ -355,7 +355,7 @@ function ZipperMedia({ data }) {
                         data.map((item, id) => {
                           return (
                             <div className='marquee_txt' slide_for={id + 1} key={id}>
-                              <Link href={item.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')} target='_blank'>
+                              <Link href={item.link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')} target='_blank'>
                                 {/*<span className="pvr srcico">
                                   <Image className="objctimg_box" src={newstikersrcimg+item.link} width="15" height="15" alt="news src icon" />
                           </span> */}

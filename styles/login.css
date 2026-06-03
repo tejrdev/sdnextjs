@@ -43,7 +43,7 @@ span#gSignup {
 .googlesignin>span:before {
     content: "";
     display: inline-block;
-    background: url(../public/googleico.svg) center no-repeat;
+    background: url(../public/images/googleico.svg) center no-repeat;
     width: 26px;
     height: 26px;
     vertical-align: middle;
@@ -87,7 +87,7 @@ span#gSignup {
 .googlesignin>a:before {
     content: "";
     display: inline-block;
-    background: url(../public/googleico.svg) center no-repeat;
+    background: url(../public/images/googleico.svg) center no-repeat;
     width: 26px;
     height: 26px;
     vertical-align: middle;
@@ -869,6 +869,12 @@ select {}
     overflow: hidden;
     width: 100%;
     margin: 0 10px 10px 0;
+    border: 1px solid #eeeeee;
+    background: #fafafa;
+}
+
+.avtarpicinfo img {
+    @apply flex items-center justify-center;
 }
 
 .avtarpicinfo+.latter_box {

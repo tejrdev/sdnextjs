@@ -15,7 +15,6 @@ const SUCCESS = 'Success : Please check you email id for reseting password';
 const GLOGIN_ERROR = 'Error : Email Id is not registered';
 //const LOGGED_EMAIL = localStorage.getItem('email');
 const API_URL = process.env.NEXT_PUBLIC_SD_API;
-// const DEFAULT_URL =process.env.NEXT_PUBLIC_LOGIN_URL;
 const SIGN_SUCCESS = 'Success: Email Id Registerd Successfully';
 const SIGN_ALREADY = ' Error: Email Id Already Exists';
 const SIGNIN_ERROR = ' Error: Email Id Not Registered';

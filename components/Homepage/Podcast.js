@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import playinganim from '@/public/images/playinganim.gif';
+import Image from 'next/image';
 
 function Podcast({ data }) {
   const [audioDuration, setAudioDuration] = useState('');
@@ -127,7 +129,7 @@ function Podcast({ data }) {
               <div className="playsrc" data-src={item.audio}></div>
               <div className="prodmedia">
                 <figure className="pvr">
-                  <img className="playingboxanim" src={process.env.NEXT_PUBLIC_MENU_URL + 'wp-content/themes/screendollars-live/assets/images/playinganim.gif'} alt="" />
+                  <Image className="playingboxanim" src={playinganim} alt="" width={200} height={200} as='image' />
                   <img src={item.image_for_audio} alt="" className="objctimg_box" />
                 </figure>
               </div>

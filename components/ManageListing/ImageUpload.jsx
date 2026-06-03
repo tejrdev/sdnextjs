@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Loader from '../Loader';
-import imgData from '@/components/data.json';
-import promoPoster from '@/public/noimg_lanscrap.jpg';
+import { JSONData } from '@/components/shared/JSONData';
+import promoPoster from '@/public/images/noimg_lanscrap.jpg';
 
 const ImageUpload = ({ requestFrom, userLoggedIn, ListingURL, ListingType, onImageUpload, onSave }) => {
   const [blnShowLoader, setblnShowLoader] = useState(false);
@@ -14,14 +14,16 @@ const ImageUpload = ({ requestFrom, userLoggedIn, ListingURL, ListingType, onIma
   let APIEndpoint = process.env.NEXT_PUBLIC_SD_API + '/claim-listing/claim_gallery.php';
   if (requestFrom === 'promoImage') {
     APIEndpoint = process.env.NEXT_PUBLIC_SD_API + '/claim-listing/claim_promo.php';
+  } else if (requestFrom === 'bannerImage') {
+    APIEndpoint = process.env.NEXT_PUBLIC_SD_API + '/claim-listing/claim-banner-img.php';
   }
   const SetImageSrc = (src) => {
     onImageUpload(src);
   };
 
-  const setImageAction = async (event, requestFrom, removePromoImage) => {
+  const setImageAction = async (event, requestFrom, removePromoImage, removeBannerImage) => {
     event.preventDefault();
-    if (ImageURL === '' && ImageFile === null && !removePromoImage) return;
+    if (ImageURL === '' && ImageFile === null && !removePromoImage && !removeBannerImage) return;
     setblnShowLoader(true);
     try {
       const formData = new FormData();
@@ -32,12 +34,14 @@ const ImageUpload = ({ requestFrom, userLoggedIn, ListingURL, ListingType, onIma
       formData.append('image_url', ImageURL);
       // formData.append('requestFrom', requestFrom);
 
-      removePromoImage ? formData.append('remove_promo', removePromoImage) : formData.append('image_add', true);
+      removePromoImage ? formData.append('remove_promo', removePromoImage) : removeBannerImage ? formData.append('remove_banner', removeBannerImage) : formData.append('image_add', true);
 
       if (requestFrom === 'GalleryImage') {
         formData.append('caption', ImageCaption);
       } else if (requestFrom === 'promoImage') {
         formData.append('promo_image', true);
+      } else if (requestFrom === 'bannerImage') {
+        formData.append('banner_image', true);
       } else {
         formData.append('profile_image', true);
       }
@@ -56,6 +60,8 @@ const ImageUpload = ({ requestFrom, userLoggedIn, ListingURL, ListingType, onIma
           removeImage();
         } else if (requestFrom === 'promoImage') {
           $('.adminprofileimg .promoimg input[type="file"]').val('');
+        } else if (requestFrom === 'bannerImage') {
+          $('.adminprofileimg .bannerimg input[type="file"]').val('');
         } else {
           $('.adminprofileimg .profileimg input[type="file"]').val('');
         }
@@ -101,14 +107,18 @@ const ImageUpload = ({ requestFrom, userLoggedIn, ListingURL, ListingType, onIma
     setImageCaption('');
     if (requestFrom === 'GalleryImage') {
       $('.imageaddblock input[type="file"]').val('');
-      SetImageSrc(imgData.poster_img_v);
+      SetImageSrc(JSONData.poster_img_v);
     } else if (requestFrom === 'promoImage') {
       $('.adminprofileimg .promoimg input[type="file"]').val('');
-      e && setImageAction(e, requestFrom, true);
+      e && setImageAction(e, requestFrom, true, false);
       SetImageSrc(promoPoster);
+    } else if (requestFrom === 'bannerImage') {
+      $('.adminprofileimg .bannerimg input[type="file"]').val('');
+      e && setImageAction(e, requestFrom, false, true);
+      SetImageSrc(JSONData.poster_img_v);
     } else {
       $('.adminprofileimg .profileimg input[type="file"]').val('');
-      SetImageSrc(imgData.poster_img_v);
+      SetImageSrc(JSONData.poster_img_v);
     }
   };
   return (
@@ -117,7 +127,7 @@ const ImageUpload = ({ requestFrom, userLoggedIn, ListingURL, ListingType, onIma
         onSubmit={(e) => {
           setImageAction(e, requestFrom);
         }}
-        className={(requestFrom === 'promoImage' ? 'promoimg ' : 'profileimg ') + 'pvr'}>
+        className={(requestFrom === 'promoImage' ? 'promoimg ' : requestFrom === 'bannerImage' ? 'bannerimg ' : 'profileimg ') + 'relative'}>
         <div className='imginurl'>
           <div className='halfbox'>
             <label className='greytxt'>Choose, Paste, Or Drag And Drop A File Here</label>
@@ -130,14 +140,14 @@ const ImageUpload = ({ requestFrom, userLoggedIn, ListingURL, ListingType, onIma
             />
 
             <span className='imgsizing greytxt'>
-              <small>(Supported Image Types: JPG, PNG Suggested Max File Size: 2MB , Dimension: 970X210 px)</small>
+              <small>(Supported Image Types: JPG, PNG Suggested Max File Size: 2MB , Dimension: {requestFrom === 'bannerImage' ? '1900X250 px' : '970X210 px'})</small>
             </span>
           </div>
           <div className='halfbox'>
             <label className='greytxt'>Or Enter Direct Image URL</label>
             <input type='text' value={ImageURL} onChange={(e) => setImageURL(e.target.value)} placeholder='Add Image Url' className='dblock' />
           </div>
-          {(requestFrom === 'profileImage' || requestFrom === 'promoImage' || requestFrom === 'vendor') && (
+          {(requestFrom === 'profileImage' || requestFrom === 'promoImage' || requestFrom === 'vendor' || requestFrom === 'bannerImage') && (
             <>
               <button className='ghostbtn goldbtn uppercase' type='submit' name='upload image'>
                 upload image

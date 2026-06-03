@@ -1,55 +1,38 @@
+import Aritem from '../Article/Aritem';
+import { motion } from "motion/react"
+import { FadeinUp } from '@/components/Anim/FadeinUp';
+
 const Headlines = ({ data }) => {
   return (
-    <section className="newslines toplinesec">
+    <section className="newshedline mt-7 sm:mt-10 mb-7 sm:mb-10">
       <div className="container">
-        <div className="top_txt df fww just-between">
+        <motion.div variants={FadeinUp}
+          initial="init"
+          whileInView="anim"
+          viewport={{ once: true }}
+          className="top_txt df fww just-between">
           <h2>
-            <a href={data.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>
-              Headlines <i className="fal fa-angle-right"></i>
+            <a href={data.link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}>
+              Headlines 
             </a>
           </h2>
           <div className="viewmovrebtn">
-            <a href={data.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')} className="btn goldbtn">
+            <a href={data.link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')} className="btn goldbtn">
               View More
             </a>
           </div>
-        </div>
-        <div className="newslines_block df fww">
+        </motion.div>
+        <div className="newscatbox grid gap-4 md:gap-7 auto-fit-[300px]">
           {data.data &&
-            data.data.map((item, index) => {
+            data.data?.slice(0, 3).map((item, index) => {
               return (
-                <div className="newslines_item" key={index}>
-                  <div className="newslines_iteminner">
-                    <div className="newslnitem_top df fww">
-                      <div className="newslnitem_media pvr">
-                        <a href={item.link} title={item.title} target="_blank" rel="noreferrer">
-                          <img src={item.img} alt="" className="objctimg_box" />
-                        </a>
-                      </div>
-                      <div className="newslnitrm_toptxt">
-                        <h5>
-                          <a href={item.link} title={item.title} target="_blank" rel="noreferrer">
-                            {item.title}
-                          </a>
-                        </h5>
-                      </div>
-                    </div>
-                    <div className="newslnitem_bottom">
-                      <p>
-                      <a href={item.source_url} title={item.title} target="_blank" rel="noreferrer">
-                          <span
-                            className="newscastimg bgimage"
-                            style={{
-                              background: 'url(' + item.source_icon + ')',
-                            }}
-                          ></span>                          
-                          <span className="mediasrc">{item.source }</span>
-                          </a>
-                          {item.date_time}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <motion.div variants={FadeinUp}
+                  initial="init"
+                  whileInView="anim"
+                  viewport={{ once: true }}
+                  className="" key={index}>
+                  <Aritem item={item} key={index} figpadding='pb-[68%] xsm:pb-[62%] lg:pb-[70%]' newstag />
+                </motion.div>
               );
             })}
         </div>

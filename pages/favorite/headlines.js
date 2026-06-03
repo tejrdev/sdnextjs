@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import FOURBTS from '../../public/fourabtsld.jpg';
+import FOURBTS from '../../public/images/fourabtsld.jpg';
 import axios from 'axios';
 const API_URL = process.env.NEXT_PUBLIC_SD_API;
 import Link from 'next/link'
 import Image from 'next/image';
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 if (typeof window !== 'undefined') {
   var LOGGED_EMAIL = localStorage.getItem('email');

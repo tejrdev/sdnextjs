@@ -6,7 +6,7 @@ const AddListing = () => {
       <div className='container flex flex-wrap justify-between max-w-4xl'>
         <div className='addbsinfo df fww  '>
           <figure className='buicobox'>
-            <img src={process.env.NEXT_PUBLIC_MENU_URL + 'wp-content/themes/screendollars-live/assets/images/buico.svg'} alt='' />
+            <img src={process.env.NEXT_PUBLIC_BACKEND_URL + '/wp-content/themes/screendollars-live/assets/images/buico.svg'} alt='' />
           </figure>
           <div className='addbs_detail'>
             <h4>Can't find your listing?</h4>

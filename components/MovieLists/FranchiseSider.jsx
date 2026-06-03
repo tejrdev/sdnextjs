@@ -1,5 +1,5 @@
 import Featureitem from "./Featureitem"
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 
 const FranchiseSider = ({sliderTitle}) => {

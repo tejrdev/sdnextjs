@@ -4,9 +4,13 @@ import Head from 'next/head';
 
 import Casts from '../../../components/FilmData/FilmDetail/Casts';
 import MovieDetailBanner from '../../../components/FilmData/FilmDetail/MovieDetailBanner';
+import Releasedates from '../../../components/FilmData/FilmDetail/Releasedates';
+import Funfacts from '../../../components/FilmData/FilmDetail/Funfacts';
 import NewsUpdate from '../../../components/FilmData/FilmDetail/NewsUpdate';
 import Photos from '../../../components/FilmData/FilmDetail/Photos';
+import FilmReview from '../../../components/FilmData/FilmDetail/FilmReview';
 import TheatreTiming from '../../../components/FilmData/FilmDetail/TheatreTiming';
+import UpcomingReleases from '../../../components/FilmData/UpcomingReleases';
 import Summary from '../../../components/FilmData/FilmDetail/Summarysec';
 import Videos from '../../../components/FilmData/FilmDetail/Videos';
 import Page404 from '../../../components/Page404';
@@ -14,6 +18,11 @@ import Detailtab from '../../../components/FilmData/FilmDetail/DetailTab';
 import BoxSummary from '../../../components/FilmData/FilmDetail/BoxSummary';
 import AdminEditLink from '../../../components/DetailPages/AdminEditLink';
 import HeadComponent from '@/components/HeadComponent';
+import { getStaticPropsWithErrorHandling } from '@/utils/staticProps';
+import { ErrorDisplay } from '@/components/ErrorBoundary';
+import Technicals from '../../../components/FilmData/FilmDetail/Technicals';
+import Faq from '../../../components/Faq/Faq';
+import { MovieProps } from '@/types/movies';
 
 //for admin user
 const admin_emails: any = process.env.NEXT_PUBLIC_ADMIN_EMAILS;
@@ -34,259 +43,38 @@ interface Context {
 
 export async function getStaticProps(context: Context) {
   const { params } = context;
-
   const film_id = params.film_id;
-  // // Fetch data from external API
-  const res = await fetch(process.env.NEXT_PUBLIC_SEO_LINK + 'movie/' + film_id);
-  const SEOdata = await res.json();
 
-  // let FilmDetailsData;
-  let FilmDetailsData = await fetch(
-    process.env.NEXT_PUBLIC_SD_API + '/detail_pages/film-detail.php?url=' + process.env.NEXT_PUBLIC_MENU_URL + 'movie/' + film_id + '&api_token=' + process.env.NEXT_PUBLIC_API_TOKEN
-  );
-  FilmDetailsData = await FilmDetailsData.json();
-
-  return {
-    props: { SEOdata, FilmDetailsData, film_id },
-    revalidate: 10, // In seconds
+  const defaultData = {
+    FilmDetailsData: {
+      data: [],
+      error: '',
+    },
   };
+
+  const fetchConfigs = [
+    {
+      url: `${process.env.NEXT_PUBLIC_SEO_LINK}movie/${film_id}`,
+      key: 'SEOdata',
+      defaultData: { tag: [], children: [] },
+    },
+    {
+      url: `${process.env.NEXT_PUBLIC_SD_API}/detail_pages/film-detail.php?url=${process.env.NEXT_PUBLIC_BACKEND_URL}/movie/${film_id}&api_token=${process.env.NEXT_PUBLIC_API_TOKEN}`,
+      key: 'FilmDetailsData',
+      defaultData: defaultData.FilmDetailsData,
+    },
+  ];
+
+  const config = await getStaticPropsWithErrorHandling(fetchConfigs);
+  config.props.film_id = film_id; // Add film_id to props
+  return config;
 }
-type filmsdetail_data = {
-  title: string;
-  edit_link: string;
-  film_titles: Number;
-  id: string;
-  favorite: boolean;
-  error: string;
-  content: string;
-  release_date_year: string;
-  news: [
-    {
-      link: string;
-      title: string;
-      title_full: string;
-      img: string;
-      icon_img: string;
-      source: string;
-      date: string;
-    }
-  ];
-  additional_key_dates: string;
-  landscape_image: string;
-  trailer_link: string;
-  watch_now: string;
-  poster_img: string;
-  dis_title_link: string;
-  dis_title: string;
-  imdbrating_img: string;
-  imdbrating: string;
-  rotten_critics_score_img: string;
-  rotten_critics_score: string;
-  rotten_audience_score_img: string;
-  rotten_audience_score: string;
-  rating: string;
-  runtime: string;
-  genre: string;
-  public_movie_website: string;
-  public_movie_img: string;
-  distributor_movie_page: string;
-  facebook: string;
-  instagram: string;
-  twitter: string;
-  wikipedia: string;
-  format: string;
-  soundmix: string;
-  aspect_ratio: string;
-  comments: string;
-  film_country: string;
-  film_language: string;
-  film_page_view: null;
-  synopsis: string;
-  plot_summary: string;
-  story_line: string;
-  top_cast: [
-    {
-      link: string;
-      img: string;
-      name: string;
-      talent_name: string;
-    }
-  ];
-  film_video: Array<{
-    link: string;
-    title?: string;
-    img?: string;
-  }>;
 
-  movie_images: Array<{
-    link: string;
-    img: string;
-    title?: string;
-  }>;
-
-  movie_images_filter: Array<{
-    // define the structure of your filter objects
-    id?: string;
-    name?: string;
-  }>;
-  production_budget: string;
-  boxoffice_domestic: string;
-  boxoffice_international: string;
-  worldwide_total_collection: string;
-  re_release_boxoffice: [
-    {
-      release_date: string;
-      release_name: string;
-      distributor: string;
-      domestic_gross: string;
-      worldwide_gross: string;
-      international_gross: string;
-      domestic_details: [
-        {
-          week: string;
-          weekly_gross: string;
-          weekend_gross: number;
-          locations: number;
-          locations_2: string;
-          weekly_gross_temp: string;
-          weekend_gross_temp: string;
-          weekend_gross_change: string;
-          weekly_gross_change: string;
-          locations_change: string;
-          locations_2_change: string;
-          average: string;
-          average_2: string;
-          to_date: string;
-        }
-      ];
-      domestic_details_new: [
-        {
-          count: string;
-          weekend_gross: string;
-          weekly_gross: string;
-          weeked_locations: string;
-          weekly_locations: number;
-          weekly_gross_temp: string;
-          weekend_gross_temp: string;
-          weekend_gross_change: string;
-          weekly_gross_change: string;
-          weeked_locations_change: string;
-          weekly_locations_change: string;
-          weeked_locations_adv: string;
-          weekly_locations_adv: string;
-          weekly_todate: string;
-          weeked_todate: string;
-        }
-      ];
-    }
-  ];
-  box_office_show: string;
-  total_is_estimate_notes: null;
-  comparable_films: Array<{
-    // define the structure of your comparable films
-    title?: string;
-    id?: string;
-  }>;
-
-  advanceticket_cols: Array<{
-    // define the structure of your advance ticket columns
-    name?: string;
-    data?: any;
-  }>;
-
-  movie_frist_week_collection: string;
-  boxoffice_films_data: {
-    table_total: string;
-  };
-  forcast_show: string;
-  forcast: {
-    chart_class: string;
-  };
-  boxoffice_films_end_ly: [
-    {
-      count: string;
-      weekend_gross: string;
-      weekend_gross_change: string;
-      weeked_locations: string;
-      weeked_locations_change: string;
-      weeked_locations_adv: string;
-      weeked_todate: string;
-      weekly_gross: string;
-      weekly_gross_change: string;
-      weekly_locations: string;
-      weekly_locations_change: string;
-      weekly_locations_adv: string;
-      weekly_todate: string;
-    }
-  ];
-  release_date_note: string;
-  release_date: string;
-  release_date_count_down: string;
-  release_date_info: string;
-  chart: [
-    {
-      title: string;
-      w_end: string;
-      w_ly: string;
-      tot_ly: string;
-    }
-  ];
-  awreness: {
-    dailer: {
-      dialername: string;
-      dailerinfo: string;
-      topticketPersent: number;
-      dailercolor: string;
-    };
-    linerchart: {
-      series: any[];
-    };
-  };
-  intrest: {
-    dailer: {
-      dialername: string;
-      dailerinfo: string;
-      topticketPersent: number;
-      dailercolor: string;
-    };
-    linerchart: {
-      series: any[];
-    };
-  };
-  FILMFORCE: {
-    dailer: {
-      dialername: string;
-      dailerinfo: string;
-      topticketPersent: number;
-      dailercolor: string;
-    };
-    linerchart: {
-      series: any[];
-    };
-  };
-  advanceticket: {
-    dailer: {
-      dialername: string;
-      dailerinfo: string;
-      topticketPersent: number;
-      dailercolor: string;
-    };
-    linerchart: {
-      series: string;
-      xaxis: any[];
-    };
-  };
-};
-interface Props {
-  SEOdata: {
-    children?: any[] | undefined;
-    tag: any[] | undefined;
-  };
-  FilmDetailsData: filmsdetail_data;
-  film_id: string;
-}
-const FilmDetail = (props: Props) => {
-  const { SEOdata, FilmDetailsData, film_id } = props;
+const FilmDetail = (props: MovieProps) => {
+  const { SEOdata, FilmDetailsData, film_id, error } = props;
+  if (error) {
+    return <ErrorDisplay error={error} />;
+  }
   const API_URL = process.env.NEXT_PUBLIC_SD_API;
   const [favData, setFavData] = useState(0);
   // const [chartclick, setChartclick] = useState(false);
@@ -341,7 +129,22 @@ const FilmDetail = (props: Props) => {
     setAdvmovie(!advmovie);
   };
 
-  if (FilmDetailsData.error === 'Page Not Found!' || SEOdata.tag === null) {
+  // Handle scrolling when advanced data is shown
+  useEffect(() => {
+    if (advmovie) {
+      setTimeout(() => {
+        const advancedElement = document.getElementById('advanced');
+        if (advancedElement) {
+          advancedElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }
+      }, 500); // Increased delay to ensure component is fully rendered
+    }
+  }, [advmovie]);
+
+  if (FilmDetailsData?.error === 'Page Not Found!' || SEOdata?.tag === null) {
     return (
       <>
         <Head>
@@ -351,24 +154,65 @@ const FilmDetail = (props: Props) => {
       </>
     );
   }
+  // Generate JSON-LD schema
+  const generateJsonLd = () => {
+    const DirectorData = FilmDetailsData.top_cast.find((item) => item.talent_name === 'Director');
+    //actors
+    const actorsData = FilmDetailsData.top_cast.filter((item) => item.talent_name !== 'Director');
+    const actorList = actorsData.map((item) => ({
+      '@type': 'Person',
+      'name': item.name,
+      'url': process.env.NEXT_PUBLIC_FRONTEND_URL + item.link,
+    }));
+    const genre: string[] = [];
+    FilmDetailsData?.primary_genre?.map((item: any) => genre.push(item.name));
+    const publishedDate = FilmDetailsData.release_date.includes('|') ? FilmDetailsData.release_date.split('|')[0]?.trim() : FilmDetailsData.release_date;
+
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'Movie',
+      'name': FilmDetailsData.title,
+      'url': process.env.NEXT_PUBLIC_FRONTEND_URL + '/movie/' + film_id,
+      // "sameAs": [
+      //   "https://www.wikidata.org/wiki/Q133886934"
+      // ],
+      "image": FilmDetailsData.poster_img,
+      'description': FilmDetailsData.synopsis,
+      "datePublished": publishedDate,
+      "genre": genre,
+      "director": {
+        "@type": "Person",
+        "name": DirectorData?.name,
+        "url": process.env.NEXT_PUBLIC_FRONTEND_URL + (DirectorData?.link ?? ''),
+      },
+      "actor": actorList,
+    };
+  };
+
   return (
     <>
-      <HeadComponent data={SEOdata} />
+      <HeadComponent data={SEOdata} jsonSchema={generateJsonLd()} />
       <div className='filmdetailsec'>
         <div className='info_box'>
           <>
             <MovieDetailBanner data={FilmDetailsData} favoriteList={favData} toggleClick={toggleClick} mdetailshow={advmovie} />
+            {/* <Releasedates data={FilmDetailsData} /> */}
             <AdminEditLink data={FilmDetailsData} />
-            {!advmovie && (FilmDetailsData.forcast_show ? '' : <BoxSummary data={FilmDetailsData} mdetailshow={advmovie} />)}
+            {!advmovie && (FilmDetailsData?.forcast_show ? '' : <BoxSummary data={FilmDetailsData} mdetailshow={advmovie} />)}
             {advmovie && <Detailtab FilmDetailsData={FilmDetailsData} isAdminUser={isAdminUser} />}
+            {!advmovie && <TheatreTiming data={FilmDetailsData} film_id={film_id} mdetailshow={advmovie} />}
             {!advmovie && (
               <>
-                {FilmDetailsData.top_cast.length > 0 && <Casts data={FilmDetailsData.top_cast} />}
-                {FilmDetailsData.movie_images && <Photos data={FilmDetailsData.movie_images} />}
-                {FilmDetailsData.film_video && <Videos data={FilmDetailsData.film_video} />}
-                <TheatreTiming data={FilmDetailsData} film_id={film_id} mdetailshow={advmovie} />
-                {(FilmDetailsData.plot_summary || FilmDetailsData.story_line) && <Summary data={FilmDetailsData} />}
-                {FilmDetailsData.news.length >= 1 && <NewsUpdate data={FilmDetailsData.news} />}
+                {FilmDetailsData?.top_cast?.length > 0 && <Casts data={FilmDetailsData.top_cast} />}
+                {FilmDetailsData?.movie_images && <Photos data={FilmDetailsData.movie_images} />}
+                {FilmDetailsData?.film_video && <Videos data={FilmDetailsData.film_video} />}
+                {<Technicals data={FilmDetailsData} />}
+                {(FilmDetailsData?.plot_summary || FilmDetailsData?.story_line) && <Summary data={FilmDetailsData} />}
+                {FilmDetailsData.movie_review && FilmDetailsData.movie_review.length > 0 && <FilmReview data={FilmDetailsData.movie_review} />}
+                {FilmDetailsData.movie_faqs && FilmDetailsData.movie_faqs.length > 0 && <Faq data={FilmDetailsData.movie_faqs} />}
+                {FilmDetailsData.fun_facts && FilmDetailsData.fun_facts.length > 0 && <Funfacts data={FilmDetailsData.fun_facts} />}
+                {FilmDetailsData.similar_movies && FilmDetailsData.similar_movies.length > 0 && <UpcomingReleases data={FilmDetailsData.similar_movies} title="Similar Movies" />}
+                {FilmDetailsData?.news.length >= 1 && <NewsUpdate data={FilmDetailsData.news} />}
               </>
             )}
           </>

@@ -1,5 +1,5 @@
 import Image from "next/image"
-import SDpro from "@/public/sdpro.svg"
+import SDpro from "@/public/images/sdpro.svg"
 import Link from "next/link"
 
 import dynamic from 'next/dynamic';
@@ -8,7 +8,7 @@ const $ = require('jquery');
 const Proheader = (data) => {
    const Promenu = dynamic(() => import('./Promenu'), {
       ssr: false,
-    })
+   })
 
 
    return (
@@ -21,7 +21,7 @@ const Proheader = (data) => {
                         <Image src={SDpro} alt={"screendollars Pro"} width={295} height={96} />
                      </Link>
                   </div>
-                     <Promenu data={data} />
+                  <Promenu data={data} />
                </div>
             </div>
          </div>

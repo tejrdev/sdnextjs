@@ -1,28 +1,40 @@
 import Image from 'next/image';
 import axios from 'axios';
 import { MdArrowRightAlt } from 'react-icons/md';
-import newsltrthumb from '@/public/newsltrthumb.jpg';
+import newsltrthumb from '@/public/images/newsltrthumb.jpg';
 import Subscriber from '@/components/Homepage/Subscriber';
 import Head from 'next/head';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
+import { FadeinUp } from '@/components/Anim/FadeinUp';
+import { getStaticPropsWithErrorHandling } from '@/utils/staticProps';
+import { ErrorDisplay } from '@/components/ErrorBoundary';
+import HeadComponent from '@/components/HeadComponent';
+import AdPlaceholder from '@/components/Homepage/AdPlaceholder';
+import PlayIcon from '@/public/images/playicov2.png';
 
 export async function getStaticProps() {
-  // Fetch data from external API
-  const res = await fetch(process.env.NEXT_PUBLIC_SEO_LINK + 'newsletter');
-  const data = await res.json();
+  const fetchConfigs = [
+    {
+      url: `${process.env.NEXT_PUBLIC_SEO_LINK}newsletter`,
+      key: 'SEOdata',
+      defaultData: {},
+    },
+    {
+      url: `${process.env.NEXT_PUBLIC_SD_API}/newsletter_page/news_list.php?api_token=${process.env.NEXT_PUBLIC_API_TOKEN}`,
+      key: 'newsletterData',
+      defaultData: {},
+    },
+  ];
 
-  // newsletter page static data
-  let newsletterData = await fetch(process.env.NEXT_PUBLIC_SD_API + '/newsletter_page/news_list.php/?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN);
-  newsletterData = await newsletterData.json();
-
-  return {
-    props: { data, newsletterData },
-    revalidate: 10, // In seconds
-  };
+  return await getStaticPropsWithErrorHandling(fetchConfigs);
 }
 // const issuePerRow = 3;
-const NewsLetter = ({ data, newsletterData }) => {
+const NewsLetter = ({ SEOdata, newsletterData, error }) => {
+  if (error) {
+    return <ErrorDisplay error={error} />;
+  }
   // const [next, setNext] = useState(3);
   const [page_no, setpageNo] = useState(2);
   const [gridData, setGridData] = useState([]);
@@ -87,7 +99,7 @@ const NewsLetter = ({ data, newsletterData }) => {
 
   const handlemoreissues = () => {
     axios
-      .get(process.env.NEXT_PUBLIC_SD_API + '/newsletter_page/news_list.php/?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN + '&page_no=' + page_no)
+      .get(process.env.NEXT_PUBLIC_SD_API + '/newsletter_page/news_list.php?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN + '&page_no=' + page_no)
       .then((res) => {
         setGridData((oldData) => oldData.concat(res.data.news_post));
         setpageNo(page_no + 1);
@@ -102,39 +114,25 @@ const NewsLetter = ({ data, newsletterData }) => {
   // };
   return (
     <>
-      <Head>
-        {data.children[0].children.map((item, index) => {
-          const attributes = item.tag.toUpperCase();
-
-          switch (attributes) {
-            case 'TITLE':
-              return <title key={index}>{item.html}</title>;
-            case 'META':
-              const name = item.name || '';
-              if (name !== '') {
-                return <meta key={index} name={item.name} content={item.content} />;
-              } else {
-                return <meta key={index} property={item.property} content={item.content} />;
-              }
-            case 'LINK':
-              return <link key={index} rel={item.rel} href={item.href} />;
-            case 'SCRIPT':
-              return <script key={index} type={item.type} class={item.class} dangerouslySetInnerHTML={{ __html: item.html }}></script>;
-            default:
-              return null;
-          }
-        })}
-      </Head>
+      <HeadComponent data={SEOdata} />
       <div className='testchart'></div>
       <section className='home_subscribe newsletternav'>
         <Subscriber />
       </section>
+
+      {/* Ad Placement - After Subscriber */}
+      <AdPlaceholder
+        variant="fullwidth"
+        id="newsletter-ad-1"
+        sectionClass="newsletter-ad-section py-6"
+      />
+
       <section className='newslatterinfo secspace'>
         <div className='container'>
           <div className='newslatterbox grid'>
             {newsletterData.news_post?.map((item, index) => {
               return (
-                <div className='newsltrboxitem' key={index}>
+                <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 + index * 0.2 }} className='newsltrboxitem' key={index}>
                   <Link href={item.link} title={item.title}>
                     <figure className='pvr'>
                       <Image src={item.img} width='390' height='550' alt='' className='objctimg_box' />
@@ -147,7 +145,7 @@ const NewsLetter = ({ data, newsletterData }) => {
                       </span>
                     </div>
                   </Link>
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -156,7 +154,7 @@ const NewsLetter = ({ data, newsletterData }) => {
             {gridData?.map((item, index) => {
               return (
                 <React.Fragment key={index}>
-                  <div className='newsltrboxitem'>
+                  <motion.div variants={FadeinUp} initial='init' animate='anim' viewport={{ once: true }} className='newsltrboxitem'>
                     <Link href={item.link}>
                       <h4>{item.title}</h4>
                       <div className='newsltrbx-inner df fww'>
@@ -166,28 +164,36 @@ const NewsLetter = ({ data, newsletterData }) => {
                         </span>
                       </div>
                     </Link>
-                  </div>
+                  </motion.div>
                   {(index + 1) % 3 === 0 ? <div className='seclinespacenews full'></div> : null}
                 </React.Fragment>
               );
             })}
           </div>
-          <div className='newsitemsloadbtn text-center'>
+          <motion.div variants={FadeinUp} initial='init' whileInView='anim' viewport={{ once: true }} className='newsitemsloadbtn text-center'>
             <button className='btn uppercase' onClick={handlemoreissues}>
               show more issues
             </button>
-          </div>
+          </motion.div>
         </div>
       </section>
+
+      {/* Ad Placement - Before Trailer */}
+      <AdPlaceholder
+        variant="fullwidth"
+        id="newsletter-ad-2"
+        sectionClass="newsletter-ad-section py-6"
+      />
+
       <section className='newsltr_trailer'>
         <div className='container'>
-          <div className='newsltr_trailebox df fww'>
+          <motion.div variants={FadeinUp} initial='init' whileInView='anim' viewport={{ once: true }} className='newsltr_trailebox df fww'>
             <h3>Get our Wednesday Report to know more about Forecasts, Advance Tickets, Awareness & Interest.</h3>
             <div className='newstraileritem pvr'>
               <a className='popvid' href='https://www.youtube.com/watch?v=JP93-cc3zYI'>
                 <div className=' vid_boxslide pvr vidoin'>
                   <span className='playico show'>
-                    <img src='https://www.live.screendollars.com/wp-content/themes/screendollars-live/assets/images/playicov2.png' alt='play' />
+                    <img src={PlayIcon.src} alt='play' />
                   </span>
                   <figure className='pvr'>
                     <img src='https://i.ytimg.com/vi/Kr54T80rfYQ/hqdefault.jpg' alt='' className='objctimg_box' />
@@ -205,7 +211,7 @@ const NewsLetter = ({ data, newsletterData }) => {
               </p>
               <button className='btn ghostbtn uppercase goldbtn'>view more</button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

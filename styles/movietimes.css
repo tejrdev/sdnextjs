@@ -452,18 +452,6 @@
     color: #000;
 }
 
-.inbio_box li span {
-    width: 0;
-    opacity: 0;
-    transition: 0.5s all;
-    display: inline-block;
-    overflow: hidden;
-    vertical-align: top;
-    position: absolute;
-    background: #FFF;
-    z-index: 1;
-    margin: -2px 10px 0;
-}
 
 .inbio_box li:hover span {
     width: auto;
@@ -670,6 +658,10 @@
 
 .castperson_images .vid_sliditem .media_mvslicbox:hover .playico {
     opacity: 0;
+}
+
+.castperson_images .vid_sliditem .media_mvslicbox:hover .playico.seen {
+    opacity: 1;
 }
 
 .castperson_images.sd_m_data .vid_sliditem .media_mvslicbox:hover .playico {

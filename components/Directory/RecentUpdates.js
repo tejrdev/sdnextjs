@@ -8,7 +8,7 @@ function RecentUpdates({ data, tag }) {
         <h3> {tag === 'recent_post' ? 'Recent Updates' : 'Recently Viewed'} </h3>
       </div>
       <div className={'distbottom_sponcersupdate grid gap-4 ' + (tag === 'recent_post' ? 'recentupdates' : '')}>
-        {data &&
+      {data && data.length > 0 &&
           data.slice(0, 3).map((item, index) => {
             return <Logocard cardinfo={item} nobg key={index} />;
           })}

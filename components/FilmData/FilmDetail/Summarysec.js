@@ -25,10 +25,10 @@ const Summary = ({ data }) => {
 
   return (
     <>
-      <section className="summarysec toplinesec sd_m_data" id="viewsummary">
+      <section className="summarysec toplinesec sd_m_data mb-6" id="viewsummary">
         <div className="container">
           <div className="top_txt">
-            <h2>Summaries <i className="fal fa-angle-right"></i> </h2>
+            <h2>Summaries </h2>
           </div>
 
           <div className="summaryinfo">
@@ -42,7 +42,7 @@ const Summary = ({ data }) => {
             {data.story_line &&
               <>
                 <h3>Storyline <i className="fal fa-angle-right"></i></h3>
-                <ul ><li dangerouslySetInnerHTML={{ __html: data.story_line }}></li></ul>
+                <ul><li dangerouslySetInnerHTML={{ __html: data.story_line }}></li></ul>
               </>
             }
           </div>

@@ -1,7 +1,7 @@
 // import '../../Header/magnific-popup.min.css';
 import { useEffect } from 'react';
 import axios from 'axios';
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 import Link from 'next/link';
 
@@ -11,7 +11,7 @@ function VendorBox({ data, key_data, tag_data }) {
   const SliderSetting = {
     slidesToShow: 1,
     speed: 300,
-    infinite: true,
+    infinite: data.length > 1 ? true : false,
     autoplay: false,
     autoplaySpeed: 7000,
     pauseOnHover: true,
@@ -34,8 +34,8 @@ function VendorBox({ data, key_data, tag_data }) {
             this.st.focus = '#name';
           }
         },
-        open: function () { },
-        close: function () { },
+        open: function () {},
+        close: function () {},
       },
     });
 
@@ -133,7 +133,7 @@ function VendorBox({ data, key_data, tag_data }) {
           .val()
       );
       axios
-        .post(process.env.NEXT_PUBLIC_MENU_URL + '/wp-json/contact-form-7/v1/contact-forms/1625/feedback', form_data, {
+        .post(process.env.NEXT_PUBLIC_BACKEND_URL + '/wp-json/contact-form-7/v1/contact-forms/1625/feedback', form_data, {
           headers: {
             'content-type': 'multipart/form-data',
           },
@@ -185,7 +185,7 @@ function VendorBox({ data, key_data, tag_data }) {
         </div>
         Featured
       </div> */}
-      <div className="featuredtag right-2 top-0">Featured</div>
+      <div className='featuredtag right-2 top-0'>Featured</div>
       <div className='vendbox_media '>
         <Slider {...SliderSetting} className='vendbox_mediaslide w100'>
           <div className='vendbox_mediasliditem'>

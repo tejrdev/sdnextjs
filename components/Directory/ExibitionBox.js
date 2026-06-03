@@ -1,7 +1,7 @@
 import React from 'react';
-import imgData from '../data.json';
+import { JSONData } from '../shared/JSONData';
 import Link from 'next/link';
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 
 function ExibitionBox({ data }) {
@@ -73,7 +73,7 @@ function ExibitionBox({ data }) {
                   <div className='exhibfurther_row df fww'>
                     <div className='other_spmedia pvr'>
                       <Link href={item.link}>
-                        <img src={item.logo === null || item.logo === false ? imgData.poster_img_v : item.logo} alt='' className='objctimg_box' />
+                        <img src={item.logo === null || item.logo === false ? JSONData.poster_img_v : item.logo} alt='' className='objctimg_box' />
                       </Link>
                     </div>
                     <div className='other_spinfo'>

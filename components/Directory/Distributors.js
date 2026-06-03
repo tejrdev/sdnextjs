@@ -18,7 +18,7 @@ function Distributors({ data }) {
                 return <React.Fragment key={index}>{index > 1 ? <Recommended data={item} key={index} tag='distributors' /> : null}</React.Fragment>;
               })}
             <h4 className='mt-2'>
-              <Link href='/studios-distributors'>
+              <Link href='/directory/distributors'>
                 More Listings <i className='fal fa-angle-right'></i>
               </Link>
             </h4>

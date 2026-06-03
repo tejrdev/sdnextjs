@@ -1,15 +1,15 @@
 import Link from "next/link"
 import Image from "next/image"
-import quorum from "@/public/quorum.png"
+import quorum from "@/public/images/quorum.png"
 
-const QuramSidebar = ({data}) => {
+const QuramSidebar = ({ data }) => {
   return (
     <div className="quramsidebar">
       <h6 className="text-center">in partnership with</h6>
       <div className="text-center">
-         <Image src={quorum} alt="" width={319} height={50}/>
+        <Image src={quorum} alt="" width={319} height={50} />
       </div>
-      {data.link && <Link href={data.link} className="btn uppercase">{data.text}</Link> }
+      {data.link && <Link href={data.link} className="btn uppercase">{data.text}</Link>}
     </div>
   )
 }

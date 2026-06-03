@@ -1,0 +1,451 @@
+[
+   {
+      "name": "Alabama",
+      "sortname": "AL",
+      "description": "Montgomery",
+      "latitude": 32.377716,
+      "longitude": -86.300568,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Alaska",
+      "sortname": "AK",
+      "description": "Juneau",
+      "latitude": 58.301598,
+      "longitude": -134.420212,
+      "screens": null
+   },
+   {
+      "name": "Arizona",
+      "sortname": "AZ",
+      "description": "Phoenix",
+      "latitude": 33.448143,
+      "longitude": -112.096962,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Arkansas",
+      "sortname": "AR",
+      "description": "Little Rock",
+      "latitude": 34.746613,
+      "longitude": -92.288986,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "California",
+      "sortname": "CA",
+      "description": "Sacramento",
+      "latitude": 38.576668,
+      "longitude": -121.493629,
+      "locations": 558,
+      "screens": 7325
+   },
+   {
+      "name": "Colorado",
+      "sortname": "CO",
+      "description": "Denver",
+      "latitude": 39.739227,
+      "longitude": -104.984856,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Connecticut",
+      "sortname": "CT",
+      "description": "Hartford",
+      "latitude": 41.764046,
+      "longitude": -72.682198,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Delaware",
+      "sortname": "DE",
+      "description": "Dover",
+      "latitude": 39.157307,
+      "longitude": -75.519722,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Hawaii",
+      "sortname": "HI",
+      "description": "Honolulu",
+      "latitude": 21.307442,
+      "longitude": -157.857376,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Florida",
+      "sortname": "FL",
+      "description": "Tallahassee",
+      "latitude": 30.438118,
+      "longitude": -84.281296,
+      "locations": 308,
+      "screens": 4303
+   },
+   {
+      "name": "Georgia",
+      "sortname": "GE",
+      "description": "Atlanta",
+      "latitude": 33.749027,
+      "longitude": -84.388229,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Idaho",
+      "sortname": "ID",
+      "description": "Boise",
+      "latitude": 43.617775,
+      "longitude": -116.199722,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Illinois",
+      "sortname": "IL",
+      "description": "Springfield",
+      "latitude": 39.798363,
+      "longitude": -89.654961,
+      "locations": 57,
+      "screens": 550
+   },
+   {
+      "name": "Indiana",
+      "sortname": "IN",
+      "description": "Indianapolis",
+      "latitude": 39.768623,
+      "longitude": -86.162643,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Iowa",
+      "sortname": "IA",
+      "description": "Des Moines",
+      "latitude": 41.591087,
+      "longitude": -93.603729,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Kansas",
+      "sortname": "KS",
+      "description": "Topeka",
+      "latitude": 39.048191,
+      "longitude": -95.677956,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Kentucky",
+      "sortname": "KY",
+      "description": "Frankfort",
+      "latitude": 38.186722,
+      "longitude": -84.875374,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Louisiana",
+      "sortname": "LA",
+      "description": "Baton Rouge",
+      "latitude": 30.457069,
+      "longitude": -91.187393,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Maine",
+      "sortname": "ME",
+      "description": "Augusta",
+      "latitude": 44.307167,
+      "longitude": -69.781693,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Maryland",
+      "sortname": "MD",
+      "description": "Annapolis",
+      "latitude": 38.978764,
+      "longitude": -76.490936,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Massachusetts",
+      "sortname": "MA",
+      "description": "Boston",
+      "latitude": 42.358162,
+      "longitude": -71.063698,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Michigan",
+      "sortname": "MI",
+      "description": "Lansing",
+      "latitude": 42.733635,
+      "longitude": -84.555328,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Minnesota",
+      "sortname": "MN",
+      "description": "St. Paul",
+      "latitude": 44.944553,
+      "longitude": -93.093057,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Mississippi",
+      "sortname": "MS",
+      "description": "Jackson",
+      "latitude": 32.298757,
+      "longitude": -90.184708,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Missouri",
+      "sortname": "MO",
+      "description": "Jefferson City",
+      "latitude": 38.576701,
+      "longitude": -92.173516,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Montana",
+      "sortname": "MT",
+      "description": "Helena",
+      "latitude": 46.588371,
+      "longitude": -112.023119,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Nebraska",
+      "sortname": "NE",
+      "description": "Lincoln",
+      "latitude": 40.813616,
+      "longitude": -96.702595,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Nevada",
+      "sortname": "NV",
+      "description": "Carson City",
+      "latitude": 39.163798,
+      "longitude": -119.767403,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "New Hampshire",
+      "sortname": "NH",
+      "description": "Concord",
+      "latitude": 43.206898,
+      "longitude": -71.537994,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "New Jersey",
+      "sortname": "NJ",
+      "description": "Trenton",
+      "latitude": 40.220596,
+      "longitude": -74.769913,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "New Mexico",
+      "sortname": "NM",
+      "description": "Santa Fe",
+      "latitude": 35.68224,
+      "longitude": -105.939728,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "North Carolina",
+      "sortname": "NC",
+      "description": "Raleigh",
+      "latitude": 35.78043,
+      "longitude": -78.639099,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "North Dakota",
+      "sortname": "ND",
+      "description": "Bismarck",
+      "latitude": 46.82085,
+      "longitude": -100.783318,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "New York",
+      "sortname": "NY",
+      "description": "Albany",
+      "latitude": 42.652843,
+      "longitude": -73.757874,
+      "locations": 78,
+      "screens": 981
+   },
+   {
+      "name": "Ohio",
+      "sortname": "OH",
+      "description": "Columbus",
+      "latitude": 39.961346,
+      "longitude": -82.999069,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Oklahoma",
+      "sortname": "OK",
+      "description": "Oklahoma City",
+      "latitude": 35.492207,
+      "longitude": -97.503342,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Oregon",
+      "sortname": "OR",
+      "description": "Salem",
+      "latitude": 44.938461,
+      "longitude": -123.030403,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Pennsylvania",
+      "sortname": "PA",
+      "description": "Harrisburg",
+      "latitude": 40.264378,
+      "longitude": -76.883598,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Rhode Island",
+      "sortname": "RI",
+      "description": "Providence",
+      "latitude": 41.830914,
+      "longitude": -71.414963,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "South Carolina",
+      "sortname": "SC",
+      "description": "Columbia",
+      "latitude": 34.000343,
+      "longitude": -81.033211,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "South Dakota",
+      "sortname": "SD",
+      "description": "Pierre",
+      "latitude": 44.367031,
+      "longitude": -100.346405,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Tennessee",
+      "sortname": "TN",
+      "description": "Nashville",
+      "latitude": 36.16581,
+      "longitude": -86.784241,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Texas",
+      "sortname": "TX",
+      "description": "Austin",
+      "latitude": 30.27467,
+      "longitude": -97.740349,
+      "locations": 425,
+      "screens": 7325
+   },
+   {
+      "name": "Utah",
+      "sortname": "UT",
+      "description": "Salt Lake City",
+      "latitude": 40.777477,
+      "longitude": -111.888237,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Vermont",
+      "sortname": "VT",
+      "description": "Montpelier",
+      "latitude": 44.262436,
+      "longitude": -72.580536,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Virginia",
+      "sortname": "VA",
+      "description": "Richmond",
+      "latitude": 37.538857,
+      "longitude": -77.43364,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Washington",
+      "sortname": "WA",
+      "description": "Olympia",
+      "latitude": 47.035805,
+      "longitude": -122.905014,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "West Virginia",
+      "sortname": "WV",
+      "description": "Charleston",
+      "latitude": 38.336246,
+      "longitude": -81.612328,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Wisconsin",
+      "sortname": "WI",
+      "description": "Madison",
+      "latitude": 43.074684,
+      "longitude": -89.384445,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Wyoming",
+      "sortname": "WY",
+      "description": "Cheyenne",
+      "latitude": 41.140259,
+      "longitude": -104.820236,
+      "locations": 0,
+      "screens": 0
+   }
+]

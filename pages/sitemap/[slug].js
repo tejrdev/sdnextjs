@@ -15,7 +15,7 @@ export async function getServerSideProps({ res, params: { slug } }) {
     type = slug.substr(0, slug.indexOf('sitemap') - 1);
   }
   let slugArray = slug.replace('.xml', '').split('_');
-  let slug_no = 2;
+  let slug_no = slugArray.length - 1;
   //   if (slugArray[slug_no]?.match(/(\d+)/) === null) slug_no = 2;
   let pageNo = slugArray[slug_no]?.match(/(\d+)/)[0] ?? null;
   let page = pageNo ? parseInt(pageNo) : null;

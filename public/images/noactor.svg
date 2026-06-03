@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="204px" height="294px" viewBox="9 9.004 204 294" enable-background="new 9 9.004 204 294" xml:space="preserve">
+<filter  width="222" height="312" id="NoPath_-_Copy_55_" filterUnits="userSpaceOnUse" y="0" x="0">
+	<feOffset  input="SourceAlpha"></feOffset>
+	<feGaussianBlur  result="blur" stdDeviation="3"></feGaussianBlur>
+	<feFlood  flood-opacity="0.161" flood-color="#fff"></feFlood>
+	<feComposite  in2="blur" operator="in"></feComposite>
+	<feComposite  in="SourceGraphic" operator="over"></feComposite>
+</filter>
+<g id="Group_23557" transform="translate(-31 -1891.396)">
+	<g transform="matrix(1, 0, 0, 1, 31, 1891.4)" filter="url(#NoPath_-_Copy_55_)">
+		<g id="NoPath_-_Copy_55_2_1_" transform="translate(9 9)">
+			<path fill="#FDFBF6" d="M20,0h164c11.046,0,20,8.955,20,20v254c0,11.046-8.954,20-20,20H20c-11.046,0-20-8.954-20-20V20
+				C0,8.954,8.954,0,20,0z"/>
+			<path fill="none" stroke="#E8D7A8" d="M20,0.5h164c10.77,0,19.5,8.73,19.5,19.5v254c0,10.77-8.73,19.5-19.5,19.5H20
+				c-10.77,0-19.5-8.73-19.5-19.5V20C0.5,9.23,9.23,0.5,20,0.5z"/>
+		</g>
+	</g>
+	<path id="Icon_awesome-user" fill="#EAD9AD" d="M142,2038.395c20.435,0,37-16.565,37-37s-16.565-37-37-37s-37,16.565-37,37
+		c-0.055,20.379,16.42,36.945,36.8,37C141.867,2038.395,141.933,2038.395,142,2038.395z M168,2047.395h-5
+		c-13.316,6.188-28.684,6.188-42,0h-5c-21.536,0.008-38.992,17.464-39,39v12c0.031,7.719,6.281,13.969,14,14h102
+		c7.719-0.031,13.969-6.281,14-14v-12C206.992,2064.859,189.536,2047.403,168,2047.395z"/>
+</g>
+</svg>

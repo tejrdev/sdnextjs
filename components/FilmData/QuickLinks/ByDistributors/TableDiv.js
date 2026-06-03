@@ -17,7 +17,7 @@ const TableDiv = ({ data }) => {
                 return (
                   <tr key={index}>
                     <td data-title="Title">
-                      <Link href={item.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')} title={item.title}>
+                      <Link href={item.link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')} title={item.title}>
                         {item.title}
                       </Link>
                     </td>

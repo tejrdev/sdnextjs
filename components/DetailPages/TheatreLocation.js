@@ -15,6 +15,13 @@ const THeatreLocation = ({ id }) => {
   const [FilterOption, setFilterOption] = useState([]);
 
   useEffect(() => {
+    //set pagination
+    const search = window.location.search;
+    const params = new URLSearchParams(search);
+    const pageno = params.get('pageno');
+    if (pageno !== '' && pageno !== null) {
+      setLocation_listPage(parseInt(pageno));
+    }
     loadDetailPageData();
   }, []);
 
@@ -89,7 +96,7 @@ const THeatreLocation = ({ id }) => {
     }
   };
   return (
-    <section className='exb_locationdetail dlsecspace toplinesec'>
+    <section className='exb_locationdetail dlsecspace bg-[#f7f7fc] py-7 md:py-9 lg:py-12'>
       {locationDataLoaded ? (
         <div className='container'>
           <div className='top_txt'>
@@ -97,19 +104,17 @@ const THeatreLocation = ({ id }) => {
               Theatres <i className='fal fa-angle-right'></i>
             </h2>
             <div className='statetab df fww'>
-              <label htmlFor=''>
-                <small>Select to filter by state:</small>
-              </label>
+              <label htmlFor='' className='font-medium mb-1 block'>Select to filter by state: </label>
               <ul className='list_azfilter df fww'>
                 <li className={LocationSearch.indexOf('All') > -1 && LocationSearch.length === 1 ? 'active' : ''}>
-                  <span name='all' onClick={onStateClicked}>
+                  <span name='all' onClick={onStateClicked} className='border border-black rounded-full px-2 py-0 uppercase mb-1 flex items-center justify-center'>
                     All
                   </span>
                 </li>
                 {FilterOption.sort().map((item, index) => {
                   return (
-                    <li className='' key={index}>
-                      <span name={item} onClick={onStateClicked}>
+                    <li className='cursor-pointer ' key={index}>
+                      <span name={item} onClick={onStateClicked} className='border border-black rounded-full px-2 py-0 uppercase mb-1 flex items-center justify-center'>
                         {item}
                       </span>
                     </li>
@@ -118,7 +123,7 @@ const THeatreLocation = ({ id }) => {
               </ul>
             </div>
           </div>
-          <div className='exb_infocard grid'>
+          <div className='exb_infocard grid '>
             {LocationListData.thealter_list.length === 0 ? (
               <h5 className='text-center' style={{ marginTop: 10 }}>
                 No theatres found
@@ -126,7 +131,7 @@ const THeatreLocation = ({ id }) => {
             ) : (
               LocationListData.thealter_list.map((item, index) => {
                 return (
-                  <div className='exb_infocarditem' key={index}>
+                  <div className='exb_infocarditem bg-white' key={index}>
                     <h4>
                       <a href={item.link} title={item.title}>
                         {item.title}

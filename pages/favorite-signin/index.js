@@ -108,7 +108,7 @@ return (<>
         <div className="checklinkitem">
           <input type="checkbox" name="term" id="termCheck" value="yes" checked="" style={{display: "none"}} />
           <label htmlFor="termCheck">
-            <span>I agree to the <a href={'https://live.screendollars.com/wp-content/themes/screendollars/assets/doc/Terms-of-use-agreement-Screendollars.pdf'} target='_blank'>Terms &amp; Conditions.</a>
+            <span>I agree to the <a href={process.env.NEXT_PUBLIC_BACKEND_URL + '/wp-content/themes/screendollars/assets/doc/Terms-of-use-agreement-Screendollars.pdf'} target='_blank'>Terms &amp; Conditions.</a>
             </span>
           </label>
         </div>

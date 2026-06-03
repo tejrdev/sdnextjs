@@ -134,28 +134,28 @@ const Results = ({ data, tag }) => {
                   </div>
                 </div>
               </div>
-              <div className='sturelease_table filter_tabsinfo release-cal-block' data-title='sturelease_table' id='table_view'>
+              <div className='sturelease_table filter_tabsinfo release-cal-block releaseweektable' data-title='sturelease_table' id='table_view'>
                 <table id='stdio-rel-tbl' className='responsive dataTable twotblhead'>
                   <thead>
                     <tr>
                       <th colSpan='2'></th>
                       <th colSpan='2'></th>
-                      <th colSpan='3' data-title='Distribution'>
+                      <th colSpan='3' data-title='Distribution' className='text-center'>
                         Distribution
                       </th>
-                      <th colSpan='2' data-title='Box office $'>
+                      <th colSpan='2' data-title='Box office $' className='text-center'>
                         Domestic Box Office $
                       </th>
                     </tr>
-                    <tr>
-                      <th data-title='Title' className='min-w-64'>Title</th>
-                      <th data-title='Distributor'>Distributor</th>
-                      <th data-title='Rating'>Rating</th>
-                      <th data-title='Runtime'>Runtime</th>
-                      <th data-title='Pattern / Platform'>Pattern / Platform</th>
-                      <th data-title='Locations'>Locations</th>
-                      <th data-title='Opening Weekend Gross'> opening Weekend Gross</th>
-                      <th data-title='Gross To-Date'>Gross To-Date</th>
+                    <tr className='text-center'>
+                      <th data-title='Title' className='min-w-64 text-left'>Title</th>
+                      <th data-title='Distributor' className='text-left'>Distributor</th>
+                      <th data-title='Rating' className='text-center'>Rating</th>
+                      <th data-title='Runtime' className='text-center'>Runtime</th>
+                      <th data-title='Pattern / Platform' className='text-center'>Pattern / Platform</th>
+                      <th data-title='Locations' className='text-center'>Locations</th>
+                      <th data-title='Opening Weekend Gross' className='text-center'> opening Weekend Gross</th>
+                      <th data-title='Gross To-Date' className='text-center'>Gross To-Date</th>
                     </tr>
                   </thead>
                   <tbody>

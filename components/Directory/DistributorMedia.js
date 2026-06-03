@@ -1,4 +1,4 @@
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 import { useEffect } from 'react';
 import Link from 'next/link';
@@ -58,7 +58,7 @@ function DistributorMedia({ data }) {
         <div className='distbox_media '>
           <figure>
             <Link href={data.url}>
-              <img src={data.img} alt={data.title} />
+              <img src={data.img} alt={data.title} className='max-w-40' />
             </Link>
           </figure>
         </div>

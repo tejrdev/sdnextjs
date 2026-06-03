@@ -10,6 +10,7 @@ import TopProjected, { Posterearnings } from '@/components/Pro/Newsletter/TopPro
 import NewOpening from '@/components/Pro/Newsletter/NewOpening';
 import OtherNotable from '@/components/Pro/Newsletter/OtherNotable';
 import NewsletterTitleBlock from '@/components/Pro/Newsletter/NewsletterTitleBlock';
+import PlayIcon from '@/public/images/playicov2.png';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -155,7 +156,7 @@ export default function SD_Pro_Newsletter_detail({ Pro_data, category }) {
                   <a className='popvid pvr' href={Pro_data.video_url} title=''>
                     <div className=' vid_boxslide '>
                       <span className='playico show'>
-                        <img src='https://www.live.screendollars.com/wp-content/themes/screendollars-live/assets/images/playicov2.png' alt='play' />
+                        <img src={PlayIcon.src} alt='play' />
                       </span>
                       <figure className='pvr'>
                         <img src={'https://i.ytimg.com/vi/' + Pro_data.video_ids + '/hqdefault.jpg'} alt='' className='objctimg_box' />

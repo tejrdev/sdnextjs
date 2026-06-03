@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 // import '../../../Header/magnific-popup.min.css';
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 
 const Photos = ({ data }) => {
@@ -118,7 +118,7 @@ const Photos = ({ data }) => {
           <div className='container'>
             <div className='top_txt df fww just-between'>
               <h2>
-                Gallery <i className='fal fa-angle-right'></i>
+                Gallery
               </h2>
               {/* <div className="viewmovrebtn">
                 <a href="?film-media=true" className="formpop btn goldbtn">

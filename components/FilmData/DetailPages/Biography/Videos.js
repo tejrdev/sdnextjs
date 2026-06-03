@@ -1,15 +1,18 @@
 import { Fragment, useEffect, useState } from 'react';
 // import '../../../../Header/magnific-popup.min.css';
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 
-import imgData from '../../../data.json';
+import { JSONData } from '@/components/shared/JSONData';
+
 function youtube_parser(url) {
   var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
   var match = url.match(regExp);
   return (match && match[7].length == 11) ? match[7] : false;
 }
+
 const Videos = ({ data }) => {
+  const [videoTitles, setVideoTitles] = useState({});
 
   const SliderSetting = {
     slidesToShow: 4,
@@ -42,6 +45,27 @@ const Videos = ({ data }) => {
       },
     ],
   };
+
+  useEffect(() => {
+    // Fetch video titles for all videos
+    data.forEach((item, index) => {
+      const yourl = youtube_parser(item.video_url);
+      if (yourl) {
+        const yttitle = 'https://www.youtube.com/watch?v=' + yourl;
+        fetch(`https://noembed.com/embed?dataType=json&url=${yttitle}`)
+          .then(res => res.json())
+          .then(data => {
+            setVideoTitles(prev => ({
+              ...prev,
+              [index]: data.title
+            }));
+          })
+          .catch(error => {
+            console.error('Error fetching video title:', error);
+          });
+      }
+    });
+  }, [data]);
 
   useEffect(() => {
     const $ = window.jQuery;
@@ -113,8 +137,8 @@ const Videos = ({ data }) => {
       }
     });
 
-
   }, []);
+
   return (
     <>
       {data.length > 0 && (
@@ -124,12 +148,9 @@ const Videos = ({ data }) => {
               {...SliderSetting}
               className="photo_slidbox df fww roundslickarrow">
               {data.map((item, index) => {
-                const [vidtitle, setVidtitle] = useState();
-                let yourl = youtube_parser(item.video_url);
-                let yttitle = 'https://www.youtube.com/watch?v=' + yourl;
-                fetch(`https://noembed.com/embed?dataType=json&url=${yttitle}`)
-                  .then(res => res.json())
-                  .then(data => setVidtitle(data.title));
+                const yourl = youtube_parser(item.video_url);
+                const vidtitle = videoTitles[index] || 'Loading...';
+
                 return (
                   <Fragment key={index}>
                     <div className="vid_sliditem" >
@@ -137,7 +158,7 @@ const Videos = ({ data }) => {
                         <a title={vidtitle} className="popvidgallery popyoutube popvidbox" href={item.video_url}>
                           <div className="playvid_box">
                             <span className="playico">
-                              <img src={imgData.playicon} alt="play" />
+                              <img src={JSONData.playicon} alt="play" />
                             </span>
                             <div className="artinfoimg  pvr">
                               <img

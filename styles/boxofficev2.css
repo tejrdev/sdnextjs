@@ -8,7 +8,7 @@
 
 .box_title .boxtitlein h1:after {
    content: "";
-   @apply absolute right-7 top-0 bg-slate-300 h-full w-[1px];
+   @apply absolute right-6 top-0 bg-slate-300 h-full w-[1px];
 }
 
 .eventweekinfoin.hasevent {
@@ -45,11 +45,11 @@
 }
 
 .boxofice_cards {
-   grid-template-columns: repeat(auto-fit, minmax(261px, 1fr));
+   grid-template-columns: repeat(auto-fill, minmax(261px, 1fr));
 }
 
 .boxf_ysummery .topsumry>* {
-   @apply w-full border-l border-solid border-gray-300 px-5 inline-flex flex-wrap;
+   @apply w-full border-l border-solid border-gray-300 sm:px-5 inline-flex flex-wrap px-2;
 }
 
 .boxf_ysummery .topsumry>*>* {
@@ -89,15 +89,70 @@
 
 .yersqurters .card {
    @apply overflow-hidden;
+   height: 0;
    transition: 0.5s all;
 }
 
+.yersqurters.open .card {
+   @apply h-auto;
+}
+
 .boxresultable .topmovies {
-   @apply pl-6;
+   @apply pl-14;
+}
+
+.abtinfo_slider .slick-track {
+   @apply flex
+}
+
+.abtinfo_slider .slick-track .slick-slide {
+   @apply h-auto
+}
+
+.abtinfo_slider .slick-track .slick-slide>div,
+.abtinfo_slider .slick-track .slick-slide>div .card,
+.abtinfo_slider .slick-track .slick-slide>div .card .cardin {
+   @apply h-full
 }
 
 
-/* responsive */
+.apexcharts-marker.apexcharts-marker-blinker,
+.apexcharts-marker[default-marker-size="8"] {
+   fill: #F97316;
+   animation: blink-marker 1.2s ease-in-out infinite;
+   stroke: none;
+}
+
+.apexcharts-marker {
+   stroke: none;
+}
+
+
+@keyframes blink-marker {
+
+   0%,
+   100% {
+      opacity: 1;
+   }
+
+   50% {
+      opacity: 0.3;
+   }
+}
+
+.apexcharts-xaxis-label {
+   cursor: pointer;
+}
+
+.apexcharts-xaxis-label:hover tspan {
+   fill: #F6B800 !important;
+}
+
+.apexcharts-series-markers {
+   cursor: pointer;
+}
+
+/* responsivee*/
 @media (max-width: 991px) {
    .box_title .boxtitlein h1:after {
       @apply hidden;

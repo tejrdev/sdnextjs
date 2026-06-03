@@ -5,9 +5,9 @@ const PeopleSearch = ({ data }) => {
     <section id="people_search" className="people_search toplinesec">
       <div className="container">
         <div className="top_txt">
-          <h2>
+          <p className="h2">
             People Also Searched For <i className="fal fa-angle-right"></i>
-          </h2>
+          </p>
         </div>
         <div className="peoplesrch_box df fww">
           {data.filter(item => item.length !== 0).map((item, index) => {

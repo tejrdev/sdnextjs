@@ -1,6 +1,6 @@
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
-
+import { motion } from "motion/react"
 const NewsSlider = ({ data }) => {
   const SliderSettings = {
     slidesToShow: 1,
@@ -43,7 +43,7 @@ const NewsSlider = ({ data }) => {
                     <p>
                       {' '}
                       {/*<a href={cat_href} rel="category tag">*/}
-                        {item.artical_cat.name}
+                      {item.artical_cat.name}
                       {/*</a>*/}
                     </p>
                   </div>

@@ -8,7 +8,6 @@ import { checkLocalStorageVariable } from '../../components/Login/localStorageUt
 import Head from 'next/head';
 
 const API_URL = process.env.NEXT_PUBLIC_SD_API;
-const SITE_URL = process.env.NEXT_PUBLIC_LOGIN_URL;
 const LOADER = 'Loading..';
 const ERRORLOGIN = 'Please Login First! ';
 if (typeof window !== 'undefined') {

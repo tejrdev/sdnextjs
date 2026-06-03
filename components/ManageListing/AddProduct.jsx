@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
-import imgData from '@/components/data.json';
+import { JSONData } from '@/components/shared/JSONData';
 import Loader from '../Loader';
 
 const AddProduct = ({ userLoggedIn, ListingURL, ListingType, onProductAdd }) => {
@@ -9,7 +9,7 @@ const AddProduct = ({ userLoggedIn, ListingURL, ListingType, onProductAdd }) => 
   const [error, setError] = useState(false);
   const [ImageFile, setImageFile] = useState(null);
   const [ImageURL, setImageURL] = useState('');
-  const [ImageSrc, SetImageSrc] = useState(imgData.poster_img_v);
+  const [ImageSrc, SetImageSrc] = useState(JSONData.poster_img_v);
   const [ProductTitle, setProductTitle] = useState('');
   const [ProductDesc, setProductDesc] = useState('');
   const [CTAText, setCTAText] = useState('');
@@ -98,7 +98,7 @@ const AddProduct = ({ userLoggedIn, ListingURL, ListingType, onProductAdd }) => 
     setImageFile(null);
     setImageURL('');
     $('.vendproduct_add input[type="file"]').val('');
-    SetImageSrc(imgData.poster_img_v);
+    SetImageSrc(JSONData.poster_img_v);
   };
 
   return (

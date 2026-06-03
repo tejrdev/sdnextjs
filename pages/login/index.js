@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { signIn, getCsrfToken } from 'next-auth/react';
-import { useSession, getSession } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { checkLocalStorageVariable } from '../../components/Login/localStorageUtil';
 import { useDispatch } from 'react-redux';
@@ -14,13 +14,11 @@ import validator from 'validator';
 import Link from 'next/link';
 import axios from 'axios';
 var CryptoJS = require('crypto-js');
-const LOGIN_URL = '/login';
 
 const SUCCESS = 'Login Sucessfully. Please wait while we are redirecting.. ';
 const VALID_CHECK = 'Error : Invalid Details. Please try again later!';
 //const LOGGED_EMAIL = localStorage.getItem('email');
 const API_URL = process.env.NEXT_PUBLIC_SD_API;
-const DEFAULT_URL = process.env.NEXT_PUBLIC_LOGIN_URL;
 const ENCT_KEY = process.env.NEXT_PUBLIC_ENC_KEY;
 
 const $ = require('jquery');
@@ -33,13 +31,25 @@ const Login = ({ csrfToken }) => {
   const errRef = useRef();
   const router = useRouter();
   let { query } = router;
+  //check for Temp User, if yes, redirect to change password page
+  let tempUserLogin = false,
+    tempUserId = '';
+  if (query.tempuser !== '' && query.tempuser !== undefined) {
+    tempUserLogin = true;
+    tempUserId = query.tempuser;
+  }
+
+  let LoginEmail = '';
+  if (query.loginEmail !== '' && query.loginEmail !== undefined) {
+    LoginEmail = query.loginEmail;
+  }
   query = decodeURIComponent(query.from);
   const dispatch = useDispatch();
   const { data: session, status } = useSession();
   const [isLoading, setIsLoading] = useState(true);
   var username = '';
 
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState(LoginEmail);
   const [pwd, setPwd] = useState('');
   const [signEmail, setSignEmail] = useState('');
   const [signPassword, setSignPassword] = useState('');
@@ -75,7 +85,7 @@ const Login = ({ csrfToken }) => {
     if (typeof window !== 'undefined') {
       localStorage.setItem('sign_status', 'login');
     }
-    signIn('google', { callbackUrl: '/success' });
+    signIn('google', { callbackUrl: '/success' + '?from=' + query });
   }
 
   useEffect(() => {
@@ -138,7 +148,7 @@ const Login = ({ csrfToken }) => {
       $(this).parents('.signup_box').hide();
     });
 
-    $('.login_signin .popclose').click(function () {
+    $('.login_signin #pop_cloase').click(function () {
       $(this).parents('.login_signin ').find('.loginbox').show();
       $(this).parent().hide();
     });
@@ -265,7 +275,9 @@ const Login = ({ csrfToken }) => {
           router.push('/');
         }, 86400000);
         setTimeout(function () {
-          if (query !== null && query !== undefined && query !== 'undefined' && query !== '') {
+          if (tempUserLogin) {
+            router.push('/changepassword/' + tempUserId);
+          } else if (query !== null && query !== undefined && query !== 'undefined' && query !== '') {
             router.push(query);
           } else {
             router.push('/profile');
@@ -334,7 +346,15 @@ const Login = ({ csrfToken }) => {
                       <strong htmlFor='userpassword'>Password</strong>
                       <sup>*</sup>
                     </label>
-                    <input type={passwordVisible ? 'text' : 'password'} className='passinfoinput smallinput' value={pwd} minLength='8' placeholder='Enter password' required onChange={(e) => setPwd(e.target.value)} />
+                    <input
+                      type={passwordVisible ? 'text' : 'password'}
+                      className='passinfoinput smallinput'
+                      value={pwd}
+                      minLength='8'
+                      placeholder='Enter password'
+                      required
+                      onChange={(e) => setPwd(e.target.value)}
+                    />
                     <i className={passwordVisible ? 'eyeico fas fa-eye' : 'eyeico fas fa-eye-slash'} onClick={() => passshow('')}></i>
                   </div>
                   <div className='fieldbox df just-between checklink'>

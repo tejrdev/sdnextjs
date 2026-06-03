@@ -4,7 +4,7 @@ import Link from 'next/link';
 function Headlines({ data, tag }) {
   return (
     <>
-      {data &&
+      {data && data.length > 0 &&
         data.map((item, id) => {
           if (tag === 'quick_links') {
             item = item.link;
@@ -19,7 +19,7 @@ function Headlines({ data, tag }) {
             <React.Fragment key={id}>
               {id < 6 ? (
                 <p>
-                  <Link href={item.link ? item.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '') : item.url.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')} target='_blank' rel='noreferrer' className='blacktxt'>
+                  <Link href={item.link ? item.link.replace(process.env.NEXT_PUBLIC_FRONTEND_URL, '') : item.url.replace(process.env.NEXT_PUBLIC_FRONTEND_URL, '')} target='_blank' rel='noreferrer' className='blacktxt'>
                     {(item.upcoming ? item.upcoming : '') + '' + title}
                   </Link>
                 </p>

@@ -7,10 +7,12 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 //import Logout from '../../pages/login/logout'
 import dynamic from 'next/dynamic';
-import logo_img from '../../public/images/SD-LOGO-1.png';
+import logo_img from '../../public/images/sdlogohead.svg';
 import logo_imgblk from '../../public/images/SD-LOGO-2.png';
 //import Proheader from './Proheader';
 import { FaMoon } from 'react-icons/fa';
+
+import { motion } from 'motion/react';
 
 // import './header.css';
 
@@ -18,7 +20,6 @@ const $ = require('jquery');
 
 function Header({ data }) {
   const router = useRouter();
-
   useEffect(() => {
     $('.site-logo').on('click', function () {
       $('#menu-main-menu li').removeClass('active');
@@ -208,11 +209,18 @@ function Header({ data }) {
           function closeMobileMenu(menuobj) {
             $('body').removeClass('menu-open');
             if (defaultMenu) {
-              menuobj.stop().slideUp();
+              menuobj.stop().slideUp(200, function () {
+                $(this).removeAttr('style');
+              });
             }
             menuobj.prev('.menu-icon').removeClass('active');
             menuobj.find('.arrow').removeClass('up');
-            menuobj.find('.sb-menu').stop(true, true).slideUp();
+            menuobj
+              .find('.sb-menu')
+              .stop(true, true)
+              .slideUp(200, function () {
+                $(this).removeAttr('style');
+              });
           }
 
           if ('ontouchstart' in window) {
@@ -294,6 +302,9 @@ function Header({ data }) {
       $(this).parents('.custom-select').removeClass('opened');
       $(this).parents('.custom-select').find('.custom-select-trigger').text($(this).text());
     });
+    $('.navitem').on('click', function (e) {
+      $(this).parents('body.slidemenuLeft ').find('.enumenu_container .menu-box').trigger('click');
+    });
   }, []);
   // const darkhandler = () => {
   //   document.body.classList.toggle('dark');
@@ -309,13 +320,13 @@ function Header({ data }) {
           <FaMoon />
         </button> */}
         <div className='container'>
-          <div className='site-header-mainarea'>
+          <motion.div initial={{ opacity: 0, y: -200 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className='site-header-mainarea'>
             {/* pro header for pro pages <Proheader /> */}
             <div className='header_topbox df fww'>
               <div className='site-logo'>
                 <Link href='/' className='logo' title='Screendollars' rel='home'>
-                  <Image src={logo_img} rel='preload' as='image' title='Screendollars' className='animation dark:hidden' alt='Screendollars' />
-                  <Image src={logo_imgblk} rel='preload' as='image' title='Screendollars' className='printdochide animation hidden dark:block' alt='Screendollars' />
+                  <Image src={logo_img.src} rel='preload' as='image' title='Screendollars' className='animation dark:hidden' alt='Screendollars' width={290} height={94} />
+                  <Image src={logo_imgblk.src} rel='preload' as='image' title='Screendollars' className='printdochide animation hidden dark:block ' alt='Screendollars' width={225} height={73} />
                 </Link>
               </div>
 
@@ -329,11 +340,11 @@ function Header({ data }) {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
         <div className='header_bottombox'>
           <div className='container'>
-            <div className='head_left'>
+            <motion.div initial={{ opacity: 0, y: -200 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }} className='head_left'>
               <div id='site-header-menu' className='site-header-nav'>
                 <nav id='site-navigation' className='main-navigation' role='navigation' aria-label='Primary Menu'>
                   <div className='menu-main-menu-container'>
@@ -350,7 +361,7 @@ function Header({ data }) {
                   </div>
                 </nav>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </header>

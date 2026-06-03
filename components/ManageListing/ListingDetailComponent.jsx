@@ -4,6 +4,8 @@ import React from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
+import { FaInfo } from 'react-icons/fa6';
+
 const $ = require('jquery');
 const dateOptions = { month: 'long', day: 'numeric', year: 'numeric' };
 const dateFormatter = new Intl.DateTimeFormat('en-US', dateOptions);
@@ -24,7 +26,6 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
     youtube_link: data.youtube_link || '',
     wikipedia_link: data.wikipedia_link || '',
     content: data.content || '',
-    amenities: data.amenities || [],
     send_message_email: data.send_message_email || '',
     headquaters: data.headquaters || '',
     key_contacts: data.key_contacts || [],
@@ -40,6 +41,8 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
     upcoming_end: data.upcoming_end || '',
     film_festival_type: data.film_festival_type || [],
     genre: data.genre || [],
+    amenities_list_selected: data.amenities_list_selected || [],
+    company_type_list_selected: data.company_type_list_selected || [],
   });
 
   let StateOptions;
@@ -53,11 +56,12 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
   const [blnShowLoader, setblnShowLoader] = useState(false);
   const [resMessage, setResMessage] = useState('');
   const [error, setError] = useState(false);
+  const [KeyContactErr, setKeyContactErr] = useState('');
 
-  setTimeout(() => {
-    $('select[name="state"]').val(data.state);
-    $('select[name="country"]').val(data.country);
-  }, 1000);
+  // setTimeout(() => {
+  //   $('select[name="state"]').val(data.state);
+  //   $('select[name="country"]').val(data.country);
+  // }, 1000);
 
   const handleOnChange = (e) => {
     const name = e.target.name;
@@ -70,7 +74,7 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
 
   const pSaveListingData = async (e) => {
     e.preventDefault();
-    if (ListingType === 'film-festival' && ListingDetail.genre.length === 0) {
+    if (ListingType === 'film-festivals' && ListingDetail.genre.length === 0) {
       alert('select atlist one genre for Film Festival.');
       return false;
     }
@@ -80,7 +84,7 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
     formData.append('listingTypeUrl', ListingURL);
     formData.append('listingType', ListingType);
     for (var key in ListingDetail) {
-      if (key === 'key_contacts' || key === 'upcoming_dates') {
+      if (key === 'key_contacts' || key === 'upcoming_dates' || key === 'amenities_list_selected' || key === 'company_type_list_selected') {
         formData.append(key, JSON.stringify(ListingDetail[key]));
       } else {
         formData.append(key, ListingDetail[key]);
@@ -109,17 +113,42 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
     }
     setblnShowLoader(false);
   };
-  const setAmenities = (event) => {
-    const amenities = data.amenities;
-    const amenity = event.target.name;
-    if (event.target.checked) {
-      amenities.push(amenity);
-    } else {
-      amenities.splice(amenities.indexOf(amenity), 1);
+  const setAmenities = (event, key, aminity) => {
+    const selAmenity = { value: aminity.name, label: aminity.value };
+    const amenities = ListingDetail.amenities_list_selected;
+    const selected = amenities.filter((item) => item.key === key);
+    if (selected.length > 0) {
+      if (selected[0].data === null) selected[0].data = [];
+      const amenity = selected[0].data.filter((item) => item.value === aminity.name)[0];
+
+      if (event.target.checked) {
+        selected[0].data.push(selAmenity);
+      } else {
+        selected[0].data.splice(selected[0].data.indexOf(amenity), 1);
+      }
     }
     setListingDetail({
       ...ListingDetail,
-      amenities: amenities,
+      amenities_list_selected: amenities,
+    });
+  };
+  const setCompanyType = (event, key, companytype) => {
+    const selCompanyType = { value: companytype.name, label: companytype.value };
+    const amenities = ListingDetail.company_type_list_selected;
+    const selected = amenities.filter((item) => item.key === key);
+    if (selected.length > 0) {
+      if (selected[0].data === null || selected[0].data === undefined) selected[0].data = [];
+      const amenity = selected[0].data.filter((item) => item.value === companytype.name)[0];
+
+      if (event.target.checked) {
+        selected[0].data.push(selCompanyType);
+      } else {
+        selected[0].data.splice(selected[0].data.indexOf(amenity), 1);
+      }
+    }
+    setListingDetail({
+      ...ListingDetail,
+      company_type_list_selected: amenities,
     });
   };
   const setAssociat = (event) => {
@@ -181,12 +210,48 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
       display_drive_in_icon: event.target.checked,
     });
   };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone) => {
+    // Allows formats:
+    // (123) 456-7890    // 123-456-7890    // 123.456.7890    // 123 456 7890    // +1 123 456 7890
+    const phoneRegex = /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+    return phoneRegex.test(phone);
+  };
+
   const addKeyContact = (e) => {
     e.preventDefault();
     const contact = {};
+    let blnContactErr = false;
     $('.keycontactfeed input.proinputfield').each((index, item) => {
       contact[item.name] = item.value;
     });
+    if (contact.name === '') {
+      setKeyContactErr('Please enter a valid name');
+      blnContactErr = true;
+    }
+    if (contact.contact_no !== '') {
+      if (!validatePhone(contact.contact_no)) {
+        setKeyContactErr('Please enter a valid phone');
+        blnContactErr = true;
+      }
+    }
+    if (contact.contact_email !== '') {
+      if (!validateEmail(contact.contact_email)) {
+        setKeyContactErr('Please enter a valid email');
+        blnContactErr = true;
+      }
+    }
+    if (blnContactErr) {
+      setTimeout(() => {
+        setKeyContactErr('');
+      }, 2000);
+      return false;
+    }
     if (ListingDetail.key_contacts) {
       const contacts = ListingDetail.key_contacts;
       contacts.push(contact);
@@ -242,7 +307,7 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
     });
   };
   return (
-    <section className='listingfeed toplinesec'>
+    <section className='listingfeed'>
       <div className='container'>
         <div className='top_txt'></div>
         <form action='' className='profileinfobox grid mb-0'>
@@ -268,7 +333,7 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
           </div>
           <div className='profile_field'>
             <p className='labeltxt'>State / Province</p>
-            <select name='state' className='selectin'>
+            <select name='state' className='selectin' value={ListingDetail.state} onChange={handleOnChange}>
               {StateOptions.map((item, index) => {
                 return (
                   <option value={item.value} key={index}>
@@ -288,7 +353,7 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
           </div>
           <div className='profile_field'>
             <p className='labeltxt'>Country</p>
-            <select name='country'>
+            <select name='country' value={ListingDetail.country} onChange={handleOnChange}>
               <option value='USA'>USA</option>
               <option value='Canada'>Canada</option>
             </select>
@@ -411,7 +476,7 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
             </div>
           </div>
 
-          {ListingType === 'studios-distributors' && data.distribution_type_list && (
+          {ListingType === 'distributors' && data.distribution_type_list && (
             <div className='profile_field fullgrid'>
               <label htmlFor='' className='labeltxt'>
                 Distribution Type
@@ -431,7 +496,7 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
             </div>
           )}
 
-          {ListingType === 'film-festival' && (
+          {ListingType === 'film-festivals' && (
             <>
               {data.film_festival_type_list && (
                 <div className='profile_field fullgrid'>
@@ -492,7 +557,17 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
                   Upcoming Festival Start Date
                 </label>
                 <div className='from_fieldbox'>
-                  <DatePicker dateFormat='MMMM d, yyyy' showIcon icon='far fa-calendar-alt' selectsStart startDate={ListingDetail.upcoming_start} endDate={ListingDetail.upcoming_end} maxDate={ListingDetail.upcoming_end} selected={ListingDetail.upcoming_start} onChange={(date) => handleDatechange(date, 'upcoming_start')} />
+                  <DatePicker
+                    dateFormat='MMMM d, yyyy'
+                    showIcon
+                    icon='far fa-calendar-alt'
+                    selectsStart
+                    startDate={ListingDetail.upcoming_start}
+                    endDate={ListingDetail.upcoming_end}
+                    maxDate={ListingDetail.upcoming_end}
+                    selected={ListingDetail.upcoming_start}
+                    onChange={(date) => handleDatechange(date, 'upcoming_start')}
+                  />
                 </div>
               </div>
               <div className='profile_field'>
@@ -500,7 +575,17 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
                   Upcoming Festival End Date
                 </label>
                 <div className='from_fieldbox'>
-                  <DatePicker dateFormat='MMMM d, yyyy' showIcon icon='far fa-calendar-alt' selectsEnd startDate={ListingDetail.upcoming_start} endDate={ListingDetail.upcoming_end} minDate={ListingDetail.upcoming_start} selected={ListingDetail.upcoming_end} onChange={(date) => handleDatechange(date, 'upcoming_end')} />
+                  <DatePicker
+                    dateFormat='MMMM d, yyyy'
+                    showIcon
+                    icon='far fa-calendar-alt'
+                    selectsEnd
+                    startDate={ListingDetail.upcoming_start}
+                    endDate={ListingDetail.upcoming_end}
+                    minDate={ListingDetail.upcoming_start}
+                    selected={ListingDetail.upcoming_end}
+                    onChange={(date) => handleDatechange(date, 'upcoming_end')}
+                  />
                 </div>
               </div>
               {/* <div className='profile_field'>
@@ -523,45 +608,77 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
             </>
           )}
 
-          {data.amenities_list && (
+          {data.amenities_list_new && (
             <>
               <div className='profile_field fullgrid toplinesec'>
                 <h3>Amenities</h3>
-                {data.amenities_list.map((item, i) => (
-                  <div className={'profile_aminity ' + (i == 6 ? 'fullbox' : '')} key={i}>
-                    <label htmlFor='' className='labeltxt'>
-                      {item.title}
-                    </label>
-                    <div className='from_fieldbox checkoptions'>
-                      <ul>
-                        {item.data.map((aminity, index) => {
-                          return (
-                            <li key={index}>
-                              <input type='checkbox' name={aminity.name} id={aminity.name} onChange={setAmenities} checked={data.amenities && data.amenities.indexOf(aminity.name) > -1 ? true : false} />
-                              <label htmlFor={aminity.name}>{aminity.value}</label>
-                            </li>
-                          );
-                        })}
-                      </ul>
+                {data.amenities_list_new.map((item, i) => {
+                  const options = Object.entries(item.data).map(([name, value]) => ({ name, value }));
+                  const selected = ListingDetail.amenities_list_selected.filter((sel_amenity) => item.key === sel_amenity.key);
+                  const key = item.key;
+                  return (
+                    <div className={'profile_aminity ' + (i == 6 ? 'fullbox' : '')} key={i}>
+                      <label htmlFor='' className='labeltxt'>
+                        {item.title}
+                      </label>
+                      <div className='from_fieldbox checkoptions'>
+                        <ul>
+                          {options.map((aminity, index) => {
+                            let checked = false;
+                            if (selected.length > 0 && selected[0]?.data?.length > 0) {
+                              checked = selected[0].data.filter((sel_item) => (sel_item.name ? sel_item.name : sel_item.value) === aminity.name).length > 0 ? true : false;
+                            }
+                            return (
+                              <li key={index}>
+                                <input type='checkbox' name={aminity.name} id={aminity.name} onChange={(e) => setAmenities(e, key, aminity)} checked={checked} />
+                                <label htmlFor={aminity.name}>{aminity.value}</label>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
-              {/* <div className='from_fieldbox checkoptions'>
-                <ul>
-                  {data.amenities_list.map((item, index) => {
-                    return (
-                      <li key={index}>
-                        <input type='checkbox' name={item} id={item} onChange={setAmenities} checked={data.amenities && data.amenities.indexOf(item) > -1 ? true : false} />
-                        <label htmlFor={item}>{item}</label>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div> */}
             </>
           )}
-          {data.associated_list && (
+          {data.company_type_list_new && (
+            <>
+              <div className='profile_field fullgrid toplinesec'>
+                <h3>Company Type</h3>
+                {data.company_type_list_new.map((item, i) => {
+                  const options = Object.entries(item.data).map(([name, value]) => ({ name, value }));
+                  const selected = ListingDetail.company_type_list_selected.filter((sel_amenity) => item.key === sel_amenity.key);
+                  const key = item.key;
+                  return (
+                    <div className={'profile_aminity ' + (i == 6 ? 'fullbox' : '')} key={i}>
+                      <label htmlFor='' className='labeltxt'>
+                        {item.title}
+                      </label>
+                      <div className='from_fieldbox checkoptions'>
+                        <ul>
+                          {options.map((companytype, index) => {
+                            let checked = false;
+                            if (selected.length > 0 && selected[0]?.data?.length > 0) {
+                              checked = selected[0].data.filter((sel_item) => (sel_item.name ? sel_item.name : sel_item.value) === companytype.name).length > 0 ? true : false;
+                            }
+                            return (
+                              <li key={index}>
+                                <input type='checkbox' name={companytype.name} id={companytype.name + key} onChange={(e) => setCompanyType(e, key, companytype)} checked={checked} />
+                                <label htmlFor={companytype.name + key}>{companytype.value}</label>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          )}
+          {/* {data.associated_list && (
             <div className='profile_field fullgrid'>
               <h3> Associations </h3>
               <div className='from_fieldbox checkoptions associeate'>
@@ -577,7 +694,7 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
                 </ul>
               </div>
             </div>
-          )}
+          )} */}
           {ListingType === 'exhibitors' && (
             <div className='profile_field fullgrid'>
               <h3> Operating Locations </h3>
@@ -613,9 +730,13 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
               </ul>
             </div>
           )}
-          <div className='keycontactfeed fullgrid'>
+          <div className='keycontactfeed fullgrid p-4 border border-gray-400 rounded-md'>
             <h2 className='h3 m-0'>
               Key Contacts <small>Up to 4 Contacts</small>
+              <FaInfo
+                className='inline-block border border-gray-400 text-gray-600 rounded-full text-lg p-1 size-6 cursor-pointer ml-2'
+                title='After add key contact, click on save for update changes'
+              />
             </h2>
             <ul className='cntinfo df fww'>
               {ListingDetail.key_contacts &&
@@ -670,6 +791,7 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
                 <div className='profile_field fullgrid'>
                   <input type='submit' className='submitbtn ghostbtn goldbtn uppercase' onClick={addKeyContact} value='add key contact' />
                 </div>
+                {KeyContactErr !== '' && <div className='errormsg'>{KeyContactErr}</div>}
               </div>
             }
           </div>
@@ -683,7 +805,7 @@ const ListingDetailComponent = ({ data, userLoggedIn, ListingURL, ListingType })
               </div>
             </div>
           )}
-          <div className='text-center fullgrid'>{resMessage !== '' && <div className={error ? 'errormsg' : 'successmsg'}> {resMessage}</div>}</div>
+          <div className='text-center fullgrid'>{resMessage !== '' && <div className={error ? 'errormsg' : 'successmsg bg-green-500 text-green-700'}> {resMessage}</div>}</div>
         </form>
       </div>
     </section>

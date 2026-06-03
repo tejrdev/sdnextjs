@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
+import { RiTwitterXFill } from 'react-icons/ri';
 const ERRORLOGIN = 'Please Login First! ';
 if (typeof window !== 'undefined') {
   var LOGGED_EMAIL = localStorage.getItem('email');
 }
+
+import adscontact from '@/public/images/adscontact.jpg';
 
 const PersonIntro = ({ data, favoriteList }) => {
   const API_URL = process.env.NEXT_PUBLIC_SD_API;
@@ -42,26 +44,26 @@ const PersonIntro = ({ data, favoriteList }) => {
   };
 
   return (
-    <section className={data.telent_bg_img ? 'personintro  pvr detailbnrimgadd' : 'personintro  pvr'}>
+    <section className={data.telent_bg_img ? 'personintro  pvr detailbnrimgadd text-white' : 'personintro  pvr'}>
       {data.telent_bg_img && (
         <div className='detailbnrimg'>
-          <img src={data.telent_bg_img} alt='' className='objctimg_box' />
+          <img src={data.telent_bg_img ?? adscontact.src} alt='' className='objctimg_box' />
         </div>
       )}
       <div className='container'>
         <div className='person_introbox'>
           <div className='personpc'>
             <figure className='personpcbox pvr'>
-              <img src={data.img} alt='' className={'objctimg_box object-top ' + (data.img === "https://live.screendollars.com/wp-content/themes/screendollars-live/assets/images/noactor.svg" ? 'object_content' : "")} />
+              <img src={data.img} alt='' className={'objctimg_box object-top ' + (data.img === process.env.NEXT_PUBLIC_BACKEND_URL + '/wp-content/themes/screendollars-live/assets/images/noactor.svg' ? 'object_content' : "")} />
             </figure>
             <div className='timepersonsocial df fww'>
               <ul className='inbio_box'>
-                {data.talent_social_media.map((item, index) => {
+                {data.talent_social_media?.slice(0, 5).map((item, index) => {
                   return (
                     <li key={index}>
                       {' '}
                       <a href={item.link} target='_blank' title={item.name} rel='noreferrer'>
-                        <i className={'fab ' + item.class} aria-hidden='true'></i>
+                        {item.class === 'fab fa-twitter' ? <RiTwitterXFill className='mt-[2px]' /> : <i className={`fab ${item?.class ? item.class : 'fa fa-globe'}`} aria-hidden='true'></i>}
                       </a>
                     </li>
                   );
@@ -79,7 +81,7 @@ const PersonIntro = ({ data, favoriteList }) => {
               </span>
             </h1>
             <div className='actorsocial_bio'>
-              <h4>{data.telent_have}</h4>
+              <p className='font-bold mb-4 sm:text-xl'>{data.telent_have}</p>
             </div>
             <div className='persnolinfo'>
               {data.birthdate && (

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
-import quorum from '@/public/quorum.png';
-import Image from 'next/image';
+
 
 const DetaildailChart = ({ data, advticket = false }) => {
   const [isClient, setIsClient] = useState(false);

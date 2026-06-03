@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
 import Link from 'next/link';
-
+import { motion } from "motion/react"
 const Counter = ({ data, requestFrom }) => {
   const [startCount, setStartCount] = useState(false);
   const { ref, inView } = useInView({
@@ -17,7 +17,10 @@ const Counter = ({ data, requestFrom }) => {
   }, [inView]);
 
   return (
-    <section className='counter'>
+    <motion.section
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.2 }} className='counter'>
       <div className='container'>
         <div className='counterbox grid '>
           {data.map((item, index) => {
@@ -47,7 +50,7 @@ const Counter = ({ data, requestFrom }) => {
           })}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

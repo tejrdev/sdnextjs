@@ -1,0 +1,106 @@
+[
+   {
+      "name": "Alberta",
+      "sortname": "AB",
+      "latitude": 53.0,
+      "longitude": -115.0,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "British Columbia",
+      "sortname": "BC",
+      "latitude": 53.0,
+      "longitude": -127.0,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Manitoba",
+      "sortname": "MB",
+      "latitude": 51.0,
+      "longitude": -99.0,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "New Brunswick",
+      "sortname": "NB",
+      "latitude": 46.0,
+      "longitude": -66.0,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Newfoundland and Labrador",
+      "sortname": "NL",
+      "latitude": 52.0,
+      "longitude": -57.0,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Nova Scotia",
+      "sortname": "NS",
+      "latitude": 44.0,
+      "longitude": -64.0,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Ontario",
+      "sortname": "ON",
+      "latitude": 45.0,
+      "longitude": -83.0,
+      "locations": 20,
+      "screens": 80
+   },
+   {
+      "name": "Prince Edward Island",
+      "sortname": "PE",
+      "latitude": 46.0,
+      "longitude": -63.0,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Quebec",
+      "sortname": "QC",
+      "latitude": 48.0,
+      "longitude": -73.0,
+      "locations": 10,
+      "screens": 20
+   },
+   {
+      "name": "Saskatchewan",
+      "sortname": "SK",
+      "latitude": 52.0,
+      "longitude": -105.0,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Northwest Territories",
+      "sortname": "NT",
+      "latitude": 64.8255441,
+      "longitude": -124.8457334,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Nunavut",
+      "sortname": "NU",
+      "latitude": 70.2997711,
+      "longitude": -83.1075769,
+      "locations": 0,
+      "screens": 0
+   },
+   {
+      "name": "Yukon",
+      "sortname": "YT",
+      "latitude": 64.2823274,
+      "longitude": -135,
+      "locations": 0,
+      "screens": 0
+   }
+]

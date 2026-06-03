@@ -12,7 +12,7 @@ const SUCCESS = 'Success : Please check you email id for reseting password';
 const GLOGIN_ERROR = 'Error : Email Id is not registered';
 //const LOGGED_EMAIL = localStorage.getItem('email');
 const API_URL = process.env.NEXT_PUBLIC_SD_API;
-const DEFAULT_URL = process.env.NEXT_PUBLIC_LOGIN_URL;
+const DEFAULT_URL = process.env.NEXT_PUBLIC_FRONTEND_URL;
 const SIGN_SUCCESS = 'Success: Email Id Registerd Successfully';
 const SIGN_ALREADY = ' Error: Email Id Already Exists';
 const SIGNIN_ERROR = ' Error: Email Id Not Registered';
@@ -73,7 +73,14 @@ const gsuccess = () => {
 
                   //window.location.href='https://screendollars.com/pro/';
                   //window.location.href='http://localhost:3000/';
-                  window.location.href = DEFAULT_URL;
+                  let { query } = router;
+                  query = decodeURIComponent(query.from);
+                  if (query !== null && query !== undefined && query !== 'undefined' && query !== '') {
+                    router.push(query + '&email=' + session?.user?.email);
+                  } else {
+                    router.push('/');
+                  }
+                  // window.location.href = DEFAULT_URL;
                 }
               } else {
                 setGsigninEmailError(GLOGIN_ERROR);
@@ -84,11 +91,11 @@ const gsuccess = () => {
             });
         };
         statusEmailCheck();
-        setTimeout(function () {
-          //window.location.href='http://localhost:3000/login';
-          window.location.href = DEFAULT_URL + 'login';
-          // window.location.href='https://screendollars.com/pro/login';
-        }, 3000);
+        // setTimeout(function () {
+        //   //window.location.href='http://localhost:3000/login';
+        //   window.location.href = DEFAULT_URL + 'login';
+        //   // window.location.href='https://screendollars.com/pro/login';
+        // }, 3000);
       }
       if (signStatus === 'signup') {
         // alert('signup');
@@ -144,7 +151,7 @@ const gsuccess = () => {
             }
             // window.location.href='https://screendollars.com/pro/thankyou';
             // window.location.href='http://localhost:3000/profile';
-            window.location.href = DEFAULT_URL + 'profile';
+            window.location.href = DEFAULT_URL + '/profile';
           }
         };
         signupGoogle();
@@ -180,6 +187,6 @@ const gsuccess = () => {
 };
 
 export default gsuccess;
-gsuccess.getLayout = function (page) {
-  return <LayoutPro>{page}</LayoutPro>;
-};
+// gsuccess.getLayout = function (page) {
+//   return <LayoutPro>{page}</LayoutPro>;
+// };

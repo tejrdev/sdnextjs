@@ -1,13 +1,13 @@
 import HomePageAds from '../../../Homepage/HomePageAds';
 import FilmographyFilms from './FilmographyFilms';
 
-const Filmography = ({ data }) => {
+const Filmography = ({ data, name }) => {
   return (
     <section className='filmography toplinesec' id='filmography'>
       <div className='container'>
         <div className='top_txt'>
           <h2>
-            Filmography <i className='fal fa-angle-right'></i>
+            {name} Movies <i className='fal fa-angle-right'></i>
           </h2>
         </div>
 
@@ -17,9 +17,9 @@ const Filmography = ({ data }) => {
               return (
                 <div className='filmography_item' key={index}>
                   {item.film_role_title && (
-                    <h4 className='capitalize'>
+                    <h3 className='capitalize'>
                       <u>{item.film_role_title}</u>
-                    </h4>
+                    </h3>
                   )}
                   {item?.Upcoming && <FilmographyFilms data={item.Upcoming.films} index={index} title='Upcoming' />}
                   {item?.Previous && <FilmographyFilms data={item.Previous.films} index={index} title='Previous' />}

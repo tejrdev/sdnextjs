@@ -2,13 +2,13 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Gallery from '../Gallery';
 import NowShowing from '../NowShowing';
-import TheatreInfo from '../TheatreInfo';
-import UserComments from '../UserComments';
-import WatchAtHome from '../WatchAtHome';
+import DirectoryInfo from '../DirectoryInfo';
 import TheatreLocation from '../TheatreLocation';
-import Claimlisting from '@/components/DetailPages/Claimlisting';
 import Promoimg from '@/components/DetailPages/Promoimg';
-import MenuNavigation from '@/components/Directory/ListingPages/MenuNavigation';
+import AdminEditLink from '@/components/DetailPages/AdminEditLink';
+import TheaterHero from '@/components/DetailPages/Theatre/TheaterHero';
+import TheaterSocial from '@/components/DetailPages/Theatre/TheaterSocial';
+import TheaterInfo from '@/components/DetailPages/Theatre/TheaterInfo';
 
 const API_URL = process.env.NEXT_PUBLIC_SD_API;
 const Exhibitor = ({ data, listingId }) => {
@@ -36,10 +36,13 @@ const Exhibitor = ({ data, listingId }) => {
   }, []);
   return (
     <>
-    <MenuNavigation/>
-      <TheatreInfo data={data} requestfrom='exibitor_theatre_list' favoriteList={favData} />
-      <Claimlisting listingId={listingId} listingType='exhibitors' listing_title={data.title} claimed={data.is_claimed} />
-      {data.gallery_images && data.gallery_images.length > 0 ? <Gallery data={data.gallery_images} /> : null}
+      <AdminEditLink data={data} />
+      <TheaterHero listingId={listingId} listingType='exhibitors' data={data} />
+      <TheaterSocial data={data} />
+      <TheaterInfo data={data} listingType='exhibitors' />
+      {/* <DirectoryInfo listingId={listingId} listingType='exhibitors' data={data} requestfrom='exibitor_theatre_list' favoriteList={favData} />
+      <Claimlisting listingId={listingId} listingType='exhibitors' listing_title={data.title} claimed={data.is_claimed} is_claimed_under_process={data.is_claimed_under_process} /> */}
+      {/* {data.gallery_images && data.gallery_images.length > 0 ? <Gallery data={data.gallery_images} /> : null} */}
       <TheatreLocation id={data.id} />
       {data.promo_imgs && <Promoimg data={data.promo_imgs} />}
       {/* <NowShowing /> */}

@@ -173,7 +173,6 @@
 
 .mvdetail_info {
 	width: calc(100% - 480px);
-	padding: 0 0 20px 0;
 	max-width: 660px;
 }
 
@@ -186,7 +185,7 @@
 .mvdetail_info h1 span.favheart,
 .person_info .favheart {
 	font-size: 26px;
-	margin: 15px 0 0 10px;
+	margin: 3px 0 0 10px;
 }
 
 .criticratings li .scoreico img {
@@ -259,6 +258,10 @@
 	align-items: center;
 }
 
+.mvdetail_info .ratinginfo_tags>li>span {
+	background: none;
+}
+
 .ratinginfo_tags>li>span {
 	background: #fff;
 	padding: 1px 5px;
@@ -275,7 +278,7 @@
 }
 
 .ratinginfo_tags>li {
-	font-size: 15px;
+	font-size: 13px;
 	display: inline-block;
 	vertical-align: top;
 	font-family: 'Open Sans', sans-serif;
@@ -313,6 +316,11 @@
 .ratinginfo_tags>li>a:hover {
 	text-decoration: underline;
 }
+
+.mvbnr_price .ghostbtn.appletv {
+	@apply font-bold py-[7px]
+}
+
 
 .flmdtl_social {
 	list-style: none;
@@ -364,6 +372,7 @@
 
 .castcrew_people {
 	margin-left: 0;
+	margin-bottom: 0;
 }
 
 .castcrew_people li {
@@ -645,12 +654,6 @@
 	padding-top: clamp(100px, 18%, 220px);
 }
 
-
-.mvdetail_box .media_mvslicbox {
-	width: 290px;
-	margin: 0 82px 30px 0;
-}
-
 .mvdetail_box .media_mvslicbox.ColorYellow {
 	border: 5px solid yellow;
 	border: 5px solid #BB9355;
@@ -673,13 +676,6 @@
 	padding: 120px 0 0 0;
 }
 
-.media_mvslicbox {
-	position: relative;
-	z-index: 1;
-	border-radius: 10px;
-	overflow: hidden;
-}
-
 .media_mvslicbox .popvidbox>p {
 	text-align: center;
 }
@@ -697,27 +693,6 @@
 	z-index: 2;
 }
 
-.media_mvslicbox .artinfoimg {
-	/* position: absolute; */
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	margin-bottom: 10px;
-}
-
-.media_mvslicbox .mvdetail_box .playico {
-	padding: 120px 0 0;
-}
-
-.changepagelink {
-	text-align: right;
-	padding-top: 30px;
-}
-
-
-
 .changepagelink p {
 	overflow: hidden;
 	opacity: 0;
@@ -727,7 +702,7 @@
 
 .changepagelink p span {
 	padding: 5px 10px;
-	background: rgba(255, 255, 255, 0.47);
+	background: rgba(255, 255, 255, 0.58);
 	border-radius: 5px;
 	display: inline-block;
 	margin-top: 3px;
@@ -736,7 +711,7 @@
 .changepagelink label {
 	cursor: pointer;
 	padding: 5px 10px;
-	background: rgba(255, 255, 255, 0.47);
+	background: rgba(255, 255, 255, 0.58);
 	border-radius: 5px;
 }
 
@@ -744,7 +719,6 @@
 .changepagelink label span {
 	font-weight: bold;
 	text-decoration: underline;
-	color: #000;
 }
 
 
@@ -753,24 +727,6 @@
 	opacity: 1;
 }
 
-.filmproducer {
-	font-size: 20px;
-	border-bottom: 1px solid #D7B865;
-}
-
-.criticratings .ghostbtn {
-	border: 1px solid #D7B865;
-	font-size: 16px;
-	margin: -5px 0 6px 0;
-	font-family: "Open Sans", sans-serif;
-}
-
-.releasinginfo_dates .btn {
-	text-transform: uppercase;
-	font-weight: bold;
-	border-radius: 0;
-	padding: 2px 10px;
-}
 
 .releasinginfo_dates strong {
 	display: block;
@@ -881,10 +837,8 @@
 .mvbnr_price .ghostbtn {
 	border: 1px solid #D7B865;
 	font-size: 16px;
-	text-transform: uppercase;
-	font-weight: normal;
 	margin: 0 15px 5px 0;
-	display: inline-block;
+	@apply font-bold py-2 inline-block uppercase
 }
 
 h1 span.favoritebox {
@@ -893,9 +847,6 @@ h1 span.favoritebox {
 	vertical-align: middle;
 }
 
-.mvbnr_price .favoritebox {
-	display: inline-block;
-}
 
 .favoritebox a {
 	color: #000;
@@ -931,28 +882,12 @@ h1 span.favoritebox {
 	color: #000;
 }
 
-.boxearnings {
-	font-family: "Open Sans", sans-serif;
-}
-
-.boxearnings small a {
-	color: #000;
-	text-decoration: underline;
-	font-weight: bold;
-}
-
-.boxearnings small a:hover {
-	text-decoration: none;
-}
 
 .exb_infocarditem {
 	padding: 0 10px;
 	margin-bottom: 5px;
 }
 
-.theatershowtime_slider .slick-list {
-	margin: 0 -10px;
-}
 
 .currentlocation {
 	align-items: center;
@@ -971,38 +906,6 @@ h1 span.favoritebox {
 	line-height: 1.18;
 }
 
-.locbtn .btn:hover {
-	background: #D7B865;
-	;
-}
-
-input[type="text"].locinput {
-	display: none;
-	width: 150px;
-	padding: 5px;
-	transition: 0s;
-	margin-right: 20px;
-}
-
-.locname {
-	display: inline-block;
-	vertical-align: top;
-	border-bottom: 1px solid #707070;
-	padding: 0 0 0 0;
-	margin-right: 20px;
-}
-
-.exb_infocarditeminner {
-	border: 1px solid #ccc;
-	border-radius: 10px;
-	padding: 12px 16px;
-	position: relative;
-}
-
-.theaters_filmshow label {
-	margin: -4px 10px 7px 0;
-	font-weight: bold;
-}
 
 .theaters_filmshow ul li,
 .theater_dist span {
@@ -1039,25 +942,6 @@ input[type="text"].locinput {
 	vertical-align: top;
 }
 
-.filmreview_fullbox .pvr {
-	width: 40%;
-	padding: 0 0 240px 0;
-	border: 1px solid #707070;
-}
-
-.filmreview_fullbox .pvr img {
-	border-radius: 0;
-}
-
-.reviewbox_info {
-	width: calc(60% - 35px);
-}
-
-.filmreview_fullbox>a {
-	color: #000 !important;
-	align-items: flex-start;
-	justify-content: space-between;
-}
 
 .redtxt {
 	color: #EF404E;
@@ -1071,87 +955,11 @@ input[type="text"].locinput {
 	color: #00B825;
 }
 
-.reviewbox_info h4 {
-	line-height: 1.3;
-}
 
 .reviewbox_info .redmore {
 	color: #C04A53;
 	text-transform: uppercase;
 	font-weight: bold;
-}
-
-.usercomment .usercomment_disc .userratings i {
-	position: static;
-}
-
-.starrate {
-	position: relative;
-	width: 109px;
-	height: 22px;
-	overflow: hidden;
-	color: #707070;
-	transition: 0.2s all;
-	margin: 0 0 0 20px;
-	z-index: 1;
-}
-
-.starrate .goldstar {
-	position: absolute;
-	top: 0;
-	left: 0;
-	color: #d7b865;
-	overflow: hidden;
-}
-
-.userratings {
-	margin-bottom: 15px;
-}
-
-.replybox .textbox .btn {
-	margin-top: 10px;
-}
-
-.replybox .replyinfo {
-	padding: 10px 0 0 40px;
-	position: relative;
-}
-
-.replybox>.replyinfo p:before {
-	content: "\f3e5";
-	position: absolute;
-	left: 9px;
-	top: 10px;
-	font-family: "Font Awesome 5 Pro";
-	font-weight: 900;
-}
-
-.usercomment .usercomment_disc.open .userratings i:before {
-	content: "\f005";
-}
-
-.replybox .replyinfo,
-.replybox .textbox {
-	display: none;
-}
-
-.usercomment .usercomment_disc.open .replybox .replyinfo,
-.usercomment .usercomment_disc.open .replybox .textbox {
-	display: block;
-}
-
-.usercomment .usercomment_disc.open .replybox>.reply_btn {
-	display: none;
-}
-
-.reply_btn .btn {
-	background: none;
-	padding: 6px 0;
-	margin-bottom: 12px;
-}
-
-.reply_btn .btn:hover {
-	background: #d7b865;
 }
 
 .intheartertag {
@@ -1162,77 +970,17 @@ input[type="text"].locinput {
 	display: inline-block;
 }
 
-input[type="text"].locinputplace {
-	display: inline-block;
-	padding: 5px 5px;
-	max-width: 100%;
-	width: 220px;
-	border: none;
-	border-radius: 0;
-	border-bottom: 1px solid #000;
-	margin: 0 16px 0 0;
-}
 
 
-input[type="text"].locinputplace::-webkit-input-placeholder {
-	font-size: 14px;
-	color: #777777;
-	font-style: italic;
-}
 
-input[type="text"].locinputplace:-ms-input-placeholder {
-	font-size: 14px;
-	color: #777777;
-	font-style: italic;
-}
-
-input[type="text"].locinputplace::-moz-placeholder {
-	font-size: 14px;
-	color: #777777;
-	font-style: italic;
-}
-
-input[type="text"].locinputplace:-moz-placeholder {
-	font-size: 14px;
-	color: #777777;
-	font-style: italic;
-}
-
-.currentlocation p>strong {
-	margin-right: 20px;
-}
-
-.redmorevardict .redtxt {
-	text-transform: uppercase;
-	font-weight: bold;
-	margin: 5px 10px 0 0;
-}
-
-.redmorevardict figure {
-	width: 130px;
-}
-
-.redmorevardict {
-	margin: 20px 0 0 0;
-}
-
-.boxearnings ul.grid li p small {
-	opacity: 0.6;
-}
-
-.slick-track {
-	margin-left: 0 !important;
-}
-
-.tosummary,
-.officewebsite {
+.tosummary {
 	color: #000;
 	margin-bottom: 5px;
 	display: inline-block;
 }
 
-.officewebsite {
-	margin-bottom: 10px;
+.ratinginfo_tags .moviebnr li a {
+	@apply text-white hover:text-black
 }
 
 .summaryinfo ul {
@@ -1262,7 +1010,7 @@ input[type="text"].locinputplace:-moz-placeholder {
 .detailbnrimg {
 	position: absolute;
 	width: 100%;
-	height: 410px;
+	height: 100%;
 	z-index: -1;
 	top: 0;
 }
@@ -1272,17 +1020,15 @@ input[type="text"].locinputplace:-moz-placeholder {
 	position: absolute;
 	height: 100%;
 	width: 100%;
-	background: url(../public/images/gradentfrontground.png) left bottom repeat-x;
+	background: #000000;
+	background: linear-gradient(31deg, rgba(0, 0, 0, 1) 0%, rgb(7 14 10 / 57%) 50%, rgba(33, 32, 30, 0) 100%);
+	/* background: url(../public/images/gradentfrontground.png) left bottom repeat-x; */
 	z-index: -1;
 	background-size: 100% 100%;
 }
 
 .detailbnrimg .objctimg_box {
 	z-index: -2;
-}
-
-.detailbnrimgadd .mvdetail_box {
-	padding-top: 160px;
 }
 
 .limitdate p {
@@ -1314,7 +1060,6 @@ input[type="text"].locinputplace:-moz-placeholder {
 .tecotherinfo .tecinfo {
 	grid-template-columns: repeat(auto-fit, minmax(266px, 1fr));
 	gap: 20px;
-	padding-bottom: 20px;
 }
 
 .tecotherinfo .tecinfo .techinfoitem {
@@ -1346,6 +1091,12 @@ input[type="text"].locinputplace:-moz-placeholder {
 	display: flex;
 }
 
+.celebsmovie .celebbox:nth-child(2) .celeb_slider:before,
+.celebsmovie .celebbox:nth-child(4) .celeb_slider::before {
+	content: "";
+	@apply md:w-[1px] h-36 bg-slate-300 top-2 absolute -left-7
+}
+
 
 /*responsivee*/
 
@@ -1366,7 +1117,6 @@ input[type="text"].locinputplace:-moz-placeholder {
 	}
 
 	.mvdetail_box .media_mvslicbox {
-		margin: 0 30px 0 0;
 		width: 220px;
 	}
 

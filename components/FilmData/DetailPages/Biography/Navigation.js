@@ -36,12 +36,12 @@ const Navigation = ({ data }) => {
           */}
           {data?.personal_details && (
             <li className=''>
-              <a href='#personal_details'>Personal Details</a>
+              <a href='#personal_details'>Personal Life</a>
             </li>
           )}
           {data?.talent_movie_data_new?.length >= 1 && (
             <li className=''>
-              <a href='#filmography'>Filmography</a>
+              <a href='#filmography'>Movies</a>
             </li>
           )}
 
@@ -61,11 +61,11 @@ const Navigation = ({ data }) => {
               <a href='#news_updates'>News &amp; Updates</a>
             </li>
           )}
-          {data?.people_also_search?.length > 0 && (
+          {/* {data?.people_also_search?.length > 0 && (
             <li className=''>
               <a href='#people_search'>People Also Search For</a>
             </li>
-          )}
+          )} */}
         </ul>
       </div>
     </div>

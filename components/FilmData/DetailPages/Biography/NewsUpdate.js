@@ -1,7 +1,7 @@
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 
-const NewsUpdate = ({ data }) => {
+const NewsUpdate = ({ data, name }) => {
   const SliderSetting = {
     slidesToShow: 3,
     speed: 300,
@@ -31,7 +31,7 @@ const NewsUpdate = ({ data }) => {
       <div className="container">
         <div className="top_txt">
           <h2>
-            News & Updates <i className="fal fa-angle-right"></i>
+            {name && name} News  <i className="fal fa-angle-right"></i>
           </h2>
         </div>
 
@@ -44,7 +44,7 @@ const NewsUpdate = ({ data }) => {
                     <img src={item.img} alt="" className="objctimg_box" />
                   </figure>
                   <div className="updateintro_txt">
-                    <h5>{item.title}</h5>
+                    <p className='text-lg font-bold leading-tight'>{item.title}</p>
                     <div className="srcnametime">
                       <strong>
                         <div className="fmupdate_boxaurthor">

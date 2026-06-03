@@ -18,7 +18,7 @@ const Authenticate = () => {
   useEffect(() => {
     const AuthenticateUser = async () => {
       if (email) {
-        const response = await fetch(process.env.NEXT_PUBLIC_SD_API + '/mobile_user/?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN + '&email=' + email + '&token=' + token);
+        const response = await fetch(process.env.NEXT_PUBLIC_SD_API + '/mobile_user?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN + '&email=' + email + '&token=' + token);
         const userData = await response.json();
 
         const isProInd: string = userData.pro_user === 'yes' ? 'pro' : '';

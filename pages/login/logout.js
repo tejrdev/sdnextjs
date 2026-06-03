@@ -8,7 +8,7 @@ const ENCT_KEY = process.env.NEXT_PUBLIC_ENC_KEY;
 const API_URL = process.env.NEXT_PUBLIC_SD_API;
 import loginprofile from '../../public/images/loginprofileon.svg';
 import loginprofilewhite from '../../public/images/loginprofileonwhite.svg';
-import Premium from '../../public/Premium.svg';
+import Premium from '../../public/images/Premium.svg';
 import axios from 'axios';
 const $ = require('jquery');
 const imageWidth = {
@@ -195,7 +195,7 @@ const Logout = () => {
           </div>
           <div className={type_link === 'pro' ? 'headsignout  proico' : 'headsignout'}>
             <div className='signico '>
-              <figure className='pvr'>
+              <figure className='pvr border-2 border-gold'>
                 {avatarImage ? <Image src={avatarImage} rel='preload' as='image' title={login} alt='profile' width='35' height='35' style={{ borderRadius: '50px' }} /> :
                   <>
                     <Image src={loginprofile} rel='preload' as='image' title={login} width='35' height='35' style={{ borderRadius: '50px' }} alt='profile' className='dark:hidden' />
@@ -214,7 +214,7 @@ const Logout = () => {
                   <i className='fas fa-user'></i> Your Profile
                 </Link>
               </li>
-              {type_link === 'default' || type_link === null ? (
+              {/* type_link === 'default' || type_link === null ? (
                 <li>
                   <label htmlFor='' onClick={switchtoPro}>
                     <span className='ico'>
@@ -225,7 +225,7 @@ const Logout = () => {
                 </li>
               ) : (
                 ''
-              )}
+              ) */}
               {notifications.length > 0 ? (
                 <li className='notifynav pvr' onClick={openNotificaton}>
                   <i className='fas fa-bell'></i> Notifications ({notifications.length}) <span className='notifydot' title='Notifications'></span>

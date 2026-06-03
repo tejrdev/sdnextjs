@@ -1,6 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-![alt text](https://live.screendollars.com/wp-content/uploads/2024/07/projectstack.png)
+ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+ 
+![alt text](https://api.screendollars.com/wp-content/uploads/2024/07/projectstack.png)
 
 ## Getting Started
 
@@ -11,7 +11,7 @@ npm run dev
 # or
 yarn dev
 # or
-pnpm dev
+pnpm dev 
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

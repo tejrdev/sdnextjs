@@ -1,6 +1,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import PlayIcon from '@/public/images/playicov2.png'; 
 
 const Productitem = () => {
    return (
@@ -38,7 +39,7 @@ const Productitem = () => {
          <div className="productlistitem df fww">
             <figure className="pvr videolink">
                <Link href={"#"}>
-               <span className="playico"><Image src="https://www.live.screendollars.com/wp-content/themes/screendollars-live/assets/images/playicov2.png" alt="play" width={30} height={34}/></span>
+               <span className="playico"><Image src={PlayIcon.src} alt="play" width={30} height={34}/></span>
                   <Image src={'https://tejrdev.github.io/api/apisrc/fourabtsld.jpg'} className="objctimg_box" alt="" width={588} height={333} />
                </Link>
             </figure>

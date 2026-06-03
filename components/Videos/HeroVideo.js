@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 const $ = require('jquery');
 import { RiTriangleLine } from 'react-icons/ri';
 
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
-
+import { motion } from "motion/react"
 const HeroVideo = ({ data }) => {
   useEffect(() => {
     const $ = window.jQuery;
@@ -66,11 +66,11 @@ const HeroVideo = ({ data }) => {
       },
     });
   }, []);
-
+  const looping = data.length > 1 ? true : false;
   const SliderSetting = {
     slidesToShow: 1,
     speed: 300,
-    infinite: true,
+    infinite: looping,
     autoplay: true,
     autoplaySpeed: 7000,
     pauseOnHover: true,
@@ -83,7 +83,10 @@ const HeroVideo = ({ data }) => {
   return (
     <section className='herovideo'>
       <div className='container'>
-        <div className='vidhero'>
+        <motion.div initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className='vidhero'>
           <Slider {...SliderSetting} className='vidhero_slider'>
             {data.map((item, index) => {
               // const iframeSrc = 'https://www.youtube.com/embed/' + item.id + '?rel=0&enablejsapi=1';
@@ -108,7 +111,7 @@ const HeroVideo = ({ data }) => {
               );
             })}
           </Slider>
-        </div>
+        </motion.div>
         {/* <div className='vidhero df fww'>
           <div className='vidherofream'>
             <iframe width='100%' src={iframeSrc} title='YouTube video player' frameBorder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowFullScreen></iframe>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="121.066px" height="141.344px" viewBox="0 -0.957 121.066 141.344" enable-background="new 0 -0.957 121.066 141.344"
+	 xml:space="preserve">
+<filter  id="NoPath_-_Copy_55_" x="0" y="0" filterUnits="userSpaceOnUse" height="312" width="222">
+	<feOffset  input="SourceAlpha"></feOffset>
+	<feGaussianBlur  stdDeviation="3" result="blur"></feGaussianBlur>
+	<feFlood  flood-color="#fff" flood-opacity="0.161"></feFlood>
+	<feComposite  operator="in" in2="blur"></feComposite>
+	<feComposite  in="SourceGraphic" operator="over"></feComposite>
+</filter>
+<g id="Group_23557" transform="translate(-31 -1891.396)">
+	<g transform="matrix(1, 0, 0, 1, 31, 1891.4)" filter="url(#NoPath_-_Copy_55_)">
+		<g id="NoPath_-_Copy_55_2_1_" transform="translate(9 9)">
+			<path fill="#FDFBF6" d="M3.035-9.449h97c6.527,0,11.826,4.283,11.826,9.565V121.59c0,5.278-5.299,9.563-11.826,9.563h-97
+				c-6.535,0-11.83-4.285-11.83-9.563V0.115C-8.795-5.168-3.5-9.449,3.035-9.449z"/>
+			<path fill="none" stroke="#E8D7A8" d="M3.035-9.209h97c6.369,0,11.531,4.174,11.531,9.325V121.59
+				c0,5.147-5.162,9.324-11.531,9.324h-97c-6.37,0-11.534-4.177-11.534-9.324V0.115C-8.5-5.035-3.336-9.209,3.035-9.209z"/>
+		</g>
+	</g>
+	<path id="Icon_awesome-user" fill="#EAD9AD" d="M91.532,1961.273c9.835,0,17.812-7.457,17.812-16.661
+		c0-9.201-7.977-16.661-17.812-16.661c-9.836,0-17.811,7.46-17.811,16.661c-0.026,9.176,7.904,16.637,17.714,16.661
+		C91.469,1961.273,91.5,1961.273,91.532,1961.273z M104.049,1965.326h-2.407c-6.408,2.787-13.807,2.787-20.216,0h-2.407
+		c-10.367,0.004-18.771,7.865-18.772,17.563v5.401c0.016,3.479,3.022,6.291,6.738,6.308h49.101c3.715-0.017,6.726-2.829,6.738-6.308
+		v-5.401C122.817,1973.191,114.416,1965.33,104.049,1965.326z"/>
+</g>
+</svg>

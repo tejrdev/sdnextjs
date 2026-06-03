@@ -1,3 +1,54 @@
+.aboutadd_info ol {
+	list-style: none;
+	counter-reset: my-awesome-counter;
+}
+
+.aboutadd_info ol>li {
+	counter-increment: my-awesome-counter;
+	padding-bottom: 10px;
+}
+
+.aboutadd_info ol>li:before {
+	content: "(" counter(my-awesome-counter) ")  ";
+	margin: 0 4px 0 -22px;
+}
+
+.aboutadd_info ol>li li {
+	padding-bottom: 3px;
+}
+
+.aboutadd_info ol>li ul {
+	margin-bottom: 10px;
+}
+
+.aboutadd_info ol>li ul img {
+	margin-bottom: 10px;
+}
+
+.grecaptcha-badge {
+	visibility: hidden;
+}
+
+
+.addinfo_graphic {
+	max-width: 250px;
+	float: left;
+	/* vertical-align: top; */
+	padding: 0 20px 20px 0;
+}
+
+.adds_movietxt {
+	overflow: hidden;
+	margin-top: 20px;
+	flex-flow: row-reverse;
+	align-items: center;
+	align-content: center;
+	display: block;
+	display: flex;
+}
+
+
+
 .addus_contact .top_txt {
 	width: 100%;
 }
@@ -23,6 +74,14 @@
 .add_figtxt.aboutmovie_info.addleft .abt_movietxt {
 	padding: 0 0 0 20px;
 }
+
+.addtxtbox {
+	width: calc(100% - 250px);
+	padding: 0 0 0 50px;
+	display: inline-block;
+	overflow: hidden;
+}
+
 
 .sponcers_add {
 	margin: 0 -5px;
@@ -69,6 +128,20 @@
 	margin: 30px 0 0;
 }
 
+.add_rightfigtxt .addinfo_graphic {
+	float: right;
+	padding: 0 0 20px 20px;
+}
+
+
+.add_rightfigtxt .adds_movietxt {
+	flex-flow: wrap;
+}
+
+
+.add_rightfigtxt .addtxtbox {
+	padding: 0;
+}
 
 
 .addcnt {
@@ -127,7 +200,18 @@
 
 /*responsivee*/
 
+@media screen and (max-width: 1350px) {}
+
+@media screen and (max-width: 1200px) {}
+
 @media screen and (max-width: 991px) {
+	.addinfo_graphic {
+		max-width: 150px;
+	}
+
+	.addtxtbox {
+		width: calc(100% - 150px);
+	}
 
 	.addcnt_txt,
 	.addcnt,
@@ -146,6 +230,10 @@
 	}
 }
 
+@media screen and (max-width: 767px) {}
+
+@media screen and (max-width: 768px) {}
+
 @media screen and (max-width: 640px) {
 
 	.addcnt_txt,
@@ -156,6 +244,12 @@
 		width: 100%;
 	}
 
+	.add_rightfigtxt .addinfo_graphic,
+	.addinfo_graphic {
+		float: none;
+		padding: 20px 0 0;
+	}
+
 	.art_home .art_sliditem {
 		width: 100%;
 		max-width: 350px;
@@ -164,7 +258,18 @@
 }
 
 @media screen and (max-width: 480px) {
+	.addtxtbox {
+		width: 100%;
+		padding: 20px 0 0 0;
+	}
 
+	.addinfo_graphic {
+		margin: 0 auto;
+	}
+
+	.adds_movietxt {
+		flex-flow: column-reverse;
+	}
 
 	.sponcers_add .spons_col {
 		width: 100%;

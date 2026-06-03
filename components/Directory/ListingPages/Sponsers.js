@@ -1,4 +1,4 @@
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 import Link from 'next/link';
 
@@ -41,7 +41,7 @@ const Sponsers = ({ data, tag }) => {
                   <div className="sponser_item_box">
                     <div className="sponser_mediabox">
                       <h4>
-                        <Link href={item.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>{item.title}</Link>
+                        <Link href={item.link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}>{item.title}</Link>
                       </h4>
                       <div className="df fww sponcer_picdisc just-between">
                         <div className="spitem_media pvr">

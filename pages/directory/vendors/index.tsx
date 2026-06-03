@@ -2,13 +2,12 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 //cpmponents
-import DistributorList from '../../../components/Directory/ListingPages/DistributorList';
-import Filters from '../../../components/Directory/ListingPages/Filters';
-import Pagination from '../../../components/Directory/ListingPages/Pagination';
-import OtherSponsors from '../../../components/Directory/ListingPages/OtherSponsors';
-import Loader from '../../../components/Loader';
-import MenuNavigation from '../../../components/Directory/ListingPages/MenuNavigation';
-import HomePageAds from '../../../components/Homepage/HomePageAds';
+import DistributorList from '@/components/Directory/ListingPages/DistributorList';
+import Filters from '@/components/Directory/ListingPages/Filters';
+import Pagination from '@/components/Directory/ListingPages/Pagination';
+import OtherSponsors from '@/components/Directory/ListingPages/OtherSponsors';
+import Loader from '@/components/Loader';
+import HomePageAds from '@/components/Homepage/HomePageAds';
 import Breadcrumb from '@/components/Directory/ListingPages/Breadcrumb';
 import SearchComponent from '@/components/Directory/ListingPages/SearchComponent';
 import SortBy from '@/components/Directory/ListingPages/SortBy';
@@ -42,6 +41,7 @@ type vendors_data = {
   page_link: string;
   page_title: string;
   filter_options: string;
+  new_filter_options: string;
 };
 const Vendors = (props: Props) => {
   const { SEOdata, vendorsData } = props;
@@ -96,6 +96,11 @@ const Vendors = (props: Props) => {
   useEffect(() => {
     const search = window.location.search;
     const params = new URLSearchParams(search);
+    let category = params.get('category');
+    if (category !== '' && category !== null) {
+      setVendorTypes(category);
+      setFilterChanged(true);
+    }
     const pageno = params.get('pageno');
     if (pageno !== '' && pageno !== null) {
       setVendorPage(parseInt(pageno));
@@ -108,7 +113,25 @@ const Vendors = (props: Props) => {
     setNoResult(false);
     let directory_API = process.env.NEXT_PUBLIC_SD_API + '/directory_vendors/new_vendor_listing.php?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN;
     if (vendorTypes !== '') {
-      directory_API += '&category=' + vendorTypes;
+      const arrVendors = vendorTypes.split(',');
+
+      const arrVendor = [];
+      arrVendors.forEach((vendor) => {
+        const filter = vendor.split('_');
+        const category = filter[0];
+        const subcategory = filter[1];
+
+        if (arrVendor[category] !== undefined && arrVendor[category] !== null) {
+          const temp = arrVendor[category];
+          arrVendor[category] = temp + ',' + subcategory;
+        } else {
+          arrVendor[category] = subcategory;
+        }
+      });
+
+      for (const key in arrVendor) {
+        directory_API += '&' + key + '=' + arrVendor[key];
+      }
     }
     directory_API += '&search=' + DirectorySearch;
     directory_API += '&sortby=' + DirectorySortBy;
@@ -130,13 +153,12 @@ const Vendors = (props: Props) => {
   return (
     <>
       <HeadComponent data={SEOdata} />
-      <MenuNavigation />
       <div className='distlisting'>
         <div className='container'>
           <div className='distlist_box'>
             <div className='distsponsor_box df fww'>
               <Breadcrumb parentLink={vendorsData.parent_link} parentTitle={vendorsData.parent_title} pageLink={vendorsData.page_link} pageTitle={vendorsData.page_title} />
-              <Filters setListingFilter={setDistributerFilter} data={vendorsData.filter_options} tag='vendor' onClearAllClick={onClearAllClick} />
+              <Filters setListingFilter={setDistributerFilter} data={vendorsData.new_filter_options} tag='vendor' onClearAllClick={onClearAllClick} />
               <div className='dist_listdetails'>
                 <section className='alldist_list'>
                   <div className='top_txt df fww'>

@@ -1,10 +1,13 @@
 import React from 'react';
-import imgData from '../data.json';
+import { JSONData } from '@/components/shared/JSONData';
 import { useEffect } from 'react';
+
+import { motion } from "motion/react"
+import { FadeinUp } from '@/components/Anim/FadeinUp';
 
 const Media = ({ videos, images }) => {
   useEffect(() => {
-  const $ = window.jQuery;
+    const $ = window.jQuery;
     $('.popvid').magnificPopup({
       type: 'iframe',
       mainClass: 'mfp-fade',
@@ -63,11 +66,15 @@ const Media = ({ videos, images }) => {
       <>
         {videos.map((item, index) => {
           return (
-            <div className="updateviewbox_item df fww just-between" key={index}>
+            <motion.div
+              variants={FadeinUp}
+              initial="init"
+              whileInView="anim"
+              viewport={{ once: true }} className="updateviewbox_item df fww just-between" key={index}>
               <div className="upviewbox_vid detailinfo_item">
                 <a className="popvid" href={item.v_url}>
                   <span className="playico">
-                    <img src={imgData.playicon} alt="play" />
+                    <img src={JSONData.playicon} alt="play" />
                   </span>
                   <div className="bnr_boxslide pvr vidoin">
                     <figure className="pvr">
@@ -88,10 +95,10 @@ const Media = ({ videos, images }) => {
                       {(index === 0 && id < 2) || (index === 1 && id > 1) ? (
                         <div className="upposter_item">
                           <figure className=" pvr">
-                           {item.poster_link !== "#" || "" ?  <a href={item.poster_link}>
+                            {item.poster_link !== "#" || "" ? <a href={item.poster_link}>
                               <img src={item.img} alt="" className="objctimg_box" />
-                            </a> : 
-                            <img src={item.img} alt="" className="objctimg_box" />}
+                            </a> :
+                              <img src={item.img} alt="" className="objctimg_box" />}
                           </figure>
                         </div>
                       ) : null}
@@ -99,7 +106,7 @@ const Media = ({ videos, images }) => {
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </>

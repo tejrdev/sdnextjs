@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import validator from 'validator';
 import axios from 'axios';
 import jquery from 'jquery';
+import { FaXmark } from "react-icons/fa6";
+
 
 const FORGOT_SUCCESS = 'Success : Please check you email id for reseting password';
 const FORGOT_ERROR = 'Error : Email Id Does Not Exists';
@@ -70,8 +72,8 @@ const ForgotPassword = () => {
         </div>
       </div>
       <div className="forgotpass" style={{ display: 'none' }}>
-        <span className="popclose" id="pop_cloase">
-          +
+          <span className="border border-gray-800 absolute right-5 top-5 rounded-full size-7 flex items-center justify-center" id="pop_cloase">
+            <FaXmark />
         </span>
         <h2>Forgot Password?</h2>
         <p>

@@ -1,6 +1,14 @@
 <IfModule mod_rewrite.c>
     Options -MultiViews
     RewriteEngine On
+    
+    # Block specific IP addresses
+    RewriteCond %{REMOTE_ADDR} ^13\.33\.45\.116$ [OR]
+    RewriteCond %{REMOTE_ADDR} ^13\.33\.45\.3$ [OR]
+    RewriteCond %{REMOTE_ADDR} ^13\.33\.45\.105$ [OR]
+    RewriteCond %{REMOTE_ADDR} ^13\.33\.45\.35$
+    RewriteRule .* - [F,L]
+    
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.html [QSA,L]
 </IfModule>

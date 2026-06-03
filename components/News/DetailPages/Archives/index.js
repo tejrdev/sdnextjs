@@ -26,7 +26,7 @@ const Archives = () => {
 
   const loadArchivesData = () => {
     axios
-      .get(process.env.NEXT_PUBLIC_SD_API + '/news_page/news_archive.php?url=' + process.env.NEXT_PUBLIC_MENU_URL + year + '/' + month + '&page_no=' + ArchivesPage + '&api_token=' + process.env.NEXT_PUBLIC_API_TOKEN)
+      .get(process.env.NEXT_PUBLIC_SD_API + '/news_page/news_archive.php?url=' + process.env.NEXT_PUBLIC_BACKEND_URL + '/' + year + '/' + month + '&page_no=' + ArchivesPage + '&api_token=' + process.env.NEXT_PUBLIC_API_TOKEN)
       .then((res) => {
         if (ArchivesPage === 1) {
           setArchivesData(res.data);

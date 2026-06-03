@@ -1,8 +1,11 @@
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import Link from 'next/link';
 import { FaTag } from "react-icons/fa";
 
 import 'slick-carousel/slick/slick.css';
+
+import { motion } from "motion/react"
+import { FadeinUp } from '@/components/Anim/FadeinUp';
 
 const FeaturedList = ({ data }: any) => {
   const SliderSetting = {
@@ -42,11 +45,21 @@ const FeaturedList = ({ data }: any) => {
   return (
     <section className='featurelist pt-4 md:pt-6 lg:pt-8'>
       <div className='container'>
-        <div className='top_txt text-center mx-auto max-w-4xl md:mb-8'>
+        <motion.div
+          variants={FadeinUp}
+          initial="init"
+          whileInView="anim"
+          viewport={{ once: true }}
+          className='top_txt text-center mx-auto max-w-4xl md:mb-8'>
           <h2>{data.title}</h2>
           <p>{data.content}</p>
-        </div>
-        <div className='featureslid'>
+        </motion.div>
+        <motion.div
+          variants={FadeinUp}
+          initial="init"
+          whileInView="anim"
+          viewport={{ once: true }}
+          className='featureslid'>
           <Slider {...SliderSetting} className='featureslid_box slick-dotted'>
             {data.list.map((item: any, index: number) => (
               <div className='px-3' key={index}>
@@ -64,7 +77,7 @@ const FeaturedList = ({ data }: any) => {
               </div>
             ))}
           </Slider>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

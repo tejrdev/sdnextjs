@@ -27,7 +27,7 @@ const thankyou = () => {
         <Pagetitle heading={`Thank you for making ${listing} a Featured Listing!`} disc='' titleclass={'protrialexpire'} />
 
         <div className='top_txt text-center'>
-          <Link href={listingUrl.replace(process.env.NEXT_PUBLIC_LOGIN_URL, window.location.origin + '/')} className='btn uppercase'>
+          <Link href={listingUrl.replace(process.env.NEXT_PUBLIC_FRONTEND_URL, window.location.origin)} className='btn uppercase'>
             Go back to Listing
           </Link>
         </div>

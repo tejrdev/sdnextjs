@@ -1,17 +1,31 @@
 import { Faqitems } from '@/pages/pro/faq';
 
-const Faq = ({ data, center=false }) => {
+import { motion } from "motion/react"
+import { FadeinUp } from '@/components/Anim/FadeinUp';
+
+
+const Faq = ({ data, center = false }) => {
   return (
     <section className='talentfaq toplinesec' id='faqs'>
       <div className='container'>
-        <div className={'top_txt' + center && 'text-center capitalize'}>
+        <motion.div
+          variants={FadeinUp}
+          initial="init"
+          whileInView="anim"
+          viewport={{ once: true }}
+          className={'top_txt capitalize ' + (center && 'text-center')}>
           <h2>Frequently Asked Questions {center ? '' : <i className='fal fa-angle-right'></i>}</h2>
-        </div>
-        <div className='faqinfobox mt-4'>
+        </motion.div>
+        <motion.div
+          variants={FadeinUp}
+          initial="init"
+          whileInView="anim"
+          viewport={{ once: true }}
+          className='faqinfobox mt-4'>
           {data.map((item, index) => {
-            return <Faqitems key={index} question={item.q ? item.q : item.ttile ? item.ttile : item.title} answer={item.a ? item.a : item.content} />;
+            return <Faqitems key={index} question={item.q ? item.q : item.ttile ? item.ttile : item.question ? item.question : item.title} answer={item.a ? item.a : item.answer ? item.answer : item.content} />;
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

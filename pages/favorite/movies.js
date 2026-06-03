@@ -8,7 +8,6 @@ import Head from 'next/head';
 
 const $ = require('jquery');
 const API_URL = process.env.NEXT_PUBLIC_SD_API;
-const SITE_URL = process.env.NEXT_PUBLIC_LOGIN_URL;
 const LOADER = 'Loading..';
 const ERROR = 'Movie Already Exists in favorite list';
 const SUCCESS = 'Movie Added Successfully';

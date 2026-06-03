@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 const index = () => {
   const load404Page = () => {
     axios
-      .get(process.env.NEXT_PUBLIC_SD_API + '/404_page/?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN)
+      .get(process.env.NEXT_PUBLIC_SD_API + '/404_page?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN)
       .then((res) => {
         setPage404(res.data);
         setPage404load(true);
@@ -15,7 +15,7 @@ const index = () => {
   };
   useEffect(() => {
     if (window.location.href.indexOf('.pdf') > -1) {
-      var urls = (process.env.NEXT_PUBLIC_MENU_URL1 + window.location.pathname).replace('wp/', '');
+      var urls = (process.env.NEXT_PUBLIC_BACKEND_URL + window.location.pathname).replace('wp/', '');
       // console.log(urls);
       window.location.href = urls;
     } else {

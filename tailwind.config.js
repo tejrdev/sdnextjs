@@ -57,6 +57,8 @@ module.exports = {
       }),
       colors: {
         'gold': '#D7B865',
+        'darkgold': '#B88610',
+        'orangegold': '#F9A600',
         'gold-yellow': '#fef5dd',
         'blue': '#0000ff',
       },
@@ -65,6 +67,7 @@ module.exports = {
         sm: '640px',
         md: '768px',
         lg: '992px',
+        tablet: '1025px',
         xl: '1200px',
         '2xl': '1536px',
       }

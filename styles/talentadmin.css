@@ -352,13 +352,13 @@
 	list-style: none;
 	display: flex;
 	flex-wrap: wrap;
-	margin: 0;
+	margin: 2px 0 0 0;
 	font-family: "Open Sans", sans-serif;
 	font-weight: 600;
 }
 
 .profileinfobox .profile_field .checkoptions ul li {
-	margin: 0 26px 0 0;
+	margin: 6px 26px 3px 0;
 	cursor: pointer;
 }
 

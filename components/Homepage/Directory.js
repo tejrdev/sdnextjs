@@ -1,11 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 import HomePageAds from './HomePageAds';
 import Addhomeimg from '@/components/Homepage/Addhomeimg';
 import noticeads from '@/public/images/getnotice2.jpg';
+import homedirbnr from '@/public/images/Advertise_with_us_banner.jpg';
+
+import { motion } from 'motion/react';
+import { FadeinUp } from '@/components/Anim/FadeinUp';
 
 function Directory({ data }) {
   const SliderSetting = {
@@ -18,20 +22,20 @@ function Directory({ data }) {
     centerPadding: '0',
     focusOnSelect: true,
     arrows: false,
-    dots: false,
+    dots: true,
   };
 
   return (
     <div className='container' id='load_3'>
       <div className='seclinespace'>
-        <div className='top_txt df fww just-between'>
+        <motion.div variants={FadeinUp} initial='init' whileInView='anim' viewport={{ once: true }} className='top_txt df fww just-between'>
           <div className='secnav df fww'>
             <h2>
               <Link href='/directory/' title='Directory'>
-                Directory <i className='fal fa-angle-right'></i>
+                Directory <i className='fal fa-angle-right mt-2'></i>
               </Link>
             </h2>
-            <ul id='menu-directory' className='distcat_name df fww'>
+            <ul id='menu-directory' className='distcat_name df fww items-center'>
               <li id='menu-item-1092' className='menu-item menu-item-type-post_type menu-item-object-page menu-item-first menu-item-1092'>
                 <Link title='Distributors' href='/directory/distributors'>
                   Distributors
@@ -69,37 +73,39 @@ function Directory({ data }) {
               View More
             </Link>
           </div>
-        </div>
+        </motion.div>
         <div className='directi_inner df fww just-between'>
           <div className='directri_left relative'>
-            <div className="featuredtag right-2 top-3">Featured</div>
-            <Slider {...SliderSetting} className='detailinfo_slider'>
-              {data &&
-                data.directory_slider.map((item, id) => {
-                  return (
-                    <div className='detailinfo_item ' key={id}>
-                      <Link href={item.link}>
-                        <div className='bnr_boxslide pvr vidoin sponcehov'>
-                          {/* <div className='startsponser'>
+            <motion.div variants={FadeinUp} initial='init' whileInView='anim' viewport={{ once: true }}>
+              <div className='featuredtag right-2 top-3'>Featured</div>
+              <Slider {...SliderSetting} className='detailinfo_slider'>
+                {data &&
+                  data.directory_slider?.map((item, id) => {
+                    return (
+                      <div className='detailinfo_item ' key={id}>
+                        <Link href={item.link}>
+                          <div className='bnr_boxslide pvr vidoin sponcehov'>
+                            {/* <div className='startsponser'>
                             <div className='starico'>
                               <i className='fas fa-star'></i>
                             </div>
                             Featured
                           </div> */}
-                          <figure className='pvr'>
-                            <img src={item.img} alt='' className='objctimg_box' />
-                          </figure>
-                          <div className='bnrboxslide_info'>
-                            <h4>{item.title}</h4>
-                            <p>{item.sub_title}</p>
+                            <figure className='pvr flex justify-center items-center'>
+                              <img src={item.img} alt='' className='max-h-full p-2 m-auto ' />
+                            </figure>
+                            <div className='bnrboxslide_info'>
+                              <h4>{item.title}</h4>
+                              <p>{item.sub_title}</p>
+                            </div>
                           </div>
-                        </div>
-                      </Link>
-                    </div>
-                  );
-                })}
-            </Slider>
-            <div className='distexib df fww just-between '>
+                        </Link>
+                      </div>
+                    );
+                  })}
+              </Slider>
+            </motion.div>
+            <motion.div variants={FadeinUp} initial='init' whileInView='anim' viewport={{ once: true }} className='distexib df fww just-between '>
               <div className='boxdetail hmgrybg'>
                 <h5 className='grybtmline'>
                   <Link href={data.Distributors.main_link} title='Distributors'>
@@ -107,17 +113,17 @@ function Directory({ data }) {
                   </Link>
                   <i className='far fa-angle-right'></i>
                 </h5>
-                <h5>
+                <h5 className='truncate' title={data.Distributors.title_link}>
                   <Link href={data.Distributors.link}>{data.Distributors.title_link}</Link>
                 </h5>
                 <div className='distboxinfo df fww'>
                   {data &&
-                    data.Distributors.film.map((item, id) => {
+                    data.Distributors?.film?.map((item, id) => {
                       return (
                         <div className='distributer_hmitem' key={id}>
                           <Link href={item.link}>
-                            <figure className='pvr'>
-                              <img src={item.img} alt='It Comes at Night' />
+                            <figure className='pvr aspect-[78/116] overflow-hidden rounded-[7px]'>
+                              <img src={item.img} alt='It Comes at Night' className='w-full h-full object-cover' />
                             </figure>
                           </Link>
                           <p>{item.release_type}</p>
@@ -126,7 +132,7 @@ function Directory({ data }) {
                     })}
                 </div>
               </div>
-              <div className='boxdetail hmgrybg'>
+              <div className='boxdetail hmgrybg lg:min-h-[268px]'>
                 <h5 className='grybtmline'>
                   <Link href={data.exhibitors.main_link} title='Exhibitors'>
                     Exhibitors
@@ -154,19 +160,14 @@ function Directory({ data }) {
                   </ul>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
           <div className='directri_right'>
-            <div className='dirctrgt-top df fww'>
-              <div className='vndrinbox '>
+            <motion.div variants={FadeinUp} initial='init' whileInView='anim' viewport={{ once: true }} className='dirctrgt-top'>
+              {/* <div className='vndrinbox '>
                 <div className='hmgrybg pvr sponcehov'>
-                  {/* <div className='startsponser'>
-                    <div className='starico'>
-                      <i className='fas fa-star'></i>
-                    </div>
-                    Featured
-                  </div> */}
-                  <div className="featuredtag right-2 top-3">Featured</div>
+
+                  <div className='featuredtag right-2 top-3'>Featured</div>
                   <div className='vndrinbox_media'>
                     <Link href={data.multimedia_section.img} className='image-link'>
                       <figure>
@@ -183,14 +184,18 @@ function Directory({ data }) {
               </div>
               <div className='directri_rightads '>
                 <div className='hmgrybg'>
-                  {/* <HomePageAds cls='add_300' format='rectangle' /> */}
+                  <HomePageAds cls='add_300' format='rectangle' />
                   <div className='add_300'>
                     <Addhomeimg srcimg={noticeads} seclink={'#'} />
                   </div>
                 </div>
+              </div> */}
+              <div className='homdir_adbnr mb-4 lg:pl-4 text-center'>
+                <Link href="/advertise-with-us/#adscontact" className=''><Image src={homedirbnr?.src} alt='multimedia' width={592} height={396} className='w-full h-auto rounded-md' /></Link>
+
               </div>
-            </div>
-            <div className='dirctrgt_btm  df fww'>
+            </motion.div>
+            <motion.div variants={FadeinUp} initial='init' whileInView='anim' viewport={{ once: true }} className='dirctrgt_btm  df fww'>
               <div className='dirctrgtbtm_box'>
                 <div className='dirctrgtbtm_boxin hmgrybg'>
                   <h5 className='grybtmline'>
@@ -202,13 +207,13 @@ function Directory({ data }) {
                     data.vendors.data.map((item, id) => {
                       return (
                         <div className='diectsml_rowbox df fww' key={id}>
-                          <Link href={item.vendors.link} title={item.title}>
+                          <Link href={item.vendors.link} title={item.title} className='w-full block'>
                             <figure>
                               <Image src={item.img} alt='' width={72} height={56} />
                             </figure>
                             <div className='diectsml_rowboxinfo'>
                               <h5>{item.title}</h5>
-                              <p>{item.city !== null ? item.city + ' ,' + item.state : ''}</p>
+                              <p>{item.city !== null && item.city !== '' ? item.city + ', ' + item.state : ''}</p>
                             </div>
                           </Link>
                         </div>
@@ -255,7 +260,7 @@ function Directory({ data }) {
                   </ul>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

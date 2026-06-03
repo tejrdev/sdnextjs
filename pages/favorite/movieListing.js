@@ -3,15 +3,14 @@ import axios from 'axios';
 import Link from 'next/link';
 
 //import useLoginCheck from '../useLoginCheck';
-import FOURAB from '../../public/fourabtsld.jpg';
+import FOURAB from '../../public/images/fourabtsld.jpg';
 import Movies from './movies';
 import Image from 'next/image';
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 import { string } from 'prop-types';
 
 const API_URL = process.env.NEXT_PUBLIC_SD_API;
-const SITE_URL = process.env.NEXT_PUBLIC_LOGIN_URL;
 const LOADER = 'Loading..';
 const ERRORLOGIN = 'Please Login First! ';
 if (typeof window !== 'undefined') {

@@ -2,12 +2,12 @@ import { useState } from 'react';
 import Image from 'next/image';
 import ImageUpload from './ImageUpload';
 import Draggallery from '@/components/adminview/gallerydragdrop';
-import imgData from '@/components/data.json';
+import { JSONData } from '@/components/shared/JSONData';
 import Loader from '../Loader';
 
 const ImageGallery = ({ data, userLoggedIn, ListingURL, ListingType, requestFrom }) => {
   const [GalleryImages, setGalleryImages] = useState(data.gallery_images); //requestFrom === 'promoImage' ? data.promo_imgs :
-  const [AddGalleryImage, setAddGalleryImage] = useState(imgData.poster_img_v);
+  const [AddGalleryImage, setAddGalleryImage] = useState(JSONData.poster_img_v);
   const [blnShowLoader, setblnShowLoader] = useState(false);
   const [blnUpdateGallery, setUpdateGallery] = useState(false);
   const [resMessage, setResMessage] = useState('');
@@ -28,7 +28,7 @@ const ImageGallery = ({ data, userLoggedIn, ListingURL, ListingType, requestFrom
   const handleimgAdd = (boxes) => {
     setUpdateGallery(true);
     setGalleryImages(boxes);
-    setAddGalleryImage(imgData.poster_img_v);
+    setAddGalleryImage(JSONData.poster_img_v);
     setTimeout(() => {
       setUpdateGallery(false);
     }, 3000);

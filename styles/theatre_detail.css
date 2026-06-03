@@ -233,6 +233,10 @@
   position: relative;
 }
 
+.theater_infodiscin .rounded-full {
+  @apply rounded-none;
+}
+
 .theater_infodisc .readmore_btn {
   display: block;
   position: relative;
@@ -249,6 +253,19 @@
   background-image: linear-gradient(to bottom, transparent, white);
   left: 0;
 }
+
+.theater_infodisc h2 {
+  @apply text-xl
+}
+
+.theater_infodisc h3 {
+  @apply text-lg
+}
+
+.theater_infodisc h4 {
+  @apply text-base
+}
+
 
 .theater_infobox .theater_infodetail .theater_infodisc.open .theater_infodiscin {
   height: auto !important;
@@ -279,6 +296,12 @@
   background: #fff;
   padding: 10px;
   margin: 30px 0 0;
+}
+
+.galleryslid .mfp-figure figure img {
+  background: #fff;
+  padding: 10px;
+  margin: 30px 0 40px;
 }
 
 .img-hover {
@@ -749,13 +772,12 @@ h2 .favheart {
 .nowshow_posterinfo {
   position: absolute;
   color: #fff;
-  font-weight: bold;
   text-align: center;
   background: rgba(0, 0, 0, 0.7);
   height: 100%;
   padding: 40px 0 0 0;
   width: 100%;
-  top: 50%;
+  /* top: 50%; */
   transition: 0.5s all;
   font-size: 18px;
   opacity: 0;
@@ -785,13 +807,8 @@ h2 .favheart {
 
 .nowshoe_trailer,
 .nowshoe_trailer.popvid {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   text-align: center;
   color: #fff;
-  font-weight: bold;
   font-size: 18px;
   background: rgba(0, 0, 0, 0.43);
 }
@@ -943,22 +960,25 @@ h2 .favheart {
   .awarscards {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
+
   .theaterbasics_right {
     width: 100%;
   }
+
   .theaterbasics_left {
     width: 100%;
     padding: 0;
   }
 }
 
-@media (max-width: 767px) { 
+@media (max-width: 767px) {
 
   .theaterbasics_right>div {
     max-width: 230px;
     margin: 0 10px 10px 0;
   }
 }
+
 @media (max-width: 639px) {
   .theater_infobox .theater_infodetail {
     width: 100%;
@@ -967,7 +987,7 @@ h2 .favheart {
 }
 
 @media (max-width: 640px) {
-  
+
 
   .distfilm_calander.relese_cal .distfilmcalndr_row {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -975,6 +995,32 @@ h2 .favheart {
 
   .distfilm_calander.relese_cal .distfilmcalndr_row.grid {
     grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  }
+
+  .nowshowing .nowshow_slider .nowshow_item .nowshow_info .timimg .showtimgig.linkedbtn {
+    font-size: 14px;
+  }
+
+  .theater_infobox .theater_socialmedia {
+    margin: 0 auto 15px;
+    padding-right: 0;
+  }
+
+  .theaterbasics_right>div.getonmap {
+    max-width: 430px;
+    margin: 0 auto;
+  }
+
+  .theaterbasics_right>div.getonmap iframe {
+    width: 100% !important;
+  }
+
+  .theaterimg .mfp-figure figure {
+    padding: 0 30px 0;
+  }
+
+  .theaterimg .mfp-image-holder .mfp-close {
+    right: 0;
   }
 }
 

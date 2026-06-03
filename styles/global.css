@@ -2,8 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+   --black: #101010;
+   --white: #ffffff;
+}
+
 body {
-   @apply text-sm xsm:text-base font-normal text-black leading-[1.75] dark:bg-[#101010]
+   @apply text-sm xsm:text-base font-normal leading-[1.75] dark:bg-[#101010]
 }
 
 html {
@@ -27,18 +32,18 @@ h6,
 
 h1,
 .h1 {
-   @apply text-3xl lg:text-4xl xl:text-[40px] 2xl:text-[42px] mb-3;
+   @apply text-2xl lg:text-3xl xl:text-[32px] 2xl:text-[36px] mb-3;
 }
 
 h2,
 .h2 {
    letter-spacing: 0.5px;
-   @apply text-2xl lg:text-3xl xl:text-[32px] 2xl:text-[36px];
+   @apply text-2xl lg:text-[28px] xl:text-[30px] 2xl:text-[32px];
 }
 
 h3,
 .h3 {
-   @apply text-xl md:text-[24px] lg:text-[23px] xl:text-2xl mb-4;
+   @apply text-xl md:text-[24px] lg:text-[23px] mb-4;
 }
 
 h4,
@@ -72,11 +77,25 @@ input[type="reset"][disabled]:focus,
 input[type="submit"],
 input[type="submit"][disabled]:hover,
 input[type="submit"][disabled]:focus {
-   @apply text-black bg-gold border border-gold border-solid rounded font-medium min-w-32 inline-block text-center cursor-pointer px-3 py-2 transition duration-200 ease-out hover:bg-transparent hover:text-black uppercase leading-tight
+   @apply text-black bg-gold border border-gold border-solid rounded font-medium min-w-32 inline-block text-center cursor-pointer px-3 py-2 transition duration-200 ease-out hover:bg-transparent hover:text-black capitalize leading-tight
+}
+
+.wpcf7-form .cnt_field button[type="submit"]:disabled,
+.wpcf7-form .cnt_field button[type="submit"][disabled]:hover,
+.wpcf7-form .cnt_field button[type="submit"][disabled]:focus {
+   @apply bg-gray-500 border border-gray-500 border-solid rounded font-medium min-w-32 inline-block text-center cursor-pointer px-3 py-2 transition duration-200 ease-out hover:bg-transparent hover:text-white capitalize leading-tight
 }
 
 .btn.capz {
    @apply capitalize tracking-wide
+}
+
+.orangebtn {
+   @apply text-black bg-orangegold border border-orangegold border-solid rounded-2xl font-medium inline-block text-center cursor-pointer px-4 py-1 transition duration-200 ease-out hover:bg-transparent hover:bg-black hover:text-white capitalize leading-tight
+}
+
+.roundbtn {
+   @apply text-black bg-transparent border border-black border-solid rounded-full font-medium inline-block text-center px-4 py-1 transition duration-200 ease-out hover:bg-transparent hover:bg-black hover:text-white capitalize leading-tight
 }
 
 button,
@@ -114,7 +133,7 @@ img {
 input.ghostbtn,
 input[type="submit"].ghostbtn,
 .ghostbtn.gold {
-   @apply text-black border border-gold hover:bg-gold hover:border-gold py-2 px-3 capitalize relative rounded transition duration-300 ease-out inline-block min-w-32 text-center tracking-wider bg-transparent leading-snug
+   @apply text-black border border-gold hover:bg-gold hover:border-gold py-[6px] px-3 capitalize relative rounded transition duration-300 ease-out inline-block min-w-32 text-center tracking-wider bg-transparent leading-snug
 }
 
 input[type="date"],
@@ -133,7 +152,7 @@ textarea {
    /* background: #f7f7f7; */
    /* background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)); */
    border: 1px solid #9d9999;
-   border-radius: 5px;
+   /* border-radius: 5px; */
    color: #000;
    padding: 10px 15px;
    width: 100%;
@@ -143,6 +162,160 @@ textarea {
    @apply py-4 md:py-6 lg:py-8;
 }
 
-html {
-   scroll-behavior: smooth;
+.light {
+   color: var(--black);
+}
+
+.dark {
+   color: var(--white);
+}
+
+.newsltr_subscribe_form input {
+   @apply bg-transparent border-none border-b border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:border-white pb-2 px-0;
+   border-bottom: 1px solid #9d9999;
+   border-radius: 0;
+}
+
+.equalslideimg.slick-initialized .slick-slide {
+   @apply h-auto;
+}
+
+.equalslideimg.slick-initialized .slick-slide>div,
+.equalslideimg.slick-initialized .slick-slide>div>div {
+   @apply h-full
+}
+
+.equalslideimg.slick-initialized .slick-track {
+   @apply flex;
+}
+
+/*@media (min-width: 641px) {
+
+   .genre_market_share table tbody tr td:last-child,
+   .genre_market_share table tbody tr th:last-child {
+      border-left: 1px solid rgb(197, 197, 197) !important;
+   }
+}*/
+
+@media (min-width: 1500px) {
+
+   .author_list_box {
+      gap: 100px;
+   }
+
+   .author_list_item:after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      background-color: #b2b2b2;
+      position: absolute;
+      top: -50px;
+      left: 0;
+   }
+
+   .author_list_item:first-child:after,
+   .author_list_item:nth-child(2):after,
+   .author_list_item:nth-child(3):after,
+   .author_list_item:nth-child(4):after {
+      display: none;
+   }
+
+   .author_list_item::before {
+      content: "";
+      width: 1px;
+      height: 100%;
+      background-color: #b2b2b2;
+      position: absolute;
+      top: 0;
+      right: -50px;
+   }
+
+   .author_list_item:nth-child(4n)::before,
+   .author_list_item:last-child::before {
+      display: none;
+   }
+}
+
+.blink:hover {
+   animation: blink 0.8s 1 linear;
+}
+
+@keyframes blink {
+   50% {
+      opacity: 60%;
+   }
+
+   100% {
+      opacity: 100%;
+   }
+}
+
+/* snap_rotate slider upcoming page */
+.snap_rotate .slick-slide {
+   color: #FFF;
+   transform: scale(0.9);
+   transition: all 0.4s ease-in-out;
+}
+
+.snap_rotate .slick-slide,
+.snap_rotate .slick-slide[aria-hidden="true"]:not(.slick-cloned)~.slick-cloned[aria-hidden="true"] {
+   transform: scale(0.9, 0.9);
+   transition: all 0.4s ease-in-out;
+}
+
+/* Active center slide (You can change anything here for cenetr slide)*/
+.snap_rotate .slick-center,
+.snap_rotate .slick-slide[aria-hidden="true"]:not([tabindex="-1"])+.slick-cloned[aria-hidden="true"] {
+   transform: scale(1);
+}
+
+.snap_rotate .slick-current.slick-active {
+   transform: scale(1);
+}
+
+
+.snap_rotate .slick-current.slick-active .slideitem {
+   filter: none;
+}
+
+.newsltr_subscribe_form input[type="email"]:focus {
+   @apply bg-transparent text-white
+}
+
+.glightbox-round .gslide-inline,
+.glightbox-imgonly .gslide-inline {
+   @apply rounded-md
+}
+
+.glightbox-round .gclose,
+.glightbox-imgonly .gclose {
+   @apply w-8 h-8 top-6 right-4 absolute
+}
+
+.glightbox-round .gclose svg {
+   @apply h-8 top-6 right-4 absolute
+}
+
+.glightbox-round .gclose svg,
+.glightbox-imgonly .gclose svg {
+   @apply fill-white
+}
+
+/* Backdrop dim — GLightbox otherwi
+
+ets inline opacity via JS */
+.glightbox-container .goverlay {
+   opacity: 0.7 !important;
+}
+
+.glightbox-imgonly .gslide-media {
+   @apply bg-white p-2
+}
+
+@media (min-width: 1200px) {
+   .responsive-yellowquote {
+      float: right;
+      max-width: 40%;
+      margin-left: 24px;
+   }
 }

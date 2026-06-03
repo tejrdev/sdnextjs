@@ -16,7 +16,7 @@ function FooterSubscriber() {
 
       form_data.append('your-email', email_value);
       axios
-        .post(process.env.NEXT_PUBLIC_MENU_URL + '/wp-json/contact-form-7/v1/contact-forms/946/feedback', form_data, {
+        .post(process.env.NEXT_PUBLIC_BACKEND_URL + '/wp-json/contact-form-7/v1/contact-forms/946/feedback', form_data, {
           headers: {
             'content-type': 'multipart/form-data',
           },

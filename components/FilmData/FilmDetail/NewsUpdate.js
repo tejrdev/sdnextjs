@@ -1,11 +1,11 @@
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 
 
 const NewsUpdate = ({ data }) => {
   const SliderSetting = {
-    slidesToShow: 3,
-    slidesToScroll: 2,
+    slidesToShow: 4,
+    slidesToScroll: 4,
     speed: 300,
     infinite: false,
     autoplay: false,
@@ -18,12 +18,14 @@ const NewsUpdate = ({ data }) => {
         breakpoint: 991,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 2,
         },
       },
       {
-        breakpoint: 800,
+        breakpoint: 640,
         settings: {
           slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
     ],
@@ -32,28 +34,27 @@ const NewsUpdate = ({ data }) => {
     return array.findIndex(obj => obj.title === item.title) === index;
   });
   return (
-    <section className="discnewsupdate toplinesec sd_m_data">
+    <section className="sd_m_data bg-[#EFEEEE] py-7 md:py-9 lg:py-12">
       <div className="container">
-        <div className="top_txt">
-          <h2>
-            Headlines <i className="fal fa-angle-right"></i>
-          </h2>
+        <div className="top_txt mb-2">
+          <h2> Headlines   </h2>
         </div>
 
-        <Slider
+        {/* <Slider
           {...SliderSetting}
-          className="updateinfo_slider roundslickarrow slick-dotted"
-        >
-          {unicnews.map((item, index) => {
+          className="roundslickarrow slick-dotted"
+        > */}
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(270px,1fr))] gap-4">
+          {unicnews?.slice(-4).map((item, index) => {
             return (
-              <div className="updateintro_box df fww" key={index}>
-                <a href={item.link} className="newupdicbox df fww">
-                  <figure className="pvr">
+              <div className="card text-left sm:text-left" key={index}>
+                <a href={item.link} className="newupdicbox block text-black hover:text-[#00f] mx-0 sm:mx-0 w-[300px] sm:w-auto" target='_blank'>
+                  <figure className="pvr w-[284px] sm:w-full  rounded-md overflow-hidden mb-2 pb-[161px] sm:pb-[57%]">
                     <img src={item.img} alt="" className="objctimg_box" />
                   </figure>
-                  <div className="updateintro_txt">
-                    <h5 title={item.title}>{item.title}</h5>
-                    <div className="srcnametime">
+                  <div className=" w-full">
+                    <h5 title={item.title} className="mb-0">{item.title}</h5>
+                    {/* <div className="srcnametime">
                       <strong>
                         <div className="fmupdate_boxaurthor">
                           <div
@@ -65,13 +66,14 @@ const NewsUpdate = ({ data }) => {
                         </div>
                         <span>{item.date}</span>
                       </strong>
-                    </div>
+                    </div> */}
                   </div>
                 </a>
               </div>
             );
           })}
-        </Slider>
+        </div>
+        {/* </Slider> */}
       </div>
     </section>
   );

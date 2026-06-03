@@ -1,7 +1,8 @@
+'use client';
+import { useSearchParams } from 'next/navigation';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 
 import Loader from '../../../components/Loader';
@@ -43,7 +44,8 @@ const SliderSettings = {
 };
 
 const FilmMedia_data = ({ data }) => {
-  let { id } = useParams();
+  const searchParams = useSearchParams();
+  const id = searchParams.get('id');
   const [FilmDetailsDataLoaded, setFilmDetailsDataLoaded] = useState(false);
   const [FilmDetailsData, setFilmDetailsData] = useState([]);
   useEffect(() => {
@@ -60,12 +62,7 @@ const FilmMedia_data = ({ data }) => {
       preloader: false,
       fixedContentPos: false,
       iframe: {
-        markup:
-          '<div class="mfp-iframe-scaler">' +
-          '<div class="mfp-close"></div>' +
-          '<div class="mgpiframwrap">' +
-          '<iframe class="mfp-iframe" id="videoiframe" frameborder="0" allow="autoplay; fullscreen" ></iframe>' +
-          '</div>',
+        markup: '<div class="mfp-iframe-scaler">' + '<div class="mfp-close"></div>' + '<div class="mgpiframwrap">' + '<iframe class="mfp-iframe" id="videoiframe" frameborder="0" allow="autoplay; fullscreen" ></iframe>' + '</div>',
 
         patterns: {
           youtube: {
@@ -127,15 +124,7 @@ const FilmMedia_data = ({ data }) => {
       tCounter: '<span class="mfp-counter">%curr% of %total%</span>',
       mainClass: 'mfp-no-margins mfp-with-zoom photodtlgallery',
       image: {
-        markup:
-          '<div class="mfp-figure">' +
-          '' +
-          '<div class="mfp-close">×</div>' +
-          '<div class="mfp-img"></div>' +
-          '<div class="mfp-bottom-bar"><div class="mfp-title"></div><div class="mfp-counter"></div>' +
-          '' +
-          '</div>' +
-          '</div>',
+        markup: '<div class="mfp-figure">' + '' + '<div class="mfp-close">×</div>' + '<div class="mfp-img"></div>' + '<div class="mfp-bottom-bar"><div class="mfp-title"></div><div class="mfp-counter"></div>' + '' + '</div>' + '</div>',
         verticalFit: true,
         titleSrc: function (item) {
           //return item.el.parent('.photogalitem_box').find('.photocaption_txt').html();
@@ -226,11 +215,11 @@ const FilmMedia_data = ({ data }) => {
     <>
       {FilmDetailsDataLoaded ? (
         <>
-          <div className="allvidtop_txt">
-            <div className="container">
-              <div className="allvidhead pvr">
-                <a href={FilmDetailsData.link} className="backbtn">
-                  <i className="fas fa-long-arrow-left"></i> Back
+          <div className='allvidtop_txt'>
+            <div className='container'>
+              <div className='allvidhead pvr'>
+                <a href={FilmDetailsData.link} className='backbtn'>
+                  <i className='fas fa-long-arrow-left'></i> Back
                 </a>
                 <h1>
                   <span>Videos and Images for</span> {FilmDetailsData.title}
@@ -240,32 +229,32 @@ const FilmMedia_data = ({ data }) => {
           </div>
 
           {FilmDetailsData.videos_list.length >= 1 && (
-            <section className="videos_gal">
-              <div className="container">
-                <div className="videosgal_in">
-                  <div className="top_txt linehead">
-                    <h2 className="h3">Videos</h2>
+            <section className='videos_gal'>
+              <div className='container'>
+                <div className='videosgal_in'>
+                  <div className='top_txt linehead'>
+                    <h2 className='h3'>Videos</h2>
                   </div>
-                  <div className="videogalcount">
-                    <div className="videogal_total">
+                  <div className='videogalcount'>
+                    <div className='videogal_total'>
                       {' '}
-                      <span className="vidfirstcount"></span>-<span className="vidlastcount"></span> Of <span className="slideitems"></span> Videos{' '}
+                      <span className='vidfirstcount'></span>-<span className='vidlastcount'></span> Of <span className='slideitems'></span> Videos{' '}
                     </div>
                   </div>
-                  <div className="row">
-                    <Slider {...SliderSettings} className="videogal_box df fww">
+                  <div className='row'>
+                    <Slider {...SliderSettings} className='videogal_box df fww'>
                       {FilmDetailsData.videos_list.map((item, index) => {
                         return (
                           <>
-                            <div className="videogal_item">
-                              <div className="videoitem_box" dangerouslySetInnerHTML={{ __html: item }}></div>
+                            <div className='videogal_item'>
+                              <div className='videoitem_box' dangerouslySetInnerHTML={{ __html: item }}></div>
                             </div>
                           </>
                         );
                       })}
                     </Slider>
-                    <div className="galslide__arrows df fww">
-                      <div className="gelslide__dots"></div>
+                    <div className='galslide__arrows df fww'>
+                      <div className='gelslide__dots'></div>
                     </div>
                   </div>
                 </div>
@@ -274,36 +263,32 @@ const FilmMedia_data = ({ data }) => {
           )}
 
           {FilmDetailsData.photos_list.length >= 1 && (
-            <section className="photodetail_gal">
-              <div className="container">
-                <div className="photodtl_in">
-                  <div className="top_txt linehead">
-                    <h2 className="h3">Photos</h2>
+            <section className='photodetail_gal'>
+              <div className='container'>
+                <div className='photodtl_in'>
+                  <div className='top_txt linehead'>
+                    <h2 className='h3'>Photos</h2>
                   </div>
                   {/*
                 <div className="photoogalcount df fww">
                   <div className="videogal_total"> <span className="vidfirstcount"></span>-<span className="vidlastcount"></span> Of <span className="slideitems"></span> Photos </div>                  
                 </div>
                 */}
-                  <div className="row">
-                    <div className="photogal_box df fww">
+                  <div className='row'>
+                    <div className='photogal_box df fww'>
                       {FilmDetailsData.photos_list.map((items, index) => {
                         return (
                           <>
-                            <div className="photodtlgal_item">
+                            <div className='photodtlgal_item'>
                               {items.map((pho, inde) => {
                                 return (
-                                  <div className="photogalitem_box">
-                                    <a className="media_gallerybox" href={pho.img} title="bannerbg.jpg">
-                                      <div className="photoinfoimg pvr">
-                                        <img src={pho.thumbnail} alt="" className="objctimg_box" />
+                                  <div className='photogalitem_box'>
+                                    <a className='media_gallerybox' href={pho.img} title='bannerbg.jpg'>
+                                      <div className='photoinfoimg pvr'>
+                                        <img src={pho.thumbnail} alt='' className='objctimg_box' />
                                       </div>
                                     </a>
-                                    {pho.person_name && (
-                                      <div className="mfp-hide photocaption_txt">
-                                        {pho.person_name}
-                                      </div>
-                                    )}
+                                    {pho.person_name && <div className='mfp-hide photocaption_txt'>{pho.person_name}</div>}
                                   </div>
                                 );
                               })}
@@ -312,8 +297,8 @@ const FilmMedia_data = ({ data }) => {
                         );
                       })}
                     </div>
-                    <div className="galslide__arrows df fww">
-                      <div className="gelslide__dots"></div>
+                    <div className='galslide__arrows df fww'>
+                      <div className='gelslide__dots'></div>
                     </div>
                   </div>
                 </div>

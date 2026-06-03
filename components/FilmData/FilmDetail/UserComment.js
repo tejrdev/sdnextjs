@@ -15,7 +15,7 @@ const UserComment = () => {
         <div className="usercomment_info">
           <div className="usercomment_top df fww">
             <figure className="pvr">
-              <img src={process.env.NEXT_PUBLIC_MENU_URL1 + '/wp-content/themes/screendollars/assets/images/fourabtsld.jpg'} alt="" className="objctimg_box" />
+              <img src={process.env.NEXT_PUBLIC_BACKEND_URL + '/wp-content/themes/screendollars/assets/images/fourabtsld.jpg'} alt="" className="objctimg_box" />
             </figure>
             <div className="username_title">
               <h5>

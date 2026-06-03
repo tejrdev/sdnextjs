@@ -7,7 +7,7 @@ const BoxOffice = ({ data, tag, title }) => {
     <div className='officecomin hmgrybg'>
       <div className='grybtmline df fww just-between'>
         <h5>
-          <Link href={tag === 'boxoffice' ? '/movies/box-office-results/' : '/movies/releases-by-week/'}>
+          <Link href={tag === 'boxoffice' ? '/box-office-results/' : '/movies/releases-by-week/'}>
             {tag === 'boxoffice' ? 'Box Office' : 'Coming Soon'} <i className='far fa-angle-right'></i>
           </Link>
         </h5>

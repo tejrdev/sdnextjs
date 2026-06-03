@@ -1,4 +1,4 @@
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 import Link from 'next/link';
 
@@ -34,7 +34,7 @@ function HomeSlider({ data }) {
                   </div>
                 </Link>
               ) : (
-                <Link href={item.video_url != '' ? item.video_url : item.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')} className={item.video_url != '' ? 'popvid' : ''}>
+                <Link href={item.video_url != '' ? item.video_url : item.link.replace(process.env.NEXT_PUBLIC_FRONTEND_URL, '')} className={item.video_url != '' ? 'popvid' : ''}>
                   <div className='bnr_boxslide pvr vidoin'>
                     <figure className='pvr'>
                       <img src={item.img} alt={item.title} className='objctimg_box' />

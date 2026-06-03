@@ -13,7 +13,7 @@ const SideBlock = ({ data, requestFrom }) => {
               {data.categories.map((item, index) => {
                 return (
                   <li key={index}>
-                    <Link href={item.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>
+                    <Link href={item.link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}>
                       {item.name}
                       <span>{item.count}</span>
                     </Link>
@@ -40,13 +40,13 @@ const SideBlock = ({ data, requestFrom }) => {
           <div className="side_block rspostside">
             <div className="sideblck_top">
               <h4>{data.recent_post.title}</h4>
-              <Link href={data.recent_post.seemore.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>See More &gt;&gt;</Link>
+              <Link href={data.recent_post.seemore.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}>See More &gt;&gt;</Link>
             </div>
             <ul className="rspostlist">
               {data.recent_post.posts.map((item, index) => {
                 return (
                   <li key={index}>
-                    <Link href={item.links.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>
+                    <Link href={item.links.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}>
                       <div className="rspost_thumb">
                         <div className="rspost_img pvr">
                           <img src={item.img} alt="" className="objctimg_box" />
@@ -70,13 +70,13 @@ const SideBlock = ({ data, requestFrom }) => {
           <div className="side_block rspostside">
             <div className="sideblck_top">
               <h4>{data.recent_post.title}</h4>
-              <Link href={data.recent_post.seemore.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>See More &gt;&gt;</Link>
+              <Link href={data.recent_post.seemore.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}>See More &gt;&gt;</Link>
             </div>
             <ul className="rspostlist">
               {data.recent_post.posts.map((item, index) => {
                 return (
                   <li key={index}>
-                    <Link href={item.links.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>
+                    <Link href={item.links.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}>
                       <div className="rspost_thumb">
                         <div className="rspost_img pvr">
                           <img src={item.img} alt="" className="objctimg_box" />

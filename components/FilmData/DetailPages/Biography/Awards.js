@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 
 export const Awarditem = ({ info }) => {
@@ -21,7 +21,7 @@ export const Awarditem = ({ info }) => {
           </figure>
           <div className='telnat_awardsinfo'>
             <span> {info.award_year}</span>
-            {info.award_name && <h4>{info.award_name}</h4>}
+            {info.award_name && <p className='h4'>{info.award_name}</p>}
             {info.event_name && <p>{info.event_name}</p>}
             {info.link && (
               <Link title={info.link.title} href={info.link.url} target={info.link.url}>

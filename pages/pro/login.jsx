@@ -17,13 +17,11 @@ import validator from 'validator';
 import Link from 'next/link';
 import axios from 'axios';
 var CryptoJS = require('crypto-js');
-const LOGIN_URL = '/login';
 
 const SUCCESS = 'Login Sucessfully. Please wait while we are redirecting.. ';
 const VALID_CHECK = 'Error : Invalid Details. Please try again later!';
 //const LOGGED_EMAIL = localStorage.getItem('email');
 const API_URL = process.env.NEXT_PUBLIC_SD_API;
-const DEFAULT_URL = process.env.NEXT_PUBLIC_LOGIN_URL;
 const ENCT_KEY = process.env.NEXT_PUBLIC_ENC_KEY;
 
 const $ = require('jquery');

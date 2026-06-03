@@ -90,6 +90,26 @@
     padding: 60px 0 10px;
 }
 
+.detailbnrimgadd .inbio_box li a {
+    @apply text-white hover:text-gold;
+}
+
+.detailbnrimgadd .person_info a {
+    color: #d7b865;
+}
+
+.detailbnrimgadd .person_introbox .readmore_btn:after {
+    content: none;
+}
+
+.detailbnrimgadd .person_introbox .readmore_btn {
+    @apply bg-transparent shadow-none m-0;
+}
+
+.detailbnrimgadd .person_introbox .readmore_btn strong {
+    @apply hover:text-white hover:bg-black;
+}
+
 .inbio_box {
     display: inline-flex;
     flex-wrap: wrap;
@@ -117,7 +137,8 @@
     position: absolute;
     background: #FFF;
     z-index: 1;
-    margin: 28px 10px 0 -16px;
+    top: 30px;
+    left: 0;
 }
 
 .inbio_box li:hover span {

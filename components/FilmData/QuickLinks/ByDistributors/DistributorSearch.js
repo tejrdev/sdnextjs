@@ -46,7 +46,7 @@ const DistributorSearch = ({ text, requestfrom, backlink }) => {
     <div className='distsrch'>
       {requestfrom === 'distributordetail' ? (
         <div className='backarow'>
-          <Link href={backlink.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>
+          <Link href={backlink.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}>
             <i className='fas fa-long-arrow-left'></i> Back
           </Link>
         </div>

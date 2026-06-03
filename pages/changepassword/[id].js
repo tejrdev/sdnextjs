@@ -24,11 +24,39 @@ const ChangePassword = () => {
   const [LinkExpired, setLinkExpired] = useState(false);
 
   const checkforLinkExpired = async () => {
-    const res = await fetch(process.env.NEXT_PUBLIC_SD_API + '/login/change_password.php?auth=' + id);
-    const data = await res.json();
-    if (data.link_expired) {
-      setErrorPass(data.error);
-      setLinkExpired(true);
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SD_API}/login/change_password.php?auth=${id}`);
+
+      if (!res.ok) {
+        console.error('Failed to fetch:', res.status);
+        setErrorPass('Something went wrong.');
+        return;
+      }
+
+      const text = await res.text();
+
+      if (!text) {
+        console.error('Empty response from server for checkforLinkExpired');
+        setErrorPass('Unexpected server response.');
+        return;
+      }
+
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (err) {
+        console.error('Invalid JSON:', text);
+        setErrorPass('Invalid server response.');
+        return;
+      }
+
+      if (data.link_expired) {
+        setErrorPass(data.error || 'Link has expired.');
+        setLinkExpired(true);
+      }
+    } catch (err) {
+      console.error('checkforLinkExpired error:', err);
+      setErrorPass('Network or server error.');
     }
   };
   checkforLinkExpired();
@@ -107,7 +135,16 @@ const ChangePassword = () => {
                       <sup>*</sup>
                     </label>
                     <div className='pvr'>
-                      <input ref={password} type={passwordVisible ? 'text' : 'password'} className='passinfoinput smallinput' placeholder='Min. 8 Characters' required='' onChange={(e) => setNewPass(e.target.value)} value={newpass} onBlur={checkPassword} />
+                      <input
+                        ref={password}
+                        type={passwordVisible ? 'text' : 'password'}
+                        className='passinfoinput smallinput'
+                        placeholder='Min. 8 Characters'
+                        required=''
+                        onChange={(e) => setNewPass(e.target.value)}
+                        value={newpass}
+                        onBlur={checkPassword}
+                      />
                       <i className={passwordVisible ? 'eyeico fas fa-eye' : 'eyeico fas fa-eye-slash'} onClick={() => passshow('')}></i>
                     </div>
                     {validPass ? <span className='span-errormsg '> {validPass}</span> : ''}
@@ -118,7 +155,15 @@ const ChangePassword = () => {
                       <sup>*</sup>
                     </label>
                     <div className='pvr'>
-                      <input type={passwordVisible ? 'text' : 'password'} className='passinfoinput smallinput' placeholder='Min. 8 Characters' required='' onChange={(e) => setCNewPass(e.target.value)} onBlur={checkCPassword} value={cnewpass} />
+                      <input
+                        type={passwordVisible ? 'text' : 'password'}
+                        className='passinfoinput smallinput'
+                        placeholder='Min. 8 Characters'
+                        required=''
+                        onChange={(e) => setCNewPass(e.target.value)}
+                        onBlur={checkCPassword}
+                        value={cnewpass}
+                      />
                       <i className={passwordVisible ? 'eyeico fas fa-eye' : 'eyeico fas fa-eye-slash'} onClick={() => passshow('')}></i>
                     </div>
                     {errorPass ? (

@@ -54,7 +54,7 @@ const Claimlisting = () => {
     Object.assign(data, { 'tel': $('.intl-tel-input input').val().replace(/\s/g, '') });
     Object.assign(data, { 'listingType': listingType });
     Object.assign(data, { 'listingId': listingTitle });
-    Object.assign(data, { 'listingTypeUrl': process.env.NEXT_PUBLIC_LOGIN_URL + listingType + '/' + listingId });
+    Object.assign(data, { 'listingTypeUrl': process.env.NEXT_PUBLIC_FRONTEND_URL + '/' + listingType + '/' + listingId });
 
     const responsefromWP = await submitDataToWP(finalFormEndpoint, data);
     // console.log(responsefromWP);

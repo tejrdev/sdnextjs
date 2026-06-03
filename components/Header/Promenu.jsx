@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 var CryptoJS = require('crypto-js');
 import loginprofile from '../../public/images/loginprofileon.svg';
-import Premium from '../../public/Premium.svg';
+import Premium from '../../public/images/Premium.svg';
 import axios from 'axios';
 import Link from 'next/link';
 import Image from 'next/image';

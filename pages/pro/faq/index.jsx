@@ -2,7 +2,6 @@ import Pagetitle from '@/components/Products/Pagetitle';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import faqexpaet from '@/public/faqexpart.png';
 import LayoutPro from '@/components/Layout/LayoutPro';
 import Paywall from '@/components/Products/Paywall';
 import Stillquery from '@/components/Faq/Stillquery';
@@ -64,7 +63,6 @@ export default function Faq({ FAQs_data }) {
 }
 export const Faqitems = ({ question, answer, children, accopen }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const [link, setLink] = useState('');
   const [email, setEmail] = useState('');
   useEffect(() => {

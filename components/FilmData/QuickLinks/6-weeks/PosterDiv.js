@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 import Postername from '../../../All/Postername'
 
@@ -9,7 +9,7 @@ const PosterDiv = ({ data }) => {
     slidesToScroll: 6,
     speed: 300,
     infinite: false,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 5000,
     pauseOnHover: true,
     dots: false,
@@ -48,28 +48,14 @@ const PosterDiv = ({ data }) => {
         </h3>
       </div>
       <Slider {...SliderSetting} className="posttab_slider roundslickarrow ">
-        {data.movies &&
-          data.movies.map((item, index) =>
+        {data.movies && data.movies.length > 0 ?
+          data?.movies?.map((item, index) =>
             <div className="posttabslid_item" key={index}>
               <Postername poster={item} />
             </div>
-            /* {
-              return (
-                <div className="posttabslid_item" key={index}>
-                  <Link href={item.link.replace(process.env.NEXT_PUBLIC_MENU_URL, '')}>
-                    <div className="posterboxcap">
-                      <figure className="pvr">
-                        <img src={item.img} className="objctimg_box" alt="" />
-                      </figure>
-                      <h6>
-                        {item.title} <span dangerouslySetInnerHTML={{ __html: item.release_date }}></span>{' '}
-                      </h6>
-                    </div>
-                  </Link>
-                </div>
-              );
-            } */
-          )}
+          ) : <div className="posttabslid_item">
+            <p>No movies available</p>
+          </div>}
       </Slider>
     </div>
   );

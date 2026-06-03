@@ -79,7 +79,7 @@
 }
 
 .vidpg_slider button.slick-next {
-    right: 8px;
+    right: 0px;
 }
 
 .vidpg_slider .slick-arrow {
@@ -91,7 +91,7 @@
     top: calc(50% - 40px);
 }
 
-.vidpg_slider .slick-arrow:before {
+/* .vidpg_slider .slick-arrow:before {
     background: #fff;
     height: 32px;
     width: 32px;
@@ -99,7 +99,7 @@
     font-size: 31px;
     display: inline-block;
     box-shadow: 0 0 2px 0px #000;
-}
+} */
 
 .videopg_box .top_txt h3 {
     margin-bottom: 0;

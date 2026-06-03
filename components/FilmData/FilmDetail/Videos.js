@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 // import '../../../Header/magnific-popup.min.css';
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 
-import imgData from '../../data.json';
+import { JSONData } from '@/components/shared/JSONData';
 function youtube_parser(url) {
   var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
   var match = url.match(regExp);
@@ -113,7 +113,7 @@ const Videos = ({ data }) => {
                       <a title='' className='popvidbox' href={item.video_url}>
                         <div className='playvid_box'>
                           <span className='playico'>
-                            <img src={imgData.playicon} alt='play' />
+                            <img src={JSONData.playicon} alt='play' />
                           </span>
                           <div className='artinfoimg  pvr'>
                             <img src={item.bg_url} alt='' className='objctimg_box' />

@@ -6,7 +6,7 @@ const DistributorList = ({ data }) => {
       {data.map((item, index) => {
         return (
           <div className="disctclnd_listitem" key={index}>
-            <Link href={item.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>
+            <Link href={item.link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}>
               <figure className="pvrlogo">
                 <img src={item.img} alt="" className="max-h-36" />
               </figure>

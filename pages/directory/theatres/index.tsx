@@ -2,20 +2,19 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 //cpmponents
-import DistributorList from '../../../components/Directory/ListingPages/DistributorList';
-import Filters from '../../../components/Directory/ListingPages/Filters';
-import Pagination from '../../../components/Directory/ListingPages/Pagination';
-import OtherSponsors from '../../../components/Directory/ListingPages/OtherSponsors';
-import Loader from '../../../components/Loader';
-import MenuNavigation from '../../../components/Directory/ListingPages/MenuNavigation';
-import HomePageAds from '../../../components/Homepage/HomePageAds';
+import DistributorList from '@/components/Directory/ListingPages/DistributorList';
+import Filters from '@/components/Directory/ListingPages/Filters';
+import Pagination from '@/components/Directory/ListingPages/Pagination';
+import OtherSponsors from '@/components/Directory/ListingPages/OtherSponsors';
+import Loader from '@/components/Loader';
+import HomePageAds from '@/components/Homepage/HomePageAds';
 import Breadcrumb from '@/components/Directory/ListingPages/Breadcrumb';
 import SearchComponent from '@/components/Directory/ListingPages/SearchComponent';
 import SortBy from '@/components/Directory/ListingPages/SortBy';
-import JsonData from '../../../components/data.json';
+import { JSONData } from '@/components/shared/JSONData';
 import HeadComponent from '@/components/HeadComponent';
 
-const { USStates, CANStates } = JsonData;
+const { USStates, CANStates } = JSONData;
 
 export async function getStaticProps() {
   // Fetch data from external API
@@ -25,7 +24,6 @@ export async function getStaticProps() {
   // Theater page static data
   let theatresData = await fetch(process.env.NEXT_PUBLIC_SD_API + '/directory_theatres/new_theatres.php?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN);
   theatresData = await theatresData.json();
-
   return {
     props: { SEOdata, theatresData },
     revalidate: 10, // In seconds
@@ -166,7 +164,6 @@ const Theatres = (props: Props) => {
   return (
     <>
       <HeadComponent data={SEOdata} />
-      <MenuNavigation />
       <div className='distlisting'>
         <div className='container'>
           <div className='distlist_box'>

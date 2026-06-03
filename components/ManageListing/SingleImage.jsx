@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import ImageUpload from './ImageUpload';
-import promoPoster from '@/public/noimg_lanscrap.jpg';
+import promoPoster from '@/public/images/noimg_lanscrap.jpg';
 
 const SingleImage = ({ userLoggedIn, ListingURL, ListingType, image, requestFor }) => {
   const [profileImage, setProfileImage] = useState(image ? image : promoPoster);
@@ -13,7 +13,7 @@ const SingleImage = ({ userLoggedIn, ListingURL, ListingType, image, requestFor 
     <section className='adminprofileimg toplinesec'>
       <div className='container'>
         <div className='top_txt'>
-          <h2 className='h3 m-0'>{requestFor === 'promoImage' ? 'Promo Image' : 'Profile Image'}</h2>
+          <h2 className='h3 m-0'>{requestFor === 'promoImage' ? 'Promo Image' : requestFor === 'bannerImage' ? 'Banner Image' : 'Profile Image'}</h2>
         </div>
         <div className='proimgbox df fww potrate'>
           <figure className={requestFor === 'promoImage' ? 'promoimginfo' : 'pvr '}>

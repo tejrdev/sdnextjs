@@ -8,7 +8,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { useSelector } from 'react-redux';
 // import { auth } from '../../redux/features/auth/authSlice';
-import FOURABT from '../../public/sdprofile.svg';
+import FOURABT from '../../public/images/sdprofile.svg';
 // import { checkLocalStorageVariable } from '../../components/Login/localStorageUtil';
 import CheckoutForm from '@/components/CheckoutForm';
 // const ENCT_KEY = process.env.NEXT_PUBLIC_ENC_KEY;
@@ -60,6 +60,7 @@ const Profile = () => {
     pincode: '',
     latitude: '',
     longitude: '',
+    showmanagelisting: '',
   });
 
   const [selectedFile, setSelectedFile] = useState();
@@ -171,6 +172,7 @@ const Profile = () => {
         pincode: useValues.location,
         latitude: useValues.location,
         longitude: useValues.location,
+        showmanagelisting: useValues.showmanagelisting,
       });
 
       // const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -501,9 +503,15 @@ const Profile = () => {
             <h2 className='first-letter'>{state.firstName ? `Welcome! ${state.firstName} ${state.lastName} ` : ''}</h2>
 
             <div className='pro_edit_savebtn'>
-              <button className='btn savebtn ghostbtn' onClick={handleSubmit}>
+              {state.showmanagelisting === 'true' ? (
+                <Link href='/managelisting-admin/'>
+                  <button className='btn savebtn ghostbtn mr-4'>Manage Listing</button>
+                </Link>
+              ) : null}
+
+              {/* <button className='btn savebtn ghostbtn' onClick={handleSubmit}>
                 Save Changes
-              </button>
+              </button> */}
               {successProfile ? <div className='successmsg '> {successProfile}</div> : ''}
               {loaderProfile}
             </div>
@@ -687,35 +695,39 @@ const Profile = () => {
           <div className='invoicesubscribe'>
             <Faqitems question={'Invoice History'} accopen={accInvoiceOpen}>
               {InvoiceDataLoaded ? (
-                <table className='responsive dataTable'>
-                  <thead>
-                    <tr>
-                      <th data-title='InvoiceNo'>Invoice No</th>
-                      <th data-title='InvoiceDate'>Invoice Date</th>
-                      <th data-title='InvoiceItem'>Invoice Item</th>
-                      <th data-title='InvoiceAmount'>Invoice Amount</th>
-                      <th data-title='InvoiceLink'>Invoice Link</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {InvoiceData.map((invoice, index) => {
-                      const date = new Date(invoice.effective_at * 1000).toLocaleDateString('en-US');
-                      return (
-                        <tr id={index + 1} className='' role='row' key={index}>
-                          <td data-title='InvoiceNo'>{invoice.number}</td>
-                          <td data-title='InvoiceDate'>{date}</td>
-                          <td data-title='InvoiceItem'>{invoice.lines?.data && invoice.lines?.data[0].description}</td>
-                          <td data-title='InvoiceAmount'>${invoice.amount_paid / 100}</td>
-                          <td data-title='InvoiceLink'>
-                            <a target='_blank' href={invoice.hosted_invoice_url}>
-                              {invoice.number}
-                            </a>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
+                InvoiceData.length > 0 ? (
+                  <table className='responsive dataTable'>
+                    <thead>
+                      <tr>
+                        <th data-title='InvoiceNo'>Invoice No</th>
+                        <th data-title='InvoiceDate'>Invoice Date</th>
+                        <th data-title='InvoiceItem'>Invoice Item</th>
+                        <th data-title='InvoiceAmount'>Invoice Amount</th>
+                        <th data-title='InvoiceLink'>Invoice Link</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {InvoiceData.map((invoice, index) => {
+                        const date = new Date(invoice.effective_at * 1000).toLocaleDateString('en-US');
+                        return (
+                          <tr id={index + 1} className='' role='row' key={index}>
+                            <td data-title='InvoiceNo'>{invoice.number}</td>
+                            <td data-title='InvoiceDate'>{date}</td>
+                            <td data-title='InvoiceItem'>{invoice.lines?.data && invoice.lines?.data[0].description}</td>
+                            <td data-title='InvoiceAmount'>${invoice.amount_paid / 100}</td>
+                            <td data-title='InvoiceLink'>
+                              <a target='_blank' href={invoice.hosted_invoice_url}>
+                                {invoice.number}
+                              </a>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                ) : (
+                  <span>{NoInvoiceMsg}</span>
+                )
               ) : (
                 <>
                   {blnShowNoInvoiceMsg ? (
@@ -732,40 +744,44 @@ const Profile = () => {
             </Faqitems>
             <Faqitems question={'Active Subscriptions'} accopen={accSubscriptionOpen}>
               {SubscriptionDataLoaded ? (
-                <table className='responsive dataTable'>
-                  <thead>
-                    <tr>
-                      <th data-title='SubscriptionItem'>Subscription Item</th>
-                      <th data-title='SubscriptionStartDate'> Start Date</th>
-                      <th data-title='SubscriptionEndDate'> Renew Date</th>
-                      <th data-title='SubscriptionAmount'> Amount</th>
-                      <th data-title='UpdateSubscription'> Manage</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {SubscriptionData.map((subscription, index) => {
-                      const startDate = new Date(subscription.current_period_start * 1000).toLocaleDateString('en-US');
-                      const endDate = new Date(subscription.current_period_end * 1000).toLocaleDateString('en-US');
-                      return (
-                        <>
-                          <tr id={index + 1} className='' role='row' key={index}>
-                            <td data-title='SubscriptionItem'>{subscription.metadata?.item}</td>
-                            <td data-title='SubscriptionStartDate'>{startDate}</td>
-                            <td data-title='SubscriptionEndDate'>{endDate}</td>
-                            <td data-title='SubscriptionAmount'>${subscription.plan.amount / 100}</td>
-                            <td
-                              data-title='UpdateSubscription'
-                              onClick={() => {
-                                EditSubscription(index);
-                              }}>
-                              <span className='bluetxt'>Update</span>
-                            </td>
-                          </tr>
-                        </>
-                      );
-                    })}
-                  </tbody>
-                </table>
+                SubscriptionData.length > 0 ? (
+                  <table className='responsive dataTable'>
+                    <thead>
+                      <tr>
+                        <th data-title='SubscriptionItem'>Subscription Item</th>
+                        <th data-title='SubscriptionStartDate'> Start Date</th>
+                        <th data-title='SubscriptionEndDate'> Renew Date</th>
+                        <th data-title='SubscriptionAmount'> Amount</th>
+                        <th data-title='UpdateSubscription'> Manage</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {SubscriptionData.map((subscription, index) => {
+                        const startDate = new Date(subscription.current_period_start * 1000).toLocaleDateString('en-US');
+                        const endDate = new Date(subscription.current_period_end * 1000).toLocaleDateString('en-US');
+                        return (
+                          <>
+                            <tr id={index + 1} className='' role='row' key={index}>
+                              <td data-title='SubscriptionItem'>{subscription.metadata?.item}</td>
+                              <td data-title='SubscriptionStartDate'>{startDate}</td>
+                              <td data-title='SubscriptionEndDate'>{endDate}</td>
+                              <td data-title='SubscriptionAmount'>${subscription.plan.amount / 100}</td>
+                              <td
+                                data-title='UpdateSubscription'
+                                onClick={() => {
+                                  EditSubscription(index);
+                                }}>
+                                <span className='bluetxt'>Update</span>
+                              </td>
+                            </tr>
+                          </>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                ) : (
+                  <span>{NoSubscriptionMsg}</span>
+                )
               ) : (
                 <>
                   {blnShowNoSubscriptionMsg ? (

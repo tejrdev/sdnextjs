@@ -112,7 +112,7 @@ const FavActors = ({ children, active }) => {
           <div className="favaddinput w100 pvr">
             <input type="text" placeholder="Enter any actor or director" list="favmoviename1" onChange={(e) => setSearchActor(e.target.value)} />
             <button className="btn goldbtn" onClick={favoriteActors}>
-            ADD TO MY FAVORITES
+              ADD TO MY FAVORITES
             </button>
             {loadActor}
 
@@ -124,7 +124,7 @@ const FavActors = ({ children, active }) => {
               const id = currentElement.id;
               return (
                 <li key={id}>
-                  <div className="cast_pic bgimage" style={{ backgroundImage: `url(${currentElement.img})` }}></div>
+                  <div className="cast_pic bgimage" style={{ backgroundImage: `url(${currentElement.img.replace(/ /g, "%20")})` }}></div>
                   <div className="cast_info" onClick={() => addFavorite(id)}>
                     <h5>
                       {currentElement.name}

@@ -21,12 +21,37 @@ const DetailTab = ({ FilmDetailsData, isAdminUser }) => {
   const onReleaseDateChange = (releaseData) => {
     setisOriginalRelease(releaseData);
   };
-
   return (
-    <section className='detailtab'>
+    <section className='detailtab' id='advanced'>
       <div className='container'>
         <Tabs>
-          <Tab label='Box Office'>
+          {FilmDetailsData.forcast_show === 'yes' && (
+            <Tab label='Box Office Forecast'>
+              {(
+                <div className='forecast'>
+                  <h5 className='dottitle'>
+                    Forecast <small></small>
+                  </h5>
+                  <ul className='grid'>
+                    {FilmDetailsData.forcast.openening_weekend && (
+                      <li>
+                        <label htmlFor=''>Opening Weekend US & Canada:</label>
+                        <p>{FilmDetailsData.forcast.openening_weekend}</p>
+                      </li>
+                    )}
+                    {FilmDetailsData.forcast.total && (
+                      <li>
+                        <label htmlFor=''>Total US & Canada:</label>
+                        <p>{FilmDetailsData.forcast.total}</p>
+                      </li>
+                    )}
+                  </ul>
+                  <Chartforcast data={FilmDetailsData} />
+                </div>
+              )}
+            </Tab>
+          )}
+          <Tab label='Box Office Results'>
             <BoxSummary data={FilmDetailsData} onReleaseDateChange={onReleaseDateChange} />
             {isOriginalRelease &&
               (FilmDetailsData.boxoffice_films_data.table_total ? (
@@ -34,14 +59,38 @@ const DetailTab = ({ FilmDetailsData, isAdminUser }) => {
                   <Charttable data={FilmDetailsData} />
                   <BoxOfficeTable data={FilmDetailsData.boxoffice_films_end_ly} />
                 </>
-              ) : FilmDetailsData.forcast_show ? (
-                <Chartforcast data={FilmDetailsData} />
               ) : (
                 <div className='m-3'>
                   <strong>No Data Found</strong>
                 </div>
               ))}
           </Tab>
+          {/* {FilmDetailsData.forcast_show === 'yes' && (
+            <Tab label='Box Office Forecast'>
+              {(
+                <div className='forecast'>
+                  <h5 className='dottitle'>
+                    Forecast <small></small>
+                  </h5>
+                  <ul className='grid'>
+                    {FilmDetailsData.forcast.openening_weekend && (
+                      <li>
+                        <label htmlFor=''>Opening Weekend US & Canada:</label>
+                        <p>{FilmDetailsData.forcast.openening_weekend}</p>
+                      </li>
+                    )}
+                    {FilmDetailsData.forcast.total && (
+                      <li>
+                        <label htmlFor=''>Total US & Canada:</label>
+                        <p>{FilmDetailsData.forcast.total}</p>
+                      </li>
+                    )}
+                  </ul>
+                  <Chartforcast data={FilmDetailsData} />
+                </div>
+              )}
+            </Tab>
+          )} */}
           <Tab label='Advance Tickets'>
             <AdvanceTicket ADV_Data={FilmDetailsData.advanceticket} />
           </Tab>

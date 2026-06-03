@@ -1772,7 +1772,8 @@
 @media (min-width: 1200px) {
 
    .site-headertop .container,
-   .cat_nav .container {
+   .cat_nav .container,
+   .container2 {
       max-width: calc(100% - 120px);
       max-width: 1500px;
    }

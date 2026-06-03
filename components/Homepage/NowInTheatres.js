@@ -46,8 +46,8 @@ function NowInTheatres({ data }) {
                       </p>{' '}
                       <div className="playoption df fww">
                         <div className="playoptlink">
-                          <Link href={item.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')} title={item.title} target="_blank" rel="noreferrer">
-                            Watch Now
+                          <Link href={item.link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')} title={item.title} target="_blank" rel="noreferrer">
+                            Learn More
                           </Link>
                         </div>
                       </div>

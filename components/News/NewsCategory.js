@@ -1,43 +1,38 @@
 import Link from 'next/link';
+import { motion } from "motion/react"
+import { FadeinUp } from '@/components/Anim/FadeinUp';
+import Aritem from '../Article/Aritem';
 
 const NewsCategory = ({ data }) => {
   return (
-    <section className="newslisting toplinesec">
+    <section className="newscatgegory mb-7 sm:mb-10">
       <div className="container">
-        <div className="top_txt df fww just-between">
+        <motion.div variants={FadeinUp}
+          initial="init"
+          whileInView="anim"
+          viewport={{ once: true }} className="top_txt flex flex-wrap justify-between items-start">
           <h2>
-            <Link href={data.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>
-              {data.title} <i className="fal fa-angle-right"></i>
+            <Link href={data.link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}>
+              {data.title}
             </Link>
           </h2>
           <div className="viewmovrebtn">
-            <Link href={data.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')} className="btn goldbtn">
-              View More
+            <Link href={data.link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')} className="btn mb-3">
+            View All
             </Link>
           </div>
-        </div>
-        <div className="newslist_block df fww xsm:-mx-2">
+        </motion.div>
+        <motion.div variants={FadeinUp}
+          initial="init"
+          whileInView="anim"
+          viewport={{ once: true }} className="newscatbox grid gap-4 md:gap-7 auto-fit-[300px]">
           {data.post_data &&
-            data.post_data.map((item, index) => {
+            data.post_data?.slice(0, 3).map((item, index) => {
               return (
-                <div className="newslist_item px-2 w-full xsm:w-1/2 md:w-1/4 mb-4" key={index}>
-                  <div className="newslist_iteminner rounded-md h-full relative bg-gray-100">
-                    <figure className="newslistmedia pvr">
-                      <Link href={item.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>
-                        <img src={item.img} alt="" className="objctimg_box" />
-                      </Link>
-                    </figure>
-                    <div className="newslist_txt p-3 pb-8 lg:p-5 lg:pb-11">
-                      <h5>
-                        <Link href={item.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')} dangerouslySetInnerHTML={{ __html: item.title }}></Link>
-                      </h5>
-                      <p className='absolute bottom-0'>{item.date}</p>
-                    </div>
-                  </div>
-                </div>
+                <Aritem key={index} item={item} figpadding='pb-[68%] xsm:pb-[62%] lg:pb-[70%]' newstag />
               );
             })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

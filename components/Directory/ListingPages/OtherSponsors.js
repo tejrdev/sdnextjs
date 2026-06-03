@@ -1,4 +1,4 @@
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
@@ -6,10 +6,10 @@ import { useState, useEffect } from 'react';
 const OtherSponsors = () => {
   const [otherSponsersDataLoaded, setOtherSponsersDataLoaded] = useState(false);
   const [otherSponsersData, setOtherSponsersData] = useState([]);
-
+  
   const loadOtherSponsersData = () => {
     axios
-      .get(process.env.NEXT_PUBLIC_SD_API + '/other_sponsors/?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN)
+      .get(process.env.NEXT_PUBLIC_SD_API + '/other_sponsors?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN)
       .then((res) => {
         setOtherSponsersData(res.data);
         setOtherSponsersDataLoaded(true);
@@ -64,30 +64,30 @@ const OtherSponsors = () => {
   };
 
   return (
-    <section className="distsponser_btm">
+    <section className='distsponser_btm'>
       {otherSponsersDataLoaded && (
         <>
-          <div className="top_txt df fww">
+          <div className='top_txt df fww'>
             <h3>Other Featured Listings</h3>
             {/*<i className="fal fa-info-circle"></i>
             <div className="guidinfopop"></div>*/}
           </div>
-          <div className="distbottom_sponcers df fww">
+          <div className='distbottom_sponcers df fww'>
             {otherSponsersData &&
               otherSponsersData.other_sponder.map((item, index) => {
                 return (
-                  <div className="distbtm_sponcersitem" key={index}>
-                    <div className="alldist_media">
+                  <div className='distbtm_sponcersitem' key={index}>
+                    <div className='alldist_media'>
                       <a href={item.link} title={item.title}>
-                        <img src={item.img} alt="" className="" />
+                        <img src={item.img} alt='' className='' />
                       </a>
                     </div>
-                    <h5 className="">
+                    <h5 className=''>
                       <a href={item.link} title={item.title}>
                         {item.title}
                       </a>
                     </h5>
-                    <ul className="df fww tagtickat">
+                    <ul className='df fww tagtickat'>
                       <li>
                         <a href={item.link}>{item.sub_title}</a>
                       </li>

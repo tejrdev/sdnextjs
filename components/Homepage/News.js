@@ -1,6 +1,9 @@
 import Link from 'next/link';
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
+
+import { motion } from "motion/react"
+import { FadeinUp } from '@/components/Anim/FadeinUp';
 
 function News({ data }) {
   const SliderSetting = {
@@ -18,35 +21,42 @@ function News({ data }) {
   return (
     <div className="container">
       <div className="seclinespace">
-        <div className="top_txt df fww just-between">
+        <motion.div
+          variants={FadeinUp}
+          initial="init"
+          whileInView="anim"
+          viewport={{ once: true }}
+          className="top_txt df fww just-between">
           <div className="secnav df fww">
             <h2>
-              <Link href={'/news'}>
-                News <i className="fal fa-angle-right"></i>
-              </Link>
+              <Link href='/blog'> News </Link>
             </h2>
           </div>
           <div className="view_btn">
-            <Link href={'/news'} className="btn ">
+            <Link href='/blog' className="btn ">
               View More
             </Link>
           </div>
-        </div>
+        </motion.div>
         <div className="homnewsbox df fww">
-          <div className="homnewsslider hmgrybg">
+          <motion.div
+            variants={FadeinUp}
+            initial="init"
+            whileInView="anim"
+            viewport={{ once: true }} className="homnewsslider hmgrybg">
             <Slider {...SliderSetting} className="autosingle_slider slick-dotted">
               {data &&
                 data.slider.map((item, id) => {
                   return (
                     <div className="homnewsslid_item" key={id}>
                       <figure className="pvr">
-                        <Link href={item.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>
+                        <Link href={item.link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}>
                           <img src={item.img} alt="" className="objctimg_box" />
                         </Link>
                       </figure>
                       <div className="top_txt">
                         <h5>
-                          <Link href={item.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')} dangerouslySetInnerHTML={{ __html: item.title }}></Link>
+                          <Link href={item.link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')} dangerouslySetInnerHTML={{ __html: item.title }}></Link>
                         </h5>
 
                         <p>
@@ -58,11 +68,11 @@ function News({ data }) {
                   );
                 })}
             </Slider>
-          </div>
+          </motion.div>
           {/*<div className="homnewsmediabox">
             <div className="homnewmedia_item">
               {data.top_post && (
-                <Link href={data.top_post.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>
+                <Link href={data.top_post.link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}>
                   <div className=" vid_boxslide pvr vidoin">
                     <figure className="pvr">
                       <img src={data.top_post.img} alt="" className="objctimg_box" />
@@ -77,7 +87,7 @@ function News({ data }) {
             </div>
             <div className="homnewmedia_item">
               {data.bottom_post && (
-                <Link href={data.bottom_post.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>
+                <Link href={data.bottom_post.link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}>
                   <div className=" vid_boxslide pvr vidoin">
                     <figure className="pvr">
                       <img src={data.bottom_post.img} alt="" className="objctimg_box" />
@@ -93,14 +103,21 @@ function News({ data }) {
           </div>*/}
           <div className="homnesheadlines">
             <div className="dirctrgtbtm_boxin hmgrybg">
-              <h5>
+              <motion.h5 variants={FadeinUp}
+                initial="init"
+                whileInView="anim"
+                viewport={{ once: true }}>
                 Headlines <i className="far fa-angle-right"></i>
-              </h5>
+              </motion.h5>
               <div className="newsheadline_box newshead_stack grid">
                 {data &&
                   data.Headlines_data.map((item, id) => {
                     return (
-                      <div className="newshdbox_item df fww" key={id}>
+                      <motion.div
+                        variants={FadeinUp}
+                        initial="init"
+                        whileInView="anim"
+                        viewport={{ once: true }} className="newshdbox_item df fww" key={id}>
                         <figure className="pvr">
                           <a href={item.link} target="_blank" title={item.title} rel="noreferrer">
                             <img className="objctimg_box" src={item.img} alt="" />
@@ -112,16 +129,16 @@ function News({ data }) {
                               {item.title.substr(0, 37)}...
                             </a>
                           </h5>
-                          <p>
+                          <p className='max-w-[220px]'>
                             <span className="aurthimg">
                               <img src={item.icon} className="objctimg_box" alt="" />
                             </span>
                             {item.source} | {item.pubDate}
                           </p>
                         </div>
-                      </div>
+                      </motion.div>
                     );
-                  })}                 
+                  })}
               </div>
             </div>
           </div>

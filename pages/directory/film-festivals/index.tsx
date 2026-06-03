@@ -2,13 +2,12 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 //cpmponents
-import DistributorList from '../../../components/Directory/ListingPages/DistributorList';
-import Filters from '../../../components/Directory/ListingPages/Filters';
-import Pagination from '../../../components/Directory/ListingPages/Pagination';
-import OtherSponsors from '../../../components/Directory/ListingPages/OtherSponsors';
-import Loader from '../../../components/Loader';
-import MenuNavigation from '../../../components/Directory/ListingPages/MenuNavigation';
-import HomePageAds from '../../../components/Homepage/HomePageAds';
+import DistributorList from '@/components/Directory/ListingPages/DistributorList';
+import Filters from '@/components/Directory/ListingPages/Filters';
+import Pagination from '@/components/Directory/ListingPages/Pagination';
+import OtherSponsors from '@/components/Directory/ListingPages/OtherSponsors';
+import Loader from '@/components/Loader';
+import HomePageAds from '@/components/Homepage/HomePageAds';
 import Breadcrumb from '@/components/Directory/ListingPages/Breadcrumb';
 import SearchComponent from '@/components/Directory/ListingPages/SearchComponent';
 import SortBy from '@/components/Directory/ListingPages/SortBy';
@@ -97,6 +96,11 @@ const FilmFestival = (props: Props) => {
   useEffect(() => {
     const search = window.location.search;
     const params = new URLSearchParams(search);
+    let category = params.get('category');
+    if (category !== '' && category !== null) {
+      setFilmFestivalTypes(category);
+      setFilterChanged(true);
+    }
     const pageno = params.get('pageno');
     const sortby = params.get('sortby');
     if (pageno !== '' && pageno !== null) {
@@ -135,7 +139,6 @@ const FilmFestival = (props: Props) => {
   return (
     <>
       <HeadComponent data={SEOdata} />
-      <MenuNavigation />
       <div className='distlisting'>
         <div className='container'>
           <div className='distlist_box'>

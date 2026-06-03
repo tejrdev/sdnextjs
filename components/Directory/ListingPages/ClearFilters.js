@@ -20,9 +20,9 @@ const ClearFilters = ({ AllChangeEvent }) => {
   return (
     <div className='top_txt df fww just-between'>
       <h4>Filter</h4>
-      <button className='allselectbtn active' id='distributor_allselect' name='distributor_allselect' value='' onClick={handleOnAllChange}>
+      {/* <button className='allselectbtn active' id='distributor_allselect' name='distributor_allselect' value='' onClick={handleOnAllChange}>
         Clear All
-      </button>
+      </button> */}
     </div>
   );
 };

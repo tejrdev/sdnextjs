@@ -38,6 +38,28 @@
     border-radius: 10px;
 }
 
+.homdirectory .bnr_boxslide .pvr:before {
+    @apply hidden
+}
+
+.homdirectory .bnr_boxslide .pvr:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.3;
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.homdirectory .bnrboxslide_info {
+    @apply bg-black/20 rounded-md
+}
+
 .bnr_boxslide {
     z-index: 1;
     min-height: 396px;
@@ -125,7 +147,7 @@
 }
 
 .homvidinfo .detailinfo_slider.slick-dotted.slick-slider {
-    height: 100%;
+    @apply h-full mb-0
 }
 
 .bofcomedata {
@@ -465,11 +487,9 @@ h5 .fa-angle-right {
     flex-direction: column;
     background: #f4f5f7;
     margin-bottom: 16px;
-    padding: 16px;
     border-radius: 5px;
     display: flex;
     position: relative;
-    padding-bottom: 50px;
     height: calc(100% - 16px);
 }
 
@@ -486,6 +506,14 @@ h5 .fa-angle-right {
 .pollads,
 .zipperquize {
     width: 50%;
+}
+
+.pollresult h3 {
+    @apply mb-5
+}
+
+input.anscomment {
+    padding: 5px;
 }
 
 .ansoptionbox .optbxtitle {
@@ -556,7 +584,7 @@ h5 .fa-angle-right {
 }
 
 .ansoptionbox .btn {
-    background: #d7b865;
+    /* background: #d7b865;
     border: 1px solid #d7b865;
     padding: 7px 8px;
     color: #000;
@@ -568,7 +596,7 @@ h5 .fa-angle-right {
     left: 0;
     right: 0;
     margin: auto;
-    line-height: 14px;
+    line-height: 14px; */
 }
 
 .ansoptionbox p {
@@ -934,7 +962,7 @@ h5 .fa-angle-right {
 
 .diectsml_rowbox {
     border-bottom: 1px solid #b8b8b8;
-    padding: 16px 0;
+    padding: 6px 0;
 }
 
 .diectsml_rowbox:last-child {
@@ -1084,11 +1112,10 @@ h5 .fa-angle-right {
 }
 
 .homfilmdata_btm .homfilm_media {
-    width: calc(50% - 10px);
-    width: calc(100% - 305px);
     margin-right: 5px;
     margin-bottom: 15px;
     border-radius: 5px;
+    @apply w-full
 }
 
 /*!home film data*/
@@ -1096,8 +1123,8 @@ h5 .fa-angle-right {
 /*home videos section*/
 
 .homvid_feature {
-    width: 50%;
-    /* height: 100%; */
+    /* width: 50%;
+    height: 100%; */
 }
 
 .homvidinfo .popvid .playico:after {
@@ -1842,15 +1869,13 @@ h5 .fa-angle-right {
 
 .homvidinfo .bnr_boxslide .pvr {
     position: relative;
-    padding: 0 0 332px 0;
+    padding: 0 0 50% 0;
     height: auto;
 }
 
 .homvidinfo .homvid_feature .bnrboxslide_info {
-    height: 75px;
     overflow: hidden;
     padding: 10px;
-    margin-bottom: 15px;
 }
 
 .homvidinfo .detailinfo_slider .slick-dots {
@@ -1958,7 +1983,7 @@ h5 .fa-angle-right {
 }
 
 .newshdbox_info .aurthimg {
-    margin: 2px 10px 0 0;
+    margin: 0 10px 0 0;
     overflow: hidden;
     position: relative;
     width: 20px;
@@ -2495,7 +2520,8 @@ span.closead:before {
 
 
 
-.roundslickarrow .slick-arrow {
+.roundslickarrow .slick-arrow,
+.roundslickarrowlong .slick-arrow {
     background: #f4f5f7;
     height: 40px;
     width: 38px;
@@ -2505,16 +2531,20 @@ span.closead:before {
     opacity: 0.8;
 }
 
-.roundslickarrow .slick-arrow:before {
+.roundslickarrow .slick-arrow:before,
+.roundslickarrowlong .slick-arrow:before {
     color: #000;
 }
 
 .roundslickarrow .slick-arrow:hover,
-.roundslickarrow .slick-arrow:focus {
+.roundslickarrow .slick-arrow:focus,
+.roundslickarrowlong .slick-arrow:hover,
+.roundslickarrowlong .slick-arrow:focus {
     background: #e5e5e5;
 }
 
-.roundslickarrow .slick-arrow.slick-disabled {
+.roundslickarrow .slick-arrow.slick-disabled,
+.roundslickarrowlong .slick-arrow.slick-disabled {
     display: none !important;
 }
 
@@ -2667,12 +2697,17 @@ span.closead:before {
     margin-bottom: 7px;
 }
 
-.feater_reviewbox p {
+.feater_reviewbox p,
+.feater_reviewbox .h6 {
     display: -webkit-box !important;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin-bottom: 5px;
+}
+
+.feater_reviewbox .h6 h2 {
+    @apply font-normal text-lg
 }
 
 .feature_telent .castcrew_people li .cast_pic {
@@ -2935,16 +2970,15 @@ span.closead:before {
 }
 
 .homegenrebox.genrelistbox {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
 }
 
 .homegenrebox.genrelistbox .pvr {
-    padding-bottom: 100px;
+    padding-bottom: clamp(160px, 300px, 50%)
 }
 
 .homegenrebox {
     padding: 15px;
-    max-width: 750px;
     margin: auto;
 }
 
@@ -3176,16 +3210,7 @@ span.closead:before {
         margin-bottom: 20px;
     }
 
-    .headtop_left .top_search {
-        height: 0;
-        width: 0;
-        overflow: hidden;
-    }
 
-    .headtop_left {
-        justify-content: flex-end;
-        text-align: right;
-    }
 }
 
 @media (max-width: 768px) {
@@ -3417,7 +3442,7 @@ span.closead:before {
     }
 
     .secnav h2 {
-        margin-bottom: 20px;
+        margin-bottom: 5px;
         padding-right: 140px;
         width: 100%;
     }

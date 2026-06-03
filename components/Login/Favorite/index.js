@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AMC from '../images/amc-2.png';
 import JON from '../images/jon.png';
 import FOURBTS from '../images/fourabtsld.jpg';
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 //import '../css/favorite.css';
 import axios from 'axios';
@@ -535,7 +535,7 @@ const Favorite = () => {
                 <div className="catcrewcol" key={index}>
                   <ul className="castcrew_people">
                     <li>
-                      <div className="cast_pic bgimage" style={{ backgroundImage: `url(${currentActor.img})` }}></div>
+                      <div className="cast_pic bgimage" style={{ backgroundImage: `url(${currentActor.img.replace(/ /g, "%20")})` }}></div>
                       <div className="cast_info">
                         <h5>
                           {currentActor.name}--

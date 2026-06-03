@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
-import chartbg from '../../public/chartbg.jpg';
+import chartbg from '../../public/images/chartbg.jpg';
 
-const Dailernewschart = ({score , height}) => {
+const Dailernewschart = ({ score, height }) => {
    const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
    const dailchartData = {
       series: [score],
@@ -50,9 +50,9 @@ const Dailernewschart = ({score , height}) => {
          fill: {
             type: 'image',
             image: {
-              src: [chartbg.src],
+               src: [chartbg.src],
             }
-          },
+         },
          //fill: {
          //    type: 'gradient',
          //    gradient: {

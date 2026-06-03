@@ -7,7 +7,7 @@ const PosterDiv = ({ data }) => {
         {data.map((item, index) => {
           return (
             <div className="posttabslid_item" key={index}>
-              <Link href={item.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')} title={item.title}>
+              <Link href={item.link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')} title={item.title}>
                 <div className="posterboxcap px-2">
                   <figure className="pvr">
                     <img src={item.img} alt="" className="objctimg_box" />

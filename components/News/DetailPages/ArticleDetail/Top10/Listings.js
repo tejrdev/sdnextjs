@@ -1,16 +1,10 @@
 import Link from 'next/link';
 import Image from "next/image";
-import imgData from '../../../../data.json';
+import { JSONData } from '@/components/shared/JSONData';
 import sdicon from "../../../../../public/images/sdicon.svg";
 import { useEffect } from 'react';
 
-const topmovie = [
-  {movieName : "Thor: Love And Thunder"},
-  {movieName : "Thor: Love And Thunder"},
-  {movieName : "Thor: Love And Thunder"}
-];
-
-const Listings = ({ data, BottomText , requestFrom }) => {
+const Listings = ({ data, BottomText = null, requestFrom }) => {
 
   useEffect(() => {
     const $ = window.jQuery;
@@ -71,76 +65,76 @@ const Listings = ({ data, BottomText , requestFrom }) => {
     /* youtube link replace*/
     var popurl = [];
     $("a.popvid , a.popvidgallery , a.popvidbox").each(function (i) {
-        popurl.unshift($(this).attr("href"));
-        for (var i = 0; i < popurl.length; i++) {
-            var popnew = [];
-            popnew.unshift(
-                popurl[i].replace("youtu.be/", "www.youtube.com/watch?v=")
-            );
-            $(this).eq(i).attr("href", popnew[i]);
-        }
+      popurl.unshift($(this).attr("href"));
+      for (var i = 0; i < popurl.length; i++) {
+        var popnew = [];
+        popnew.unshift(
+          popurl[i].replace("youtu.be/", "www.youtube.com/watch?v=")
+        );
+        $(this).eq(i).attr("href", popnew[i]);
+      }
     });
   }, []);
 
   return (
     <>
-    <section className="topart_box">
-      <div className="container">
-        {data.map((item, index) => {
-          return (
-            <div className="topart_item" key={index}>
-              <h2  className="h3"><Link className="" href={item.link}>{item.title}</Link></h2>
-              <div className="tenmoviegenre">
-                <ul className="ratinginfo_tags">
-                  {item.release_year && <li>{item.release_year}</li>}
-                  {item.movie_rating && <li><span>{item.movie_rating}</span></li>}
-                  {item.runtime && <li className="ratingtime">{item.runtime}</li>}
-                  {item.genre && <li>{item.genre}</li>}                 
-                </ul>
-              </div>
-              <div className="topartitrm_media df fww row">
-                <figure>
-                  <Link href={item.link}>
-                    <img src={item.img} alt={item.title} />
-                  </Link>
-                </figure>
-                {item.img_2 && 
-                <figure>
-                  {item.trailer_link ? (
-                  <a title="" className="popvidbox" href={item.trailer_link}>
-                    <div className="playvid_box">
-                      <div className="artinfoimg  pvr">
-                            <span className="playico">
-                              <i className="fas fa-play"></i>
-                            </span>
-                        <img src={item.img_2} alt="" className="objctimg_box" />
+      <section className="topart_box">
+        <div className="container">
+          {data.map((item, index) => {
+            return (
+              item?.title && item?.link && (<div className="topart_item" key={index}>
+                <h2 className="h3"><Link className="" href={item.link}>{item.title}</Link></h2>
+                <div className="tenmoviegenre">
+                  <ul className="ratinginfo_tags">
+                    {item.release_year && <li>{item.release_year}</li>}
+                    {item.movie_rating && <li><span>{item.movie_rating}</span></li>}
+                    {item.runtime && <li className="ratingtime">{item.runtime}</li>}
+                    {item.genre && <li>{item.genre}</li>}
+                  </ul>
+                </div>
+                <div className="topartitrm_media df fww row">
+                  <figure>
+                    <Link href={item.link}>
+                      <img src={item.img} alt={item.title} />
+                    </Link>
+                  </figure>
+                  {item.img_2 &&
+                    <figure>
+                      {item.trailer_link ? (
+                        <a title="" className="popvidbox" href={item.trailer_link}>
+                          <div className="playvid_box">
+                            <div className="artinfoimg  pvr">
+                              <span className="playico">
+                                <i className="fas fa-play"></i>
+                              </span>
+                              <img src={item.img_2} alt="" className="objctimg_box" />
+                            </div>
+                          </div>
+                        </a>
+                      ) : (
+
+                        <div className="playvid_box">
+                          <div className="artinfoimg  pvr">
+                            <img src={item.img_2} alt="" className="objctimg_box" />
+                          </div>
+                        </div>
+
+                      )}
+                    </figure>}
+                </div>
+                {requestFrom === 'quicklinks' ? (
+                  <div className="topartitem_info">{item.content}</div>
+                ) : (
+                  <div className="topart_rating df fww">
+                    {item.release_date &&
+                      <div className="filmcolluection">
+                        <span>Release Date:</span>
+                        <span>{item.release_date}</span>
                       </div>
-                    </div>
-                  </a>
-                  ) : (
-                    
-                    <div className="playvid_box">                      
-                      <div className="artinfoimg  pvr">
-                        <img src={item.img_2} alt="" className="objctimg_box" />
-                      </div>
-                    </div>                  
-                    
-                  )}
-                </figure>}
-              </div>
-              {requestFrom === 'quicklinks' ? (
-                <div className="topartitem_info">{item.content}</div>
-              ) : (
-                <div className="topart_rating df fww">
-                  {item.release_date &&
-                  <div className="filmcolluection">
-                    <span>Release Date:</span>
-                    <span>{item.release_date}</span>
-                  </div>
                     }
-                  <div className="scrorbox">
-                    <ul className="topartings">
-                      {/* {<li>
+                    <div className="scrorbox">
+                      <ul className="topartings">
+                        {/* {<li>
                         <sapn className="scoreico" title={item.rating.data}>
                           <img src={item.rating.img} alt="" />
                         </sapn>
@@ -155,55 +149,55 @@ const Listings = ({ data, BottomText , requestFrom }) => {
                           </a>
                         </li>
                         */}
-                        {item.imdbrating.data && 
-                      <li>
-                        <sapn className="scoreico" title={item.imdbrating.data}>
-                          <img src={item.imdbrating.img} alt="" />
-                        </sapn>
-                          <label htmlFor="">{item.imdbrating.data}</label>
-                      </li>}
-                      {item.rotten_critics.data && 
-                      <li>
-                        <sapn className="scoreico" title={item.rotten_critics.data}>
-                          <img src={item.rotten_critics.img} alt="" />
-                        </sapn>
-                          <label htmlFor="">{item.rotten_critics.data}</label>
-                      </li>}
-                      
-                      {/* <li>
+                        {item.imdbrating.data &&
+                          <li>
+                            <sapn className="scoreico" title={item.imdbrating.data}>
+                              <img src={item.imdbrating.img} alt="" />
+                            </sapn>
+                            <label htmlFor="">{item.imdbrating.data}</label>
+                          </li>}
+                        {item.rotten_critics.data &&
+                          <li>
+                            <sapn className="scoreico" title={item.rotten_critics.data}>
+                              <img src={item.rotten_critics.img} alt="" />
+                            </sapn>
+                            <label htmlFor="">{item.rotten_critics.data}</label>
+                          </li>}
+
+                        {/* <li>
                         <sapn className="scoreico" title={item.rotten_aui.data}>
                           <img src={item.rotten_aui.img} alt="" />
                         </sapn>
                           <label htmlFor="">{item.rotten_aui.data}</label>
                       </li> */}
-                    </ul>
+                      </ul>
+                    </div>
                   </div>
+                )}
+                {item.cast &&
+                  <div className="castnames" dangerouslySetInnerHTML={{ __html: '<strong>Top Cast:</strong> ' + item.cast }}></div>
+                }
+                <div className="topartitem_info" dangerouslySetInnerHTML={{ __html: item.content_about_movies }}>
                 </div>
-              )}
-              {item.cast && 
-                <div className="castnames" dangerouslySetInnerHTML={{ __html: '<strong>Top Cast:</strong> ' + item.cast }}></div>
-              }
-              <div className="topartitem_info" dangerouslySetInnerHTML={{ __html: item.content_about_movies }}>
-              </div>
 
-              {/* <div className="watchmvbtn">
+                {/* <div className="watchmvbtn">
                 <div className="moreinfolink">
                   <Link className="btn" href={item.link}>
                     View More
                   </Link>
                 </div>
               </div> */}
-            </div>
-          );
-        })}
+              </div>)
+            );
+          })}
 
 
-        {BottomText &&
-          <div className="top_disc" dangerouslySetInnerHTML={{ __html: BottomText }}></div> 
-        }
-      </div>
-    </section>
-    {/**
+          {BottomText &&
+            <div className="top_disc" dangerouslySetInnerHTML={{ __html: BottomText }}></div>
+          }
+        </div>
+      </section>
+      {/**
     <section className="bottomtop10 toplinesec">
       <div className="container">
           <div class="top_txt df fww just-between">

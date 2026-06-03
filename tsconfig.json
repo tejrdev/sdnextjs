@@ -16,7 +16,7 @@
       "esnext"
     ],
     "allowJs": true,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -29,7 +29,6 @@
     "noImplicitThis": false,
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false
-
   },
   "include": [
     "next-env.d.ts",

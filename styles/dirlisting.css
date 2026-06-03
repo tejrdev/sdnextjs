@@ -16,10 +16,6 @@
    display: none;
 }
 
-.alldist_list .top_txt p {
-   color: #777777;
-}
-
 #theatre_list_data {
    display: flex;
    flex-wrap: wrap;
@@ -123,6 +119,8 @@
 
 .alldist_list .alldist_media img {
    max-height: 170px;
+   mix-blend-mode: multiply;
+   filter: contrast(1);
 }
 
 .alldist_listiteminfo p strong {
@@ -156,6 +154,22 @@
 .featuredtag.thfhr {
    transform: translate(-9px, -9px);
 }
+
+.arrow_box {
+   padding: 10px;
+   text-align: left;
+   text-transform: capitalize;
+}
+
+/* .arrow_box .colordot {
+   height: 15px;
+   width: 15px;
+   border-radius: 50%;
+   display: inline-block;
+   vertical-align: top;
+   margin: 3px 5px 6px 0;
+} */
+
 
 /* responsivee */
 

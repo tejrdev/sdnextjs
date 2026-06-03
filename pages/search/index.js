@@ -6,8 +6,6 @@ const $ = require('jquery');
 
 const Sd_Search = () => {
   const router = useRouter();
-  const post_type_name = router.query.post_type;
-  const search_value = router.query.s;
   let load_more_wait = false;
   const [is_empty, setis_empty] = useState(false);
   const [SearchDataLoaded, setSearchDataLoaded] = useState(false);
@@ -20,9 +18,10 @@ const Sd_Search = () => {
   const [isOpen, setOpen] = useState(false);
   const [LoadMoreRequired, setLoadMoreRequired] = useState(false);
   const [ShowLoader, setShowLoader] = useState(false);
+  const [FilterType, setFilterType] = useState('');
+  const [SearchValue, setSearchValue] = useState('');
 
-  useEffect(() => {
-    loadSearchData();
+  const setPostType = (post_type_name) => {
     switch (post_type_name) {
       case 'all':
         setPostTypes('All');
@@ -52,13 +51,33 @@ const Sd_Search = () => {
         setPostTypes('Film Festivals');
         break;
       case 'filmtalent':
-        setPostTypes('Talent');
+        setPostTypes('Celebrities');
         break;
       default:
         setPostTypes('All');
         break;
     }
-  }, [orderBy, pageNo]);
+  };
+  useEffect(() => {
+    if (router && !router.isReady) {
+      return;
+    }
+    const post_type_name = router.query.post_type || '';
+    const search_value = router.query.s || '';
+    if (search_value === SearchValue && post_type_name === FilterType) return;
+    setShowLoader(true);
+    setFilterType(post_type_name);
+    setPostType(post_type_name);
+    setSearchValue(search_value);
+    setGridData([]);
+    setpageNo(1);
+    setLoadMoreRequired(false);
+  }, [router.query]);
+
+  useEffect(() => {
+    if (SearchValue === '') return;
+    loadSearchData();
+  }, [orderBy, pageNo, FilterType, SearchValue]);
 
   useEffect(() => {
     const target = document.querySelector('#search-film-loadmore');
@@ -88,13 +107,25 @@ const Sd_Search = () => {
     setShowLoader(true);
     setSearchDataLoaded(false);
     axios
-      .get(process.env.NEXT_PUBLIC_SD_API + '/search_page/?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN + '&post_type_name=' + post_type_name + '&s=' + search_value + '&order=' + orderBy + '&page_no=' + pageNo)
+      .get(
+        process.env.NEXT_PUBLIC_SD_API +
+          '/search_page/index.php?api_token=' +
+          process.env.NEXT_PUBLIC_API_TOKEN +
+          '&post_type_name=' +
+          FilterType +
+          '&s=' +
+          encodeURIComponent(SearchValue) +
+          '&order=' +
+          orderBy +
+          '&page_no=' +
+          pageNo
+      )
       .then((res) => {
         if (!res.data.search) {
-          setis_empty(true);
           if (gridData.length) {
             //do nothing
           } else {
+            setis_empty(true);
             setSearchData(res.data);
           }
         } else {
@@ -179,7 +210,7 @@ const Sd_Search = () => {
                   </div>
 
                   <div className='srchaccd_info'>
-                    {(post_type_name === 'film_data' || post_type_name === 'filmtalent') && (
+                    {(FilterType === 'film_data' || FilterType === 'filmtalent') && (
                       <div className='srchfilm_box df fww' id='film_search_data'>
                         {gridData &&
                           gridData.map((item, index) => {
@@ -198,7 +229,7 @@ const Sd_Search = () => {
                                       <a href={item.link} title={item.title}>
                                         {' '}
                                         {item.title}
-                                        {item.release_year && '(' + item.release_year + ')'}
+                                        {item.release_year && ' (' + item.release_year + ')'}
                                       </a>
                                     </h4>
                                   </div>
@@ -208,7 +239,7 @@ const Sd_Search = () => {
                           })}
                       </div>
                     )}
-                    {(post_type_name === 'film_festival' || post_type_name === 'vendors' || post_type_name === 'theatres' || post_type_name === 'exhibitors' || post_type_name === 'studios_distributors') && (
+                    {(FilterType === 'film_festival' || FilterType === 'vendors' || FilterType === 'theatres' || FilterType === 'exhibitors' || FilterType === 'studios_distributors') && (
                       <div className='srchdirc_box' id='disti_search_data'>
                         {gridData &&
                           gridData.map((item, index) => {
@@ -235,7 +266,7 @@ const Sd_Search = () => {
                       </div>
                     )}
 
-                    {(post_type_name == '' || post_type_name === 'all' || post_type_name === 'All' || post_type_name === 'post') && (
+                    {(FilterType == '' || FilterType === 'all' || FilterType === 'All' || FilterType === 'post') && (
                       <div className='srchart_box' id='disti_search_data'>
                         {gridData &&
                           gridData.map((item, index) => {
@@ -266,12 +297,12 @@ const Sd_Search = () => {
                           })}
                       </div>
                     )}
-                    {/* {SearchData.search_load_more === 'true' ? ( */}
+                    {/* {SearchData.search_load_more === 'true' ? ( }
                     {ShowLoader && (
                       <div className='pvr loaderOverlay srchpageloading'>
                         <span className='loader'></span>
                       </div>
-                    )}
+                    )}*/}
                     {LoadMoreRequired && (
                       <div className='viewbtn'>
                         <p onClick={loadDataByPageNo} id='search-film-loadmore' className='btn'>
@@ -288,7 +319,13 @@ const Sd_Search = () => {
       ) : (
         <Loader />
       )}
-
+      {ShowLoader && (
+        <div className='managloading pvr container' style={{ marginBottom: 40 }}>
+          <div className='lodarhight'>
+            <Loader />
+          </div>
+        </div>
+      )}
       {/* {SearchData.title === 'No Result' ? (
         ''
       ) : (

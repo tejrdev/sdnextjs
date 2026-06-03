@@ -339,6 +339,13 @@ ul.slick-dots li button:hover {
 	z-index: 6;
 }
 
+.testimonials .roundslickarrow .slick-arrow{
+	@apply bg-darkgold hover:bg-black;
+}
+.testimonials .roundslickarrow .slick-arrow:before{
+	@apply text-white ;
+}
+
 /*responsive*/
 @media screen and (max-width: 640px) {
 	.abthero_item .abt_slidtxt {

@@ -1042,21 +1042,6 @@ div.prosubscription {
     text-align: center;
 }
 
-.popclose {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-weight: 600;
-    font-size: 25px;
-    border-radius: 50%;
-    border: 1px solid #000;
-    height: 23px;
-    width: 23px;
-    line-height: 18px;
-    padding: 1px 4px;
-    transform: rotate(45deg);
-    cursor: pointer;
-}
 
 .login_signin h2 {
     margin-bottom: 15px;

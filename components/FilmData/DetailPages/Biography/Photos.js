@@ -1,8 +1,8 @@
 import { Fragment } from 'react';
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 
-const Photos = ({ data }) => {
+const Photos = ({ data, name }) => {
   const isInfinite = data.length > 6 ? true : false;
   const SliderSetting = {
     slidesToShow: 6,
@@ -54,8 +54,8 @@ const Photos = ({ data }) => {
         <section className='photoslid toplinesec castperson_images' id='gallery'>
           <div className='container'>
             <div className='top_txt df fww just-between'>
-              <h2>
-                Gallery <i className='fal fa-angle-right'></i>
+              <h2 className='capitalize'>
+                {name} Photos and Videos <i className='fal fa-angle-right'></i>
               </h2>
               {/* <div className="viewmovrebtn">
                 <a href="talent_media=true" className="formpop btn goldbtn">
@@ -64,7 +64,7 @@ const Photos = ({ data }) => {
               </div> */}
             </div>
             <Slider {...SliderSetting} className='photo_slidbox df fww roundslickarrow'>
-              {data?.slice(0, 18).map((item, index) => {
+              {data?.slice(0, 30).map((item, index) => {
                 return (
                   <Fragment key={index}>
                     {

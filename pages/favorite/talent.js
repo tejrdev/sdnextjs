@@ -209,7 +209,7 @@ const Talent = () => {
                   <div className='catcrewcol'>
                     <ul className='castcrew_people'>
                       <li>
-                        <div className='cast_pic bgimage' style={{ backgroundImage: `url(${actor.image_url})` }}></div>
+                        <div className='cast_pic bgimage' style={{ backgroundImage: `url(${actor?.image_url.replace(/ /g, '%20')})` }}></div>
                         <div className='cast_info'>
                           <h5>
                             {' '}

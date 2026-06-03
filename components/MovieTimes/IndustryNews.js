@@ -6,18 +6,18 @@ const IndustryNews = ({ data }) => {
       <div className="container">
         <div className="top_txt df fww just-between">
           <h2>
-            <Link href={data.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>
+            <Link href={data.link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}>
               {data.title} <i className="fal fa-angle-right"></i>
             </Link>
           </h2>
           <div className="viewmovrebtn">
-            <Link href={data.link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')} className="btn goldbtn">
+            <Link href={data.link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')} className="btn goldbtn">
               View More
             </Link>
           </div>
         </div>
         <div className="timefilmflash_box ">
-          <Link href={data.cat_link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')} className="df fww just-between">
+          <Link href={data.cat_link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')} className="df fww just-between">
             <figure className="personpc pvr">
               <img src={data.img} alt="" className="objctimg_box" />
             </figure>

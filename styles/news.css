@@ -457,6 +457,11 @@
     background: #555;
 }
 
+.newsbanner .slick-dots,
+.blogbanner .slick-dots {
+    bottom: 10px;
+}
+
 /*responsivee*/
 @media(max-width: 1200px) {
 

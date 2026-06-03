@@ -1,12 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import playicoimg from '../../public/images/playicov2.png';
+import 'glightbox/dist/css/glightbox.css';
 
 const $ = require('jquery');
 
 const Draggallery = ({ data, gallery, dragupdate, updateGallery }) => {
   const [boxes, setBoxes] = useState(data);
   const [boxesvid, setBoxesvid] = useState(data);
+  const imageLightboxRef = useRef(null);
+  const videoLightboxRef = useRef(null);
 
   useEffect(() => {
     if (updateGallery) {
@@ -14,113 +17,77 @@ const Draggallery = ({ data, gallery, dragupdate, updateGallery }) => {
       setBoxes(bx);
     }
   }, [updateGallery]);
+
+  // Initialize gLightbox for images
   useEffect(() => {
-    const $ = window.jQuery;
-    $('.admingalimg').magnificPopup({
-      //delegate: '.slides:not(.slick-cloned) a.media_gallerybox',
-      type: 'image',
-      closeMarkup: '<button title="closing" type="button" class="mfp-close">×</button>',
-      closeOnContentClick: true,
-      closeBtnInside: true,
-      titleSrc: 'title',
-      tCounter: '<span class="mfp-counter">%curr% of %total%</span>',
-      mainClass: 'mfp-no-margins mfp-with-zoom photodtlgallery',
-      image: {
-        markup: '<div class="mfp-figure">' + '' + '<div class="mfp-close">×</div>' + '<div class="mfp-img"></div>' + '<div class="mfp-bottom-bar"><div class="mfp-title"></div><div class="mfp-counter"></div>' + '' + '</div>' + '</div>',
-        verticalFit: true,
-        titleSrc: function (item) {
-          //return item.el.parent('.photogalitem_box').find('.photocaption_txt').html();
-          return item.el.parent('.photogalitem_box').find('.photocaption_txt').html();
-        },
-      },
-      gallery: {
-        enabled: true,
-      },
-      zoom: {
-        enabled: false,
-        duration: 300,
-      },
-    });
+    if (typeof window === 'undefined' || gallery !== 'imagegallery') return;
 
-    $('.popvid , .popvidbox').magnificPopup({
-      type: 'iframe',
-      mainClass: 'mfp-fade',
-      removalDelay: 160,
-      preloader: false,
-      fixedContentPos: false,
-      iframe: {
-        markup:
-          '<div class="mfp-iframe-scaler">' +
-          '<div class="mfp-close"></div>' +
-          '<div class="mgpiframwrap">' +
-          '<iframe class="mfp-iframe" id="videoiframe" frameborder="0" allow="autoplay; fullscreen" ></iframe>' +
-          //'<div class="mfp-title">Some caption</div></div>'+
-          '</div>',
+    const initImageLightbox = () => {
+      import('glightbox').then((GLightboxModule) => {
+        const GLightbox = GLightboxModule.default;
 
-        patterns: {
-          youtube: {
-            index: 'youtube.com/',
-            id: 'v=',
-            //src: '//www.youtube.com/embed/%id%?rel=0&autoplay=1&mute=1',
-            //src: "//www.youtube.com/embed/%id%?rel=0&autoplay=1",
-            src: 'https://www.youtube.com/embed/%id%?enablejsapi=1',
-          },
-        },
-      },
-      callbacks: {
-        markupParse: function (template, values, item) {
-          values.title = item.el.attr('title');
-        },
-        open: function () {
-          var iframe = $('.mfp-iframe-scaler').find('iframe');
-          iframe.prop('id', 'videoiframe');
-          var YouTubeIframeLoader = require('youtube-iframe');
-          YouTubeIframeLoader.load(function (YT) {
-            var player = new YT.Player('videoiframe', {
-              events: {
-                onReady: function (e) {
-                  e.target.playVideo();
-                },
-                onStateChange: function (e) {
-                  if (e.data === YT.PlayerState.ENDED) {
-                    //instance.close();
-                  }
-                },
-              },
-            });
-          });
-          $('body').addClass('popbopen');
-        },
-        close: function () {
-          $('body').removeClass('popbopen');
-        },
-      },
-    });
+        if (imageLightboxRef.current) {
+          imageLightboxRef.current.destroy();
+        }
 
-    /* youtube link replace*/
-    var popurl = [];
-    $('a.popvid , a.popvidgallery , a.popvidbox').each(function (i) {
-      popurl.unshift($(this).attr('href'));
-      for (var i = 0; i < popurl.length; i++) {
-        var popnew = [];
-        popnew.unshift(popurl[i].replace('youtu.be/', 'www.youtube.com/watch?v='));
-        $(this).eq(i).attr('href', popnew[i]);
+        imageLightboxRef.current = GLightbox({
+          selector: '.glightbox-image',
+          touchNavigation: true,
+          keyboardNavigation: true,
+          closeButton: true,
+          loop: false,
+        });
+      });
+    };
+
+    const timer = setTimeout(() => {
+      initImageLightbox();
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      if (imageLightboxRef.current) {
+        imageLightboxRef.current.destroy();
+        imageLightboxRef.current = null;
       }
-    });
+    };
+  }, [boxes, gallery]);
 
-    // $('.editgalitemcap').click(function () {
-    //   $('.admingal_itemtitle').removeClass('active');
-    //   $(this).closest('.admingalitem').find('.admingal_itemtitle').addClass('active');
-    //   $(this).hide();
-    //   $(this).next().removeClass('hide');
-    // });
+  // Initialize gLightbox for videos
+  useEffect(() => {
+    if (typeof window === 'undefined' || gallery !== 'videogallery') return;
 
-    // $('.admingalcta .savetitle').click(function () {
-    //   $(this).addClass('hide');
-    //   $(this).prev().show();
-    //   $(this).parents('.admingalitem').find('.admingal_itemtitle').removeClass('active');
-    // });
-  }, [boxes]);
+    const initVideoLightbox = () => {
+      import('glightbox').then((GLightboxModule) => {
+        const GLightbox = GLightboxModule.default;
+
+        if (videoLightboxRef.current) {
+          videoLightboxRef.current.destroy();
+        }
+
+        videoLightboxRef.current = GLightbox({
+          selector: '.glightbox-video',
+          autoplayVideos: true,
+          openEffect: 'fade',
+          closeEffect: 'fade',
+          touchNavigation: true,
+          keyboardNavigation: true,
+        });
+      });
+    };
+
+    const timer = setTimeout(() => {
+      initVideoLightbox();
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      if (videoLightboxRef.current) {
+        videoLightboxRef.current.destroy();
+        videoLightboxRef.current = null;
+      }
+    };
+  }, [boxesvid, gallery]);
 
   const swapBoxes = (fromBox, toBox, boxes, setBoxes) => {
     const bx = [...boxes];
@@ -209,7 +176,7 @@ const Draggallery = ({ data, gallery, dragupdate, updateGallery }) => {
                 {/* onChange={(e) => handleOnChange(index, e)}  */}
               </h5>
               <div className='df fww just-center admingalcta'>
-                <a href={item.url} className='admingalimg'>
+                <a href={item.url} className='glightbox-image admingalimg' data-title={item.caption || ''}>
                   View <i className='fas fa-expand-arrows-alt'></i>
                 </a>
                 <span className='editgalitemcap' onClick={onEditImgCaption}>
@@ -231,7 +198,7 @@ const Draggallery = ({ data, gallery, dragupdate, updateGallery }) => {
           <div className='admingalitem' draggable='true' data-id={index} key={item.id} onDragStart={handleDragStart({ id: item.id })} onDragOver={handleDragOver({ id: item.id })} onDrop={handleDrop({ id: item.id }, boxesvid, setBoxesvid)}>
             <div className='admingalitem_inner' data-index={index}>
               <figure className='pvr'>
-                <a href={item.vidurl} className='popvid'>
+                <a href={item.vidurl} className='glightbox-video popvid'>
                   <Image src={item.vidimage} width='288' height='293' alt='' className='objctimg_box' />
                   <Image className='playico' src={playicoimg} width='25' alt='play icon' />
                 </a>
@@ -240,7 +207,7 @@ const Draggallery = ({ data, gallery, dragupdate, updateGallery }) => {
                 <textarea defaultValue={item.title} />
               </h5>
               <div className='df fww just-between admingalcta'>
-                <a href={item.vidurl} className='popvid'>
+                <a href={item.vidurl} className='glightbox-video popvid'>
                   View <i className='fas fa-expand-arrows-alt'></i>
                 </a>
                 <span className='editgalitemcap'>

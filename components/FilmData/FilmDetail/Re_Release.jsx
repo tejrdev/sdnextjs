@@ -175,6 +175,11 @@ const Re_Release = ({ data, OriginalReleaseData, mdetailshow, onReleaseDateChang
                 <p>{ReleaseData.worldwide_gross}</p>
               </li>
             )}
+            {!ReleaseData.domestic_gross && !ReleaseData.international_gross && !ReleaseData.worldwide_gross && (
+              <li>
+                <p>No Data Available</p>
+              </li>
+            )}
           </ul>
           {mdetailshow &&
             (ReleaseData.domestic_details_new?.length > 0 ? (

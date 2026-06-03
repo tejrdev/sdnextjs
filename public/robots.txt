@@ -1,4 +1,5 @@
 # robots.txt for https://screendollars.com
 User-agent: *
+Crawl-Delay: 10
 Disallow: /login
 Sitemap: https://screendollars.com/sitemap.xml

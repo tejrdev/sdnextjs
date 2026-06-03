@@ -14,9 +14,9 @@ const SingleActor = ({ data }) => {
       <div className="container">
         <div className="top_txt df fww just-between">
           <h2>
-            
-              Top Actors This Week <i className="fal fa-angle-right"></i>
-            
+
+            Top Actors This Week <i className="fal fa-angle-right"></i>
+
           </h2>
         </div>
         <div className="timebio_person person_introbox">
@@ -39,7 +39,7 @@ const SingleActor = ({ data }) => {
                   <strong>Birthplace :</strong> {data.birthplace}
                 </p>
               </div>
-              <p>{data.post_content}</p>
+              <p dangerouslySetInnerHTML={{ __html: data.post_content }}></p>
             </div>
             <div dangerouslySetInnerHTML={{ __html: data.post_content_view_more }}></div>
             <p className="staring" style={{ display: 'none' }}>

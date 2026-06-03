@@ -1,6 +1,6 @@
 import MovieAdminbox from "@/components/MovieLists/MovieAdminbox"
 import { useEffect } from "react";
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 
 const MovieAdminsec = ({ sectitle, cls }) => {

@@ -1,18 +1,31 @@
 import Link from 'next/link';
+import { motion } from "motion/react"
+import { FadeinUp } from '@/components/Anim/FadeinUp';
+
 
 const QuickLinks = ({ data }) => {
   return (
     <section className="rscalanderbox toplinesec">
       <div className="container">
         <div className="rscalbox_inner">
-          <div className="top_txt df fww just-between">
+          <motion.div
+            variants={FadeinUp}
+            initial="init"
+            whileInView="anim"
+            viewport={{ once: true }}
+            className="top_txt df fww just-between">
             <h2 className="m-0">
               <strong>
                 Quick Links <i className="far fa-angle-right"></i>
               </strong>
             </h2>
-          </div>
-          <ul className="df fww gap-5">
+          </motion.div>
+          <motion.ul
+            variants={FadeinUp}
+            initial="init"
+            whileInView="anim"
+            viewport={{ once: true }}
+            className="df fww gap-5">
             {data.map((item, index) => {
               //console.log(item.href);
               return (
@@ -26,7 +39,7 @@ const QuickLinks = ({ data }) => {
                 </li>
               );
             })}
-          </ul>
+          </motion.ul>
         </div>
       </div>
     </section>

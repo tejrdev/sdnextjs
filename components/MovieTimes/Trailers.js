@@ -68,12 +68,12 @@ const Trailers = ({ data }) => {
       <div className="container">
         <div className="top_txt df fww just-between">
           <h3>
-            <Link href={data.view_more_link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>
+            <Link href={data.view_more_link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}>
               {data.title} <i className="fal fa-angle-right"></i>
             </Link>
           </h3>
           <div className="viewmovrebtn">
-            <Link href={data.view_more_link.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')} className="btn goldbtn" target="_blank" rel="noreferrer">
+            <Link href={data.view_more_link.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')} className="btn goldbtn" target="_blank" rel="noreferrer">
               View More
             </Link>
           </div>

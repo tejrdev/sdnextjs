@@ -423,15 +423,15 @@ del {
 table,
 th,
 td {
-  border: 1px solid #d1d1d1;
-  border: 1px solid #000;
+  /* border: 1px solid #d1d1d1;
+  border: 1px solid #000; */
 }
 
 table {
   border-collapse: separate;
   border-spacing: 0;
-  border-width: 1px;
-  /*margin: 0 0 1.75em;*/
+  /*  border-width: 1px;
+  margin: 0 0 1.75em;*/
   table-layout: fixed;
   /* Prevents HTML tables from becoming too wide */
   width: 100%;

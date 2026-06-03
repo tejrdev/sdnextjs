@@ -21,8 +21,8 @@ const FilmographyFilms = ({ data, index, title }) => {
             this.st.focus = '#name';
           }
         },
-        open: function () {},
-        close: function () {},
+        open: function () { },
+        close: function () { },
       },
     });
   }, []);
@@ -69,7 +69,7 @@ const FilmographyFilms = ({ data, index, title }) => {
                     </span>
                     <div className='movierol'>
                       <a className='termtxt' href={'#filminfopop' + indexin + index} title={moive_list.title}>
-                        <strong>{moive_list.title}</strong>
+                        <h3 className='text-base'>{moive_list.title}</h3>
                       </a>
                       <div className='filminfopop white-popup-block mfp-hide' id={'filminfopop' + indexin + index}>
                         <div className='filminfotop df fww'>
@@ -77,11 +77,11 @@ const FilmographyFilms = ({ data, index, title }) => {
                             <Image src={moive_list.img} width='112' height='170' alt='' />
                           </figure>
                           <div className='filminfotop_txt'>
-                            <h4>
+                            <p className='h4'>
                               {moive_list.link ? <a href={moive_list.link}>{moive_list.title}</a> : <span>{moive_list.title}</span>}
 
                               {/*<span className="favoritebox" title="favorite"><i className="far fa-heart"></i></span>*/}
-                            </h4>
+                            </p>
                             <ul className='ratinginfo_tags'>
                               {moive_list.release_year && <li>{moive_list.release_year}</li>}
                               {moive_list.rating && moive_list.rating != '' && (
@@ -125,20 +125,20 @@ const FilmographyFilms = ({ data, index, title }) => {
                           </div>
                         </div>
                         <div className='filmbtmpop'>
-                          <div className='mvbnr_price sd_m_data'>
+                          <div className='sd_m_data'>
                             {moive_list.trailer_link && (
-                              <a href={moive_list.link} className='ghostbtn'>
+                              <a href={moive_list.link} className='ghostbtn hover:text-black'>
                                 More Info
                               </a>
                             )}
                             {/*moive_list.trailer_link && (<a href={moive_list.trailer_link} className="ghostbtn">watch trailer</a>) */}
                             {moive_list.showtimes && (
-                              <a href={moive_list.showtimes} className='ghostbtn'>
+                              <a href={moive_list.showtimes} className='ghostbtn hover:text-black'>
                                 find showtimes
                               </a>
                             )}
                             {moive_list.watch_now && (
-                              <a href={moive_list.watch_now} title='Watch Now' className='ghostbtn' target='_blank'>
+                              <a href={moive_list.watch_now} title='Watch Now' className='ghostbtn hover:text-black' target='_blank'>
                                 Watch Now
                               </a>
                             )}

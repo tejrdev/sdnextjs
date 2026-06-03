@@ -56748,7 +56748,7 @@ span#gSignup {
 .googlesignin>span:before {
   content: "";
   display: inline-block;
-  background: url(../public/googleico.svg) center no-repeat;
+  background: url(../public/images/googleico.svg) center no-repeat;
   width: 26px;
   height: 26px;
   vertical-align: middle;
@@ -56790,7 +56790,7 @@ span#gSignup {
 .googlesignin>a:before {
   content: "";
   display: inline-block;
-  background: url(../public/googleico.svg) center no-repeat;
+  background: url(../public/images/googleico.svg) center no-repeat;
   width: 26px;
   height: 26px;
   vertical-align: middle;

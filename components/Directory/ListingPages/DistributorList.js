@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import imgData from '../../data.json';
+import { JSONData } from '@/components/shared/JSONData';
 import Link from 'next/link';
 import ffnologo from '@/public/images/ffnologo.png';
 
@@ -31,7 +31,7 @@ const DistributorList = ({ data, tag }) => {
               {item.is_featured ? <div className={tag === 'theatre' ? 'thfhr featuredtag' : 'featuredtag'}>Featured</div> : null}
               <div className='alldist_media pvr'>
                 <Link href={item.link} title={item.title}>
-                  <img src={item.img ? item.img : ffnologo.src} alt='' className={tag === 'theatre' ? 'objctimg_box' : ''} loading="lazy" />
+                  <img src={item.img ? item.img : ffnologo.src} alt='' className={tag === 'theatre' ? 'objctimg_box' : ''} loading='lazy' />
                 </Link>
               </div>
 
@@ -40,7 +40,7 @@ const DistributorList = ({ data, tag }) => {
                   <Link href={item.link} title={item.title} dangerouslySetInnerHTML={{ __html: item.title }}></Link>
                   {item.display_drive_in_icon && (
                     <span>
-                      <img className='diveiconlist' src={imgData.drive_in} alt='Drive In' />
+                      <img className='diveiconlist' src={JSONData.drive_in} alt='Drive In' />
                     </span>
                   )}
                 </h4>
@@ -61,10 +61,10 @@ const DistributorList = ({ data, tag }) => {
                       {item.location && <span>{item.location} Theatres</span>}
                       {item.screens && (
                         <span>
-                          , {item.screens} {item.screens > 1 ? 'Screens' : 'Screen'}
+                          , {item.screens} {parseInt(item.screens) > 1 ? 'Screens' : 'Screen'}
                         </span>
                       )}
-                      {item.number_of_states && item.number_of_states > 1 && (
+                      {item.number_of_states && item.number_of_states > 0 && (
                         <span>
                           , {item.number_of_states} {item.number_of_states > 1 ? 'States' : 'State'}
                         </span>
@@ -134,7 +134,7 @@ const DistributorList = ({ data, tag }) => {
                     )}
                   </>
                 ) : null}
-                <p>{(tag === 'filmfestival' | tag === 'vendor') ? '' : item.content}</p>
+                <p>{(tag === 'filmfestival') | (tag === 'vendor') ? '' : item.content}</p>
               </div>
             </div>
           );

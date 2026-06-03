@@ -20,7 +20,7 @@ function Exhibitors({ data }) {
                 return <React.Fragment key={index}>{index > 1 ? <Recommended data={item} key={index} tag='exhibitors' /> : null}</React.Fragment>;
               })}
             <h4 className='mt-2'>
-              <Link href='/exhibitors/'>
+              <Link href='/directory/exhibitors/'>
                 More Listings <i className='fal fa-angle-right'></i>
               </Link>
             </h4>

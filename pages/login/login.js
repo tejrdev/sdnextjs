@@ -8,15 +8,12 @@ import validator from 'validator';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-const LOGIN_URL = '/login';
-
-
 
 const FORGOT_SUCCESS = 'Success : Please check you email id for reseting password';
 const FORGOT_ERROR = 'Error : Email Id Does Not Exists';
 const VALID_CHECK = 'Erorr : Invalid Details. Please try again later!';
 const API_URL = process.env.NEXT_PUBLIC_SD_API;
-const DEFAULT_URL =process.env.NEXT_PUBLIC_LOGIN_URL;
+
 
 const $ = require('jquery');
 

@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react';
 import Pagination from '../../Directory/ListingPages/Pagination';
 // import '../../../Header/magnific-popup.min.css';
 import AddToAny from '../../../components/AddToAny';
+import shareicopurp from '../../../public/images/shareicopurp.svg';
 
-const Info = ({ data, setCurrentPage, totalPages, requestFrom, currPage }) => {
-  const [domLoad, setdomLoad] = useState(false);
-  requestFrom = requestFrom || '';
+const Info = ({ data, setCurrentPage, totalPages, requestFrom = '', currPage }) => {
+  // const [domLoad, setdomLoad] = useState(false);
+  // requestFrom = requestFrom || '';
   useEffect(() => {
-    setdomLoad(true);
+    // setdomLoad(true);
     const $ = window.jQuery;
     $('.popvid , .popvidbox').magnificPopup({
       type: 'iframe',
@@ -79,11 +80,14 @@ const Info = ({ data, setCurrentPage, totalPages, requestFrom, currPage }) => {
   return (
     <div className='info_block'>
       <div className='row  df fww'>
-        {data.category_post.posts.map((item, index) => {
+        {data?.category_post?.posts?.map((item, index) => {
           return (
             <div className='articel_infobox' key={index}>
               <div className='art_infothumb'>
-                <a title={item.title} href={item.artical_video.href ? item.artical_video.href : item.links.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')} className={requestFrom === '' ? '' : 'popvid popyoutube'}>
+                <a
+                  title={item.title}
+                  href={item.artical_video.href ? item.artical_video.href : item.links.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}
+                  className={requestFrom === '' ? '' : 'popvid popyoutube'}>
                   {requestFrom === '' ? null : (
                     <span className='playico'>
                       <img src={item.artical_video.playico} alt='play' />
@@ -96,7 +100,7 @@ const Info = ({ data, setCurrentPage, totalPages, requestFrom, currPage }) => {
                 </a>
                 <div className='front-show social_share hovered'>
                   <div className='share_ico'>
-                    <img src={process.env.NEXT_PUBLIC_MENU_URL1 + '/wp-content/themes/screendollars/assets/images/shareico.png'} alt='share_ico' />
+                    <img src={shareicopurp.src} alt='share_ico' />
                   </div>
                   <AddToAny />
                 </div>
@@ -104,14 +108,14 @@ const Info = ({ data, setCurrentPage, totalPages, requestFrom, currPage }) => {
               <div className='info_tags'>
                 <ul className='df fww'>
                   <li className='spotlight'>{item.cate_name}</li>
-                  <li className='datesinfo'>{item.posted}</li>
+                  <li className='datesinfo'>{item.posted ? item.posted : item.published_date}</li>
                 </ul>
               </div>
               <div className='artic_sortdisc'>
                 <h5>
-                  <Link href={item.links.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>{item.title}</Link>
+                  <Link href={item.links.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}>{item.title}</Link>
                 </h5>
-                {/* <Link href={item.links.replace(process.env.NEXT_PUBLIC_MENU_URL1, '')}>Read More &gt;&gt;</Link> */}
+                {/* <Link href={item.links.replace(process.env.NEXT_PUBLIC_BACKEND_URL, '')}>Read More &gt;&gt;</Link> */}
               </div>
             </div>
           );

@@ -1,8 +1,8 @@
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import sdplaceholder2 from '../../../../public/sdplaceholder2.jpg';
+import sdplaceholder2 from '@/public/images/sdplaceholder2.jpg';
 
 const KnownFor = ({ data }) => {
   const isInfinite = false; //data.length > 4 ? true : false;
@@ -67,7 +67,7 @@ const KnownFor = ({ data }) => {
                     <figure className='pvr'>
                       {/* <img src={item.img} alt='' className='objctimg_box' /> */}
                       {/* <Image src={item.img} alt={item.title} className='objctimg_box' width={226} height={340} /> */}
-                      <Image src={(item.img === null || item.img === false || item.img === 'https://live.screendollars.com/wp-content/themes/screendollars-live/assets/images/noimgico.jpg') ? sdplaceholder2.src : item.img} alt={item.title} className='objctimg_box' width={226} height={340} />
+                      <Image src={(item.img === null || item.img === false || item.img === process.env.NEXT_PUBLIC_BACKEND_URL + '/wp-content/themes/screendollars-live/assets/images/noimgico.jpg') ? sdplaceholder2.src : item.img} alt={item.title} className='objctimg_box' width={226} height={340} />
 
                     </figure>
                     <div className='movieknow_info text-center'>

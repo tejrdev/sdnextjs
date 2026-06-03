@@ -1,6 +1,6 @@
-import Slider from 'react-slick';
+import Slider from 'react-slick/lib/slider';
 import 'slick-carousel/slick/slick.css';
-import imgData from '../../components/data.json';
+import { JSONData } from '@/components/shared/JSONData';
 
 function Videos({ data }) {
   const SliderSettings = {
@@ -47,7 +47,7 @@ function Videos({ data }) {
                 <a className={isImage === 'vid' ? 'popvid' : ''} href={item.video_url}>
                   {isImage === 'vid' ? (
                     <span className="playico">
-                      <img src={imgData.playicon} alt="play" />
+                      <img src={JSONData.playicon} alt="play" />
                     </span>
                   ) : null}
                   <figure className="pvr">

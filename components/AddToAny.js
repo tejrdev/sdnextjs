@@ -4,179 +4,29 @@ import { useEffect } from 'react';
 
 const AddToAny = () => {
   useEffect(() => {
-    !(function (r, i) {
-      function o() { }
-      var n,
-        s,
-        l,
-        d,
-        c,
-        u,
-        f,
-        p,
-        e,
-        t,
-        a,
-        m,
-        y,
-        v,
-        h = '.f3bfee4c',
-        _ = r.head;
-      'function' == typeof [].indexOf &&
-        _ &&
-        ((i.a2a = i.a2a || {}),
-          (n = i.a2a_config = i.a2a_config || {}),
-          (e = (s = r.currentScript) && s.src ? s.src : ''),
-          NodeList &&
-          NodeList.prototype.forEach &&
-          ((i.a2a.init = function (e, t) {
-            void 0 === t && (t = n);
-            var a = ':not([data-a2a-url]):not(.a2a_target)';
-            r
-              .querySelectorAll('.a2a_dd' + a + ',.a2a_kit' + a)
-              .forEach(function (e) {
-                e.matches('.a2a_kit .a2a_dd');
-                e.a2a_index ||
-                  null !== e.getAttribute('data-a2a-url') ||
-                  e.matches('.a2a_kit .a2a_dd') ||
-                  ((e.dataset.a2aUrl = t.linkurl || ''),
-                    t.linkname && (e.dataset.a2aTitle = t.linkname));
-              }),
-              delete n.linkurl,
-              delete n.linkname;
-          }),
-            (i.a2a_init = i.a2a.init),
-            !s ||
-            s.async ||
-            s.defer ||
-            i.a2a.init('page', { linkurl: n.linkurl, linkname: n.linkname })),
-          i.a2a.page ||
-          ((i.a2a.page = !0),
-            (l = []),
-            ['init_all', 'svg_css'].forEach(function (a) {
-              i.a2a[a] = function () {
-                for (var e = [], t = 0; t < arguments.length; t++)
-                  e[t] = arguments[t];
-                l.push([a, e]);
-              };
-            }),
-            (a = (v = n.static_server)
-              ? v + '/'
-              : 'https://static.addtoany.com/menu/'),
-            (t = e && -1 !== e.split('/')[2].indexOf('addtoany')),
-            (d = (t = (d = !v && t ? e : a).match(/^[^?#]+\//)) ? t[0] : d),
-            (c = function (e, t, a) {
-              void 0 === e && (e = d + 'eso' + h + '.js'),
-                void 0 === t && (t = !1);
-              var n = r.createElement(
-                (a = void 0 === a ? !1 : a) ? 'link' : 'script'
-              ),
-                i = 'module',
-                a =
-                  (a
-                    ? ((a = 'preload'),
-                      (n.href = e),
-                      (n.rel = t ? i + a : a),
-                      t || (n.as = 'script'))
-                    : ((n.src = e),
-                      t &&
-                      ((n.type = i),
-                        (n.onerror = function () {
-                          return c();
-                        }))),
-                    s && s.nonce ? s.nonce : null);
-              a && (n.nonce = a), _.appendChild(n);
-            }),
-            (f = 'a2a_sm_ifr'),
-            (p = function () {
-              var e, t, a, n;
-              (t = 'a2a_menu_container'),
-                (e = r.getElementById(t)),
-                (i.a2a.main = u = e || r.createElement('div')),
-                u.id != t &&
-                ((u.style.position = 'static'), r.body.insertBefore(u, null)),
-                i.addEventListener('message', function (e) {
-                  var t;
-                  '.addtoany.com' === e.origin.substr(-13) &&
-                    'object' == typeof (e = e.data) &&
-                    e.a2a &&
-                    (e.h1 && (i.a2a.h1 = !0),
-                      'function' == typeof (t = i.a2a.userServices)
-                        ? t(e.user_services)
-                        : (i.a2a.userServices = e.user_services),
-                      (r.getElementById(f).style.display = 'none'));
-                }),
-                (e = r.createElement('iframe')),
-                (t = r.createElement('div')),
-                (a = e.style),
-                (n = t.style),
-                (e.id = f),
-                (a.width = a.height = n.width = n.height = '1px'),
-                (a.top = a.left = a.border = '0'),
-                (a.position = n.position = 'absolute'),
-                (a.zIndex = n.zIndex = '100000'),
-                (e.title = 'AddToAny Utility Frame'),
-                e.setAttribute('transparency', 'true'),
-                e.setAttribute('allowTransparency', 'true'),
-                e.setAttribute('frameBorder', '0'),
-                (e.src =
-                  'https://static.addtoany.com/menu/sm.24.html#type=core&event=load'),
-                (n.top = '0'),
-                (n.visibility = 'hidden'),
-                u.insertBefore(t, null),
-                t.insertBefore(e, null),
-                (p = o);
-            }),
-            r.body && p(),
-            'function' == typeof (e = ''.matchAll) &&
-              e.toString().includes('[native code]')
-              ? ((t = a + (v ? '' : 'svg/')),
-                c((e = d + (v ? '' : 'modules/')) + 'core' + h + '.js', !0),
-                (a = document
-                  .createElement('link')
-                  .relList.supports('modulepreload')),
-                n.overlays &&
-                n.overlays.length &&
-                a &&
-                c(e + 'overlays' + h + '.js', !0, !0),
-                r.querySelector(
-                  '.a2a_dd:empty,.a2a_kit [class*="a2a_button_"]:empty'
-                ) &&
-                i.a2a.h1 &&
-                c(t + 'icons.31.svg.js', !1, !0))
-              : c(),
-            (m = function (e) {
-              var t = i.a2a.core;
-              'function' != typeof t || e
-                ? e
-                  ? e()
-                  : (i.a2a.core = function (e) {
-                    return m(e);
-                  })
-                : t();
-            }),
-            (v = function () {
-              y ||
-                ((y = !0),
-                  p(),
-                  m(),
-                  l.forEach(function (e) {
-                    var t;
-                    (t = i.a2a)[e[0]].apply(t, e[1]);
-                  }));
-            }),
-            'loading' !== r.readyState
-              ? v()
-              : (r.addEventListener('readystatechange', v),
-                r.addEventListener('DOMContentLoaded', v))));
-    })(document, window);
+    !function(i,r){function o(){}var n,e,t,c,a,d,l,s,u,f,p,y,m,v,h,_,g,E,k,S="addtoany",b=".biiqrgxi",L=i.head;"function"==typeof[].indexOf&&L&&(r.a2a=r.a2a||{},n=r.a2a_config=r.a2a_config||{},_=(e=i.currentScript instanceof HTMLScriptElement?i.currentScript:null)&&e.src?e.src:"",t=e&&e.nonce?e.nonce:null,c=r.a2a.nonce=function(e){t&&e.setAttribute("nonce",t)},a=e&&!e.async&&!e.defer,NodeList&&NodeList.prototype.forEach&&(r.a2a.init=function(e,t){void 0===t&&(t=n);var a=":not([data-a2a-url]):not(.a2a_target)";i.querySelectorAll(".a2a_dd"+a+",.a2a_kit"+a).forEach(function(e){e.matches(".a2a_kit .a2a_dd");e.a2a_index||null!==e.getAttribute("data-a2a-url")||e.matches(".a2a_kit .a2a_dd")||(e.dataset.a2aUrl=t.linkurl||"",t.linkname&&(e.dataset.a2aTitle=t.linkname))}),delete n.linkurl,delete n.linkname},r.a2a_init=r.a2a.init,a)&&r.a2a.init("page",{linkurl:n.linkurl,linkname:n.linkname}),r.a2a.page||(r.a2a.page=!0,d=[],["init_all","svg_css"].forEach(function(a){r.a2a[a]=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];d.push([a,e])}}),s=(l=n.static_server)?l+"/":"https://static.addtoany.com/menu/",k=_&&-1!==_.split("/")[2].indexOf(S),u=(k=(u=!l&&k?_:s).match(/^[^?#]+\//))?k[0]:u,null!=(_=r.trustedTypes)&&_.createPolicy&&(f=r.a2a.ttp=trustedTypes.createPolicy("addtoany",{createHTML:function(e){return e},createScript:function(e){return e},createScriptURL:function(e){return e}})),p=function(e,t,a){void 0===e&&(e=u+"eso"+b+".js"),void 0===t&&(t=!1);var n=i.createElement((a=void 0===a?!1:a)?"link":"script");a?(a="preload",n.href=e,n.rel=t?"module"+a:a,t||(n.as="script")):(n.src=f?f.createScriptURL(e):e,t&&(n.type="module",n.onerror=function(){return p()})),c(n),L.appendChild(n)},y=function(){var e=u+(l?"":"modules/");p(e+"core"+b+".js",!0);var t=i.createElement("link").relList.supports("modulepreload");n.overlays&&n.overlays.length&&t&&p(e+"overlays"+b+".js",!0,!0),y=o},v="a2a_sm_ifr",h=function(){var e,t,a,n;t="a2a_menu_container",e=i.getElementById(t),r.a2a.main=m=e||i.createElement("div"),m.id!=t&&(i.getElementById(S)||(m.id=S),m.style.position="static",i.body.insertBefore(m,null)),r.addEventListener("message",function(e){var t=e.origin;t&&".addtoany.com"!==t.substr(-13)||"object"==typeof(t=e.data)&&t.a2a&&(t.h1&&(r.a2a.h1=!0),"function"==typeof(e=r.a2a.userServices)?e(t.user_services):r.a2a.userServices=t.user_services,i.getElementById(v).style.display="none")}),e=i.createElement("iframe"),t=i.createElement("div"),a=e.style,n=t.style,e.id=v,a.width=a.height=n.width=n.height="1px",a.top=a.left=a.border="0",a.position=n.position="absolute",a.zIndex=n.zIndex="100000",e.title="AddToAny Utility Frame",e.setAttribute("aria-hidden","true"),e.src="https://static.addtoany.com/menu/sm.25.html#type=core&event=load",n.top="0",n.visibility="hidden",m.insertBefore(t,null),t.insertBefore(e,null),h=o},i.body&&h(),"function"==typeof(k="".matchAll)&&k.toString().includes("[native code]")?("loading"!==i.readyState&&y(),_=s+(l?"":"svg/"),i.querySelector('.a2a_dd:empty,.a2a_kit [class*="a2a_button_"]:empty')&&r.a2a.h1&&p(_+"icons.39.svg.js",!1,!0)):p(),g=function(e){var t=r.a2a.core;"function"!=typeof t||e?e?e():r.a2a.core=function(e){return g(e)}:t()},k=function(){E||(E=!0,y(),h(),g(),d.forEach(function(e){var t;(t=r.a2a)[e[0]].apply(t,e[1])}))},!(a&&L.contains(e)||!i.body)||"loading"!==i.readyState?k():(i.addEventListener("readystatechange",k),i.addEventListener("DOMContentLoaded",k))))}(document,window);
+
+    const refreshKits = () => {
+      if (typeof window === 'undefined') return;
+      const a2a = window.a2a;
+      if (a2a && typeof a2a.init_all === 'function') {
+        a2a.init_all();
+      }
+    };
+    const raf = requestAnimationFrame(refreshKits);
+    const t1 = setTimeout(refreshKits, 100);
+    const t2 = setTimeout(refreshKits, 400);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
   }, []);
 
 
 
 
   return (
-    <div className="addtoany_shortcode">
       <div className="addtoany_shortcode">
         <div
           className="a2a_kit a2a_kit_size_32 addtoany_list"
@@ -186,7 +36,7 @@ const AddToAny = () => {
           style={{ lineHeight: '32px' }}
         >
           <a className="a2a_button_facebook"></a>
-          <a className="a2a_button_twitter"></a>
+          <a className="a2a_button_x"></a>
           <a className="a2a_button_email"></a>
           <a className="a2a_button_linkedin"></a>
           <a className="a2a_dd addtoany_share_save addtoany_share"
@@ -194,7 +44,6 @@ const AddToAny = () => {
           ></a>
         </div>
       </div>
-    </div>
   );
 };
 

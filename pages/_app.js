@@ -4,11 +4,12 @@ import { SessionProvider } from 'next-auth/react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import HeaderPro from '../components/Header/Proheader';
+import { JSONData } from '../components/shared/JSONData';
+
 //for state management
 import { Providers } from '../redux/provider';
 
 import Layout from '../components/Layout/Layout';
-
 
 /* import '../styles/site.scss'; */
 import '../styles/all.css';
@@ -17,12 +18,12 @@ import '../components/Header/magnific-popup.min.css';
 import '../components/Header/header.css';
 import '../components/Footer/footer.css';
 
+// let navigationPropsCache;
+const menu = JSONData.menu;
 
-let navigationPropsCache;
-
-export default function MyApp({ Component, pageProps, session, navigationProps }) {
+export default function MyApp({ Component, pageProps, session }) {
   useEffect(() => {
-    navigationPropsCache = navigationProps;
+    // navigationPropsCache = navigationProps;
 
     /*table css*/
     $('table.dataTable').each(function () {
@@ -62,7 +63,7 @@ export default function MyApp({ Component, pageProps, session, navigationProps }
         $toptxt.before('<div class="printheader"></div>');
         $printheader = $(this).closest('.printarea').find('.printheader');
         var logoimg = $('.site-logo > a ').html();
-        $printheader.prepend('<div class="printlogo" style="display:none;"></div>');
+        $printheader.prepend('<div class="printlogo" ></div>');
         $printheader.find('.printlogo').append(logoimg);
         if ($toptxt.find('.top_info > h2 , .top_info > .h2 , .top_info > .h3,.page_introbox > .h2 ').length > 0) {
           let headingtxt = $toptxt.find('.top_info > h2 , .top_info > .h2 , .top_info > .h3 ,.page_introbox > .h2').clone();
@@ -110,7 +111,7 @@ export default function MyApp({ Component, pageProps, session, navigationProps }
       var WinPrint = frame1[0].contentWindow ? frame1[0].contentWindow : frame1[0].contentDocument.document ? frame1[0].contentDocument.document : frame1[0].contentDocument;
       //WinPrint.document.open();
       var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
-      WinPrint.document.write('<html lang="en"><head><title></title> <link href="' + baseurl + '" rel="stylesheet" media="print" type="text/css" />');
+      WinPrint?.document?.write('<html lang="en"><head><title></title> <link href="' + baseurl + '" rel="stylesheet" media="print" type="text/css" />');
       WinPrint.document.write('</head><body>');
       var time = new Date();
       var loacaltime = time.toLocaleString('en-US', {
@@ -129,12 +130,16 @@ export default function MyApp({ Component, pageProps, session, navigationProps }
       if ($(this).data('multiprint')) {
         $('.printarea').each(function () {
           WinPrint.document.write($(this).html());
-          WinPrint.document.write('<div class="printcopy">\n<p style="margin:30px 0 0">Printed on ' + today + ' at ' + loacaltime + '</p><p>\xA9' + yyyy + '&nbsp;' + 'Screendollars | All Rights Reserved</p></div>');
+          WinPrint.document.write(
+            '<div class="printcopy">\n<p style="margin:30px 0 0">Printed on ' + today + ' at ' + loacaltime + '</p><p>\xA9' + yyyy + '&nbsp;' + 'Screendollars | All Rights Reserved</p></div>'
+          );
         });
       } else {
         var prtContent = $(this).parents('.printarea');
         WinPrint.document.write(prtContent.html());
-        WinPrint.document.write('<div class="printcopy"><p style="margin:30px 0 0">Printed on ' + today + ' at ' + loacaltime + '</p><p>\xA9' + yyyy + '&nbsp;' + 'Screendollars | All Rights Reserved</p></div>');
+        WinPrint.document.write(
+          '<div class="printcopy"><p style="margin:30px 0 0">Printed on ' + today + ' at ' + loacaltime + '</p><p>\xA9' + yyyy + '&nbsp;' + 'Screendollars | All Rights Reserved</p></div>'
+        );
       }
       //For removing the social share icons
       while (WinPrint.document.getElementsByClassName('social_share')[0]) WinPrint.document.getElementsByClassName('social_share')[0].remove();
@@ -169,10 +174,8 @@ export default function MyApp({ Component, pageProps, session, navigationProps }
     if (imgTags.length > 0) {
       imgTags.forEach(function (img) {
         img.setAttribute('loading', 'lazy');
-      })
-    };
-
-
+      });
+    }
   }, []);
 
   const renderWithLayout =
@@ -182,9 +185,9 @@ export default function MyApp({ Component, pageProps, session, navigationProps }
         <div>
           <SessionProvider session={session}>
             <Layout>
-              <Header data={navigationProps} />
+              <Header data={menu} />
               <Component {...pageProps} />
-              <Footer data={navigationProps} />
+              <Footer data={menu} />
             </Layout>
           </SessionProvider>
         </div>
@@ -194,11 +197,11 @@ export default function MyApp({ Component, pageProps, session, navigationProps }
     return renderWithLayout(
       <SessionProvider session={session}>
         <Layout>
-          <Header data={navigationProps} />
+          <Header data={menu} />
           <Providers>
             <Component {...pageProps} />
           </Providers>
-          <Footer data={navigationProps} />
+          <Footer data={menu} />
         </Layout>
       </SessionProvider>
     );
@@ -206,23 +209,23 @@ export default function MyApp({ Component, pageProps, session, navigationProps }
 
   return renderWithLayout(
     <SessionProvider session={session}>
-      <HeaderPro data={navigationProps} />
+      <HeaderPro data={menu} />
       <Providers>
         <Component {...pageProps} />
       </Providers>
-      <Footer data={navigationProps} />
+      <Footer data={menu} />
     </SessionProvider>
   );
 }
 
-MyApp.getInitialProps = async () => {
-  if (navigationPropsCache) {
-    return { navigationProps: navigationPropsCache };
-  }
+// MyApp.getInitialProps = async () => {
+//   if (navigationPropsCache) {
+//     return { navigationProps: navigationPropsCache };
+//   }
 
-  const res = await fetch(process.env.NEXT_PUBLIC_SD_API + '/sd_menu/?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN);
-  const navigationProps = await res.json();
-  navigationPropsCache = navigationProps;
+//   const res = await fetch(process.env.NEXT_PUBLIC_SD_API + '/sd_menu?api_token=' + process.env.NEXT_PUBLIC_API_TOKEN);
+//   const navigationProps = await res.json();
+//   navigationPropsCache = navigationProps;
 
-  return { navigationProps };
-};
+//   return { navigationProps };
+// };

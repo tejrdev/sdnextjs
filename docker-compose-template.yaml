@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    image: ${DOCKER_IMAGE}
+    container_name: ${CONTAINER_NAME}
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${ROUTER_NAME}.rule=Host(`${BRANCH_SUBDOMAIN}.screendollars.com`)"
+      - "traefik.http.routers.${ROUTER_NAME}.entrypoints=websecure"
+      - "traefik.http.routers.${ROUTER_NAME}.tls.certresolver=myresolver"
+    networks:
+      - screendollars_network
+
+networks:
+  screendollars_network:
+    external: true
+    driver: bridge

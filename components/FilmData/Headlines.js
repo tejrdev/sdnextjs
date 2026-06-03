@@ -1,24 +1,38 @@
+import { motion } from "motion/react"
+import { FadeinUp } from '@/components/Anim/FadeinUp';
+
+
 const Headlines = ({ data }) => {
   return (
     <div className="filmupdate_boxbtm">
       <div className="seclinespace">
-      <div className="top_txt df fww just-between">
-            <div className="secnav df fww">
+        <motion.div
+          variants={FadeinUp}
+          initial="init"
+          whileInView="anim"
+          viewport={{ once: true }}
+          className="top_txt df fww just-between">
+          <div className="secnav df fww">
             <h2>
               <strong>
                 Headlines <i className="far fa-angle-right"></i>
               </strong>
             </h2>
-            </div>
-      </div>
-        <div className="filmupdate_boxbtmblock  df fww">
+          </div>
+        </motion.div>
+        <motion.div
+          variants={FadeinUp}
+          initial="init"
+          whileInView="anim"
+          viewport={{ once: true }}
+          className="filmupdate_boxbtmblock  df fww">
           {data.map((item, index) => {
             return (
               <div className="filmupdate_boxbtmitem" key={index}>
                 <div className="fmupdate_boxitemin df fww">
                   <div className="fmupdate_boxmedia pvr">
                     <a href={item.link} target="_blank" rel="noreferrer">
-                      <img src={item.img} alt={item.source} className="objctimg_box"/>
+                      <img src={item.img} alt={item.source} className="objctimg_box" />
                     </a>
                   </div>
                   <div className="fmupdate_boxtitle">
@@ -44,7 +58,7 @@ const Headlines = ({ data }) => {
               </div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

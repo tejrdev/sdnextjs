@@ -49,13 +49,6 @@
     font-weight: normal;
 }
 
-.postertabvisual {
-    display: none;
-}
-
-.postertabvisual[data-title="Poster"] {
-    display: block;
-}
 
 .posttab_slider .slick-track {
     margin: 0;
